@@ -1,0 +1,767 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		50E9D0FA2355C25A000042BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D0F92355C25A000042BC /* AppDelegate.swift */; };
+		50E9D0FC2355C25A000042BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D0FB2355C25A000042BC /* SceneDelegate.swift */; };
+		50E9D0FE2355C25A000042BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D0FD2355C25A000042BC /* ViewController.swift */; };
+		50E9D1012355C25A000042BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50E9D0FF2355C25A000042BC /* Main.storyboard */; };
+		50E9D1042355C25A000042BC /* BussMeStoryboard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D1022355C25A000042BC /* BussMeStoryboard.xcdatamodeld */; };
+		50E9D1062355C25C000042BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50E9D1052355C25C000042BC /* Assets.xcassets */; };
+		50E9D1092355C25C000042BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50E9D1072355C25C000042BC /* LaunchScreen.storyboard */; };
+		50E9D1142355C25C000042BC /* BussMeStoryboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D1132355C25C000042BC /* BussMeStoryboardTests.swift */; };
+		50E9D11F2355C25C000042BC /* BussMeStoryboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D11E2355C25C000042BC /* BussMeStoryboardUITests.swift */; };
+		58ABD31DA095508EC28636D4 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A52C92A51075A0C4EB42CA5 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework */; };
+		BF646D1CAB005371A2FE3DCC /* Pods_BussMeStoryboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3693E2F672A0A979AB1B0EB /* Pods_BussMeStoryboardTests.framework */; };
+		D55218E041A4BF7F6765A4BF /* Pods_BussMeStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD65566A8245E7A4A3289A3 /* Pods_BussMeStoryboard.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		50E9D1102355C25C000042BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 50E9D0EE2355C25A000042BC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50E9D0F52355C25A000042BC;
+			remoteInfo = BussMeStoryboard;
+		};
+		50E9D11B2355C25C000042BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 50E9D0EE2355C25A000042BC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50E9D0F52355C25A000042BC;
+			remoteInfo = BussMeStoryboard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2BDBFA39DF23F08F0E43758C /* Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboard-BussMeStoryboardUITests/Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig"; sourceTree = "<group>"; };
+		50E9D0F62355C25A000042BC /* BussMeStoryboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BussMeStoryboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		50E9D0F92355C25A000042BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		50E9D0FB2355C25A000042BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		50E9D0FD2355C25A000042BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		50E9D1002355C25A000042BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		50E9D1032355C25A000042BC /* BussMeStoryboard.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BussMeStoryboard.xcdatamodel; sourceTree = "<group>"; };
+		50E9D1052355C25C000042BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		50E9D1082355C25C000042BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		50E9D10A2355C25C000042BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50E9D10F2355C25C000042BC /* BussMeStoryboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BussMeStoryboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		50E9D1132355C25C000042BC /* BussMeStoryboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BussMeStoryboardTests.swift; sourceTree = "<group>"; };
+		50E9D1152355C25C000042BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50E9D11A2355C25C000042BC /* BussMeStoryboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BussMeStoryboardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		50E9D11E2355C25C000042BC /* BussMeStoryboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BussMeStoryboardUITests.swift; sourceTree = "<group>"; };
+		50E9D1202355C25C000042BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A52C92A51075A0C4EB42CA5 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BussMeStoryboard_BussMeStoryboardUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		888D1D867A4F3AE799093AA1 /* Pods-BussMeStoryboardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboardTests.debug.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboardTests/Pods-BussMeStoryboardTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B377B4D3DD6CC06E095AAC74 /* Pods-BussMeStoryboard-BussMeStoryboardUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboard-BussMeStoryboardUITests.debug.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboard-BussMeStoryboardUITests/Pods-BussMeStoryboard-BussMeStoryboardUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C17E0CB0F9069AE8F9532AB5 /* Pods-BussMeStoryboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboard.debug.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboard/Pods-BussMeStoryboard.debug.xcconfig"; sourceTree = "<group>"; };
+		C3693E2F672A0A979AB1B0EB /* Pods_BussMeStoryboardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BussMeStoryboardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAD65566A8245E7A4A3289A3 /* Pods_BussMeStoryboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BussMeStoryboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2B2B33665EB2AAED3935324 /* Pods-BussMeStoryboardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboardTests.release.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboardTests/Pods-BussMeStoryboardTests.release.xcconfig"; sourceTree = "<group>"; };
+		F419FB808859F4B2AD9CBD54 /* Pods-BussMeStoryboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboard.release.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboard/Pods-BussMeStoryboard.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		50E9D0F32355C25A000042BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D55218E041A4BF7F6765A4BF /* Pods_BussMeStoryboard.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50E9D10C2355C25C000042BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF646D1CAB005371A2FE3DCC /* Pods_BussMeStoryboardTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50E9D1172355C25C000042BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58ABD31DA095508EC28636D4 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		50E9D0ED2355C25A000042BC = {
+			isa = PBXGroup;
+			children = (
+				50E9D0F82355C25A000042BC /* BussMeStoryboard */,
+				50E9D1122355C25C000042BC /* BussMeStoryboardTests */,
+				50E9D11D2355C25C000042BC /* BussMeStoryboardUITests */,
+				50E9D0F72355C25A000042BC /* Products */,
+				ECF6FD434E69EC4EC4081411 /* Pods */,
+				65B551BECA942260508B91B1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		50E9D0F72355C25A000042BC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				50E9D0F62355C25A000042BC /* BussMeStoryboard.app */,
+				50E9D10F2355C25C000042BC /* BussMeStoryboardTests.xctest */,
+				50E9D11A2355C25C000042BC /* BussMeStoryboardUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		50E9D0F82355C25A000042BC /* BussMeStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				50E9D0F92355C25A000042BC /* AppDelegate.swift */,
+				50E9D0FB2355C25A000042BC /* SceneDelegate.swift */,
+				50E9D0FD2355C25A000042BC /* ViewController.swift */,
+				50E9D0FF2355C25A000042BC /* Main.storyboard */,
+				50E9D1052355C25C000042BC /* Assets.xcassets */,
+				50E9D1072355C25C000042BC /* LaunchScreen.storyboard */,
+				50E9D10A2355C25C000042BC /* Info.plist */,
+				50E9D1022355C25A000042BC /* BussMeStoryboard.xcdatamodeld */,
+			);
+			path = BussMeStoryboard;
+			sourceTree = "<group>";
+		};
+		50E9D1122355C25C000042BC /* BussMeStoryboardTests */ = {
+			isa = PBXGroup;
+			children = (
+				50E9D1132355C25C000042BC /* BussMeStoryboardTests.swift */,
+				50E9D1152355C25C000042BC /* Info.plist */,
+			);
+			path = BussMeStoryboardTests;
+			sourceTree = "<group>";
+		};
+		50E9D11D2355C25C000042BC /* BussMeStoryboardUITests */ = {
+			isa = PBXGroup;
+			children = (
+				50E9D11E2355C25C000042BC /* BussMeStoryboardUITests.swift */,
+				50E9D1202355C25C000042BC /* Info.plist */,
+			);
+			path = BussMeStoryboardUITests;
+			sourceTree = "<group>";
+		};
+		65B551BECA942260508B91B1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DAD65566A8245E7A4A3289A3 /* Pods_BussMeStoryboard.framework */,
+				7A52C92A51075A0C4EB42CA5 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework */,
+				C3693E2F672A0A979AB1B0EB /* Pods_BussMeStoryboardTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ECF6FD434E69EC4EC4081411 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C17E0CB0F9069AE8F9532AB5 /* Pods-BussMeStoryboard.debug.xcconfig */,
+				F419FB808859F4B2AD9CBD54 /* Pods-BussMeStoryboard.release.xcconfig */,
+				B377B4D3DD6CC06E095AAC74 /* Pods-BussMeStoryboard-BussMeStoryboardUITests.debug.xcconfig */,
+				2BDBFA39DF23F08F0E43758C /* Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig */,
+				888D1D867A4F3AE799093AA1 /* Pods-BussMeStoryboardTests.debug.xcconfig */,
+				E2B2B33665EB2AAED3935324 /* Pods-BussMeStoryboardTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		50E9D0F52355C25A000042BC /* BussMeStoryboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50E9D1232355C25C000042BC /* Build configuration list for PBXNativeTarget "BussMeStoryboard" */;
+			buildPhases = (
+				8424D38AA15C6A98E74BF8A7 /* [CP] Check Pods Manifest.lock */,
+				50E9D0F22355C25A000042BC /* Sources */,
+				50E9D0F32355C25A000042BC /* Frameworks */,
+				50E9D0F42355C25A000042BC /* Resources */,
+				5598AB62CAC01A1CCC439E66 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BussMeStoryboard;
+			productName = BussMeStoryboard;
+			productReference = 50E9D0F62355C25A000042BC /* BussMeStoryboard.app */;
+			productType = "com.apple.product-type.application";
+		};
+		50E9D10E2355C25C000042BC /* BussMeStoryboardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50E9D1262355C25C000042BC /* Build configuration list for PBXNativeTarget "BussMeStoryboardTests" */;
+			buildPhases = (
+				7CD159DA210FC8CAA6852CB7 /* [CP] Check Pods Manifest.lock */,
+				50E9D10B2355C25C000042BC /* Sources */,
+				50E9D10C2355C25C000042BC /* Frameworks */,
+				50E9D10D2355C25C000042BC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				50E9D1112355C25C000042BC /* PBXTargetDependency */,
+			);
+			name = BussMeStoryboardTests;
+			productName = BussMeStoryboardTests;
+			productReference = 50E9D10F2355C25C000042BC /* BussMeStoryboardTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		50E9D1192355C25C000042BC /* BussMeStoryboardUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50E9D1292355C25C000042BC /* Build configuration list for PBXNativeTarget "BussMeStoryboardUITests" */;
+			buildPhases = (
+				98E5683408D428537A2E0854 /* [CP] Check Pods Manifest.lock */,
+				50E9D1162355C25C000042BC /* Sources */,
+				50E9D1172355C25C000042BC /* Frameworks */,
+				50E9D1182355C25C000042BC /* Resources */,
+				62252CF1C7611AE76FDDEA25 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				50E9D11C2355C25C000042BC /* PBXTargetDependency */,
+			);
+			name = BussMeStoryboardUITests;
+			productName = BussMeStoryboardUITests;
+			productReference = 50E9D11A2355C25C000042BC /* BussMeStoryboardUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		50E9D0EE2355C25A000042BC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = "Ricky Effendi";
+				TargetAttributes = {
+					50E9D0F52355C25A000042BC = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					50E9D10E2355C25C000042BC = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 50E9D0F52355C25A000042BC;
+					};
+					50E9D1192355C25C000042BC = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 50E9D0F52355C25A000042BC;
+					};
+				};
+			};
+			buildConfigurationList = 50E9D0F12355C25A000042BC /* Build configuration list for PBXProject "BussMeStoryboard" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 50E9D0ED2355C25A000042BC;
+			productRefGroup = 50E9D0F72355C25A000042BC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				50E9D0F52355C25A000042BC /* BussMeStoryboard */,
+				50E9D10E2355C25C000042BC /* BussMeStoryboardTests */,
+				50E9D1192355C25C000042BC /* BussMeStoryboardUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		50E9D0F42355C25A000042BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50E9D1092355C25C000042BC /* LaunchScreen.storyboard in Resources */,
+				50E9D1062355C25C000042BC /* Assets.xcassets in Resources */,
+				50E9D1012355C25A000042BC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50E9D10D2355C25C000042BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50E9D1182355C25C000042BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5598AB62CAC01A1CCC439E66 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BussMeStoryboard/Pods-BussMeStoryboard-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BussMeStoryboard/Pods-BussMeStoryboard-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BussMeStoryboard/Pods-BussMeStoryboard-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		62252CF1C7611AE76FDDEA25 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BussMeStoryboard-BussMeStoryboardUITests/Pods-BussMeStoryboard-BussMeStoryboardUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BussMeStoryboard-BussMeStoryboardUITests/Pods-BussMeStoryboard-BussMeStoryboardUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BussMeStoryboard-BussMeStoryboardUITests/Pods-BussMeStoryboard-BussMeStoryboardUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7CD159DA210FC8CAA6852CB7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BussMeStoryboardTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8424D38AA15C6A98E74BF8A7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BussMeStoryboard-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98E5683408D428537A2E0854 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BussMeStoryboard-BussMeStoryboardUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		50E9D0F22355C25A000042BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50E9D0FE2355C25A000042BC /* ViewController.swift in Sources */,
+				50E9D1042355C25A000042BC /* BussMeStoryboard.xcdatamodeld in Sources */,
+				50E9D0FA2355C25A000042BC /* AppDelegate.swift in Sources */,
+				50E9D0FC2355C25A000042BC /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50E9D10B2355C25C000042BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50E9D1142355C25C000042BC /* BussMeStoryboardTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50E9D1162355C25C000042BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50E9D11F2355C25C000042BC /* BussMeStoryboardUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		50E9D1112355C25C000042BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50E9D0F52355C25A000042BC /* BussMeStoryboard */;
+			targetProxy = 50E9D1102355C25C000042BC /* PBXContainerItemProxy */;
+		};
+		50E9D11C2355C25C000042BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50E9D0F52355C25A000042BC /* BussMeStoryboard */;
+			targetProxy = 50E9D11B2355C25C000042BC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		50E9D0FF2355C25A000042BC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50E9D1002355C25A000042BC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		50E9D1072355C25C000042BC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50E9D1082355C25C000042BC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		50E9D1212355C25C000042BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		50E9D1222355C25C000042BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		50E9D1242355C25C000042BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C17E0CB0F9069AE8F9532AB5 /* Pods-BussMeStoryboard.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 64M6B7NHMY;
+				INFOPLIST_FILE = BussMeStoryboard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rickyeffendi.BussMeStoryboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		50E9D1252355C25C000042BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F419FB808859F4B2AD9CBD54 /* Pods-BussMeStoryboard.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 64M6B7NHMY;
+				INFOPLIST_FILE = BussMeStoryboard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rickyeffendi.BussMeStoryboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		50E9D1272355C25C000042BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 888D1D867A4F3AE799093AA1 /* Pods-BussMeStoryboardTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 64M6B7NHMY;
+				INFOPLIST_FILE = BussMeStoryboardTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rickyeffendi.BussMeStoryboardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BussMeStoryboard.app/BussMeStoryboard";
+			};
+			name = Debug;
+		};
+		50E9D1282355C25C000042BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2B2B33665EB2AAED3935324 /* Pods-BussMeStoryboardTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 64M6B7NHMY;
+				INFOPLIST_FILE = BussMeStoryboardTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rickyeffendi.BussMeStoryboardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BussMeStoryboard.app/BussMeStoryboard";
+			};
+			name = Release;
+		};
+		50E9D12A2355C25C000042BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B377B4D3DD6CC06E095AAC74 /* Pods-BussMeStoryboard-BussMeStoryboardUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 64M6B7NHMY;
+				INFOPLIST_FILE = BussMeStoryboardUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rickyeffendi.BussMeStoryboardUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BussMeStoryboard;
+			};
+			name = Debug;
+		};
+		50E9D12B2355C25C000042BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BDBFA39DF23F08F0E43758C /* Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 64M6B7NHMY;
+				INFOPLIST_FILE = BussMeStoryboardUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rickyeffendi.BussMeStoryboardUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BussMeStoryboard;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		50E9D0F12355C25A000042BC /* Build configuration list for PBXProject "BussMeStoryboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50E9D1212355C25C000042BC /* Debug */,
+				50E9D1222355C25C000042BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50E9D1232355C25C000042BC /* Build configuration list for PBXNativeTarget "BussMeStoryboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50E9D1242355C25C000042BC /* Debug */,
+				50E9D1252355C25C000042BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50E9D1262355C25C000042BC /* Build configuration list for PBXNativeTarget "BussMeStoryboardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50E9D1272355C25C000042BC /* Debug */,
+				50E9D1282355C25C000042BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50E9D1292355C25C000042BC /* Build configuration list for PBXNativeTarget "BussMeStoryboardUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50E9D12A2355C25C000042BC /* Debug */,
+				50E9D12B2355C25C000042BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		50E9D1022355C25A000042BC /* BussMeStoryboard.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				50E9D1032355C25A000042BC /* BussMeStoryboard.xcdatamodel */,
+			);
+			currentVersion = 50E9D1032355C25A000042BC /* BussMeStoryboard.xcdatamodel */;
+			path = BussMeStoryboard.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 50E9D0EE2355C25A000042BC /* Project object */;
+}
