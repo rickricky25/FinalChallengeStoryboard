@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,7 @@
 		50E9D1142355C25C000042BC /* BussMeStoryboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D1132355C25C000042BC /* BussMeStoryboardTests.swift */; };
 		50E9D11F2355C25C000042BC /* BussMeStoryboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D11E2355C25C000042BC /* BussMeStoryboardUITests.swift */; };
 		58ABD31DA095508EC28636D4 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A52C92A51075A0C4EB42CA5 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework */; };
+		63B43F9823585C5700131562 /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63B43F9723585C5700131562 /* HomeStoryboard.storyboard */; };
 		BF646D1CAB005371A2FE3DCC /* Pods_BussMeStoryboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3693E2F672A0A979AB1B0EB /* Pods_BussMeStoryboardTests.framework */; };
 		D55218E041A4BF7F6765A4BF /* Pods_BussMeStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD65566A8245E7A4A3289A3 /* Pods_BussMeStoryboard.framework */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		50E9D11A2355C25C000042BC /* BussMeStoryboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BussMeStoryboardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50E9D11E2355C25C000042BC /* BussMeStoryboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BussMeStoryboardUITests.swift; sourceTree = "<group>"; };
 		50E9D1202355C25C000042BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63B43F9723585C5700131562 /* HomeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeStoryboard.storyboard; sourceTree = "<group>"; };
 		7A52C92A51075A0C4EB42CA5 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BussMeStoryboard_BussMeStoryboardUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		888D1D867A4F3AE799093AA1 /* Pods-BussMeStoryboardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboardTests.debug.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboardTests/Pods-BussMeStoryboardTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B377B4D3DD6CC06E095AAC74 /* Pods-BussMeStoryboard-BussMeStoryboardUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboard-BussMeStoryboardUITests.debug.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboard-BussMeStoryboardUITests/Pods-BussMeStoryboard-BussMeStoryboardUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		50E9D0F82355C25A000042BC /* BussMeStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				63B43F9623585BBF00131562 /* Home */,
 				50E9D0F92355C25A000042BC /* AppDelegate.swift */,
 				50E9D0FB2355C25A000042BC /* SceneDelegate.swift */,
 				50E9D0FD2355C25A000042BC /* ViewController.swift */,
@@ -148,6 +151,14 @@
 			path = BussMeStoryboardUITests;
 			sourceTree = "<group>";
 		};
+		63B43F9623585BBF00131562 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				63B43F9723585C5700131562 /* HomeStoryboard.storyboard */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		65B551BECA942260508B91B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,7 +179,6 @@
 				888D1D867A4F3AE799093AA1 /* Pods-BussMeStoryboardTests.debug.xcconfig */,
 				E2B2B33665EB2AAED3935324 /* Pods-BussMeStoryboardTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -283,6 +293,7 @@
 			files = (
 				50E9D1092355C25C000042BC /* LaunchScreen.storyboard in Resources */,
 				50E9D1062355C25C000042BC /* Assets.xcassets in Resources */,
+				63B43F9823585C5700131562 /* HomeStoryboard.storyboard in Resources */,
 				50E9D1012355C25A000042BC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
