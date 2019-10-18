@@ -12,21 +12,30 @@ import MapKit
 import CoreLocation
 
 class ViewController: UIViewController, GMSMapViewDelegate {
+    
+    var imageView:UIImageView!
 
     override func viewDidLoad() {
         let position = CLLocationCoordinate2D(latitude: 1.285, longitude: 103.848)
         let marker = GMSMarker(position: position)
         super.viewDidLoad()
         
+        imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        imageView.backgroundColor = UIColor.red
+        
         // Do any additional setup after loading the view.
         let camera = GMSCameraPosition.camera(withLatitude: 1.285, longitude: 103.848, zoom: 12)
-        let mapView = GMSMapView.map(withFrame: .zero, camera: camera)
+        let mapView = GMSMapView.map(withFrame: view.frame, camera: camera)
         
         mapView.delegate = self
         
         marker.title = "Hello World"
         marker.map = mapView
-        self.view = mapView
+        self.view.addSubview(mapView)
+        
+        imageView.center = mapView.center
+        
+        view.addSubview(imageView)
     }
 
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
