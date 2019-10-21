@@ -16,6 +16,7 @@
 		50E9D1092355C25C000042BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50E9D1072355C25C000042BC /* LaunchScreen.storyboard */; };
 		50E9D1142355C25C000042BC /* BussMeStoryboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D1132355C25C000042BC /* BussMeStoryboardTests.swift */; };
 		50E9D11F2355C25C000042BC /* BussMeStoryboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D11E2355C25C000042BC /* BussMeStoryboardUITests.swift */; };
+		50E9D3B22359B352000042BC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D3B12359B352000042BC /* Model.swift */; };
 		58ABD31DA095508EC28636D4 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A52C92A51075A0C4EB42CA5 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework */; };
 		63B43F9823585C5700131562 /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63B43F9723585C5700131562 /* HomeStoryboard.storyboard */; };
 		BF646D1CAB005371A2FE3DCC /* Pods_BussMeStoryboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3693E2F672A0A979AB1B0EB /* Pods_BussMeStoryboardTests.framework */; };
@@ -56,6 +57,7 @@
 		50E9D11A2355C25C000042BC /* BussMeStoryboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BussMeStoryboardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50E9D11E2355C25C000042BC /* BussMeStoryboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BussMeStoryboardUITests.swift; sourceTree = "<group>"; };
 		50E9D1202355C25C000042BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50E9D3B12359B352000042BC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		63B43F9723585C5700131562 /* HomeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeStoryboard.storyboard; sourceTree = "<group>"; };
 		7A52C92A51075A0C4EB42CA5 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BussMeStoryboard_BussMeStoryboardUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		888D1D867A4F3AE799093AA1 /* Pods-BussMeStoryboardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboardTests.debug.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboardTests/Pods-BussMeStoryboardTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				50E9D0F92355C25A000042BC /* AppDelegate.swift */,
 				50E9D0FB2355C25A000042BC /* SceneDelegate.swift */,
 				50E9D0FD2355C25A000042BC /* ViewController.swift */,
+				50E9D3B12359B352000042BC /* Model.swift */,
 				50E9D0FF2355C25A000042BC /* Main.storyboard */,
 				50E9D1052355C25C000042BC /* Assets.xcassets */,
 				50E9D1072355C25C000042BC /* LaunchScreen.storyboard */,
@@ -422,6 +425,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50E9D3B22359B352000042BC /* Model.swift in Sources */,
 				50E9D0FE2355C25A000042BC /* ViewController.swift in Sources */,
 				50E9D1042355C25A000042BC /* BussMeStoryboard.xcdatamodeld in Sources */,
 				50E9D0FA2355C25A000042BC /* AppDelegate.swift in Sources */,
