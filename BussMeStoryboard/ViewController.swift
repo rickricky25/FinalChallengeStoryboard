@@ -107,9 +107,9 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         let path = GMSPath(fromEncodedPath: polyStr)
         
         polyline = GMSPolyline(path: path)
-        polyline.map = nil
         polyline.strokeWidth = 3.0
         polyline.map = mapView // Google MapView
+        polyline.map = nil
     }
 
 //    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
@@ -131,7 +131,26 @@ class ViewController: UIViewController, GMSMapViewDelegate {
 //        }
 //    }
     
-    func mapView(_ mapView: GMSMapView, didEndDragging marker: GMSMarker) {
+//    func mapView(_ mapView: GMSMapView, didEndDragging marker: GMSMarker) {
+//        let center = mapView.center
+//        let coor = mapView.projection.coordinate(for: center)
+//        //print(coor.latitude, coor.longitude)
+//
+//        let address = CLGeocoder.init()
+//        address.reverseGeocodeLocation(CLLocation.init(latitude: coor.latitude, longitude: coor.longitude)) { (places, error) in
+//            if error == nil{
+//                if let place = places{
+//                    //print(place[0].name!)
+//                    let distance = GMSGeometryDistance(coor, CLLocationCoordinate2D(latitude: 1.285, longitude: 103.848))
+//                    print(coor)
+//                    let coor1 = CLLocationCoordinate2D(latitude: 1.285, longitude: 103.848)
+//                    self.fetchRoute(from: coor, to: coor1)
+//                }
+//            }
+//        }
+//    }
+    
+    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
         let center = mapView.center
         let coor = mapView.projection.coordinate(for: center)
         //print(coor.latitude, coor.longitude)
