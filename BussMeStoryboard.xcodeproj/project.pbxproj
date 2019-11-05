@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5079A521237150C400CF68A9 /* DataShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A520237150C400CF68A9 /* DataShowTableViewCell.swift */; };
+		5079A5232371515000CF68A9 /* DataShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A5222371515000CF68A9 /* DataShowViewController.swift */; };
+		509558D023700513008E7EED /* DataGatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509558CF23700513008E7EED /* DataGatherViewController.swift */; };
 		50E9D0FA2355C25A000042BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D0F92355C25A000042BC /* AppDelegate.swift */; };
 		50E9D0FC2355C25A000042BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D0FB2355C25A000042BC /* SceneDelegate.swift */; };
 		50E9D0FE2355C25A000042BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D0FD2355C25A000042BC /* ViewController.swift */; };
@@ -17,7 +20,7 @@
 		50E9D1142355C25C000042BC /* BussMeStoryboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D1132355C25C000042BC /* BussMeStoryboardTests.swift */; };
 		50E9D11F2355C25C000042BC /* BussMeStoryboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D11E2355C25C000042BC /* BussMeStoryboardUITests.swift */; };
 		50E9D3B22359B352000042BC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D3B12359B352000042BC /* Model.swift */; };
-		50E9D3B9235EEB00000042BC /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E9D3B3235EE9DA000042BC /* CloudKit.framework */; };
+		50E9D3B9235EEB00000042BC /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		58ABD31DA095508EC28636D4 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A52C92A51075A0C4EB42CA5 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework */; };
 		6337DD0A235EF83B00D71441 /* imInStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6337DD09235EF83B00D71441 /* imInStoryboard.storyboard */; };
 		6337DD0C235F35FF00D71441 /* homeCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6337DD0B235F35FF00D71441 /* homeCardView.xib */; };
@@ -48,6 +51,9 @@
 
 /* Begin PBXFileReference section */
 		2BDBFA39DF23F08F0E43758C /* Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboard-BussMeStoryboardUITests/Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5079A520237150C400CF68A9 /* DataShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataShowTableViewCell.swift; sourceTree = "<group>"; };
+		5079A5222371515000CF68A9 /* DataShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataShowViewController.swift; sourceTree = "<group>"; };
+		509558CF23700513008E7EED /* DataGatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGatherViewController.swift; sourceTree = "<group>"; };
 		50E9D0F62355C25A000042BC /* BussMeStoryboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BussMeStoryboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50E9D0F92355C25A000042BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50E9D0FB2355C25A000042BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,7 +92,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D55218E041A4BF7F6765A4BF /* Pods_BussMeStoryboard.framework in Frameworks */,
-				50E9D3B9235EEB00000042BC /* CloudKit.framework in Frameworks */,
+				50E9D3B9235EEB00000042BC /* (null) in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +189,9 @@
 				63B43F9723585C5700131562 /* HomeStoryboard.storyboard */,
 				6337DD0B235F35FF00D71441 /* homeCardView.xib */,
 				6337DD0F2360508500D71441 /* HomeViewController.swift */,
+				509558CF23700513008E7EED /* DataGatherViewController.swift */,
+				5079A520237150C400CF68A9 /* DataShowTableViewCell.swift */,
+				5079A5222371515000CF68A9 /* DataShowViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -190,7 +199,6 @@
 		65B551BECA942260508B91B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				50E9D3B3235EE9DA000042BC /* CloudKit.framework */,
 				DAD65566A8245E7A4A3289A3 /* Pods_BussMeStoryboard.framework */,
 				7A52C92A51075A0C4EB42CA5 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework */,
 				C3693E2F672A0A979AB1B0EB /* Pods_BussMeStoryboardTests.framework */,
@@ -457,8 +465,11 @@
 				50E9D3B22359B352000042BC /* Model.swift in Sources */,
 				50E9D0FE2355C25A000042BC /* ViewController.swift in Sources */,
 				6337DD122360509300D71441 /* ImInViewController.swift in Sources */,
+				5079A5232371515000CF68A9 /* DataShowViewController.swift in Sources */,
+				5079A521237150C400CF68A9 /* DataShowTableViewCell.swift in Sources */,
 				50E9D1042355C25A000042BC /* BussMeStoryboard.xcdatamodeld in Sources */,
 				50E9D0FA2355C25A000042BC /* AppDelegate.swift in Sources */,
+				509558D023700513008E7EED /* DataGatherViewController.swift in Sources */,
 				50E9D0FC2355C25A000042BC /* SceneDelegate.swift in Sources */,
 				6337DD102360508500D71441 /* HomeViewController.swift in Sources */,
 			);
