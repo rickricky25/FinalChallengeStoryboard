@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		5079A521237150C400CF68A9 /* DataShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A520237150C400CF68A9 /* DataShowTableViewCell.swift */; };
 		5079A5232371515000CF68A9 /* DataShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A5222371515000CF68A9 /* DataShowViewController.swift */; };
+		5079A56623793FD500CF68A9 /* TripShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A56523793FD500CF68A9 /* TripShowTableViewCell.swift */; };
+		5079A5682379403B00CF68A9 /* TripShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A5672379403B00CF68A9 /* TripShowViewController.swift */; };
+		5079A56B2379509200CF68A9 /* CommuteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5079A56A2379509200CF68A9 /* CommuteStoryboard.storyboard */; };
+		5079A56D237950B400CF68A9 /* CommuteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A56C237950B400CF68A9 /* CommuteViewController.swift */; };
+		5079A570237A918000CF68A9 /* NavDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5079A56F237A918000CF68A9 /* NavDetailStoryboard.storyboard */; };
+		5079A572237A91C200CF68A9 /* NavDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A571237A91C200CF68A9 /* NavDetailViewController.swift */; };
 		509558D023700513008E7EED /* DataGatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509558CF23700513008E7EED /* DataGatherViewController.swift */; };
 		50E9D0FA2355C25A000042BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D0F92355C25A000042BC /* AppDelegate.swift */; };
 		50E9D0FC2355C25A000042BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D0FB2355C25A000042BC /* SceneDelegate.swift */; };
@@ -53,6 +59,12 @@
 		2BDBFA39DF23F08F0E43758C /* Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboard-BussMeStoryboardUITests/Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5079A520237150C400CF68A9 /* DataShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataShowTableViewCell.swift; sourceTree = "<group>"; };
 		5079A5222371515000CF68A9 /* DataShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataShowViewController.swift; sourceTree = "<group>"; };
+		5079A56523793FD500CF68A9 /* TripShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripShowTableViewCell.swift; sourceTree = "<group>"; };
+		5079A5672379403B00CF68A9 /* TripShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripShowViewController.swift; sourceTree = "<group>"; };
+		5079A56A2379509200CF68A9 /* CommuteStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommuteStoryboard.storyboard; sourceTree = "<group>"; };
+		5079A56C237950B400CF68A9 /* CommuteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteViewController.swift; sourceTree = "<group>"; };
+		5079A56F237A918000CF68A9 /* NavDetailStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavDetailStoryboard.storyboard; sourceTree = "<group>"; };
+		5079A571237A91C200CF68A9 /* NavDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavDetailViewController.swift; sourceTree = "<group>"; };
 		509558CF23700513008E7EED /* DataGatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGatherViewController.swift; sourceTree = "<group>"; };
 		50E9D0F62355C25A000042BC /* BussMeStoryboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BussMeStoryboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50E9D0F92355C25A000042BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +127,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5079A5692379507D00CF68A9 /* Commute */ = {
+			isa = PBXGroup;
+			children = (
+				5079A56A2379509200CF68A9 /* CommuteStoryboard.storyboard */,
+				5079A56C237950B400CF68A9 /* CommuteViewController.swift */,
+			);
+			path = Commute;
+			sourceTree = "<group>";
+		};
+		5079A56E237A915D00CF68A9 /* Navigation Detail */ = {
+			isa = PBXGroup;
+			children = (
+				5079A56F237A918000CF68A9 /* NavDetailStoryboard.storyboard */,
+				5079A571237A91C200CF68A9 /* NavDetailViewController.swift */,
+			);
+			path = "Navigation Detail";
+			sourceTree = "<group>";
+		};
 		50E9D0ED2355C25A000042BC = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +170,8 @@
 		50E9D0F82355C25A000042BC /* BussMeStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				5079A56E237A915D00CF68A9 /* Navigation Detail */,
+				5079A5692379507D00CF68A9 /* Commute */,
 				6337DD08235EF7C900D71441 /* Im In */,
 				63B43F9623585BBF00131562 /* Home */,
 				50E9D0F92355C25A000042BC /* AppDelegate.swift */,
@@ -192,6 +224,8 @@
 				509558CF23700513008E7EED /* DataGatherViewController.swift */,
 				5079A520237150C400CF68A9 /* DataShowTableViewCell.swift */,
 				5079A5222371515000CF68A9 /* DataShowViewController.swift */,
+				5079A56523793FD500CF68A9 /* TripShowTableViewCell.swift */,
+				5079A5672379403B00CF68A9 /* TripShowViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -332,8 +366,10 @@
 				6337DD0A235EF83B00D71441 /* imInStoryboard.storyboard in Resources */,
 				6337DD0E2360504B00D71441 /* imInCardView.xib in Resources */,
 				50E9D1062355C25C000042BC /* Assets.xcassets in Resources */,
+				5079A570237A918000CF68A9 /* NavDetailStoryboard.storyboard in Resources */,
 				6337DD0C235F35FF00D71441 /* homeCardView.xib in Resources */,
 				63B43F9823585C5700131562 /* HomeStoryboard.storyboard in Resources */,
+				5079A56B2379509200CF68A9 /* CommuteStoryboard.storyboard in Resources */,
 				50E9D1012355C25A000042BC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,14 +500,18 @@
 			files = (
 				50E9D3B22359B352000042BC /* Model.swift in Sources */,
 				50E9D0FE2355C25A000042BC /* ViewController.swift in Sources */,
+				5079A5682379403B00CF68A9 /* TripShowViewController.swift in Sources */,
 				6337DD122360509300D71441 /* ImInViewController.swift in Sources */,
 				5079A5232371515000CF68A9 /* DataShowViewController.swift in Sources */,
 				5079A521237150C400CF68A9 /* DataShowTableViewCell.swift in Sources */,
 				50E9D1042355C25A000042BC /* BussMeStoryboard.xcdatamodeld in Sources */,
+				5079A56D237950B400CF68A9 /* CommuteViewController.swift in Sources */,
+				5079A56623793FD500CF68A9 /* TripShowTableViewCell.swift in Sources */,
 				50E9D0FA2355C25A000042BC /* AppDelegate.swift in Sources */,
 				509558D023700513008E7EED /* DataGatherViewController.swift in Sources */,
 				50E9D0FC2355C25A000042BC /* SceneDelegate.swift in Sources */,
 				6337DD102360508500D71441 /* HomeViewController.swift in Sources */,
+				5079A572237A91C200CF68A9 /* NavDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
