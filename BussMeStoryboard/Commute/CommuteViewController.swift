@@ -15,6 +15,34 @@ import CloudKit
 class CommuteViewController: UIViewController {
     @IBOutlet var mainView: UIView!
     
+    enum CardState {
+        case expanded
+        case collapsed
+    }
+    
+    var commuteModalViewController:CommuteModalViewController!
+    var visualEffectView:UIVisualEffectView!
+    let cardHeight:CGFloat = 500
+    let cardHandleAreaH:CGFloat = 250
+    var cardVisible = false
+    
+    var nextState:CardState {
+        return cardVisible ? .collapsed : .expanded
+    }
+    
+    var runningAnimations = [UIViewPropertyAnimator]()
+    var animationProgressInterrupted = 0
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //MAP----------------------
     var mapView: GMSMapView!
     var locManager = CLLocationManager()
     var currMarker: GMSMarker!
@@ -24,6 +52,8 @@ class CommuteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         //Getting Permission for Maps
         locManager.requestWhenInUseAuthorization()
@@ -79,6 +109,7 @@ class CommuteViewController: UIViewController {
         }
         
          self.mainView.addSubview(mapView)
+        setupCard()
     }
     
     //Function to get Current Location
@@ -93,6 +124,111 @@ class CommuteViewController: UIViewController {
         let currLat = currentLocation.coordinate.latitude
             
         return (currLat, currLong)
+    }
+    
+    func setupCard() {
+        visualEffectView = UIVisualEffectView()
+        visualEffectView.frame = self.view.frame
+        self.view.addSubview(visualEffectView)
+        
+        commuteModalViewController = CommuteModalViewController(nibName: "CommuteModalViewController", bundle:nil)
+        self.addChild(commuteModalViewController)
+        self.view.addSubview(commuteModalViewController.view)
+        
+        commuteModalViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - cardHandleAreaH, width: self.view.bounds.width, height: cardHeight)
+        
+        commuteModalViewController.view.clipsToBounds = true
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CommuteViewController.handleCardTap(recognizer:)))
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(CommuteViewController.handleCardPan(recognizer:)))
+        
+        commuteModalViewController.handleArea.addGestureRecognizer(tapGestureRecognizer)
+        commuteModalViewController.handleArea.addGestureRecognizer(panGestureRecognizer)
+        
+    }
+
+    @objc
+    func handleCardTap(recognizer:UITapGestureRecognizer) {
+        switch recognizer.state {
+        case .ended:
+            animateTransitionIfNeeded(state: nextState, duration: 0.65)
+        default:
+            break
+        }
+        
+    }
+    @objc
+    func handleCardPan (recognizer:UIPanGestureRecognizer) {
+        switch recognizer.state {
+        case .began:
+            startInteractiveTransition(state: nextState, duration: 0.35)
+        case .changed:
+            let translation = recognizer.translation(in: self.commuteModalViewController.handleArea)
+            var fractionComplete = translation.y / cardHeight
+            fractionComplete = cardVisible ? fractionComplete : -fractionComplete
+            updateInteractiveTransition(fractionCompleted: fractionComplete)
+        case .ended:
+            continueInteractiveTransition()
+        default:
+            break
+        }
+    }
+    
+    func animateTransitionIfNeeded (state:CardState, duration:TimeInterval) {
+        if runningAnimations.isEmpty {
+            let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 5) {
+                switch state {
+                case .expanded:
+                    self.commuteModalViewController.view.frame.origin.y = self.view.frame.height - self.cardHeight
+                case .collapsed:
+                    self.commuteModalViewController.view.frame.origin.y = self.view.frame.height - self.cardHandleAreaH
+                }
+            }
+            
+            frameAnimator.addCompletion { _ in
+                self.cardVisible = !self.cardVisible
+                self.runningAnimations.removeAll()
+            }
+            
+            frameAnimator.startAnimation()
+            runningAnimations.append(frameAnimator)
+            
+            
+            let cornerRadiusAnimator = UIViewPropertyAnimator(duration: 0.5, curve: .linear) {
+                switch state {
+                case .expanded:
+                    self.commuteModalViewController.view.layer.cornerRadius = 25
+                case .collapsed:
+                    self.commuteModalViewController.view.layer.cornerRadius = 0
+                }
+            }
+            
+            cornerRadiusAnimator.startAnimation()
+            runningAnimations.append(cornerRadiusAnimator)
+            
+        }
+    }
+    
+    func startInteractiveTransition(state:CardState, duration:TimeInterval) {
+        if runningAnimations.isEmpty {
+            animateTransitionIfNeeded(state: state, duration: duration)
+        }
+        for animator in runningAnimations {
+            animator.pauseAnimation()
+            animationProgressInterrupted = Int(animator.fractionComplete)
+        }
+    }
+    
+    func updateInteractiveTransition(fractionCompleted:CGFloat) {
+        for animator in runningAnimations {
+            animator.fractionComplete = fractionCompleted + CGFloat(animationProgressInterrupted)
+        }
+    }
+    
+    func continueInteractiveTransition (){
+        for animator in runningAnimations {
+            animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+        }
     }
 }
 
