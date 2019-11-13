@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		006027A2237BFB0500F92D90 /* popUpReminder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 006027A1237BFB0500F92D90 /* popUpReminder.storyboard */; };
+		006027A4237BFB2100F92D90 /* popUpReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006027A3237BFB2100F92D90 /* popUpReminderViewController.swift */; };
+		006027A6237BFFB700F92D90 /* popUpTurun.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 006027A5237BFFB700F92D90 /* popUpTurun.storyboard */; };
 		5079A521237150C400CF68A9 /* DataShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A520237150C400CF68A9 /* DataShowTableViewCell.swift */; };
 		5079A5232371515000CF68A9 /* DataShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A5222371515000CF68A9 /* DataShowViewController.swift */; };
 		5079A56623793FD500CF68A9 /* TripShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A56523793FD500CF68A9 /* TripShowTableViewCell.swift */; };
@@ -56,6 +59,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		006027A1237BFB0500F92D90 /* popUpReminder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = popUpReminder.storyboard; sourceTree = "<group>"; };
+		006027A3237BFB2100F92D90 /* popUpReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popUpReminderViewController.swift; sourceTree = "<group>"; };
+		006027A5237BFFB700F92D90 /* popUpTurun.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = popUpTurun.storyboard; sourceTree = "<group>"; };
 		2BDBFA39DF23F08F0E43758C /* Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboard-BussMeStoryboardUITests/Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5079A520237150C400CF68A9 /* DataShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataShowTableViewCell.swift; sourceTree = "<group>"; };
 		5079A5222371515000CF68A9 /* DataShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataShowViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +133,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0060279C237BF24E00F92D90 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				006027A1237BFB0500F92D90 /* popUpReminder.storyboard */,
+				006027A5237BFFB700F92D90 /* popUpTurun.storyboard */,
+				006027A3237BFB2100F92D90 /* popUpReminderViewController.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
 		5079A5692379507D00CF68A9 /* Commute */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +186,7 @@
 		50E9D0F82355C25A000042BC /* BussMeStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				0060279C237BF24E00F92D90 /* Alert */,
 				5079A56E237A915D00CF68A9 /* Navigation Detail */,
 				5079A5692379507D00CF68A9 /* Commute */,
 				6337DD08235EF7C900D71441 /* Im In */,
@@ -363,8 +380,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				50E9D1092355C25C000042BC /* LaunchScreen.storyboard in Resources */,
+				006027A6237BFFB700F92D90 /* popUpTurun.storyboard in Resources */,
 				6337DD0A235EF83B00D71441 /* imInStoryboard.storyboard in Resources */,
 				6337DD0E2360504B00D71441 /* imInCardView.xib in Resources */,
+				006027A2237BFB0500F92D90 /* popUpReminder.storyboard in Resources */,
 				50E9D1062355C25C000042BC /* Assets.xcassets in Resources */,
 				5079A570237A918000CF68A9 /* NavDetailStoryboard.storyboard in Resources */,
 				6337DD0C235F35FF00D71441 /* homeCardView.xib in Resources */,
@@ -512,6 +531,7 @@
 				50E9D0FC2355C25A000042BC /* SceneDelegate.swift in Sources */,
 				6337DD102360508500D71441 /* HomeViewController.swift in Sources */,
 				5079A572237A91C200CF68A9 /* NavDetailViewController.swift in Sources */,
+				006027A4237BFB2100F92D90 /* popUpReminderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
