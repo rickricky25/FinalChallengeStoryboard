@@ -23,7 +23,7 @@ class NavDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //Getting Permission for Maps
+        // Getting Permission for Maps
         locManager.requestWhenInUseAuthorization()
         locManager.delegate = self
         locManager.startUpdatingLocation()
@@ -42,7 +42,7 @@ class NavDetailViewController: UIViewController {
         
     }
     
-    //Function to get Current Location
+    // Function to get Current Location
     func getCurrentLatLong() -> (Double, Double) {
         var currentLocation: CLLocation!
                
@@ -55,6 +55,32 @@ class NavDetailViewController: UIViewController {
             
         return (currLat, currLong)
     }
+    
+    // Function to get nearest stop
+    /*func getNearestStop(completion:(Void ->)) {
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: "DataStop", predicate: predicate)
+        let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
+        let publicDatabase = container.publicCloudDatabase
+        
+        publicDatabase.perform(query, inZoneWith: nil) { (hasilStop, error) in
+            let (currLat, currLong) = self.getCurrentLatLong()
+            let currLoc = CLLocationCoordinate2D(latitude: currLat, longitude: currLong)
+            
+            var nearestLoc = CLLocationCoordinate2D(latitude: hasilStop![0]["latitude"]!, longitude: hasilStop![0]["longitude"]!)
+            var nearestDist = GMSGeometryDistance(currLoc, nearestLoc)
+            
+            for i in 1...hasilStop!.count {
+                let stopLoc = CLLocationCoordinate2D(latitude: hasilStop![i]["latitude"]!, longitude: hasilStop![i]["longitude"]!)
+                let stopDist = GMSGeometryDistance(currLoc, stopLoc)
+                if stopDist < nearestDist {
+                    nearestLoc = stopLoc
+                    nearestDist = stopDist
+                }
+            }
+            return nearestLoc
+        }
+    }*/
 
 }
 

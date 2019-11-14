@@ -14,6 +14,12 @@ import CloudKit
 
 class CommuteViewController: UIViewController {
     @IBOutlet var mainView: UIView!
+//    **** .xib View Commuter
+    @IBOutlet weak var contentArea: UIView!
+    @IBOutlet weak var handlerArea: UIView!
+    
+    
+//    ************
     
     var mapView: GMSMapView!
     var locManager = CLLocationManager()
@@ -24,6 +30,9 @@ class CommuteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Card View
+        style()
         
         //Getting Permission for Maps
         locManager.requestWhenInUseAuthorization()
@@ -79,6 +88,12 @@ class CommuteViewController: UIViewController {
         }
         
          self.mainView.addSubview(mapView)
+    }
+    
+    //Function Style for Card View
+    func style(){
+        contentArea.layer.cornerRadius = 1
+        contentArea.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     }
     
     //Function to get Current Location

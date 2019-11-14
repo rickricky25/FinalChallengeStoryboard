@@ -14,6 +14,17 @@
                     <view key="view" contentMode="scaleToFill" id="3R0-hs-037">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qma-3c-7Rf">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <tabBarItem badgeValue="Commute" id="BfJ-2x-ETT" userLabel="Commute"/>
+                                    <tabBarItem badgeValue="My Trips" id="A2k-d5-ZbE" userLabel="My Trips"/>
+                                </items>
+                            </tabBar>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="cWJ-EM-Mue"/>
                     </view>
