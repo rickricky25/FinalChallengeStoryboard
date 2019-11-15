@@ -38,15 +38,6 @@ class CommuteViewController: UIViewController {
     var runningAnimations = [UIViewPropertyAnimator]()
     var animationProgressInterrupted = 0
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
     //MAP----------------------
     var mapView: GMSMapView!
     var locManager = CLLocationManager()

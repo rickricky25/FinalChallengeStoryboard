@@ -25,7 +25,6 @@ class CommuteTripsViewController: UIViewController {
     
     func style(){
         contentArea.layer.cornerRadius = 1
-        
         contentArea.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     }
     

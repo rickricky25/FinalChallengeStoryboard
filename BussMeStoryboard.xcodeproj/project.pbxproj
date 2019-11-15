@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		49025F90237E3574007D9BEA /* CommuteTripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49025F8F237E3574007D9BEA /* CommuteTripsViewController.swift */; };
-		49025F92237E4BA1007D9BEA /* MyTripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49025F91237E4BA1007D9BEA /* MyTripsViewController.swift */; };
 		006027A2237BFB0500F92D90 /* popUpReminder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 006027A1237BFB0500F92D90 /* popUpReminder.storyboard */; };
 		006027A4237BFB2100F92D90 /* popUpReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006027A3237BFB2100F92D90 /* popUpReminderViewController.swift */; };
 		006027A6237BFFB700F92D90 /* popUpTurun.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 006027A5237BFFB700F92D90 /* popUpTurun.storyboard */; };
+		49025F90237E3574007D9BEA /* CommuteTripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49025F8F237E3574007D9BEA /* CommuteTripsViewController.swift */; };
+		49025F92237E4BA1007D9BEA /* MyTripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49025F91237E4BA1007D9BEA /* MyTripsViewController.swift */; };
 		5079A521237150C400CF68A9 /* DataShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A520237150C400CF68A9 /* DataShowTableViewCell.swift */; };
 		5079A5232371515000CF68A9 /* DataShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A5222371515000CF68A9 /* DataShowViewController.swift */; };
 		5079A56623793FD500CF68A9 /* TripShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A56523793FD500CF68A9 /* TripShowTableViewCell.swift */; };
@@ -23,7 +23,6 @@
 		5079A597237CED6200CF68A9 /* CommuteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5079A596237CED6200CF68A9 /* CommuteViewController.xib */; };
 		5079A599237CED7800CF68A9 /* MyTripsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5079A598237CED7800CF68A9 /* MyTripsViewController.xib */; };
 		5079A59B237CF4AC00CF68A9 /* CommuteCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A59A237CF4AC00CF68A9 /* CommuteCardViewController.swift */; };
-		5079A59D237D098500CF68A9 /* MyTripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A59C237D098500CF68A9 /* MyTripsViewController.swift */; };
 		5079A59F237E6A7600CF68A9 /* TransportDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A59E237E6A7600CF68A9 /* TransportDataViewController.swift */; };
 		5079A5A1237E90CA00CF68A9 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5079A5A0237E90C900CF68A9 /* CloudKit.framework */; };
 		509558D023700513008E7EED /* DataGatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509558CF23700513008E7EED /* DataGatherViewController.swift */; };
@@ -38,7 +37,6 @@
 		50E9D11F2355C25C000042BC /* BussMeStoryboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D11E2355C25C000042BC /* BussMeStoryboardUITests.swift */; };
 		50E9D3B22359B352000042BC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D3B12359B352000042BC /* Model.swift */; };
 		50E9D3B9235EEB00000042BC /* (null) in Frameworks */ = {isa = PBXBuildFile; };
-		511DE48F237BF2F700058BFD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 511DE48E237BF2F700058BFD /* CloudKit.framework */; };
 		511DE493237BF6A000058BFD /* CommuteModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511DE491237BF6A000058BFD /* CommuteModalViewController.swift */; };
 		511DE494237BF6A000058BFD /* CommuteModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 511DE492237BF6A000058BFD /* CommuteModalViewController.xib */; };
 		511DE496237BF71500058BFD /* ModalTestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511DE495237BF71500058BFD /* ModalTestingViewController.swift */; };
@@ -88,7 +86,6 @@
 		5079A596237CED6200CF68A9 /* CommuteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommuteViewController.xib; sourceTree = "<group>"; };
 		5079A598237CED7800CF68A9 /* MyTripsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTripsViewController.xib; sourceTree = "<group>"; };
 		5079A59A237CF4AC00CF68A9 /* CommuteCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteCardViewController.swift; sourceTree = "<group>"; };
-		5079A59C237D098500CF68A9 /* MyTripsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTripsViewController.swift; sourceTree = "<group>"; };
 		5079A59E237E6A7600CF68A9 /* TransportDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportDataViewController.swift; sourceTree = "<group>"; };
 		5079A5A0237E90C900CF68A9 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		509558CF23700513008E7EED /* DataGatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGatherViewController.swift; sourceTree = "<group>"; };
@@ -108,7 +105,6 @@
 		50E9D11E2355C25C000042BC /* BussMeStoryboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BussMeStoryboardUITests.swift; sourceTree = "<group>"; };
 		50E9D1202355C25C000042BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50E9D3B12359B352000042BC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		511DE48E237BF2F700058BFD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		511DE491237BF6A000058BFD /* CommuteModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteModalViewController.swift; sourceTree = "<group>"; };
 		511DE492237BF6A000058BFD /* CommuteModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommuteModalViewController.xib; sourceTree = "<group>"; };
 		511DE495237BF71500058BFD /* ModalTestingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTestingViewController.swift; sourceTree = "<group>"; };
