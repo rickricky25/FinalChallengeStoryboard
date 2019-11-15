@@ -38,6 +38,10 @@
 		50E9D11F2355C25C000042BC /* BussMeStoryboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D11E2355C25C000042BC /* BussMeStoryboardUITests.swift */; };
 		50E9D3B22359B352000042BC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D3B12359B352000042BC /* Model.swift */; };
 		50E9D3B9235EEB00000042BC /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		511DE48F237BF2F700058BFD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 511DE48E237BF2F700058BFD /* CloudKit.framework */; };
+		511DE493237BF6A000058BFD /* CommuteModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511DE491237BF6A000058BFD /* CommuteModalViewController.swift */; };
+		511DE494237BF6A000058BFD /* CommuteModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 511DE492237BF6A000058BFD /* CommuteModalViewController.xib */; };
+		511DE496237BF71500058BFD /* ModalTestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511DE495237BF71500058BFD /* ModalTestingViewController.swift */; };
 		58ABD31DA095508EC28636D4 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A52C92A51075A0C4EB42CA5 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework */; };
 		6337DD0A235EF83B00D71441 /* imInStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6337DD09235EF83B00D71441 /* imInStoryboard.storyboard */; };
 		6337DD0C235F35FF00D71441 /* homeCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6337DD0B235F35FF00D71441 /* homeCardView.xib */; };
@@ -104,6 +108,10 @@
 		50E9D11E2355C25C000042BC /* BussMeStoryboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BussMeStoryboardUITests.swift; sourceTree = "<group>"; };
 		50E9D1202355C25C000042BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50E9D3B12359B352000042BC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		511DE48E237BF2F700058BFD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		511DE491237BF6A000058BFD /* CommuteModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteModalViewController.swift; sourceTree = "<group>"; };
+		511DE492237BF6A000058BFD /* CommuteModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommuteModalViewController.xib; sourceTree = "<group>"; };
+		511DE495237BF71500058BFD /* ModalTestingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTestingViewController.swift; sourceTree = "<group>"; };
 		6337DD09235EF83B00D71441 /* imInStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = imInStoryboard.storyboard; sourceTree = "<group>"; };
 		6337DD0B235F35FF00D71441 /* homeCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = homeCardView.xib; sourceTree = "<group>"; };
 		6337DD0D2360504B00D71441 /* imInCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = imInCardView.xib; sourceTree = "<group>"; };
@@ -170,6 +178,9 @@
 				5079A59A237CF4AC00CF68A9 /* CommuteCardViewController.swift */,
 				5079A598237CED7800CF68A9 /* MyTripsViewController.xib */,
 				49025F91237E4BA1007D9BEA /* MyTripsViewController.swift */,
+				511DE491237BF6A000058BFD /* CommuteModalViewController.swift */,
+				511DE492237BF6A000058BFD /* CommuteModalViewController.xib */,
+				511DE495237BF71500058BFD /* ModalTestingViewController.swift */,
 			);
 			path = Commute;
 			sourceTree = "<group>";
@@ -306,6 +317,7 @@
 				50E9D0F32355C25A000042BC /* Frameworks */,
 				50E9D0F42355C25A000042BC /* Resources */,
 				5598AB62CAC01A1CCC439E66 /* [CP] Copy Pods Resources */,
+				511DE48D237BF11400058BFD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -410,6 +422,7 @@
 				5079A599237CED7800CF68A9 /* MyTripsViewController.xib in Resources */,
 				6337DD0E2360504B00D71441 /* imInCardView.xib in Resources */,
 				006027A2237BFB0500F92D90 /* popUpReminder.storyboard in Resources */,
+				511DE494237BF6A000058BFD /* CommuteModalViewController.xib in Resources */,
 				50E9D1062355C25C000042BC /* Assets.xcassets in Resources */,
 				5079A570237A918000CF68A9 /* NavDetailStoryboard.storyboard in Resources */,
 				6337DD0C235F35FF00D71441 /* homeCardView.xib in Resources */,
@@ -436,6 +449,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		511DE48D237BF11400058BFD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n";
+		};
 		5598AB62CAC01A1CCC439E66 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -545,6 +575,7 @@
 			files = (
 				50E9D3B22359B352000042BC /* Model.swift in Sources */,
 				50E9D0FE2355C25A000042BC /* ViewController.swift in Sources */,
+				511DE493237BF6A000058BFD /* CommuteModalViewController.swift in Sources */,
 				5079A5682379403B00CF68A9 /* TripShowViewController.swift in Sources */,
 				6337DD122360509300D71441 /* ImInViewController.swift in Sources */,
 				5079A5232371515000CF68A9 /* DataShowViewController.swift in Sources */,
@@ -555,6 +586,7 @@
 				49025F90237E3574007D9BEA /* CommuteTripsViewController.swift in Sources */,
 				5079A59B237CF4AC00CF68A9 /* CommuteCardViewController.swift in Sources */,
 				5079A56623793FD500CF68A9 /* TripShowTableViewCell.swift in Sources */,
+				511DE496237BF71500058BFD /* ModalTestingViewController.swift in Sources */,
 				50E9D0FA2355C25A000042BC /* AppDelegate.swift in Sources */,
 				509558D023700513008E7EED /* DataGatherViewController.swift in Sources */,
 				50E9D0FC2355C25A000042BC /* SceneDelegate.swift in Sources */,
