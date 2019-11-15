@@ -15,7 +15,7 @@ class MyTripsViewController: UIViewController {
         case collapsed
     }
     
-    var cardViewController: CommuteTripsViewController
+    var cardViewController: CommuteTripsViewController!
     var visualEffectView: UIVisualEffectView!
     
     let cardHeight: CGFloat = 500
@@ -48,10 +48,10 @@ class MyTripsViewController: UIViewController {
         
         cardViewController.view.clipsToBounds = true
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CommuteTripsViewController.handleCardTap(recognizer:)))
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(CommuteTripsViewController.handleCardPan(recognizer:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MyTripsViewController.handleCardTap(recognizer:)))
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(MyTripsViewController.handleCardPan(recognizer:)))
         
-        cardViewController.handleArea.addGestureRecognizer(tapGestureRecognizer)
+        cardViewController.handlerArea.addGestureRecognizer(tapGestureRecognizer)
         
         cardViewController.handlerArea.addGestureRecognizer(panGestureRecognizer)
     }
@@ -70,7 +70,7 @@ class MyTripsViewController: UIViewController {
     func handleCardPan(recognizer: UIPanGestureRecognizer){
         switch recognizer.state {
         case .began:
-            startIteractiveTransition(state: nextState, duration: 0.35)
+            startInteractiveTransition(state: nextState, duration: 0.35)
         case .changed:
             let translation = recognizer.translation(in: self.cardViewController.handlerArea)
             
@@ -91,7 +91,7 @@ class MyTripsViewController: UIViewController {
                 case .expanded:
                     self.cardViewController.view.frame.origin.y = self.view.frame.height - self.cardHeight
                 case .collapsed:
-                    self.cardViewController.view.frame.origin.y = self.view.frame.height = self.cardHandleAreaHeight
+                    self.cardViewController.view.frame.origin.y = self.view.frame.height - self.cardHandleAreaHeight
                 }
             }
             
