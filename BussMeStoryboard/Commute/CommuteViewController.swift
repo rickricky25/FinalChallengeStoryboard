@@ -14,11 +14,10 @@ import CloudKit
 
 class CommuteViewController: UIViewController {
     @IBOutlet var mainView: UIView!
+    
 //    **** .xib View Commuter
     @IBOutlet weak var contentArea: UIView!
     @IBOutlet weak var handlerArea: UIView!
-    
-    
 //    ************
     
     var mapView: GMSMapView!
@@ -126,5 +125,9 @@ extension CommuteViewController: CLLocationManagerDelegate {
             currMarker.position = position
             
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        
     }
 }

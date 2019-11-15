@@ -36,5 +36,31 @@
             </objects>
             <point key="canvasLocation" x="-112" y="-296"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="7Co-dc-leL">
+            <objects>
+                <viewController id="mTq-G5-Ri3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yi6-NJ-ezg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JLo-IF-ol9">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <tabBarItem badgeValue="Commute" id="wB6-vP-z7s" userLabel="Commute"/>
+                                    <tabBarItem badgeValue="My Trips" id="qD5-bP-DN5" userLabel="My Trips"/>
+                                </items>
+                            </tabBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="VFX-Wh-AUN"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uEt-La-19V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="801" y="-297"/>
+        </scene>
     </scenes>
 </document>

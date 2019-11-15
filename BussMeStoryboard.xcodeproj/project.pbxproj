@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49025F90237E3574007D9BEA /* CommuteTripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49025F8F237E3574007D9BEA /* CommuteTripsViewController.swift */; };
+		49025F92237E4BA1007D9BEA /* MyTripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49025F91237E4BA1007D9BEA /* MyTripsViewController.swift */; };
 		5079A521237150C400CF68A9 /* DataShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A520237150C400CF68A9 /* DataShowTableViewCell.swift */; };
 		5079A5232371515000CF68A9 /* DataShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A5222371515000CF68A9 /* DataShowViewController.swift */; };
 		5079A56623793FD500CF68A9 /* TripShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A56523793FD500CF68A9 /* TripShowTableViewCell.swift */; };
@@ -18,7 +20,6 @@
 		5079A597237CED6200CF68A9 /* CommuteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5079A596237CED6200CF68A9 /* CommuteViewController.xib */; };
 		5079A599237CED7800CF68A9 /* MyTripsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5079A598237CED7800CF68A9 /* MyTripsViewController.xib */; };
 		5079A59B237CF4AC00CF68A9 /* CommuteCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A59A237CF4AC00CF68A9 /* CommuteCardViewController.swift */; };
-		5079A59D237D098500CF68A9 /* MyTripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A59C237D098500CF68A9 /* MyTripsViewController.swift */; };
 		509558D023700513008E7EED /* DataGatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509558CF23700513008E7EED /* DataGatherViewController.swift */; };
 		50E9D0FA2355C25A000042BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D0F92355C25A000042BC /* AppDelegate.swift */; };
 		50E9D0FC2355C25A000042BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D0FB2355C25A000042BC /* SceneDelegate.swift */; };
@@ -61,6 +62,8 @@
 
 /* Begin PBXFileReference section */
 		2BDBFA39DF23F08F0E43758C /* Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboard-BussMeStoryboardUITests/Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig"; sourceTree = "<group>"; };
+		49025F8F237E3574007D9BEA /* CommuteTripsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteTripsViewController.swift; sourceTree = "<group>"; };
+		49025F91237E4BA1007D9BEA /* MyTripsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTripsViewController.swift; sourceTree = "<group>"; };
 		5079A520237150C400CF68A9 /* DataShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataShowTableViewCell.swift; sourceTree = "<group>"; };
 		5079A5222371515000CF68A9 /* DataShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataShowViewController.swift; sourceTree = "<group>"; };
 		5079A56523793FD500CF68A9 /* TripShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripShowTableViewCell.swift; sourceTree = "<group>"; };
@@ -72,7 +75,6 @@
 		5079A596237CED6200CF68A9 /* CommuteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommuteViewController.xib; sourceTree = "<group>"; };
 		5079A598237CED7800CF68A9 /* MyTripsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTripsViewController.xib; sourceTree = "<group>"; };
 		5079A59A237CF4AC00CF68A9 /* CommuteCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteCardViewController.swift; sourceTree = "<group>"; };
-		5079A59C237D098500CF68A9 /* MyTripsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTripsViewController.swift; sourceTree = "<group>"; };
 		509558CF23700513008E7EED /* DataGatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGatherViewController.swift; sourceTree = "<group>"; };
 		50E9D0F62355C25A000042BC /* BussMeStoryboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BussMeStoryboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50E9D0F92355C25A000042BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -140,10 +142,11 @@
 			children = (
 				5079A56A2379509200CF68A9 /* CommuteStoryboard.storyboard */,
 				5079A56C237950B400CF68A9 /* CommuteViewController.swift */,
+				49025F8F237E3574007D9BEA /* CommuteTripsViewController.swift */,
 				5079A596237CED6200CF68A9 /* CommuteViewController.xib */,
-				5079A598237CED7800CF68A9 /* MyTripsViewController.xib */,
 				5079A59A237CF4AC00CF68A9 /* CommuteCardViewController.swift */,
-				5079A59C237D098500CF68A9 /* MyTripsViewController.swift */,
+				5079A598237CED7800CF68A9 /* MyTripsViewController.xib */,
+				49025F91237E4BA1007D9BEA /* MyTripsViewController.swift */,
 			);
 			path = Commute;
 			sourceTree = "<group>";
@@ -519,13 +522,14 @@
 				5079A5232371515000CF68A9 /* DataShowViewController.swift in Sources */,
 				5079A521237150C400CF68A9 /* DataShowTableViewCell.swift in Sources */,
 				50E9D1042355C25A000042BC /* BussMeStoryboard.xcdatamodeld in Sources */,
+				49025F92237E4BA1007D9BEA /* MyTripsViewController.swift in Sources */,
 				5079A56D237950B400CF68A9 /* CommuteViewController.swift in Sources */,
+				49025F90237E3574007D9BEA /* CommuteTripsViewController.swift in Sources */,
 				5079A59B237CF4AC00CF68A9 /* CommuteCardViewController.swift in Sources */,
 				5079A56623793FD500CF68A9 /* TripShowTableViewCell.swift in Sources */,
 				50E9D0FA2355C25A000042BC /* AppDelegate.swift in Sources */,
 				509558D023700513008E7EED /* DataGatherViewController.swift in Sources */,
 				50E9D0FC2355C25A000042BC /* SceneDelegate.swift in Sources */,
-				5079A59D237D098500CF68A9 /* MyTripsViewController.swift in Sources */,
 				6337DD102360508500D71441 /* HomeViewController.swift in Sources */,
 				5079A572237A91C200CF68A9 /* NavDetailViewController.swift in Sources */,
 			);
