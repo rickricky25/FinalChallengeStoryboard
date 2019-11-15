@@ -92,8 +92,8 @@ class CommuteViewController: UIViewController {
     
     //Function Style for Card View
     func style(){
-        contentArea.layer.cornerRadius = 1
-        contentArea.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        contentArea.layer.cornerRadius = 1
+//        contentArea.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     }
     
     //Function to get Current Location

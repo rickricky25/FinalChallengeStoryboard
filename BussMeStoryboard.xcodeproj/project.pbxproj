@@ -19,6 +19,8 @@
 		5079A599237CED7800CF68A9 /* MyTripsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5079A598237CED7800CF68A9 /* MyTripsViewController.xib */; };
 		5079A59B237CF4AC00CF68A9 /* CommuteCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A59A237CF4AC00CF68A9 /* CommuteCardViewController.swift */; };
 		5079A59D237D098500CF68A9 /* MyTripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A59C237D098500CF68A9 /* MyTripsViewController.swift */; };
+		5079A59F237E6A7600CF68A9 /* TransportDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A59E237E6A7600CF68A9 /* TransportDataViewController.swift */; };
+		5079A5A1237E90CA00CF68A9 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5079A5A0237E90C900CF68A9 /* CloudKit.framework */; };
 		509558D023700513008E7EED /* DataGatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509558CF23700513008E7EED /* DataGatherViewController.swift */; };
 		50E9D0FA2355C25A000042BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D0F92355C25A000042BC /* AppDelegate.swift */; };
 		50E9D0FC2355C25A000042BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D0FB2355C25A000042BC /* SceneDelegate.swift */; };
@@ -73,6 +75,8 @@
 		5079A598237CED7800CF68A9 /* MyTripsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTripsViewController.xib; sourceTree = "<group>"; };
 		5079A59A237CF4AC00CF68A9 /* CommuteCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteCardViewController.swift; sourceTree = "<group>"; };
 		5079A59C237D098500CF68A9 /* MyTripsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTripsViewController.swift; sourceTree = "<group>"; };
+		5079A59E237E6A7600CF68A9 /* TransportDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportDataViewController.swift; sourceTree = "<group>"; };
+		5079A5A0237E90C900CF68A9 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		509558CF23700513008E7EED /* DataGatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGatherViewController.swift; sourceTree = "<group>"; };
 		50E9D0F62355C25A000042BC /* BussMeStoryboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BussMeStoryboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50E9D0F92355C25A000042BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5079A5A1237E90CA00CF68A9 /* CloudKit.framework in Frameworks */,
 				D55218E041A4BF7F6765A4BF /* Pods_BussMeStoryboard.framework in Frameworks */,
 				50E9D3B9235EEB00000042BC /* (null) in Frameworks */,
 			);
@@ -238,6 +243,7 @@
 				5079A5222371515000CF68A9 /* DataShowViewController.swift */,
 				5079A56523793FD500CF68A9 /* TripShowTableViewCell.swift */,
 				5079A5672379403B00CF68A9 /* TripShowViewController.swift */,
+				5079A59E237E6A7600CF68A9 /* TransportDataViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -245,6 +251,7 @@
 		65B551BECA942260508B91B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5079A5A0237E90C900CF68A9 /* CloudKit.framework */,
 				DAD65566A8245E7A4A3289A3 /* Pods_BussMeStoryboard.framework */,
 				7A52C92A51075A0C4EB42CA5 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework */,
 				C3693E2F672A0A979AB1B0EB /* Pods_BussMeStoryboardTests.framework */,
@@ -527,6 +534,7 @@
 				50E9D0FC2355C25A000042BC /* SceneDelegate.swift in Sources */,
 				5079A59D237D098500CF68A9 /* MyTripsViewController.swift in Sources */,
 				6337DD102360508500D71441 /* HomeViewController.swift in Sources */,
+				5079A59F237E6A7600CF68A9 /* TransportDataViewController.swift in Sources */,
 				5079A572237A91C200CF68A9 /* NavDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
