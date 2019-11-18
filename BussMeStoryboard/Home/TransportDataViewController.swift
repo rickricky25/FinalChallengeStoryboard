@@ -23,50 +23,90 @@ class TransportDataViewController: UIViewController {
         let publicDatabase = container.publicCloudDatabase
         
         let predicate = NSPredicate(value: true)
-        let query = CKQuery(recordType: "DataGathering", predicate: predicate)
-        query.sortDescriptors = [NSSortDescriptor(key: "modificationDate", ascending: false)]
-        
-        let queryStop = CKQuery(recordType: "DataStop", predicate: predicate)
+        let query = CKQuery(recordType: "DataScheduleList", predicate: predicate)
         
         publicDatabase.perform(query, inZoneWith: .default) { (result, error) in
-            self.arrResult = result!
-            publicDatabase.perform(queryStop, inZoneWith: .default) { (result, error) in
-                self.arrStop = result!
-                var tujuan = ""
-                for i in 0...self.arrResult.count - 1 {
-                    if i % 2 == 0 {
-                        tujuan = self.getNearestStop(currLat: self.arrResult[i]["latitude"]!, currLong: self.arrResult[i]["longitude"]!)
-                    } else {
-                        let sumber = self.getNearestStop(currLat: self.arrResult[i]["latitude"]!, currLong: self.arrResult[i]["longitude"]!)
-                        
-                        let newTripRecord = CKRecord(recordType: "DataTrip")
-                        
-                        // Insert Trip Record
-                        newTripRecord["durasi"] = "\(self.countDuration(firstTime: self.arrResult[i]["time"] as! String, secondTime: self.arrResult[i - 1]["time"] as! String))"
-                        // Counting which trip it is
-                        newTripRecord["idTrip"] = "\((i - 1) / 2 + 1)"
-                        if self.arrResult[i]["senderID"] as! String == self.arrResult[i-1]["senderID"] as! String {
-                            newTripRecord["idUser"] = self.arrResult[i]["senderID"] as! String
-                        } else {
-                            newTripRecord["idUser"] = "Unknown"
+            for i in 0...result!.count - 1 {
+                let arah = result![i]["arah"]
+                let kodeBus = result![i]["kodeBus"] as! String
+                let kodeRute = result![i]["kodeRute"]
+                let arrNamaStop = result![i]["namaStop"] as? [String]
+                let arrWaktu = result![i]["waktu"] as? [String]
+                
+                for j in 1...11 {
+                    if kodeBus == "11" || kodeBus == "12" {
+                        var arrWaktuBaru = arrWaktu!
+                        for k in 0...7 {
+                            let arrHnM = arrWaktuBaru[k].components(separatedBy: ":")
+                            let hBaru = Int(arrHnM[0])! + j
+                            let menit = Int(arrHnM[1])!
+                            if menit < 10 {
+                                arrWaktuBaru[k] = "\(hBaru):0\(menit)"
+                            } else {
+                                arrWaktuBaru[k] = "\(hBaru):\(menit)"
+                            }
                         }
-                        newTripRecord["kodeKendaraan"] = "BSDLink"
-                        newTripRecord["kodeRute"] = "BRE"
-                        newTripRecord["sumber"] = sumber
-                        newTripRecord["tujuan"] = tujuan
-                        newTripRecord["waktu"] = self.arrResult[i]["time"]
+                        let newRecord = CKRecord(recordType: "DataScheduleList")
+                        newRecord["arah"] = arah
+                        newRecord["kodebus"] = kodeBus
+                        newRecord["kodeRute"] = kodeRute
+                        newRecord["namaStop"] = arrNamaStop
+                        newRecord["waktu"] = arrWaktuBaru
                         
-//                        let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
-//                        let publicDatabase = container.publicCloudDatabase
-                        
-                        let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
-                        let publicDatabase = container.publicCloudDatabase
-                        
-                        publicDatabase.save(newTripRecord) { (record, error) in
+                        publicDatabase.save(newRecord) { (record, error) in
                             print(error as Any)
+                        }
+                    } else if kodeBus == "13" {
+                        if j < 10 {
+                            var arrWaktuBaru = arrWaktu!
+                            for k in 0...7 {
+                                let arrHnM = arrWaktuBaru[k].components(separatedBy: ":")
+                                let hBaru = Int(arrHnM[0])! + j
+                                let menit = Int(arrHnM[1])!
+                                if menit < 10 {
+                                    arrWaktuBaru[k] = "\(hBaru):0\(menit)"
+                                } else {
+                                    arrWaktuBaru[k] = "\(hBaru):\(menit)"
+                                }
+                            }
+                            let newRecord = CKRecord(recordType: "DataScheduleList")
+                            newRecord["arah"] = arah
+                            newRecord["kodebus"] = kodeBus
+                            newRecord["kodeRute"] = kodeRute
+                            newRecord["namaStop"] = arrNamaStop
+                            newRecord["waktu"] = arrWaktuBaru
+                            
+                            publicDatabase.save(newRecord) { (record, error) in
+                                print(error as Any)
+                            }
+                        }
+                    } else if kodeBus == "14" {
+                        if j < 9 {
+                            var arrWaktuBaru = arrWaktu!
+                            for k in 0...7 {
+                                let arrHnM = arrWaktuBaru[k].components(separatedBy: ":")
+                                let hBaru = Int(arrHnM[0])! + j
+                                let menit = Int(arrHnM[1])!
+                                if menit < 10 {
+                                    arrWaktuBaru[k] = "\(hBaru):0\(menit)"
+                                } else {
+                                    arrWaktuBaru[k] = "\(hBaru):\(menit)"
+                                }
+                            }
+                            let newRecord = CKRecord(recordType: "DataScheduleList")
+                            newRecord["arah"] = arah
+                            newRecord["kodeBus"] = kodeBus
+                            newRecord["kodeRute"] = kodeRute
+                            newRecord["namaStop"] = arrNamaStop
+                            newRecord["waktu"] = arrWaktuBaru
+                            
+                            publicDatabase.save(newRecord) { (record, error) in
+                                print(error as Any)
+                            }
                         }
                     }
                 }
+
             }
         }
         

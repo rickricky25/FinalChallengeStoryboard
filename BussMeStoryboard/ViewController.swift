@@ -61,7 +61,7 @@ class ViewController: UIViewController, GMSMapViewDelegate {
             }
             guard let unwrappedData = data else { return }
             do{
-                let str = String(decoding: unwrappedData, as: UTF8.self)
+//                let str = String(decoding: unwrappedData, as: UTF8.self)
 
                 let json = try JSONSerialization.jsonObject(with: unwrappedData, options: []) as! [String:Any]
                 let routes = json["routes"] as! [Any]
@@ -75,30 +75,6 @@ class ViewController: UIViewController, GMSMapViewDelegate {
             }catch{
                 print(error)
             }
-
-//            guard let jsonResult = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any], let jsonResponse = jsonResult else {
-//                print("error in JSONSerialization")
-//                return
-//            }
-//
-//            guard let routes = jsonResponse["routes"] as? [Any] else {
-//                return
-//            }
-//
-//            guard let route = routes[0] as? [String: Any] else {
-//                return
-//            }
-//
-//            guard let overview_polyline = route["overview_polyline"] as? [String: Any] else {
-//                return
-//            }
-//
-//            guard let polyLineString = overview_polyline["points"] as? String else {
-//                return
-//            }
-//
-//            //Call this method to draw path on map
-//            self.drawPath(from: polyLineString)
         })
         task.resume()
     }
