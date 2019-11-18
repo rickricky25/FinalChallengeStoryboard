@@ -15,11 +15,5 @@ class CommuteModalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
     }
-
-
-    
-
 }

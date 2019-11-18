@@ -15,11 +15,6 @@ import CloudKit
 class CommuteViewController: UIViewController {
     @IBOutlet var mainView: UIView!
     
-//    **** .xib View Commuter
-    @IBOutlet weak var contentArea: UIView!
-    @IBOutlet weak var handlerArea: UIView!
-//    ************
-    
     enum CardState {
         case expanded
         case collapsed
@@ -48,9 +43,6 @@ class CommuteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //Card View
-        style()
         //Getting Permission for Maps
         locManager.requestWhenInUseAuthorization()
         locManager.delegate = self
@@ -108,12 +100,6 @@ class CommuteViewController: UIViewController {
         setupCard()
     }
     
-    //Function Style for Card View
-    func style(){
-//        contentArea.layer.cornerRadius = 1
-//        contentArea.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-    }
-    
     //Function to get Current Location
     func getCurrentLatLong() -> (Double, Double) {
         var currentLocation: CLLocation!
@@ -128,6 +114,7 @@ class CommuteViewController: UIViewController {
         return (currLat, currLong)
     }
     
+//    **** MODAL FUNCTION ****
     func setupCard() {
         visualEffectView = UIVisualEffectView()
         visualEffectView.frame = self.view.frame

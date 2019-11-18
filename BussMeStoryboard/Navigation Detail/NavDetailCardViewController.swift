@@ -1,33 +1,24 @@
 //
-//  CommuteTripsViewController.swift
+//  NavDetailCardViewController.swift
 //  BussMeStoryboard
 //
-//  Created by Kevin Susanto on 15/11/19.
+//  Created by Kevin Susanto on 18/11/19.
 //  Copyright © 2019 Ricky Effendi. All rights reserved.
 //
 
 import UIKit
 
-class CommuteTripsViewController: UIViewController {
+class NavDetailCardViewController: UIViewController {
     
-//    **** .xib View Commuter
-    @IBOutlet weak var handlerArea: UIView!
+    @IBOutlet weak var handleArea: UIView!
     @IBOutlet weak var contentArea: UIView!
     
-//    ************
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        style()
-        
+
         // Do any additional setup after loading the view.
     }
-    
-    func style(){
-        contentArea.layer.cornerRadius = 1
-        contentArea.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-    }
-    
+
 
     /*
     // MARK: - Navigation
