@@ -16,6 +16,26 @@ class NavDetailViewController: UIViewController {
     
     @IBOutlet var mainView: UIView!
     
+//    *** MODAL ***
+    enum CardState {
+        case expanded
+        case collapsed
+    }
+    
+    var navDetailCardViewController: NavDetailCardViewController!
+    var visualEffectView: UIVisualEffectView!
+    let cardHeight: CGFloat = 500
+    let cardHandleAreaH: CGFloat = 250
+    var cardVisible = false
+    
+    var nextState:CardState {
+        return cardVisible ? .collapsed : .expanded
+    }
+    
+    var runningAnimations = [UIViewPropertyAnimator]()
+    var animationProgressInterrupted = 0
+//    *******
+    
     var mapView: GMSMapView!
     var locManager = CLLocationManager()
     var currMarker: GMSMarker!
@@ -83,6 +103,7 @@ class NavDetailViewController: UIViewController {
         }
         
         self.mainView.addSubview(mapView)
+        setupCard()
     }
     
     // Function to get Current Location
@@ -179,6 +200,112 @@ class NavDetailViewController: UIViewController {
         }
     }*/
 
+//    **** MODAL FUNCTION ****
+    func setupCard() {
+        visualEffectView = UIVisualEffectView()
+        visualEffectView.frame = self.view.frame
+        self.view.addSubview(visualEffectView)
+        
+        navDetailCardViewController = NavDetailCardViewController(nibName: "NavDetailCardViewController", bundle: nil)
+        self.addChild(navDetailCardViewController)
+        self.view.addSubview(navDetailCardViewController.view)
+        
+        navDetailCardViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - cardHandleAreaH, width: self.view.bounds.width, height: cardHeight)
+        
+        navDetailCardViewController.view.clipsToBounds = true
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(NavDetailViewController.handleCardTap(recognizer:)))
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(NavDetailViewController.handleCardPan(recognizer:)))
+        
+        navDetailCardViewController.handleArea.addGestureRecognizer(tapGestureRecognizer)
+        navDetailCardViewController.handleArea.addGestureRecognizer(panGestureRecognizer)
+        
+    }
+
+    @objc
+    func handleCardTap(recognizer:UITapGestureRecognizer) {
+        switch recognizer.state {
+        case .ended:
+            animateTransitionIfNeeded(state: nextState, duration: 0.65)
+        default:
+            break
+        }
+        
+    }
+    @objc
+    func handleCardPan (recognizer:UIPanGestureRecognizer) {
+        switch recognizer.state {
+        case .began:
+            startInteractiveTransition(state: nextState, duration: 0.35)
+        case .changed:
+            let translation = recognizer.translation(in: self.navDetailCardViewController.handleArea)
+            var fractionComplete = translation.y / cardHeight
+            fractionComplete = cardVisible ? fractionComplete : -fractionComplete
+            updateInteractiveTransition(fractionCompleted: fractionComplete)
+        case .ended:
+            continueInteractiveTransition()
+        default:
+            break
+        }
+    }
+    
+    func animateTransitionIfNeeded (state:CardState, duration:TimeInterval) {
+        if runningAnimations.isEmpty {
+            let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 5) {
+                switch state {
+                case .expanded:
+                    self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height - self.cardHeight
+                case .collapsed:
+                    self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height - self.cardHandleAreaH
+                }
+            }
+            
+            frameAnimator.addCompletion { _ in
+                self.cardVisible = !self.cardVisible
+                self.runningAnimations.removeAll()
+            }
+            
+            frameAnimator.startAnimation()
+            runningAnimations.append(frameAnimator)
+            
+            
+            let cornerRadiusAnimator = UIViewPropertyAnimator(duration: 0.5, curve: .linear) {
+                switch state {
+                case .expanded:
+                    self.navDetailCardViewController.view.layer.cornerRadius = 25
+                case .collapsed:
+                    self.navDetailCardViewController.view.layer.cornerRadius = 0
+                }
+            }
+            
+            cornerRadiusAnimator.startAnimation()
+            runningAnimations.append(cornerRadiusAnimator)
+            
+        }
+    }
+    
+    func startInteractiveTransition(state:CardState, duration:TimeInterval) {
+        if runningAnimations.isEmpty {
+            animateTransitionIfNeeded(state: state, duration: duration)
+        }
+        for animator in runningAnimations {
+            animator.pauseAnimation()
+            animationProgressInterrupted = Int(animator.fractionComplete)
+        }
+    }
+    
+    func updateInteractiveTransition(fractionCompleted:CGFloat) {
+        for animator in runningAnimations {
+            animator.fractionComplete = fractionCompleted + CGFloat(animationProgressInterrupted)
+        }
+    }
+    
+    func continueInteractiveTransition (){
+        for animator in runningAnimations {
+            animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+        }
+    }
+//    ***********
 }
 
 extension NavDetailViewController: CLLocationManagerDelegate {

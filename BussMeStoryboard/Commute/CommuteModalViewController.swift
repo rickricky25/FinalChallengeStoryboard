@@ -8,12 +8,45 @@
 
 import UIKit
 
+var arah: String?
+var rute: String?
+
 class CommuteModalViewController: UIViewController {
 
     @IBOutlet var handleArea: UIView!
     @IBOutlet var contentArea: UIView!
+    @IBOutlet weak var BreezeIceView: UIView!
+    @IBOutlet weak var IceBreezeView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tapBreeze = UITapGestureRecognizer(target: self, action: #selector(self.handleTapBreeze(_:)))
+        let tapIce = UITapGestureRecognizer(target: self, action: #selector(handleTapIce(_:)))
+        
+        BreezeIceView.layer.cornerRadius = 10
+        IceBreezeView.layer.cornerRadius = 10
+        
+        BreezeIceView.addGestureRecognizer(tapBreeze)
+        IceBreezeView.addGestureRecognizer(tapIce)
+        
+        BreezeIceView.isUserInteractionEnabled = true
+        IceBreezeView.isUserInteractionEnabled = true
+    }
+    
+    @objc func handleTapBreeze(_ sender: UITapGestureRecognizer) {
+        let nextStoryboard = UIStoryboard(name: "NavDetailStoryboard", bundle: nil)
+        let nextVC = nextStoryboard.instantiateViewController(identifier: "NavDetailStoryboard") as NavDetailViewController
+        present(nextVC, animated: true, completion: nil)
+        arah = "BRE"
+        rute = "pergi"
+    }
+    
+    @objc func handleTapIce(_ sender: UITapGestureRecognizer) {
+        let nextStoryboard = UIStoryboard(name: "NavDetailStoryboard", bundle: nil)
+        let nextVC = nextStoryboard.instantiateViewController(identifier: "NavDetailStoryboard") as NavDetailViewController
+        present(nextVC, animated: true, completion: nil)
+        arah = "BRE"
+        rute = "pulang"
     }
 }
