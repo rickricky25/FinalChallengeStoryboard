@@ -82,7 +82,7 @@
 		5079A59E237E6A7600CF68A9 /* TransportDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportDataViewController.swift; sourceTree = "<group>"; };
 		5079A5A0237E90C900CF68A9 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		509558CF23700513008E7EED /* DataGatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGatherViewController.swift; sourceTree = "<group>"; };
-		50E9D0F62355C25A000042BC /* BussMeStoryboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BussMeStoryboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		50E9D0F62355C25A000042BC /* FellowCity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FellowCity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50E9D0F92355C25A000042BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50E9D0FB2355C25A000042BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		50E9D0FD2355C25A000042BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -193,7 +193,7 @@
 		50E9D0F72355C25A000042BC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				50E9D0F62355C25A000042BC /* BussMeStoryboard.app */,
+				50E9D0F62355C25A000042BC /* FellowCity.app */,
 				50E9D10F2355C25C000042BC /* BussMeStoryboardTests.xctest */,
 				50E9D11A2355C25C000042BC /* BussMeStoryboardUITests.xctest */,
 			);
@@ -309,7 +309,7 @@
 			);
 			name = BussMeStoryboard;
 			productName = BussMeStoryboard;
-			productReference = 50E9D0F62355C25A000042BC /* BussMeStoryboard.app */;
+			productReference = 50E9D0F62355C25A000042BC /* FellowCity.app */;
 			productType = "com.apple.product-type.application";
 		};
 		50E9D10E2355C25C000042BC /* BussMeStoryboardTests */ = {
@@ -757,9 +757,9 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.rickyeffendi.BussMeStoryboard;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FellowCity;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -778,9 +778,9 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.rickyeffendi.BussMeStoryboard;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FellowCity;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

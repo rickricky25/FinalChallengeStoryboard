@@ -124,10 +124,10 @@ class CommuteViewController: UIViewController {
         self.addChild(commuteModalViewController)
         self.view.addSubview(commuteModalViewController.view)
         
-        commuteModalViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - cardHandleAreaH, width: self.view.bounds.width, height: cardHeight)
+        commuteModalViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - cardHandleAreaH - 20, width: self.view.bounds.width, height: cardHeight)
         
         commuteModalViewController.view.clipsToBounds = true
-        
+                
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CommuteViewController.handleCardTap(recognizer:)))
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(CommuteViewController.handleCardPan(recognizer:)))
         
@@ -170,7 +170,7 @@ class CommuteViewController: UIViewController {
                 case .expanded:
                     self.commuteModalViewController.view.frame.origin.y = self.view.frame.height - self.cardHeight
                 case .collapsed:
-                    self.commuteModalViewController.view.frame.origin.y = self.view.frame.height - self.cardHandleAreaH
+                    self.commuteModalViewController.view.frame.origin.y = self.view.frame.height - self.cardHandleAreaH - 20
                 }
             }
             
