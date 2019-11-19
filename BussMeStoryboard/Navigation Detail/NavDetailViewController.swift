@@ -24,7 +24,7 @@ class NavDetailViewController: UIViewController {
     
     var navDetailCardViewController: NavDetailCardViewController!
     var visualEffectView: UIVisualEffectView!
-    let cardHeight: CGFloat = 500
+    let cardHeight: CGFloat = 800
     let cardHandleAreaH: CGFloat = 250
     var cardVisible = false
     
@@ -254,7 +254,7 @@ class NavDetailViewController: UIViewController {
             let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 5) {
                 switch state {
                 case .expanded:
-                    self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height - self.cardHeight
+                    self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height - self.cardHeight + 60
                 case .collapsed:
                     self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height - self.cardHandleAreaH
                 }

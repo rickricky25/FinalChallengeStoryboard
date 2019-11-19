@@ -37,16 +37,16 @@ class CommuteModalViewController: UIViewController {
     @objc func handleTapBreeze(_ sender: UITapGestureRecognizer) {
         let nextStoryboard = UIStoryboard(name: "NavDetailStoryboard", bundle: nil)
         let nextVC = nextStoryboard.instantiateViewController(identifier: "NavDetailStoryboard") as NavDetailViewController
+        arah = "pergi"
+        rute = "BRE"
         present(nextVC, animated: true, completion: nil)
-        arah = "BRE"
-        rute = "pergi"
     }
     
     @objc func handleTapIce(_ sender: UITapGestureRecognizer) {
         let nextStoryboard = UIStoryboard(name: "NavDetailStoryboard", bundle: nil)
         let nextVC = nextStoryboard.instantiateViewController(identifier: "NavDetailStoryboard") as NavDetailViewController
+        arah = "pulang"
+        rute = "BRE"
         present(nextVC, animated: true, completion: nil)
-        arah = "BRE"
-        rute = "pulang"
     }
 }
