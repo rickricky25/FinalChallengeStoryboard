@@ -78,14 +78,14 @@ class CommuteViewController: UIViewController {
                         self.nearestDist = GMSGeometryDistance(stopLoc, currLoc)
                         self.nearestStop = hasil![i]["namaStop"]
                         self.nearestLoc = stopLoc
-                        print(self.nearestStop)
+                        print(self.nearestStop ?? "Unknown")
                     } else {
                         let distance = GMSGeometryDistance(stopLoc, currLoc)
                         if distance < self.nearestDist {
                             self.nearestLoc = stopLoc
                             self.nearestStop = hasil![i]["namaStop"]
                             self.nearestDist = distance
-                            print(self.nearestStop)
+                            print(self.nearestStop ?? "Unknown")
                         }
                     }
                     

@@ -13,6 +13,7 @@
                 <outlet property="IceBreezeView" destination="bW9-ci-0XW" id="HnU-yM-1RS"/>
                 <outlet property="contentArea" destination="ylL-kh-tHM" id="vKS-V9-Ubr"/>
                 <outlet property="handleArea" destination="L4L-X1-Xcr" id="eGl-nk-J1D"/>
+                <outlet property="lblNearestStop" destination="cpf-l5-UFK" id="zob-dd-wji"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
