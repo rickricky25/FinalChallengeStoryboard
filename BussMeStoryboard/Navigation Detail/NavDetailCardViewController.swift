@@ -14,6 +14,7 @@ class NavDetailCardViewController: UIViewController {
     @IBOutlet weak var handleArea: UIView!
     @IBOutlet weak var contentArea: UIView!
     @IBOutlet weak var kodeRuteView: UIView!
+    @IBOutlet var listRuteView: UIView!
     @IBOutlet weak var arahSegmentedControl: UISegmentedControl!
     @IBOutlet weak var kodeRute: UILabel!
     @IBOutlet weak var lblStop1: UILabel!
@@ -33,7 +34,13 @@ class NavDetailCardViewController: UIViewController {
         
         var resultRoute: [CKRecord] = []
 
-        kodeRuteView.layer.cornerRadius = 10
+        kodeRuteView.layer.cornerRadius = 15
+        listRuteView.layer.cornerRadius = 15
+        
+        contentArea.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        contentArea.layer.shadowOpacity = 0.1
+        contentArea.layer.shadowRadius = 15
+        contentArea.layer.cornerRadius = 25
         
         let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
         let predicate = NSPredicate(format: "kodeRute == %@", "BRE")
