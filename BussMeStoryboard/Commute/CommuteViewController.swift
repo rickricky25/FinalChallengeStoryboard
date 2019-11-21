@@ -97,7 +97,9 @@ class CommuteViewController: UIViewController {
         }
         
          self.mainView.addSubview(mapView)
+
         setupCard()
+        
     }
     
     //Function to get Current Location
@@ -118,6 +120,7 @@ class CommuteViewController: UIViewController {
     func setupCard() {
         visualEffectView = UIVisualEffectView()
         visualEffectView.frame = self.view.frame
+        
         self.view.addSubview(visualEffectView)
         
         commuteModalViewController = CommuteModalViewController(nibName: "CommuteModalViewController", bundle:nil)
