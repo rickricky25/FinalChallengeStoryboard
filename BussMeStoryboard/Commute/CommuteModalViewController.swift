@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 var arah: String?
 var rute: String?
 
@@ -24,9 +25,9 @@ class CommuteModalViewController: UIViewController {
         let tapBreeze = UITapGestureRecognizer(target: self, action: #selector(self.handleTapBreeze(_:)))
         let tapIce = UITapGestureRecognizer(target: self, action: #selector(handleTapIce(_:)))
         
-        BreezeIceView.layer.cornerRadius = 10
-        IceBreezeView.layer.cornerRadius = 10
-        
+        BreezeIceView.layer.cornerRadius = 15
+        IceBreezeView.layer.cornerRadius = 15
+        //shadow for modal
         contentArea.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         contentArea.layer.shadowOpacity = 0.1
         contentArea.layer.shadowRadius = 15
