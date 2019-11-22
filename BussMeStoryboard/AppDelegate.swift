@@ -80,6 +80,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    //tempat reni ngoding
 
 }
 
