@@ -59,7 +59,7 @@ class NavDetailViewController: UIViewController {
         
         currMarker.map = mapView
         
-        let routePredicate = NSPredicate(format: "arah == %@ AND kodeRute == %@", "pergi", "BRE")
+        let routePredicate = NSPredicate(format: "arah == %@ AND kodeRute == %@", arah!, rute!)
         let query = CKQuery(recordType: "DataRoute", predicate: routePredicate)
         let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
         let publicDatabase = container.publicCloudDatabase
@@ -73,7 +73,7 @@ class NavDetailViewController: UIViewController {
 
                 for i in 0...resStop!.count - 2 {
                     if found == false {
-                        if resStop![i] == "The Breeze" {
+                        if resStop![i] == stop! {
                             print(resStop![i])
                             found = true
                             let firstLoc = CLLocationCoordinate2D(latitude: resLat![i], longitude: resLong![i])
