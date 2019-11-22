@@ -1,14 +1,14 @@
 //
-//  ImInViewController.swift
+//  CommuteNaikModalViewController.swift
 //  BussMeStoryboard
 //
-//  Created by Mulyanti Law on 23/10/19.
+//  Created by Kevin Susanto on 22/11/19.
 //  Copyright © 2019 Ricky Effendi. All rights reserved.
 //
 
 import UIKit
 
-class ImInViewController: UIViewController {
+class CommuteNaikModalViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
