@@ -38,6 +38,8 @@
 		50E9D3B9235EEB00000042BC /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		511DE493237BF6A000058BFD /* CommuteModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511DE491237BF6A000058BFD /* CommuteModalViewController.swift */; };
 		511DE494237BF6A000058BFD /* CommuteModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 511DE492237BF6A000058BFD /* CommuteModalViewController.xib */; };
+		512DB0D62387C9DF000A2558 /* MyTripsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 512DB0D52387C9DF000A2558 /* MyTripsStoryboard.storyboard */; };
+		512DB0D82387CA1D000A2558 /* MyTripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512DB0D72387CA1D000A2558 /* MyTripsViewController.swift */; };
 		58ABD31DA095508EC28636D4 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A52C92A51075A0C4EB42CA5 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework */; };
 		6337DD0A235EF83B00D71441 /* imInStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6337DD09235EF83B00D71441 /* imInStoryboard.storyboard */; };
 		6337DD0C235F35FF00D71441 /* homeCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6337DD0B235F35FF00D71441 /* homeCardView.xib */; };
@@ -104,6 +106,8 @@
 		50E9D3B12359B352000042BC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		511DE491237BF6A000058BFD /* CommuteModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteModalViewController.swift; sourceTree = "<group>"; };
 		511DE492237BF6A000058BFD /* CommuteModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommuteModalViewController.xib; sourceTree = "<group>"; };
+		512DB0D52387C9DF000A2558 /* MyTripsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyTripsStoryboard.storyboard; sourceTree = "<group>"; };
+		512DB0D72387CA1D000A2558 /* MyTripsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTripsViewController.swift; sourceTree = "<group>"; };
 		6337DD09235EF83B00D71441 /* imInStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = imInStoryboard.storyboard; sourceTree = "<group>"; };
 		6337DD0B235F35FF00D71441 /* homeCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = homeCardView.xib; sourceTree = "<group>"; };
 		6337DD0D2360504B00D71441 /* imInCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = imInCardView.xib; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 				5079A56E237A915D00CF68A9 /* Navigation Detail */,
 				5079A5692379507D00CF68A9 /* Commute */,
 				6337DD08235EF7C900D71441 /* Im In */,
+				512DB0D42387C7AC000A2558 /* My Trips */,
 				63B43F9623585BBF00131562 /* Home */,
 				50E9D0F92355C25A000042BC /* AppDelegate.swift */,
 				50E9D0FB2355C25A000042BC /* SceneDelegate.swift */,
@@ -241,6 +246,15 @@
 				50E9D1202355C25C000042BC /* Info.plist */,
 			);
 			path = BussMeStoryboardUITests;
+			sourceTree = "<group>";
+		};
+		512DB0D42387C7AC000A2558 /* My Trips */ = {
+			isa = PBXGroup;
+			children = (
+				512DB0D52387C9DF000A2558 /* MyTripsStoryboard.storyboard */,
+				512DB0D72387CA1D000A2558 /* MyTripsViewController.swift */,
+			);
+			path = "My Trips";
 			sourceTree = "<group>";
 		};
 		6337DD08235EF7C900D71441 /* Im In */ = {
@@ -407,6 +421,7 @@
 			files = (
 				50E9D1092355C25C000042BC /* LaunchScreen.storyboard in Resources */,
 				006027A6237BFFB700F92D90 /* popUpTurun.storyboard in Resources */,
+				512DB0D62387C9DF000A2558 /* MyTripsStoryboard.storyboard in Resources */,
 				006027AC2385091700F92D90 /* ReminderViewController.xib in Resources */,
 				6337DD0A235EF83B00D71441 /* imInStoryboard.storyboard in Resources */,
 				6337DD0E2360504B00D71441 /* imInCardView.xib in Resources */,
@@ -564,6 +579,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50E9D3B22359B352000042BC /* Model.swift in Sources */,
+				512DB0D82387CA1D000A2558 /* MyTripsViewController.swift in Sources */,
 				50E9D0FE2355C25A000042BC /* ViewController.swift in Sources */,
 				511DE493237BF6A000058BFD /* CommuteModalViewController.swift in Sources */,
 				5079A5682379403B00CF68A9 /* TripShowViewController.swift in Sources */,

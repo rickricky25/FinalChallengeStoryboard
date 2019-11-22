@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "busCodeBreeze.png",
+      "filename" : "destination.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "busCodeDark.png",
+      "filename" : "destinationDark.png",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -18,12 +18,12 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "busCodeBreeze@2x.png",
+      "filename" : "destination@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "busCodeDark@2x.png",
+      "filename" : "destinationDark@2x.png",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -34,12 +34,12 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "busCodeBreeze@3x.png",
+      "filename" : "destination@3x.png",
       "scale" : "3x"
     },
     {
       "idiom" : "universal",
-      "filename" : "busCodeDark@3x.png",
+      "filename" : "destinationDark@3x.png",
       "appearances" : [
         {
           "appearance" : "luminosity",
