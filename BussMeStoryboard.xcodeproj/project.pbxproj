@@ -30,8 +30,9 @@
 		5114B3802387B63D00E49B4D /* CommuteNaikModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5114B37E2387B63D00E49B4D /* CommuteNaikModalViewController.xib */; };
 		511DE493237BF6A000058BFD /* CommuteModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511DE491237BF6A000058BFD /* CommuteModalViewController.swift */; };
 		511DE494237BF6A000058BFD /* CommuteModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 511DE492237BF6A000058BFD /* CommuteModalViewController.xib */; };
+		512DB0D32387BC40000A2558 /* CommuteNaikViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512DB0D22387BC40000A2558 /* CommuteNaikViewController.swift */; };
 		58ABD31DA095508EC28636D4 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A52C92A51075A0C4EB42CA5 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework */; };
-		6337DD0A235EF83B00D71441 /* imInStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6337DD09235EF83B00D71441 /* imInStoryboard.storyboard */; };
+		6337DD0A235EF83B00D71441 /* CommuteNaikStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6337DD09235EF83B00D71441 /* CommuteNaikStoryboard.storyboard */; };
 		BF646D1CAB005371A2FE3DCC /* Pods_BussMeStoryboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3693E2F672A0A979AB1B0EB /* Pods_BussMeStoryboardTests.framework */; };
 		D55218E041A4BF7F6765A4BF /* Pods_BussMeStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD65566A8245E7A4A3289A3 /* Pods_BussMeStoryboard.framework */; };
 /* End PBXBuildFile section */
@@ -83,7 +84,8 @@
 		5114B37E2387B63D00E49B4D /* CommuteNaikModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommuteNaikModalViewController.xib; sourceTree = "<group>"; };
 		511DE491237BF6A000058BFD /* CommuteModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteModalViewController.swift; sourceTree = "<group>"; };
 		511DE492237BF6A000058BFD /* CommuteModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommuteModalViewController.xib; sourceTree = "<group>"; };
-		6337DD09235EF83B00D71441 /* imInStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = imInStoryboard.storyboard; sourceTree = "<group>"; };
+		512DB0D22387BC40000A2558 /* CommuteNaikViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteNaikViewController.swift; sourceTree = "<group>"; };
+		6337DD09235EF83B00D71441 /* CommuteNaikStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommuteNaikStoryboard.storyboard; sourceTree = "<group>"; };
 		7A52C92A51075A0C4EB42CA5 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BussMeStoryboard_BussMeStoryboardUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		888D1D867A4F3AE799093AA1 /* Pods-BussMeStoryboardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboardTests.debug.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboardTests/Pods-BussMeStoryboardTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B377B4D3DD6CC06E095AAC74 /* Pods-BussMeStoryboard-BussMeStoryboardUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboard-BussMeStoryboardUITests.debug.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboard-BussMeStoryboardUITests/Pods-BussMeStoryboard-BussMeStoryboardUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -217,7 +219,8 @@
 		6337DD08235EF7C900D71441 /* Im In */ = {
 			isa = PBXGroup;
 			children = (
-				6337DD09235EF83B00D71441 /* imInStoryboard.storyboard */,
+				6337DD09235EF83B00D71441 /* CommuteNaikStoryboard.storyboard */,
+				512DB0D22387BC40000A2558 /* CommuteNaikViewController.swift */,
 				5114B37D2387B63D00E49B4D /* CommuteNaikModalViewController.swift */,
 				5114B37E2387B63D00E49B4D /* CommuteNaikModalViewController.xib */,
 			);
@@ -360,7 +363,7 @@
 			files = (
 				50E9D1092355C25C000042BC /* LaunchScreen.storyboard in Resources */,
 				006027A6237BFFB700F92D90 /* popUpTurun.storyboard in Resources */,
-				6337DD0A235EF83B00D71441 /* imInStoryboard.storyboard in Resources */,
+				6337DD0A235EF83B00D71441 /* CommuteNaikStoryboard.storyboard in Resources */,
 				49D341592382A1A7008DF83A /* NavDetailCardViewController.xib in Resources */,
 				5114B3802387B63D00E49B4D /* CommuteNaikModalViewController.xib in Resources */,
 				006027A2237BFB0500F92D90 /* popUpReminder.storyboard in Resources */,
@@ -517,6 +520,7 @@
 				5114B37F2387B63D00E49B4D /* CommuteNaikModalViewController.swift in Sources */,
 				50E9D1042355C25A000042BC /* BussMeStoryboard.xcdatamodeld in Sources */,
 				5079A56D237950B400CF68A9 /* CommuteViewController.swift in Sources */,
+				512DB0D32387BC40000A2558 /* CommuteNaikViewController.swift in Sources */,
 				50E9D0FA2355C25A000042BC /* AppDelegate.swift in Sources */,
 				50E9D0FC2355C25A000042BC /* SceneDelegate.swift in Sources */,
 				5079A572237A91C200CF68A9 /* NavDetailViewController.swift in Sources */,
