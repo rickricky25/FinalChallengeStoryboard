@@ -282,10 +282,6 @@ class NavDetailCardViewController: UIViewController {
         
         let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
         let publicDatabase = container.publicCloudDatabase
-        
-        publicDatabase.save(newRecord) { (record, error) in
-            print(error as Any)
-        }
 
         getNearestStop(currLat: currLat, currLong: currLong, completion: { (nearestLoc) in
             newRecord["arah"] = arah!
