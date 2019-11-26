@@ -79,26 +79,32 @@ class NavDetailViewController: UIViewController {
                             let firstLoc = CLLocationCoordinate2D(latitude: resLat![i], longitude: resLong![i])
                             let secondLoc = CLLocationCoordinate2D(latitude: resLat![i + 1], longitude: resLong![i + 1])
                             let stopMarker = GMSMarker(position: firstLoc)
-                            stopMarker.title  = resStop![i]
-                            stopMarker.icon = UIImage(named: "halte")
-                            stopMarker.map = self.mapView
-                            self.drawRoute(from: firstLoc, to: secondLoc)
+                            DispatchQueue.main.async {
+                                stopMarker.title  = resStop![i]
+                                stopMarker.icon = UIImage(named: "halte")
+                                stopMarker.map = self.mapView
+                                self.drawRoute(from: firstLoc, to: secondLoc)
+                            }
                         }
                     } else {
                         print(resStop![i])
                         let firstLoc = CLLocationCoordinate2D(latitude: resLat![i], longitude: resLong![i])
                         let secondLoc = CLLocationCoordinate2D(latitude: resLat![i + 1], longitude: resLong![i + 1])
                         let stopMarker = GMSMarker(position: firstLoc)
-                        stopMarker.title  = resStop![i]
-                        stopMarker.icon = UIImage(named: "halte")
-                        stopMarker.map = self.mapView
-                        self.drawRoute(from: firstLoc, to: secondLoc)
+                        DispatchQueue.main.async {
+                            stopMarker.title  = resStop![i]
+                            stopMarker.icon = UIImage(named: "halte")
+                            stopMarker.map = self.mapView
+                            self.drawRoute(from: firstLoc, to: secondLoc)
+                        }
                     }
                 }
                 
-                let stopMarker = GMSMarker(position: CLLocationCoordinate2D(latitude: resLat![resStop!.count - 1], longitude: resLong![resStop!.count - 1]))
-                stopMarker.title = resStop![resStop!.count - 1]
-                stopMarker.map = self.mapView
+                DispatchQueue.main.async {
+                    let stopMarker = GMSMarker(position: CLLocationCoordinate2D(latitude: resLat![resStop!.count - 1], longitude: resLong![resStop!.count - 1]))
+                    stopMarker.title = resStop![resStop!.count - 1]
+                    stopMarker.map = self.mapView
+                }
             }
         }
         
