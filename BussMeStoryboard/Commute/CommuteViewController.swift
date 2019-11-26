@@ -117,10 +117,10 @@ class CommuteViewController: UIViewController {
             
             currMarker.map = mapView
             
-            let predicate = NSPredicate(value: true)
-            let query = CKQuery(recordType: "DataStop", predicate: predicate)
-            let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
-            let publicDatabase = container.publicCloudDatabase
+//            let predicate = NSPredicate(value: true)
+//            let query = CKQuery(recordType: "DataStop", predicate: predicate)
+//            let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
+//            let publicDatabase = container.publicCloudDatabase
             
             self.mainView.addSubview(mapView)
 //            setupCard()
@@ -143,10 +143,10 @@ class CommuteViewController: UIViewController {
     
 //    **** MODAL FUNCTION ****
     func setupCard() {
-        visualEffectView = UIVisualEffectView()
-        visualEffectView.frame = self.view.frame
+//        visualEffectView = UIVisualEffectView()
+//        visualEffectView.frame = self.view.frame
         
-        self.view.addSubview(visualEffectView)
+//        self.view.addSubview(visualEffectView)
         
         commuteModalViewController = CommuteModalViewController(nibName: "CommuteModalViewController", bundle:nil)
         self.addChild(commuteModalViewController)

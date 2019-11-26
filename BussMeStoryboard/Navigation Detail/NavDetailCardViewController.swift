@@ -10,7 +10,7 @@ import UIKit
 import CloudKit
 import GoogleMaps
 
-class NavDetailCardViewController: UIViewController {
+class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var lblStop: UILabel!
     @IBOutlet weak var handleArea: UIView!
@@ -145,6 +145,14 @@ class NavDetailCardViewController: UIViewController {
                 }
             }
         }
+        
+        // GESTURE
+        let edgeContent = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handleEdgePan(_:)))
+        edgeContent.edges = .left
+        edgeContent.delegate = self
+        
+        contentArea.addGestureRecognizer(edgeContent)
+        contentArea.isUserInteractionEnabled = true
     }
     
     func getShortestTime(rute: String, completion: @escaping (_ selisihPergi: Int, _ selisihPulang: Int, _ timesPergi: [String], _ timesPulang: [String]) -> ()) {
@@ -320,12 +328,17 @@ class NavDetailCardViewController: UIViewController {
         return (currLat, currLong)
     }
     
+    @objc func handleEdgePan(_ sender: UIScreenEdgePanGestureRecognizer) {
+        if sender.edges == .left {
+            let prevStoryboard = UIStoryboard(name: "CommuteStoryboard", bundle: nil)
+            let prevVC = prevStoryboard.instantiateViewController(identifier: "CommuteStoryboard") as CommuteViewController
+            present(prevVC, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func btnNaikPressed(_ sender: Any) {
         let newRecord = CKRecord(recordType: "DataCheck")
         let (currLat, currLong) = getCurrentLatLong()
-        
-        let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
-        let publicDatabase = container.publicCloudDatabase
 
         getNearestStop(currLat: currLat, currLong: currLong, completion: { (nearestLoc) in
             newRecord["arah"] = arah!

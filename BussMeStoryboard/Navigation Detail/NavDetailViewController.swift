@@ -209,15 +209,15 @@ class NavDetailViewController: UIViewController {
 
 //    **** MODAL FUNCTION ****
     func setupCard() {
-        visualEffectView = UIVisualEffectView()
-        visualEffectView.frame = self.view.frame
-        self.view.addSubview(visualEffectView)
+//        visualEffectView = UIVisualEffectView()
+//        visualEffectView.frame = self.view.frame
+//        self.view.addSubview(visualEffectView)
         
         navDetailCardViewController = NavDetailCardViewController(nibName: "NavDetailCardViewController", bundle: nil)
         self.addChild(navDetailCardViewController)
         self.view.addSubview(navDetailCardViewController.view)
         
-        navDetailCardViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - 500, width: self.view.bounds.width, height: cardHeight)
+        navDetailCardViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - 415, width: self.view.bounds.width, height: cardHeight)
         
         navDetailCardViewController.view.clipsToBounds = true
         
@@ -261,9 +261,9 @@ class NavDetailViewController: UIViewController {
             let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 5) {
                 switch state {
                 case .expanded:
-                    self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height - self.cardHeight + 60
+                    self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height - self.cardHeight + 35
                 case .collapsed:
-                    self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height - 500
+                    self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height - 415
                 case .hide:
                     self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height - 300
                 }
