@@ -324,6 +324,9 @@ class NavDetailCardViewController: UIViewController {
         let newRecord = CKRecord(recordType: "DataCheck")
         let (currLat, currLong) = getCurrentLatLong()
         
+        let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
+        let publicDatabase = container.publicCloudDatabase
+
         getNearestStop(currLat: currLat, currLong: currLong, completion: { (nearestLoc) in
             newRecord["arah"] = arah!
             newRecord["idUser"] = UIDevice.current.identifierForVendor?.uuidString
