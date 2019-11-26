@@ -20,6 +20,7 @@ class NavDetailViewController: UIViewController {
     enum CardState {
         case expanded
         case collapsed
+        case hide
     }
     
     var navDetailCardViewController: NavDetailCardViewController!
@@ -210,7 +211,7 @@ class NavDetailViewController: UIViewController {
         self.addChild(navDetailCardViewController)
         self.view.addSubview(navDetailCardViewController.view)
         
-        navDetailCardViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - cardHandleAreaH, width: self.view.bounds.width, height: cardHeight)
+        navDetailCardViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - 500, width: self.view.bounds.width, height: cardHeight)
         
         navDetailCardViewController.view.clipsToBounds = true
         
@@ -256,7 +257,9 @@ class NavDetailViewController: UIViewController {
                 case .expanded:
                     self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height - self.cardHeight + 60
                 case .collapsed:
-                    self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height - self.cardHandleAreaH
+                    self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height - 500
+                case .hide:
+                    self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height - 300
                 }
             }
             
@@ -275,6 +278,8 @@ class NavDetailViewController: UIViewController {
                     self.navDetailCardViewController.view.layer.cornerRadius = 25
                 case .collapsed:
                     self.navDetailCardViewController.view.layer.cornerRadius = 0
+                case .hide:
+                    self.navDetailCardViewController.view.layer.cornerRadius = 25
                 }
             }
             

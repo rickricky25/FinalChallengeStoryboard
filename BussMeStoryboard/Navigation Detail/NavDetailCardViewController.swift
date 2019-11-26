@@ -225,7 +225,7 @@ class NavDetailCardViewController: UIViewController {
         return "\(components.hour!):\(components.minute!)"
     }
     
-    func getNearestStop(currLat: CLLocationDegrees, currLong: CLLocationDegrees) -> String {
+    func getNearestStop(currLat: CLLocationDegrees, currLong: CLLocationDegrees, completion: @escaping(_ text: String) -> ()) {
         let currLocation = CLLocationCoordinate2D(latitude: currLat, longitude: currLong)
         let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
         let predicate = NSPredicate(value: true)
@@ -252,9 +252,11 @@ class NavDetailCardViewController: UIViewController {
                         nearestStop = arrStop[i]
                     }
                 }
+                
             }
+            completion(nearestStop)
         }
-        return nearestStop
+//        return nearestStop
     }
     
     func countDistance(firstLoc: CLLocationCoordinate2D, secondLoc: CLLocationCoordinate2D) -> Double {
@@ -277,21 +279,26 @@ class NavDetailCardViewController: UIViewController {
     @IBAction func btnNaikPressed(_ sender: Any) {
         let newRecord = CKRecord(recordType: "DataCheck")
         let (currLat, currLong) = getCurrentLatLong()
-        newRecord["arah"] = arah!
-        newRecord["idUser"] = UIDevice.current.identifierForVendor?.uuidString
-        newRecord["kodeKendaraan"] = kendaraan!
-        newRecord["kodeRute"] = rute!
-        newRecord["lokasi"] = getNearestStop(currLat: currLat, currLong: currLong)
-        newRecord["waktu"] = getCurrTime()
-        
-        let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
-        let publicDatabase = container.publicCloudDatabase
-        
-        
         
         publicDatabase.save(newRecord) { (record, error) in
             print(error as Any)
         }
+
+        getNearestStop(currLat: currLat, currLong: currLong, completion: { (nearestLoc) in
+            newRecord["arah"] = arah!
+            newRecord["idUser"] = UIDevice.current.identifierForVendor?.uuidString
+            newRecord["kodeKendaraan"] = kendaraan!
+            newRecord["kodeRute"] = rute!
+            newRecord["lokasi"] = nearestLoc
+            newRecord["waktu"] = self.getCurrTime()
+            
+            let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
+            let publicDatabase = container.publicCloudDatabase
+            
+            publicDatabase.save(newRecord) { (record, error) in
+                print(error as Any)
+            }
+        })
     }
     
     @IBAction func arahSegmentedControlAction(_ sender: UISegmentedControl) {
