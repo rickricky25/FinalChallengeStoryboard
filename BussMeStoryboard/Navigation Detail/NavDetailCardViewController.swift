@@ -280,6 +280,9 @@ class NavDetailCardViewController: UIViewController {
         let newRecord = CKRecord(recordType: "DataCheck")
         let (currLat, currLong) = getCurrentLatLong()
         
+        let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
+        let publicDatabase = container.publicCloudDatabase
+        
         publicDatabase.save(newRecord) { (record, error) in
             print(error as Any)
         }
