@@ -14,21 +14,13 @@
 		006027AC2385091700F92D90 /* ReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 006027AA2385091700F92D90 /* ReminderViewController.xib */; };
 		49D341582382A1A7008DF83A /* NavDetailCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D341562382A1A7008DF83A /* NavDetailCardViewController.swift */; };
 		49D341592382A1A7008DF83A /* NavDetailCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D341572382A1A7008DF83A /* NavDetailCardViewController.xib */; };
-		5079A521237150C400CF68A9 /* DataShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A520237150C400CF68A9 /* DataShowTableViewCell.swift */; };
-		5079A5232371515000CF68A9 /* DataShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A5222371515000CF68A9 /* DataShowViewController.swift */; };
-		5079A56623793FD500CF68A9 /* TripShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A56523793FD500CF68A9 /* TripShowTableViewCell.swift */; };
-		5079A5682379403B00CF68A9 /* TripShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A5672379403B00CF68A9 /* TripShowViewController.swift */; };
 		5079A56B2379509200CF68A9 /* CommuteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5079A56A2379509200CF68A9 /* CommuteStoryboard.storyboard */; };
 		5079A56D237950B400CF68A9 /* CommuteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A56C237950B400CF68A9 /* CommuteViewController.swift */; };
 		5079A570237A918000CF68A9 /* NavDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5079A56F237A918000CF68A9 /* NavDetailStoryboard.storyboard */; };
 		5079A572237A91C200CF68A9 /* NavDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A571237A91C200CF68A9 /* NavDetailViewController.swift */; };
-		5079A59F237E6A7600CF68A9 /* TransportDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A59E237E6A7600CF68A9 /* TransportDataViewController.swift */; };
 		5079A5A1237E90CA00CF68A9 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5079A5A0237E90C900CF68A9 /* CloudKit.framework */; };
-		509558D023700513008E7EED /* DataGatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509558CF23700513008E7EED /* DataGatherViewController.swift */; };
 		50E9D0FA2355C25A000042BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D0F92355C25A000042BC /* AppDelegate.swift */; };
 		50E9D0FC2355C25A000042BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D0FB2355C25A000042BC /* SceneDelegate.swift */; };
-		50E9D0FE2355C25A000042BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D0FD2355C25A000042BC /* ViewController.swift */; };
-		50E9D1012355C25A000042BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50E9D0FF2355C25A000042BC /* Main.storyboard */; };
 		50E9D1042355C25A000042BC /* BussMeStoryboard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D1022355C25A000042BC /* BussMeStoryboard.xcdatamodeld */; };
 		50E9D1062355C25C000042BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50E9D1052355C25C000042BC /* Assets.xcassets */; };
 		50E9D1092355C25C000042BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50E9D1072355C25C000042BC /* LaunchScreen.storyboard */; };
@@ -39,16 +31,10 @@
 		511DE493237BF6A000058BFD /* CommuteModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511DE491237BF6A000058BFD /* CommuteModalViewController.swift */; };
 		511DE494237BF6A000058BFD /* CommuteModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 511DE492237BF6A000058BFD /* CommuteModalViewController.xib */; };
 		512DB0D62387C9DF000A2558 /* MyTripsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 512DB0D52387C9DF000A2558 /* MyTripsStoryboard.storyboard */; };
-		512DB0D82387CA1D000A2558 /* MyTripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512DB0D72387CA1D000A2558 /* MyTripsViewController.swift */; };
-		512DB0DA2387D2E4000A2558 /* RecentTripsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512DB0D92387D2E4000A2558 /* RecentTripsCollectionViewCell.swift */; };
-		512DB0DC2387D5A2000A2558 /* TripsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512DB0DB2387D5A2000A2558 /* TripsModel.swift */; };
 		58ABD31DA095508EC28636D4 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A52C92A51075A0C4EB42CA5 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework */; };
 		6337DD0A235EF83B00D71441 /* imInStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6337DD09235EF83B00D71441 /* imInStoryboard.storyboard */; };
-		6337DD0C235F35FF00D71441 /* homeCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6337DD0B235F35FF00D71441 /* homeCardView.xib */; };
 		6337DD0E2360504B00D71441 /* imInCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6337DD0D2360504B00D71441 /* imInCardView.xib */; };
-		6337DD102360508500D71441 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6337DD0F2360508500D71441 /* HomeViewController.swift */; };
 		6337DD122360509300D71441 /* ImInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6337DD112360509300D71441 /* ImInViewController.swift */; };
-		63B43F9823585C5700131562 /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63B43F9723585C5700131562 /* HomeStoryboard.storyboard */; };
 		BF646D1CAB005371A2FE3DCC /* Pods_BussMeStoryboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3693E2F672A0A979AB1B0EB /* Pods_BussMeStoryboardTests.framework */; };
 		D55218E041A4BF7F6765A4BF /* Pods_BussMeStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD65566A8245E7A4A3289A3 /* Pods_BussMeStoryboard.framework */; };
 /* End PBXBuildFile section */
@@ -79,22 +65,14 @@
 		2BDBFA39DF23F08F0E43758C /* Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboard-BussMeStoryboardUITests/Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig"; sourceTree = "<group>"; };
 		49D341562382A1A7008DF83A /* NavDetailCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavDetailCardViewController.swift; sourceTree = "<group>"; };
 		49D341572382A1A7008DF83A /* NavDetailCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavDetailCardViewController.xib; sourceTree = "<group>"; };
-		5079A520237150C400CF68A9 /* DataShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataShowTableViewCell.swift; sourceTree = "<group>"; };
-		5079A5222371515000CF68A9 /* DataShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataShowViewController.swift; sourceTree = "<group>"; };
-		5079A56523793FD500CF68A9 /* TripShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripShowTableViewCell.swift; sourceTree = "<group>"; };
-		5079A5672379403B00CF68A9 /* TripShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripShowViewController.swift; sourceTree = "<group>"; };
 		5079A56A2379509200CF68A9 /* CommuteStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommuteStoryboard.storyboard; sourceTree = "<group>"; };
 		5079A56C237950B400CF68A9 /* CommuteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteViewController.swift; sourceTree = "<group>"; };
 		5079A56F237A918000CF68A9 /* NavDetailStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavDetailStoryboard.storyboard; sourceTree = "<group>"; };
 		5079A571237A91C200CF68A9 /* NavDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavDetailViewController.swift; sourceTree = "<group>"; };
-		5079A59E237E6A7600CF68A9 /* TransportDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportDataViewController.swift; sourceTree = "<group>"; };
 		5079A5A0237E90C900CF68A9 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		509558CF23700513008E7EED /* DataGatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGatherViewController.swift; sourceTree = "<group>"; };
 		50E9D0F62355C25A000042BC /* FellowCity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FellowCity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50E9D0F92355C25A000042BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50E9D0FB2355C25A000042BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		50E9D0FD2355C25A000042BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		50E9D1002355C25A000042BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		50E9D1032355C25A000042BC /* BussMeStoryboard.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BussMeStoryboard.xcdatamodel; sourceTree = "<group>"; };
 		50E9D1052355C25C000042BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50E9D1082355C25C000042BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -109,15 +87,9 @@
 		511DE491237BF6A000058BFD /* CommuteModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteModalViewController.swift; sourceTree = "<group>"; };
 		511DE492237BF6A000058BFD /* CommuteModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommuteModalViewController.xib; sourceTree = "<group>"; };
 		512DB0D52387C9DF000A2558 /* MyTripsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyTripsStoryboard.storyboard; sourceTree = "<group>"; };
-		512DB0D72387CA1D000A2558 /* MyTripsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTripsViewController.swift; sourceTree = "<group>"; };
-		512DB0D92387D2E4000A2558 /* RecentTripsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTripsCollectionViewCell.swift; sourceTree = "<group>"; };
-		512DB0DB2387D5A2000A2558 /* TripsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsModel.swift; sourceTree = "<group>"; };
 		6337DD09235EF83B00D71441 /* imInStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = imInStoryboard.storyboard; sourceTree = "<group>"; };
-		6337DD0B235F35FF00D71441 /* homeCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = homeCardView.xib; sourceTree = "<group>"; };
 		6337DD0D2360504B00D71441 /* imInCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = imInCardView.xib; sourceTree = "<group>"; };
-		6337DD0F2360508500D71441 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6337DD112360509300D71441 /* ImInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImInViewController.swift; sourceTree = "<group>"; };
-		63B43F9723585C5700131562 /* HomeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeStoryboard.storyboard; sourceTree = "<group>"; };
 		7A52C92A51075A0C4EB42CA5 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BussMeStoryboard_BussMeStoryboardUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		888D1D867A4F3AE799093AA1 /* Pods-BussMeStoryboardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboardTests.debug.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboardTests/Pods-BussMeStoryboardTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B377B4D3DD6CC06E095AAC74 /* Pods-BussMeStoryboard-BussMeStoryboardUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboard-BussMeStoryboardUITests.debug.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboard-BussMeStoryboardUITests/Pods-BussMeStoryboard-BussMeStoryboardUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -223,9 +195,7 @@
 				63B43F9623585BBF00131562 /* Home */,
 				50E9D0F92355C25A000042BC /* AppDelegate.swift */,
 				50E9D0FB2355C25A000042BC /* SceneDelegate.swift */,
-				50E9D0FD2355C25A000042BC /* ViewController.swift */,
 				50E9D3B12359B352000042BC /* Model.swift */,
-				50E9D0FF2355C25A000042BC /* Main.storyboard */,
 				50E9D1052355C25C000042BC /* Assets.xcassets */,
 				50E9D1072355C25C000042BC /* LaunchScreen.storyboard */,
 				50E9D10A2355C25C000042BC /* Info.plist */,
@@ -256,9 +226,6 @@
 			isa = PBXGroup;
 			children = (
 				512DB0D52387C9DF000A2558 /* MyTripsStoryboard.storyboard */,
-				512DB0D92387D2E4000A2558 /* RecentTripsCollectionViewCell.swift */,
-				512DB0DB2387D5A2000A2558 /* TripsModel.swift */,
-				512DB0D72387CA1D000A2558 /* MyTripsViewController.swift */,
 			);
 			path = "My Trips";
 			sourceTree = "<group>";
@@ -276,15 +243,6 @@
 		63B43F9623585BBF00131562 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				63B43F9723585C5700131562 /* HomeStoryboard.storyboard */,
-				6337DD0B235F35FF00D71441 /* homeCardView.xib */,
-				6337DD0F2360508500D71441 /* HomeViewController.swift */,
-				509558CF23700513008E7EED /* DataGatherViewController.swift */,
-				5079A520237150C400CF68A9 /* DataShowTableViewCell.swift */,
-				5079A5222371515000CF68A9 /* DataShowViewController.swift */,
-				5079A56523793FD500CF68A9 /* TripShowTableViewCell.swift */,
-				5079A5672379403B00CF68A9 /* TripShowViewController.swift */,
-				5079A59E237E6A7600CF68A9 /* TransportDataViewController.swift */,
 				006027A92385091700F92D90 /* ReminderViewController.swift */,
 				006027AA2385091700F92D90 /* ReminderViewController.xib */,
 			);
@@ -436,10 +394,7 @@
 				511DE494237BF6A000058BFD /* CommuteModalViewController.xib in Resources */,
 				50E9D1062355C25C000042BC /* Assets.xcassets in Resources */,
 				5079A570237A918000CF68A9 /* NavDetailStoryboard.storyboard in Resources */,
-				6337DD0C235F35FF00D71441 /* homeCardView.xib in Resources */,
-				63B43F9823585C5700131562 /* HomeStoryboard.storyboard in Resources */,
 				5079A56B2379509200CF68A9 /* CommuteStoryboard.storyboard in Resources */,
-				50E9D1012355C25A000042BC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,23 +540,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				50E9D3B22359B352000042BC /* Model.swift in Sources */,
-				512DB0D82387CA1D000A2558 /* MyTripsViewController.swift in Sources */,
-				50E9D0FE2355C25A000042BC /* ViewController.swift in Sources */,
 				511DE493237BF6A000058BFD /* CommuteModalViewController.swift in Sources */,
-				5079A5682379403B00CF68A9 /* TripShowViewController.swift in Sources */,
 				6337DD122360509300D71441 /* ImInViewController.swift in Sources */,
-				5079A5232371515000CF68A9 /* DataShowViewController.swift in Sources */,
-				5079A521237150C400CF68A9 /* DataShowTableViewCell.swift in Sources */,
 				50E9D1042355C25A000042BC /* BussMeStoryboard.xcdatamodeld in Sources */,
-				512DB0DC2387D5A2000A2558 /* TripsModel.swift in Sources */,
 				5079A56D237950B400CF68A9 /* CommuteViewController.swift in Sources */,
-				512DB0DA2387D2E4000A2558 /* RecentTripsCollectionViewCell.swift in Sources */,
-				5079A56623793FD500CF68A9 /* TripShowTableViewCell.swift in Sources */,
 				50E9D0FA2355C25A000042BC /* AppDelegate.swift in Sources */,
-				509558D023700513008E7EED /* DataGatherViewController.swift in Sources */,
 				50E9D0FC2355C25A000042BC /* SceneDelegate.swift in Sources */,
-				6337DD102360508500D71441 /* HomeViewController.swift in Sources */,
-				5079A59F237E6A7600CF68A9 /* TransportDataViewController.swift in Sources */,
 				5079A572237A91C200CF68A9 /* NavDetailViewController.swift in Sources */,
 				006027A4237BFB2100F92D90 /* popUpReminderViewController.swift in Sources */,
 				49D341582382A1A7008DF83A /* NavDetailCardViewController.swift in Sources */,
@@ -641,14 +585,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		50E9D0FF2355C25A000042BC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				50E9D1002355C25A000042BC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		50E9D1072355C25C000042BC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -788,6 +724,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rickyeffendi.BussMeStoryboard;
 				PRODUCT_NAME = FellowCity;
 				SWIFT_VERSION = 5.0;
@@ -809,6 +746,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rickyeffendi.BussMeStoryboard;
 				PRODUCT_NAME = FellowCity;
 				SWIFT_VERSION = 5.0;

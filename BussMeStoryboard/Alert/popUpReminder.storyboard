@@ -23,7 +23,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
-                                <blurEffect style="dark"/>
+                                <vibrancyEffect style="secondaryFill">
+                                    <blurEffect style="systemThinMaterial"/>
+                                </vibrancyEffect>
                             </visualEffectView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y0X-dV-JKS">
                                 <rect key="frame" x="34" y="229" width="346" height="438"/>
