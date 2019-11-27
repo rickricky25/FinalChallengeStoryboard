@@ -245,17 +245,17 @@ class CommuteNaikViewController: UIViewController {
             runningAnimations.append(frameAnimator)
             
             
-            let cornerRadiusAnimator = UIViewPropertyAnimator(duration: 0.5, curve: .linear) {
-                switch state {
-                case .expanded:
-                    self.commuteNaikModalViewController.view.layer.cornerRadius = 25
-                case .collapsed:
-                    self.commuteNaikModalViewController.view.layer.cornerRadius = 0
-                }
-            }
-            
-            cornerRadiusAnimator.startAnimation()
-            runningAnimations.append(cornerRadiusAnimator)
+//            let cornerRadiusAnimator = UIViewPropertyAnimator(duration: 0.5, curve: .linear) {
+//                switch state {
+//                case .expanded:
+//                    self.commuteNaikModalViewController.view.layer.cornerRadius = 25
+//                case .collapsed:
+//                    self.commuteNaikModalViewController.view.layer.cornerRadius = 0
+//                }
+//            }
+//
+//            cornerRadiusAnimator.startAnimation()
+//            runningAnimations.append(cornerRadiusAnimator)
             
         }
     }

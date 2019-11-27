@@ -158,7 +158,7 @@ class CommuteViewController: UIViewController {
         self.addChild(commuteModalViewController)
         self.view.addSubview(commuteModalViewController.view)
         
-        commuteModalViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - cardHandleAreaH - 20, width: self.view.bounds.width, height: cardHeight)
+        commuteModalViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - cardHandleAreaH - 110, width: self.view.bounds.width, height: cardHeight)
         
         commuteModalViewController.view.clipsToBounds = true
                 
@@ -184,7 +184,7 @@ class CommuteViewController: UIViewController {
     func handleCardPan (recognizer:UIPanGestureRecognizer) {
         switch recognizer.state {
         case .began:
-            startInteractiveTransition(state: nextState, duration: 0.35)
+            startInteractiveTransition(state: nextState, duration: 0.3)
         case .changed:
             let translation = recognizer.translation(in: self.commuteModalViewController.handleArea)
             var fractionComplete = translation.y / cardHeight
@@ -230,12 +230,13 @@ class CommuteViewController: UIViewController {
     
     func animateTransitionIfNeeded (state:CardState, duration:TimeInterval) {
         if runningAnimations.isEmpty {
-            let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 5) {
+            let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 15) {
                 switch state {
                 case .expanded:
-                    self.commuteModalViewController.view.frame.origin.y = self.view.frame.height - self.cardHeight
+                    self.commuteModalViewController.view.frame.origin.y = self.view.frame.height - self.cardHeight + 50
                 case .collapsed:
-                    self.commuteModalViewController.view.frame.origin.y = self.view.frame.height - self.cardHandleAreaH - 20
+                    self.commuteModalViewController.view.frame.origin.y = self.view.frame.height - self.cardHandleAreaH + 50
+                
                 }
             }
             
@@ -248,18 +249,18 @@ class CommuteViewController: UIViewController {
             runningAnimations.append(frameAnimator)
             
             
-            let cornerRadiusAnimator = UIViewPropertyAnimator(duration: 0.5, curve: .linear) {
+            let cornerRadiusAnimator = UIViewPropertyAnimator(duration: 1, curve: .linear) {
                 switch state {
                 case .expanded:
-                    self.commuteModalViewController.view.layer.cornerRadius = 25
+                    self.commuteModalViewController.view.layer.cornerRadius = 20
                 case .collapsed:
                     self.commuteModalViewController.view.layer.cornerRadius = 0
                 }
             }
-            
+
             cornerRadiusAnimator.startAnimation()
             runningAnimations.append(cornerRadiusAnimator)
-            
+
         }
     }
     

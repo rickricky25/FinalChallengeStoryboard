@@ -85,6 +85,7 @@
                         <viewLayoutGuide key="safeArea" id="4vJ-dB-NmR"/>
                     </view>
                     <connections>
+                        <outlet property="blurEffect" destination="ilH-NP-DSN" id="XWS-zw-m3b"/>
                         <outlet property="popupBox" destination="kXG-Sm-Ls2" id="3Ln-SH-oLZ"/>
                     </connections>
                 </viewController>
