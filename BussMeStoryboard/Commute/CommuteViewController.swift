@@ -135,10 +135,15 @@ class CommuteViewController: UIViewController {
             currentLocation = locManager.location
         }
             
-        let currLong = currentLocation.coordinate.longitude
-        let currLat = currentLocation.coordinate.latitude
-            
-        return (currLat, currLong)
+        if currentLocation == nil {
+            return(0, 0)
+        } else {
+            let currLong = currentLocation.coordinate.longitude
+            let currLat = currentLocation.coordinate.latitude
+                
+            return (currLat, currLong)
+        }
+        
     }
     
 //    **** MODAL FUNCTION ****
