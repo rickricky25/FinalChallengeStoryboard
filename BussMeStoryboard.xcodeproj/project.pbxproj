@@ -28,6 +28,7 @@
 		50E9D11F2355C25C000042BC /* BussMeStoryboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D11E2355C25C000042BC /* BussMeStoryboardUITests.swift */; };
 		50E9D3B22359B352000042BC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D3B12359B352000042BC /* Model.swift */; };
 		50E9D3B9235EEB00000042BC /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		51042F85238E434E00AAA391 /* MyTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51042F84238E434E00AAA391 /* MyTripViewController.swift */; };
 		5114B37F2387B63D00E49B4D /* CommuteNaikModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5114B37D2387B63D00E49B4D /* CommuteNaikModalViewController.swift */; };
 		5114B3802387B63D00E49B4D /* CommuteNaikModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5114B37E2387B63D00E49B4D /* CommuteNaikModalViewController.xib */; };
 		511DE493237BF6A000058BFD /* CommuteModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511DE491237BF6A000058BFD /* CommuteModalViewController.swift */; };
@@ -85,6 +86,7 @@
 		50E9D11E2355C25C000042BC /* BussMeStoryboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BussMeStoryboardUITests.swift; sourceTree = "<group>"; };
 		50E9D1202355C25C000042BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50E9D3B12359B352000042BC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		51042F84238E434E00AAA391 /* MyTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTripViewController.swift; sourceTree = "<group>"; };
 		5114B37D2387B63D00E49B4D /* CommuteNaikModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteNaikModalViewController.swift; sourceTree = "<group>"; };
 		5114B37E2387B63D00E49B4D /* CommuteNaikModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommuteNaikModalViewController.xib; sourceTree = "<group>"; };
 		511DE491237BF6A000058BFD /* CommuteModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteModalViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				50AE5B68238D3058007BAA68 /* MyTripsStoryboard.storyboard */,
+				51042F84238E434E00AAA391 /* MyTripViewController.swift */,
 			);
 			path = "My Trips";
 			sourceTree = "<group>";
@@ -545,6 +548,7 @@
 				5114B37F2387B63D00E49B4D /* CommuteNaikModalViewController.swift in Sources */,
 				50E9D1042355C25A000042BC /* BussMeStoryboard.xcdatamodeld in Sources */,
 				5079A56D237950B400CF68A9 /* CommuteViewController.swift in Sources */,
+				51042F85238E434E00AAA391 /* MyTripViewController.swift in Sources */,
 				512DB0D32387BC40000A2558 /* CommuteNaikViewController.swift in Sources */,
 				50E9D0FA2355C25A000042BC /* AppDelegate.swift in Sources */,
 				50E9D0FC2355C25A000042BC /* SceneDelegate.swift in Sources */,
