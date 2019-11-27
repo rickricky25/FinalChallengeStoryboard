@@ -10,7 +10,7 @@
         <!--Commute Naik View Controller-->
         <scene sceneID="izd-dg-e03">
             <objects>
-                <viewController storyboardIdentifier="CommuteNaikStoryboard" id="FzU-gH-VdG" customClass="CommuteNaikViewController" customModule="FellowCity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CommuteNaikStoryboard" modalPresentationStyle="currentContext" id="FzU-gH-VdG" customClass="CommuteNaikViewController" customModule="FellowCity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="efT-kO-dJC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

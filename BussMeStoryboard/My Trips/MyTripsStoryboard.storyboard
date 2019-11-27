@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9qD-Y1-s4z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cp0-6f-Izb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
@@ -126,10 +126,10 @@
             </objects>
             <point key="canvasLocation" x="-6596" y="-2011"/>
         </scene>
-        <!--My Trip View Controller-->
+        <!--My Trips-->
         <scene sceneID="9dI-SJ-LlQ">
             <objects>
-                <viewController id="9qD-Y1-s4z" customClass="MyTripViewController" customModule="FellowCity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyTripsStoryboard" id="9qD-Y1-s4z" customClass="MyTripViewController" customModule="FellowCity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h1T-Yo-yEW" customClass="My">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -297,19 +297,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3ww-oH-ClJ">
-                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <tabBarItem title="My Trips" image="myTripsCommute_Off" badgeValue="1" springLoaded="YES" id="12m-Vd-N4R"/>
-                                    <tabBarItem title="Commute" image="EndRoute" id="mvB-rB-iJr"/>
-                                </items>
-                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="55F-7l-eq5"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="My Trips" image="myTripsCommute_Off" id="fQW-M0-cb0"/>
                     <connections>
                         <outlet property="addNewReminder" destination="LnZ-l3-iKV" id="3w8-Hc-VbR"/>
                         <outlet property="recentTripBox" destination="5ct-Cb-BKK" id="Vfe-kC-9Dw"/>
@@ -318,11 +310,38 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dUN-Zf-Qag" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-4802.898550724638" y="-2012.2767857142856"/>
+        </scene>
+        <!--CommuteStoryboard-->
+        <scene sceneID="X8m-zP-KCY">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="CommuteStoryboard" storyboardName="CommuteStoryboard" id="t2f-O3-Jqk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="mgP-H5-YTP"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ECS-NF-PCQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4429" y="-1390"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="NU5-Bl-LKo">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Cp0-6f-Izb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YdI-gg-kZJ">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="9qD-Y1-s4z" kind="relationship" relationship="viewControllers" id="9Yp-UG-YYV"/>
+                        <segue destination="t2f-O3-Jqk" kind="relationship" relationship="viewControllers" id="t3i-VW-GOw"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SWk-tr-G2x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="-5713.04347826087" y="-2012.2767857142856"/>
         </scene>
     </scenes>
     <resources>
-        <image name="EndRoute" width="22" height="24"/>
         <image name="arrow.right.circle.fill" catalog="system" width="64" height="60"/>
         <image name="busCodeBreeze" width="55" height="55"/>
         <image name="clock.fill" catalog="system" width="64" height="60"/>

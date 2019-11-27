@@ -146,10 +146,10 @@ class CommuteNaikViewController: UIViewController {
     
 //    **** MODAL FUNCTION ****
     func setupCard() {
-        visualEffectView = UIVisualEffectView()
-        visualEffectView.frame = self.view.frame
-        
-        self.view.addSubview(visualEffectView)
+//        visualEffectView = UIVisualEffectView()
+//        visualEffectView.frame = self.view.frame
+//
+//        self.view.addSubview(visualEffectView)
         
         commuteNaikModalViewController = CommuteNaikModalViewController(nibName: "CommuteNaikModalViewController", bundle:nil)
         self.addChild(commuteNaikModalViewController)

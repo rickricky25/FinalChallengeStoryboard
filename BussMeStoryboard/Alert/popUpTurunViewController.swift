@@ -10,23 +10,27 @@ import UIKit
 
 class popUpTurunViewController: UIViewController {
 
+    @IBOutlet var popupBox: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
+
+
     }
 
 //    ***** CHANGE PAGE to Alert *****
     @IBAction func btnBatalTurun(_ sender: Any) {
-        let nextStoryboard = UIStoryboard(name: "imIn", bundle: nil)
-        let nextVC = nextStoryboard.instantiateViewController(identifier: "imIn") as CommuteNaikViewController
-        
+        let nextStoryboard = UIStoryboard(name: "CommuteNaikStoryboard", bundle: nil)
+        let nextVC = nextStoryboard.instantiateViewController(identifier: "CommuteNaikStoryboard") as CommuteNaikViewController
         present(nextVC, animated: true, completion: nil)
     }
     
     @IBAction func btnTurun(_ sender: Any) {
-        let nextStoryboard = UIStoryboard(name: "commuteStoryboard", bundle: nil)
-        let nextVC = nextStoryboard.instantiateViewController(identifier: "commuteStoryboard") as CommuteViewController
+        let nextStoryboard = UIStoryboard(name: "CommuteStoryboard", bundle: nil)
+        let nextVC = nextStoryboard.instantiateViewController(identifier: "CommuteStoryboard") as CommuteViewController
         
         present(nextVC, animated: true, completion: nil)
     }

@@ -507,7 +507,7 @@
     </objects>
     <resources>
         <image name="backNavModal" width="30" height="30"/>
-        <image name="busCodeBreeze" width="56" height="56"/>
+        <image name="busCodeBreeze" width="55" height="55"/>
         <image name="buttonClose" width="30" height="30"/>
         <image name="halteIcon" width="22" height="22"/>
         <image name="iconLocation" width="17" height="16"/>

@@ -15,6 +15,7 @@ import SystemConfiguration
 
 class CommuteViewController: UIViewController {
     @IBOutlet var mainView: UIView!
+    @IBOutlet var commuteTabBar: UITabBar!
     
     enum CardState {
         case expanded
@@ -43,6 +44,7 @@ class CommuteViewController: UIViewController {
     var nearestStop: String!
     
     override func viewDidLoad() {
+        
         if isConnectedToNetwork() {
             super.viewDidLoad()
             //Getting Permission for Maps
