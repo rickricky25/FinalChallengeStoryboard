@@ -12,6 +12,7 @@ class MyTripViewController: UIViewController {
 
     @IBOutlet var recentTripBox: UIView!
     @IBOutlet var reminderBox: UIView!
+    @IBOutlet var addNewReminder: UIButton!
     
     
     override func viewDidLoad() {
@@ -35,6 +36,8 @@ class MyTripViewController: UIViewController {
         reminderBox.layer.shadowOpacity = 0.15
         reminderBox.layer.shadowPath = UIBezierPath(rect: reminderBox.bounds).cgPath
         reminderBox.layer.shadowOffset = .zero
+        
+        addNewReminder.layer.cornerRadius = 15
         
     }
 
