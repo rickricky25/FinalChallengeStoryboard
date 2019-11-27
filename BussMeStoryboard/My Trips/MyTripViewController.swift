@@ -39,6 +39,7 @@ class MyTripViewController: UIViewController {
         
         addNewReminder.layer.cornerRadius = 15
         
+        
     }
 
 }

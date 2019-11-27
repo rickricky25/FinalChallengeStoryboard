@@ -154,6 +154,7 @@ class CommuteViewController: UIViewController {
         
 //        self.view.addSubview(visualEffectView)
         
+        
         commuteModalViewController = CommuteModalViewController(nibName: "CommuteModalViewController", bundle:nil)
         self.addChild(commuteModalViewController)
         self.view.addSubview(commuteModalViewController.view)
