@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let deviceTokenString = deviceToken.reduce("", { $0 + String(format: "%02X", $1)})
         print(deviceTokenString)
-//        saveUser(deviceToken: deviceTokenString)
+        saveUser(deviceToken: deviceTokenString)
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func saveUser(deviceToken: String){
-        let newRecord = CKRecord(recordType: "Users")
+        let newRecord = CKRecord(recordType: "UserProfile")
         let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
         let publicDatabase = container.publicCloudDatabase
         newRecord["userDeviceID"] = UIDevice.current.identifierForVendor?.uuidString
@@ -60,6 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         publicDatabase.save(newRecord) { (record, error) in
                   print(error as Any)
               }
+        print("data saved")
     }
         
 
