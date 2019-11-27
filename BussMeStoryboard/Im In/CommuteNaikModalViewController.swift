@@ -32,7 +32,7 @@ class CommuteNaikModalViewController: UIViewController {
     
 //    ****** CHANGE PAGE to Alert Turun ******
     @IBAction func btnTurunBus(_ sender: Any) {
-        let nextStoryboard = UIStoryboard(name: "popUpTurunStoryboard", bundle: nil)
+        let nextStoryboard = UIStoryboard(name: "popUpTurun", bundle: nil)
         let nextVC = nextStoryboard.instantiateViewController(identifier: "popUpTurunStoryboard") as popUpTurunViewController
         
         present(nextVC, animated: true, completion: nil)

@@ -423,8 +423,8 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
     }
     
     @IBAction func btnNaikBus(_ sender: Any) {
-        let nextStoryboard = UIStoryboard(name: "imIn", bundle: nil)
-        let nextVC = nextStoryboard.instantiateViewController(identifier: "imIn") as CommuteNaikViewController
+        let nextStoryboard = UIStoryboard(name: "CommuteNaikStoryboard", bundle: nil)
+        let nextVC = nextStoryboard.instantiateViewController(identifier: "CommuteNaikStoryboard") as CommuteNaikViewController
         
         present(nextVC, animated: true, completion: nil)
     }
