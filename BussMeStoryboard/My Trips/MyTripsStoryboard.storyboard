@@ -297,6 +297,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
+                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3ww-oH-ClJ">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <tabBarItem title="My Trips" image="myTripsCommute_Off" badgeValue="1" springLoaded="YES" id="12m-Vd-N4R"/>
+                                    <tabBarItem title="Commute" image="EndRoute" id="mvB-rB-iJr"/>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="55F-7l-eq5"/>
@@ -313,11 +322,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="EndRoute" width="22" height="24"/>
         <image name="arrow.right.circle.fill" catalog="system" width="64" height="60"/>
         <image name="busCodeBreeze" width="55" height="55"/>
         <image name="clock.fill" catalog="system" width="64" height="60"/>
         <image name="destination" width="8" height="40"/>
         <image name="location.fill" catalog="system" width="64" height="56"/>
+        <image name="myTripsCommute_Off" width="18" height="28"/>
         <image name="plus" catalog="system" width="64" height="56"/>
     </resources>
 </document>
