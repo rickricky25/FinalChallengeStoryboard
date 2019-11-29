@@ -1,14 +1,14 @@
 //
-//  MyTripViewController.swift
+//  MyTripsViewController.swift
 //  BussMeStoryboard
 //
-//  Created by Kevin Susanto on 27/11/19.
+//  Created by Kevin Susanto on 29/11/19.
 //  Copyright © 2019 Ricky Effendi. All rights reserved.
 //
 
 import UIKit
 
-class MyTripViewController: UIViewController {
+class MyTripsViewController: UIViewController {
 
     @IBOutlet var recentTripBox: UIView!
     @IBOutlet var reminderBox: UIView!
@@ -19,7 +19,6 @@ class MyTripViewController: UIViewController {
         super.viewDidLoad()
         
         cardSetup()
-
     }
     
     func cardSetup() {
@@ -41,5 +40,6 @@ class MyTripViewController: UIViewController {
         
         
     }
+
 
 }
