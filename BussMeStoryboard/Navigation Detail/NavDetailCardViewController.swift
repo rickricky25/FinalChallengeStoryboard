@@ -19,6 +19,7 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
     @IBOutlet var listRuteView: UIView!
     @IBOutlet weak var arahSegmentedControl: UISegmentedControl!
     @IBOutlet weak var kodeRute: UILabel!
+    @IBOutlet weak var btnNaik: UIButton!
     
     @IBOutlet weak var lblStop1: UILabel!
     @IBOutlet weak var lblStop2: UILabel!

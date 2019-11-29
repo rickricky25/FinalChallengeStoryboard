@@ -38,7 +38,7 @@
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-					<string>CommuteStoryboard</string>
+					<string>DataMigration</string>
 				</dict>
 			</array>
 		</dict>

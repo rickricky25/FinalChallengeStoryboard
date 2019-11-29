@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavDetailCardViewController" customModule="FellowCity" customModuleProvider="target">
             <connections>
                 <outlet property="arahSegmentedControl" destination="REA-T9-i28" id="Doa-Q5-rVd"/>
+                <outlet property="btnNaik" destination="sIg-In-qxu" id="WXQ-73-wbW"/>
                 <outlet property="contentArea" destination="t4X-na-YuW" id="Q14-bS-Tpo"/>
                 <outlet property="handleArea" destination="5Td-id-zg8" id="2iy-lB-tPu"/>
                 <outlet property="kodeRute" destination="Mpi-X7-Ofq" id="8r7-GY-BX8"/>

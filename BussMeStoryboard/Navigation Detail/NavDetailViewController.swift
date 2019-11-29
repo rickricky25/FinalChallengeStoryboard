@@ -110,7 +110,28 @@ class NavDetailViewController: UIViewController {
         }
         
         self.mainView.addSubview(mapView)
-        setupCard()
+        
+        // Setup Card
+        
+        navDetailCardViewController = NavDetailCardViewController(nibName: "NavDetailCardViewController", bundle: nil)
+        self.addChild(navDetailCardViewController)
+        self.view.addSubview(navDetailCardViewController.view)
+        
+        navDetailCardViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - 415, width: self.view.bounds.width, height: cardHeight)
+        
+        navDetailCardViewController.view.clipsToBounds = true
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(NavDetailViewController.handleCardTap(recognizer:)))
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(NavDetailViewController.handleCardPan(recognizer:)))
+        
+        navDetailCardViewController.handleArea.addGestureRecognizer(tapGestureRecognizer)
+        navDetailCardViewController.handleArea.addGestureRecognizer(panGestureRecognizer)
+        
+        if navDetailCardViewController.arahSegmentedControl.selectedSegmentIndex == 0 {
+            
+        } else {
+            
+        }
     }
     
     // Function to get Current Location
@@ -226,7 +247,6 @@ class NavDetailViewController: UIViewController {
         
         navDetailCardViewController.handleArea.addGestureRecognizer(tapGestureRecognizer)
         navDetailCardViewController.handleArea.addGestureRecognizer(panGestureRecognizer)
-        
     }
 
     @objc
