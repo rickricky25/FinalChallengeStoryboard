@@ -49,10 +49,9 @@ class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
         IceBreezeView.layer.cornerRadius = 15
         
         contentArea.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        contentArea.layer.shadowOpacity = 0.1
-        contentArea.layer.shadowRadius = 15
-        contentArea.layer.cornerRadius = 25
-        
+        contentArea.layer.shadowOpacity = 0.15
+        contentArea.layer.shadowRadius = 20
+        contentArea.layer.cornerRadius = 20
         
         BreezeIceView.addGestureRecognizer(tapBreeze)
         IceBreezeView.addGestureRecognizer(tapIce)

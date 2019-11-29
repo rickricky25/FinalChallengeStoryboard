@@ -13,6 +13,7 @@
 		006027AB2385091700F92D90 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006027A92385091700F92D90 /* ReminderViewController.swift */; };
 		49D341582382A1A7008DF83A /* NavDetailCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D341562382A1A7008DF83A /* NavDetailCardViewController.swift */; };
 		49D341592382A1A7008DF83A /* NavDetailCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D341572382A1A7008DF83A /* NavDetailCardViewController.xib */; };
+		49D3415B238D3A0B008DF83A /* popUpTurunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D3415A238D3A0B008DF83A /* popUpTurunViewController.swift */; };
 		50530A01238FC395006E065F /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5079A5A0237E90C900CF68A9 /* CloudKit.framework */; };
 		50530A04238FC397006E065F /* Pods_BussMeStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD65566A8245E7A4A3289A3 /* Pods_BussMeStoryboard.framework */; };
 		5079A56B2379509200CF68A9 /* CommuteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5079A56A2379509200CF68A9 /* CommuteStoryboard.storyboard */; };
@@ -29,6 +30,7 @@
 		50E9D11F2355C25C000042BC /* BussMeStoryboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D11E2355C25C000042BC /* BussMeStoryboardUITests.swift */; };
 		50E9D3B22359B352000042BC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D3B12359B352000042BC /* Model.swift */; };
 		50E9D3B9235EEB00000042BC /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		51042F85238E434E00AAA391 /* MyTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51042F84238E434E00AAA391 /* MyTripViewController.swift */; };
 		5114B37F2387B63D00E49B4D /* CommuteNaikModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5114B37D2387B63D00E49B4D /* CommuteNaikModalViewController.swift */; };
 		5114B3802387B63D00E49B4D /* CommuteNaikModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5114B37E2387B63D00E49B4D /* CommuteNaikModalViewController.xib */; };
 		511DE493237BF6A000058BFD /* CommuteModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511DE491237BF6A000058BFD /* CommuteModalViewController.swift */; };
@@ -66,6 +68,7 @@
 		49D341562382A1A7008DF83A /* NavDetailCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavDetailCardViewController.swift; sourceTree = "<group>"; };
 		49D341572382A1A7008DF83A /* NavDetailCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavDetailCardViewController.xib; sourceTree = "<group>"; };
 		504D3B28238FCFC600B71EEA /* BussMeStoryboard.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = BussMeStoryboard.entitlements; sourceTree = "<group>"; };
+		49D3415A238D3A0B008DF83A /* popUpTurunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popUpTurunViewController.swift; sourceTree = "<group>"; };
 		5079A56A2379509200CF68A9 /* CommuteStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommuteStoryboard.storyboard; sourceTree = "<group>"; };
 		5079A56C237950B400CF68A9 /* CommuteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteViewController.swift; sourceTree = "<group>"; };
 		5079A56F237A918000CF68A9 /* NavDetailStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavDetailStoryboard.storyboard; sourceTree = "<group>"; };
@@ -86,6 +89,7 @@
 		50E9D11E2355C25C000042BC /* BussMeStoryboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BussMeStoryboardUITests.swift; sourceTree = "<group>"; };
 		50E9D1202355C25C000042BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50E9D3B12359B352000042BC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		51042F84238E434E00AAA391 /* MyTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTripViewController.swift; sourceTree = "<group>"; };
 		5114B37D2387B63D00E49B4D /* CommuteNaikModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteNaikModalViewController.swift; sourceTree = "<group>"; };
 		5114B37E2387B63D00E49B4D /* CommuteNaikModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommuteNaikModalViewController.xib; sourceTree = "<group>"; };
 		511DE491237BF6A000058BFD /* CommuteModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteModalViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 				006027A1237BFB0500F92D90 /* popUpReminder.storyboard */,
 				006027A5237BFFB700F92D90 /* popUpTurun.storyboard */,
 				006027A3237BFB2100F92D90 /* popUpReminderViewController.swift */,
+				49D3415A238D3A0B008DF83A /* popUpTurunViewController.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -229,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				50AE5B68238D3058007BAA68 /* MyTripsStoryboard.storyboard */,
+				51042F84238E434E00AAA391 /* MyTripViewController.swift */,
 			);
 			path = "My Trips";
 			sourceTree = "<group>";
@@ -547,11 +553,13 @@
 				5114B37F2387B63D00E49B4D /* CommuteNaikModalViewController.swift in Sources */,
 				50E9D1042355C25A000042BC /* BussMeStoryboard.xcdatamodeld in Sources */,
 				5079A56D237950B400CF68A9 /* CommuteViewController.swift in Sources */,
+				51042F85238E434E00AAA391 /* MyTripViewController.swift in Sources */,
 				512DB0D32387BC40000A2558 /* CommuteNaikViewController.swift in Sources */,
 				50E9D0FA2355C25A000042BC /* AppDelegate.swift in Sources */,
 				50E9D0FC2355C25A000042BC /* SceneDelegate.swift in Sources */,
 				5079A572237A91C200CF68A9 /* NavDetailViewController.swift in Sources */,
 				006027A4237BFB2100F92D90 /* popUpReminderViewController.swift in Sources */,
+				49D3415B238D3A0B008DF83A /* popUpTurunViewController.swift in Sources */,
 				49D341582382A1A7008DF83A /* NavDetailCardViewController.swift in Sources */,
 				006027AB2385091700F92D90 /* ReminderViewController.swift in Sources */,
 			);

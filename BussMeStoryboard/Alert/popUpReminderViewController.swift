@@ -6,4 +6,12 @@
 //  Copyright © 2019 Ricky Effendi. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class popUpReminderViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+}

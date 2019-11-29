@@ -414,4 +414,20 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
         }
     }
     
+    
+//    ***** CHANGE PAGE to Alert *****
+    @IBAction func btnIngatkan(_ sender: Any) {
+        let nextStoryboard = UIStoryboard(name: "popUpReminder", bundle: nil)
+        let nextVC = nextStoryboard.instantiateViewController(identifier: "popUpReminder") as popUpReminderViewController
+        
+        present(nextVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func btnNaikBus(_ sender: Any) {
+        let nextStoryboard = UIStoryboard(name: "CommuteNaikStoryboard", bundle: nil)
+        let nextVC = nextStoryboard.instantiateViewController(identifier: "CommuteNaikStoryboard") as CommuteNaikViewController
+        
+        present(nextVC, animated: true, completion: nil)
+    }
+//    *******************
 }
