@@ -14,7 +14,7 @@ import SystemConfiguration
 
 
 var arah: String?
-var rute: String?
+var rute: String = "BRE"
 var stop: String?
 var kendaraan: String?
 
@@ -137,21 +137,11 @@ class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @objc func handleTapBreeze(_ sender: UITapGestureRecognizer) {
-        let nextStoryboard = UIStoryboard(name: "NavDetailStoryboard", bundle: nil)
-        let nextVC = nextStoryboard.instantiateViewController(identifier: "NavDetailStoryboard") as NavDetailViewController
-        arah = "pergi"
-        rute = "BRE"
-        kendaraan = "BSDLink"
-        present(nextVC, animated: true, completion: nil)
+        // Show Nav Detail Modal
     }
     
     @objc func handleTapIce(_ sender: UITapGestureRecognizer) {
-        let nextStoryboard = UIStoryboard(name: "NavDetailStoryboard", bundle: nil)
-        let nextVC = nextStoryboard.instantiateViewController(identifier: "NavDetailStoryboard") as NavDetailViewController
-        arah = "pulang"
-        rute = "BRE"
-        kendaraan = "BSDLink"
-        present(nextVC, animated: true, completion: nil)
+        // Show Nav Detail Modal
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

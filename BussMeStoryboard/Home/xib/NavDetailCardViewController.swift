@@ -69,10 +69,10 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
         
         let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
         let publicDatabase = container.publicCloudDatabase
-        let predicate = NSPredicate(format: "kodeRute == %@", rute!)
+        let predicate = NSPredicate(format: "kodeRute == %@", rute)
         let query = CKQuery(recordType: "DataRoute", predicate: predicate)
         
-        getShortestTime(rute: rute!) { (selisihPergi, selisihPulang, timesPergi, timesPulang) in
+        getShortestTime(rute: rute) { (selisihPergi, selisihPulang, timesPergi, timesPulang) in
             self.selPergi = selisihPergi
             self.selPulang = selisihPulang
             self.waktuPergi = timesPergi
@@ -345,7 +345,7 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
             newRecord["arah"] = arah!
             newRecord["idUser"] = UIDevice.current.identifierForVendor?.uuidString
             newRecord["kodeKendaraan"] = kendaraan!
-            newRecord["kodeRute"] = rute!
+            newRecord["kodeRute"] = rute
             newRecord["lokasi"] = nearestLoc
             newRecord["waktu"] = self.getCurrTime()
             
