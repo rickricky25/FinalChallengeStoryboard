@@ -37,17 +37,21 @@ class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
         let tapIce = UITapGestureRecognizer(target: self, action: #selector(handleTapIce(_:)))
         
         let (currLat, currLong) = getCurrentLatLong()
-        stop = getNearestStop(currLat: currLat, currLong: currLong)
-        lblNearestStop.text = stop
+        
+        getNearestStop(currLat: currLat, currLong: currLong) { (resStop) in
+            DispatchQueue.main.async {
+                self.lblNearestStop.text = resStop
+                stop = resStop
+            }
+        }
         
         BreezeIceView.layer.cornerRadius = 15
         IceBreezeView.layer.cornerRadius = 15
         
         contentArea.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        contentArea.layer.shadowOpacity = 0.1
-        contentArea.layer.shadowRadius = 15
-        contentArea.layer.cornerRadius = 25
-        
+        contentArea.layer.shadowOpacity = 0.15
+        contentArea.layer.shadowRadius = 20
+        contentArea.layer.cornerRadius = 20
         
         BreezeIceView.addGestureRecognizer(tapBreeze)
         IceBreezeView.addGestureRecognizer(tapIce)
@@ -56,7 +60,7 @@ class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
         IceBreezeView.isUserInteractionEnabled = true
     }
     
-    func getNearestStop(currLat: CLLocationDegrees, currLong: CLLocationDegrees) -> String {
+    func getNearestStop(currLat: CLLocationDegrees, currLong: CLLocationDegrees, completion: @escaping (_ stop: String) -> ()){
         let currLocation = CLLocationCoordinate2D(latitude: currLat, longitude: currLong)
         let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
         let predicate = NSPredicate(value: true)
@@ -84,8 +88,8 @@ class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
                     }
                 }
             }
+            completion(nearestStop)
         }
-        return nearestStop
     }
     
     func countDistance(firstLoc: CLLocationCoordinate2D, secondLoc: CLLocationCoordinate2D) -> Double {
@@ -99,10 +103,14 @@ class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
             currentLocation = locManager.location
         }
             
-        let currLong = currentLocation.coordinate.longitude
-        let currLat = currentLocation.coordinate.latitude
-            
-        return (currLat, currLong)
+        if currentLocation == nil {
+            return(0, 0)
+        } else {
+            let currLong = currentLocation.coordinate.longitude
+            let currLat = currentLocation.coordinate.latitude
+                
+            return (currLat, currLong)
+        }
     }
     
     func isConnectedToNetwork() -> Bool {
@@ -120,15 +128,7 @@ class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
         if SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) == false {
             return false
         }
-
-        /* Only Working for WIFI
-        let isReachable = flags == .reachable
-        let needsConnection = flags == .connectionRequired
-
-        return isReachable && !needsConnection
-        */
-
-        // Working for Cellular and WIFI
+        
         let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
         let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
         let ret = (isReachable && !needsConnection)
@@ -160,8 +160,11 @@ class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
             let currLong = (currLoc?.coordinate.longitude)!
             let currLat = (currLoc?.coordinate.latitude)!
             
-            stop = getNearestStop(currLat: currLat, currLong: currLong)
-            lblNearestStop.text = stop
+            getNearestStop(currLat: currLat, currLong: currLong) { (resStop) in
+                self.lblNearestStop.text = resStop
+                stop = resStop
+                
+            }
         }
     }
 }

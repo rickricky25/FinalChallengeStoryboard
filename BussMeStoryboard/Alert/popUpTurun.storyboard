@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Pop Up Turun View Controller-->
         <scene sceneID="D70-AZ-lUS">
             <objects>
-                <viewController id="3yc-TP-Iek" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="popUpTurunStoryboard" wantsFullScreenLayout="YES" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3yc-TP-Iek" customClass="popUpTurunViewController" customModule="FellowCity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7gg-EP-9DH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,7 +41,6 @@
                                                     <rect key="frame" x="34" y="279" width="278" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" red="0.38431372549019605" green="0.38039215686274508" blue="0.38039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JnZ-3n-3y6">
@@ -52,28 +51,46 @@
                                                     <state key="normal" title="Turun">
                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="btnTurun:" destination="3yc-TP-Iek" eventType="touchUpInside" id="5KK-nG-eZR"/>
+                                                        <action selector="btnTurun:" destination="fcV-fT-mDk" eventType="touchUpInside" id="Mrj-m9-LRG"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Tp-vN-KS7">
                                                     <rect key="frame" x="19" y="346" width="143" height="60"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <state key="normal" title="Batalkan">
-                                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="btnBatalTurun:" destination="3yc-TP-Iek" eventType="touchUpInside" id="2ua-QZ-rDG"/>
+                                                        <action selector="btnBatalTurun:" destination="fcV-fT-mDk" eventType="touchUpInside" id="5FK-Wc-j7y"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="15"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
                                 </view>
-                                <blurEffect style="dark"/>
+                                <blurEffect style="systemChromeMaterial"/>
                             </visualEffectView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="4vJ-dB-NmR"/>
                     </view>
+                    <connections>
+                        <outlet property="blurEffect" destination="ilH-NP-DSN" id="XWS-zw-m3b"/>
+                        <outlet property="popupBox" destination="kXG-Sm-Ls2" id="3Ln-SH-oLZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OrL-8w-5gh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="fcV-fT-mDk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-130.43478260869566" y="16.741071428571427"/>
         </scene>

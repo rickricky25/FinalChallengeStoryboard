@@ -10,7 +10,7 @@ import UIKit
 import CloudKit
 import GoogleMaps
 
-class NavDetailCardViewController: UIViewController {
+class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var lblStop: UILabel!
     @IBOutlet weak var handleArea: UIView!
@@ -19,6 +19,7 @@ class NavDetailCardViewController: UIViewController {
     @IBOutlet var listRuteView: UIView!
     @IBOutlet weak var arahSegmentedControl: UISegmentedControl!
     @IBOutlet weak var kodeRute: UILabel!
+    @IBOutlet weak var btnNaik: UIButton!
     
     @IBOutlet weak var lblStop1: UILabel!
     @IBOutlet weak var lblStop2: UILabel!
@@ -46,6 +47,11 @@ class NavDetailCardViewController: UIViewController {
     var routePulang: [String] = []
     var locManager = CLLocationManager()
     
+    var selPergi: Int!
+    var selPulang: Int!
+    var waktuPergi: [String] = []
+    var waktuPulang: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,117 +72,42 @@ class NavDetailCardViewController: UIViewController {
         let predicate = NSPredicate(format: "kodeRute == %@", rute!)
         let query = CKQuery(recordType: "DataRoute", predicate: predicate)
         
-        let predicateStop = NSPredicate(format: "kodeRute == %@", rute!)
-        let queryStop = CKQuery(recordType: "DataScheduleList", predicate: predicateStop)
-        
-        publicDatabase.perform(queryStop, inZoneWith: nil) { (resultStops, errorStop) in
-            let currTime = self.getCurrTime()
-            let arrCurrTime = currTime.components(separatedBy: ":")
-            let currHour = Int(arrCurrTime[0])
-            let currMinute = Int(arrCurrTime[1])
+        getShortestTime(rute: rute!) { (selisihPergi, selisihPulang, timesPergi, timesPulang) in
+            self.selPergi = selisihPergi
+            self.selPulang = selisihPulang
+            self.waktuPergi = timesPergi
+            self.waktuPulang = timesPulang
             
-            var arrStopPergi: [CKRecord] = []
-            var arrStopPulang: [CKRecord] = []
-            
-            for resultStop in resultStops! {
-                if resultStop["arah"] == "pergi" {
-                    arrStopPergi.append(resultStop)
-                } else if resultStop["arah"] == "pulang" {
-                    arrStopPulang.append(resultStop)
+            DispatchQueue.main.async {
+                if self.arahSegmentedControl.selectedSegmentIndex == 0 {
+                    self.lblShortestTime1.text = "\(self.selPergi!)"
+                    self.lblShortestTime2.text = "\(self.selPergi! + 15)"
+                    self.lblShortestTime3.text = "\(self.selPergi! + 30)"
+                    
+                    self.lblTime1.text = self.waktuPergi[0]
+                    self.lblTime2.text = self.waktuPergi[1]
+                    self.lblTime3.text = self.waktuPergi[2]
+                    self.lblTime4.text = self.waktuPergi[3]
+                    self.lblTime5.text = self.waktuPergi[4]
+                    self.lblTime6.text = self.waktuPergi[5]
+                    self.lblTime7.text = self.waktuPergi[6]
+                    self.lblTime8.text = self.waktuPergi[7]
+                } else if self.arahSegmentedControl.selectedSegmentIndex == 1 {
+                    self.lblShortestTime1.text = "\(self.selPulang!)"
+                    self.lblShortestTime2.text = "\(self.selPulang! + 15)"
+                    self.lblShortestTime3.text = "\(self.selPulang! + 30)"
+                    
+                    self.lblTime1.text = self.waktuPulang[0]
+                    self.lblTime2.text = self.waktuPulang[1]
+                    self.lblTime3.text = self.waktuPulang[2]
+                    self.lblTime4.text = self.waktuPulang[3]
+                    self.lblTime5.text = self.waktuPulang[4]
+                    self.lblTime6.text = self.waktuPulang[5]
+                    self.lblTime7.text = self.waktuPulang[6]
+                    self.lblTime8.text = self.waktuPulang[7]
                 }
             }
-            
-            for stopPergi in arrStopPergi {
-                let arrStop = stopPergi["namaStop"] as! [String]
-                let arrWaktu = stopPergi["waktu"] as! [String]
-                var nearestIndex = 0
-                var minSelisih = 1000000000
-                
-                for i in 0...arrStop.count - 1 {
-                    if arrStop[i] == stop {
-                        let stopTime = arrWaktu[i]
-                        let arrStopTime = stopTime.components(separatedBy: ":")
-                        let stopHour = Int(arrStopTime[0])
-                        let stopMinute = Int(arrStopTime[1])
-                        
-                        if currHour! == stopHour!{
-                            if stopMinute! > currMinute! {
-                                let selisih = stopMinute! - currMinute!
-                                if minSelisih > selisih {
-                                    minSelisih = selisih
-                                    nearestIndex = i
-                                }
-                            }
-                        } else if currHour! == stopHour! - 1 {
-                            let selisih = 60 - currMinute! + stopMinute!
-                            if minSelisih > selisih {
-                                minSelisih = selisih
-                                nearestIndex = i
-                            }
-                        }
-                    }
-                }
-                
-                self.lblShortestTime1.text = "\(minSelisih)"
-                self.lblShortestTime2.text = "\(minSelisih + 15)"
-                self.lblShortestTime3.text = "\(minSelisih + 30)"
-                
-                let shortestTime = arrStopPergi[nearestIndex]["waktu"] as! [String]
-                self.lblTime1.text = shortestTime[0]
-                self.lblTime2.text = shortestTime[1]
-                self.lblTime3.text = shortestTime[2]
-                self.lblTime4.text = shortestTime[3]
-                self.lblTime5.text = shortestTime[4]
-                self.lblTime6.text = shortestTime[5]
-                self.lblTime7.text = shortestTime[6]
-                self.lblTime8.text = shortestTime[7]
-            }
-            
-            for stopPulang in arrStopPulang {
-                let arrStop = stopPulang["namaStop"] as! [String]
-                let arrWaktu = stopPulang["waktu"] as! [String]
-                var nearestIndex = 0
-                var minSelisih = 1000000000
-                
-                for i in 0...arrStop.count - 1 {
-                    if arrStop[i] == stop {
-                        let stopTime = arrWaktu[i]
-                        let arrStopTime = stopTime.components(separatedBy: ":")
-                        let stopHour = Int(arrStopTime[0])
-                        let stopMinute = Int(arrStopTime[1])
-                        
-                        if currHour! == stopHour!{
-                            if stopMinute! > currMinute! {
-                                let selisih = stopMinute! - currMinute!
-                                if minSelisih > selisih {
-                                    minSelisih = selisih
-                                    nearestIndex = i
-                                }
-                            }
-                        } else if currHour! == stopHour! - 1 {
-                            let selisih = 60 - currMinute! + stopMinute!
-                            if minSelisih > selisih {
-                                minSelisih = selisih
-                                nearestIndex = i
-                            }
-                        }
-                    }
-                }
-                
-                self.lblShortestTime1.text = "\(minSelisih)"
-                self.lblShortestTime2.text = "\(minSelisih + 15)"
-                self.lblShortestTime3.text = "\(minSelisih + 30)"
-                
-                let shortestTime = arrStopPulang[nearestIndex]["waktu"] as! [String]
-                self.lblTime1.text = shortestTime[0]
-                self.lblTime2.text = shortestTime[1]
-                self.lblTime3.text = shortestTime[2]
-                self.lblTime4.text = shortestTime[3]
-                self.lblTime5.text = shortestTime[4]
-                self.lblTime6.text = shortestTime[5]
-                self.lblTime7.text = shortestTime[6]
-                self.lblTime8.text = shortestTime[7]
-            }
+
         }
         
         publicDatabase.perform(query, inZoneWith: nil) { (result, error) in
@@ -215,6 +146,129 @@ class NavDetailCardViewController: UIViewController {
                 }
             }
         }
+        
+        // GESTURE
+        let edgeContent = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handleEdgePan(_:)))
+        edgeContent.edges = .left
+        edgeContent.delegate = self
+        
+        contentArea.addGestureRecognizer(edgeContent)
+        contentArea.isUserInteractionEnabled = true
+    }
+    
+    func getShortestTime(rute: String, completion: @escaping (_ selisihPergi: Int, _ selisihPulang: Int, _ timesPergi: [String], _ timesPulang: [String]) -> ()) {
+        let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
+        let publicDatabase = container.publicCloudDatabase
+        let predicateStop = NSPredicate(format: "kodeRute == %@", rute)
+        let queryStop = CKQuery(recordType: "DataScheduleList", predicate: predicateStop)
+        
+        var selPergi: Int = 0
+        var selPulang: Int = 0
+        var waktuPergi: [String] = []
+        var waktuPulang: [String] = []
+        
+        publicDatabase.perform(queryStop, inZoneWith: nil) { (resultStops, error) in
+            if error == nil {
+                let currTime = self.getCurrTime()
+                let arrCurrTime = currTime.components(separatedBy: ":")
+                let currHour = Int(arrCurrTime[0])
+                let currMinute = Int(arrCurrTime[1])
+                
+//                print(currTime)
+                
+                var arrStopPergi: [CKRecord] = []
+                var arrStopPulang: [CKRecord] = []
+                
+                for resultStop in resultStops! {
+                    if resultStop["arah"] == "pergi" {
+                        arrStopPergi.append(resultStop)
+                    } else if resultStop["arah"] == "pulang" {
+                        arrStopPulang.append(resultStop)
+                    }
+                }
+                
+                var minSelisih = 1000000000
+                var nearestIndex = 0
+                var index = 0
+                for stopPergi in arrStopPergi {
+                    let arrStop = stopPergi["namaStop"] as! [String]
+                    let arrWaktu = stopPergi["waktu"] as! [String]
+                    
+                    for i in 0...arrStop.count - 1 {
+                        if arrStop[i] == stop {
+                            let stopTime = arrWaktu[i]
+                            let arrStopTime = stopTime.components(separatedBy: ":")
+                            let stopHour = Int(arrStopTime[0])
+                            let stopMinute = Int(arrStopTime[1])
+                            
+                            if currHour! == stopHour!{
+                                if stopMinute! >= currMinute! {
+                                    let selisih = stopMinute! - currMinute!
+                                    if minSelisih > selisih {
+                                        minSelisih = selisih
+                                        nearestIndex = index
+//                                        print("\(nearestIndex) selisih \(minSelisih)")
+                                    }
+                                }
+                            } else if currHour! == stopHour! - 1 {
+                                let selisih = 60 - currMinute! + stopMinute!
+                                if minSelisih > selisih {
+                                    minSelisih = selisih
+                                    nearestIndex = index
+//                                    print("\(nearestIndex) selisih \(minSelisih)")
+                                }
+                            }
+                        }
+                    }
+                    index = index + 1
+                }
+                selPergi = minSelisih
+//                print(selPergi)
+                waktuPergi = arrStopPergi[nearestIndex]["waktu"] as! [String]
+                
+                nearestIndex = 0
+                minSelisih = 1000000000
+                index = 0
+                
+                for stopPulang in arrStopPulang {
+                    let arrStop = stopPulang["namaStop"] as! [String]
+                    let arrWaktu = stopPulang["waktu"] as! [String]
+                    
+                    for i in 0...arrStop.count - 1 {
+                        if arrStop[i] == stop {
+                            let stopTime = arrWaktu[i]
+                            let arrStopTime = stopTime.components(separatedBy: ":")
+                            let stopHour = Int(arrStopTime[0])
+                            let stopMinute = Int(arrStopTime[1])
+                            
+                            if currHour! == stopHour!{
+                                if stopMinute! > currMinute! {
+                                    let selisih = stopMinute! - currMinute!
+                                    if minSelisih > selisih {
+                                        minSelisih = selisih
+                                        nearestIndex = index
+                                    }
+                                }
+                            } else if currHour! == stopHour! - 1 {
+                                let selisih = 60 - currMinute! + stopMinute!
+                                if minSelisih > selisih {
+                                    minSelisih = selisih
+                                    nearestIndex = index
+                                }
+                            }
+                        }
+                    }
+                    index = index + 1
+                }
+                selPulang = minSelisih
+//                print(selPulang)
+                waktuPulang = arrStopPulang[nearestIndex]["waktu"] as! [String]
+                
+                completion(selPergi, selPulang, waktuPergi, waktuPulang)
+            } else {
+                print(error as Any)
+            }
+        }
     }
     
     func getCurrTime() -> String {
@@ -225,7 +279,7 @@ class NavDetailCardViewController: UIViewController {
         return "\(components.hour!):\(components.minute!)"
     }
     
-    func getNearestStop(currLat: CLLocationDegrees, currLong: CLLocationDegrees, completion: @escaping(_ text: String) -> ()) {
+    func getNearestStop(currLat: CLLocationDegrees, currLong: CLLocationDegrees, completion: @escaping (_ stop: String) -> ()) {
         let currLocation = CLLocationCoordinate2D(latitude: currLat, longitude: currLong)
         let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
         let predicate = NSPredicate(value: true)
@@ -256,7 +310,6 @@ class NavDetailCardViewController: UIViewController {
             }
             completion(nearestStop)
         }
-//        return nearestStop
     }
     
     func countDistance(firstLoc: CLLocationCoordinate2D, secondLoc: CLLocationCoordinate2D) -> Double {
@@ -276,12 +329,17 @@ class NavDetailCardViewController: UIViewController {
         return (currLat, currLong)
     }
     
+    @objc func handleEdgePan(_ sender: UIScreenEdgePanGestureRecognizer) {
+        if sender.edges == .left {
+            let prevStoryboard = UIStoryboard(name: "CommuteStoryboard", bundle: nil)
+            let prevVC = prevStoryboard.instantiateViewController(identifier: "CommuteStoryboard") as CommuteViewController
+            present(prevVC, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func btnNaikPressed(_ sender: Any) {
         let newRecord = CKRecord(recordType: "DataCheck")
         let (currLat, currLong) = getCurrentLatLong()
-        
-        let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
-        let publicDatabase = container.publicCloudDatabase
 
         getNearestStop(currLat: currLat, currLong: currLong, completion: { (nearestLoc) in
             newRecord["arah"] = arah!
@@ -301,6 +359,34 @@ class NavDetailCardViewController: UIViewController {
     }
     
     @IBAction func arahSegmentedControlAction(_ sender: UISegmentedControl) {
+        if arahSegmentedControl.selectedSegmentIndex == 0 {
+            lblShortestTime1.text = "\(selPergi!)"
+            lblShortestTime2.text = "\(selPergi! + 15)"
+            lblShortestTime3.text = "\(selPergi! + 30)"
+            
+            lblStop1.text = waktuPergi[0]
+            lblStop2.text = waktuPergi[1]
+            lblStop3.text = waktuPergi[2]
+            lblStop4.text = waktuPergi[3]
+            lblStop5.text = waktuPergi[4]
+            lblStop6.text = waktuPergi[5]
+            lblStop7.text = waktuPergi[6]
+            lblStop8.text = waktuPergi[7]
+        } else if arahSegmentedControl.selectedSegmentIndex == 1 {
+            lblShortestTime1.text = "\(selPulang!)"
+            lblShortestTime2.text = "\(selPulang! + 15)"
+            lblShortestTime3.text = "\(selPulang! + 30)"
+            
+            lblStop1.text = waktuPulang[0]
+            lblStop2.text = waktuPulang[1]
+            lblStop3.text = waktuPulang[2]
+            lblStop4.text = waktuPulang[3]
+            lblStop5.text = waktuPulang[4]
+            lblStop6.text = waktuPulang[5]
+            lblStop7.text = waktuPulang[6]
+            lblStop8.text = waktuPulang[7]
+        }
+        
         if arahSegmentedControl.selectedSegmentIndex == 0 {
 //            print("pergi")
             arah = "pergi"
@@ -328,4 +414,20 @@ class NavDetailCardViewController: UIViewController {
         }
     }
     
+    
+//    ***** CHANGE PAGE to Alert *****
+    @IBAction func btnIngatkan(_ sender: Any) {
+        let nextStoryboard = UIStoryboard(name: "popUpReminder", bundle: nil)
+        let nextVC = nextStoryboard.instantiateViewController(identifier: "popUpReminder") as popUpReminderViewController
+        
+        present(nextVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func btnNaikBus(_ sender: Any) {
+        let nextStoryboard = UIStoryboard(name: "CommuteNaikStoryboard", bundle: nil)
+        let nextVC = nextStoryboard.instantiateViewController(identifier: "CommuteNaikStoryboard") as CommuteNaikViewController
+        
+        present(nextVC, animated: true, completion: nil)
+    }
+//    *******************
 }

@@ -116,11 +116,10 @@ class CommuteNaikViewController: UIViewController {
             mapView = GMSMapView.map(withFrame: mainView.frame, camera: camera)
             
             currMarker.map = mapView
-            
-            let predicate = NSPredicate(value: true)
-            let query = CKQuery(recordType: "DataStop", predicate: predicate)
-            let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
-            let publicDatabase = container.publicCloudDatabase
+//            let predicate = NSPredicate(value: true)
+//            let query = CKQuery(recordType: "DataStop", predicate: predicate)
+//            let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
+//            let publicDatabase = container.publicCloudDatabase
             
             self.mainView.addSubview(mapView)
 //            setupCard()
@@ -135,18 +134,22 @@ class CommuteNaikViewController: UIViewController {
             currentLocation = locManager.location
         }
             
-        let currLong = currentLocation.coordinate.longitude
-        let currLat = currentLocation.coordinate.latitude
-            
-        return (currLat, currLong)
+        if currentLocation == nil {
+            return(0, 0)
+        } else {
+            let currLong = currentLocation.coordinate.longitude
+            let currLat = currentLocation.coordinate.latitude
+                
+            return (currLat, currLong)
+        }
     }
     
 //    **** MODAL FUNCTION ****
     func setupCard() {
-        visualEffectView = UIVisualEffectView()
-        visualEffectView.frame = self.view.frame
-        
-        self.view.addSubview(visualEffectView)
+//        visualEffectView = UIVisualEffectView()
+//        visualEffectView.frame = self.view.frame
+//
+//        self.view.addSubview(visualEffectView)
         
         commuteNaikModalViewController = CommuteNaikModalViewController(nibName: "CommuteNaikModalViewController", bundle:nil)
         self.addChild(commuteNaikModalViewController)
@@ -242,17 +245,17 @@ class CommuteNaikViewController: UIViewController {
             runningAnimations.append(frameAnimator)
             
             
-            let cornerRadiusAnimator = UIViewPropertyAnimator(duration: 0.5, curve: .linear) {
-                switch state {
-                case .expanded:
-                    self.commuteNaikModalViewController.view.layer.cornerRadius = 25
-                case .collapsed:
-                    self.commuteNaikModalViewController.view.layer.cornerRadius = 0
-                }
-            }
-            
-            cornerRadiusAnimator.startAnimation()
-            runningAnimations.append(cornerRadiusAnimator)
+//            let cornerRadiusAnimator = UIViewPropertyAnimator(duration: 0.5, curve: .linear) {
+//                switch state {
+//                case .expanded:
+//                    self.commuteNaikModalViewController.view.layer.cornerRadius = 25
+//                case .collapsed:
+//                    self.commuteNaikModalViewController.view.layer.cornerRadius = 0
+//                }
+//            }
+//
+//            cornerRadiusAnimator.startAnimation()
+//            runningAnimations.append(cornerRadiusAnimator)
             
         }
     }
@@ -302,4 +305,6 @@ extension CommuteNaikViewController: CLLocationManagerDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         
     }
+    
+    
 }

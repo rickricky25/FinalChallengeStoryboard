@@ -80,31 +80,58 @@ class NavDetailViewController: UIViewController {
                             let firstLoc = CLLocationCoordinate2D(latitude: resLat![i], longitude: resLong![i])
                             let secondLoc = CLLocationCoordinate2D(latitude: resLat![i + 1], longitude: resLong![i + 1])
                             let stopMarker = GMSMarker(position: firstLoc)
-                            stopMarker.title  = resStop![i]
-                            stopMarker.icon = UIImage(named: "halte")
-                            stopMarker.map = self.mapView
-                            self.drawRoute(from: firstLoc, to: secondLoc)
+                            DispatchQueue.main.async {
+                                stopMarker.title  = resStop![i]
+                                stopMarker.icon = UIImage(named: "halte")
+                                stopMarker.map = self.mapView
+                                self.drawRoute(from: firstLoc, to: secondLoc)
+                            }
                         }
                     } else {
                         print(resStop![i])
                         let firstLoc = CLLocationCoordinate2D(latitude: resLat![i], longitude: resLong![i])
                         let secondLoc = CLLocationCoordinate2D(latitude: resLat![i + 1], longitude: resLong![i + 1])
                         let stopMarker = GMSMarker(position: firstLoc)
-                        stopMarker.title  = resStop![i]
-                        stopMarker.icon = UIImage(named: "halte")
-                        stopMarker.map = self.mapView
-                        self.drawRoute(from: firstLoc, to: secondLoc)
+                        DispatchQueue.main.async {
+                            stopMarker.title  = resStop![i]
+                            stopMarker.icon = UIImage(named: "halte")
+                            stopMarker.map = self.mapView
+                            self.drawRoute(from: firstLoc, to: secondLoc)
+                        }
                     }
                 }
                 
-                let stopMarker = GMSMarker(position: CLLocationCoordinate2D(latitude: resLat![resStop!.count - 1], longitude: resLong![resStop!.count - 1]))
-                stopMarker.title = resStop![resStop!.count - 1]
-                stopMarker.map = self.mapView
+                DispatchQueue.main.async {
+                    let stopMarker = GMSMarker(position: CLLocationCoordinate2D(latitude: resLat![resStop!.count - 1], longitude: resLong![resStop!.count - 1]))
+                    stopMarker.title = resStop![resStop!.count - 1]
+                    stopMarker.map = self.mapView
+                }
             }
         }
         
         self.mainView.addSubview(mapView)
-        setupCard()
+        
+        // Setup Card
+        
+        navDetailCardViewController = NavDetailCardViewController(nibName: "NavDetailCardViewController", bundle: nil)
+        self.addChild(navDetailCardViewController)
+        self.view.addSubview(navDetailCardViewController.view)
+        
+        navDetailCardViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - 415, width: self.view.bounds.width, height: cardHeight)
+        
+        navDetailCardViewController.view.clipsToBounds = true
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(NavDetailViewController.handleCardTap(recognizer:)))
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(NavDetailViewController.handleCardPan(recognizer:)))
+        
+        navDetailCardViewController.handleArea.addGestureRecognizer(tapGestureRecognizer)
+        navDetailCardViewController.handleArea.addGestureRecognizer(panGestureRecognizer)
+        
+        if navDetailCardViewController.arahSegmentedControl.selectedSegmentIndex == 0 {
+            
+        } else {
+            
+        }
     }
     
     // Function to get Current Location
@@ -203,15 +230,15 @@ class NavDetailViewController: UIViewController {
 
 //    **** MODAL FUNCTION ****
     func setupCard() {
-        visualEffectView = UIVisualEffectView()
-        visualEffectView.frame = self.view.frame
-        self.view.addSubview(visualEffectView)
+//        visualEffectView = UIVisualEffectView()
+//        visualEffectView.frame = self.view.frame
+//        self.view.addSubview(visualEffectView)
         
         navDetailCardViewController = NavDetailCardViewController(nibName: "NavDetailCardViewController", bundle: nil)
         self.addChild(navDetailCardViewController)
         self.view.addSubview(navDetailCardViewController.view)
         
-        navDetailCardViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - 500, width: self.view.bounds.width, height: cardHeight)
+        navDetailCardViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - 415, width: self.view.bounds.width, height: cardHeight)
         
         navDetailCardViewController.view.clipsToBounds = true
         
@@ -220,7 +247,6 @@ class NavDetailViewController: UIViewController {
         
         navDetailCardViewController.handleArea.addGestureRecognizer(tapGestureRecognizer)
         navDetailCardViewController.handleArea.addGestureRecognizer(panGestureRecognizer)
-        
     }
 
     @objc
@@ -255,9 +281,9 @@ class NavDetailViewController: UIViewController {
             let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 5) {
                 switch state {
                 case .expanded:
-                    self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height - self.cardHeight + 60
+                    self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height - self.cardHeight + 35
                 case .collapsed:
-                    self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height - 500
+                    self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height - 415
                 case .hide:
                     self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height - 300
                 }

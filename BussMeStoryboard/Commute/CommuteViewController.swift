@@ -15,6 +15,7 @@ import SystemConfiguration
 
 class CommuteViewController: UIViewController {
     @IBOutlet var mainView: UIView!
+    @IBOutlet var commuteTabBar: UITabBar!
     
     enum CardState {
         case expanded
@@ -43,6 +44,7 @@ class CommuteViewController: UIViewController {
     var nearestStop: String!
     
     override func viewDidLoad() {
+        
         if isConnectedToNetwork() {
             super.viewDidLoad()
             //Getting Permission for Maps
@@ -117,10 +119,10 @@ class CommuteViewController: UIViewController {
             
             currMarker.map = mapView
             
-            let predicate = NSPredicate(value: true)
-            let query = CKQuery(recordType: "DataStop", predicate: predicate)
-            let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
-            let publicDatabase = container.publicCloudDatabase
+//            let predicate = NSPredicate(value: true)
+//            let query = CKQuery(recordType: "DataStop", predicate: predicate)
+//            let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
+//            let publicDatabase = container.publicCloudDatabase
             
             self.mainView.addSubview(mapView)
 //            setupCard()
@@ -135,24 +137,29 @@ class CommuteViewController: UIViewController {
             currentLocation = locManager.location
         }
             
-        let currLong = currentLocation.coordinate.longitude
-        let currLat = currentLocation.coordinate.latitude
-            
-        return (currLat, currLong)
+        if currentLocation == nil {
+            return(0, 0)
+        } else {
+            let currLong = currentLocation.coordinate.longitude
+            let currLat = currentLocation.coordinate.latitude
+                
+            return (currLat, currLong)
+        }
     }
     
 //    **** MODAL FUNCTION ****
     func setupCard() {
-        visualEffectView = UIVisualEffectView()
-        visualEffectView.frame = self.view.frame
+//        visualEffectView = UIVisualEffectView()
+//        visualEffectView.frame = self.view.frame
         
-        self.view.addSubview(visualEffectView)
+//        self.view.addSubview(visualEffectView)
+        
         
         commuteModalViewController = CommuteModalViewController(nibName: "CommuteModalViewController", bundle:nil)
         self.addChild(commuteModalViewController)
         self.view.addSubview(commuteModalViewController.view)
         
-        commuteModalViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - cardHandleAreaH - 20, width: self.view.bounds.width, height: cardHeight)
+        commuteModalViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - cardHandleAreaH - 110, width: self.view.bounds.width, height: cardHeight)
         
         commuteModalViewController.view.clipsToBounds = true
                 
@@ -178,7 +185,7 @@ class CommuteViewController: UIViewController {
     func handleCardPan (recognizer:UIPanGestureRecognizer) {
         switch recognizer.state {
         case .began:
-            startInteractiveTransition(state: nextState, duration: 0.35)
+            startInteractiveTransition(state: nextState, duration: 0.3)
         case .changed:
             let translation = recognizer.translation(in: self.commuteModalViewController.handleArea)
             var fractionComplete = translation.y / cardHeight
@@ -224,12 +231,13 @@ class CommuteViewController: UIViewController {
     
     func animateTransitionIfNeeded (state:CardState, duration:TimeInterval) {
         if runningAnimations.isEmpty {
-            let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 5) {
+            let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 15) {
                 switch state {
                 case .expanded:
-                    self.commuteModalViewController.view.frame.origin.y = self.view.frame.height - self.cardHeight
+                    self.commuteModalViewController.view.frame.origin.y = self.view.frame.height - self.cardHeight + 50
                 case .collapsed:
-                    self.commuteModalViewController.view.frame.origin.y = self.view.frame.height - self.cardHandleAreaH - 20
+                    self.commuteModalViewController.view.frame.origin.y = self.view.frame.height - self.cardHandleAreaH + 50
+                
                 }
             }
             
@@ -242,18 +250,18 @@ class CommuteViewController: UIViewController {
             runningAnimations.append(frameAnimator)
             
             
-            let cornerRadiusAnimator = UIViewPropertyAnimator(duration: 0.5, curve: .linear) {
+            let cornerRadiusAnimator = UIViewPropertyAnimator(duration: 1, curve: .linear) {
                 switch state {
                 case .expanded:
-                    self.commuteModalViewController.view.layer.cornerRadius = 25
+                    self.commuteModalViewController.view.layer.cornerRadius = 20
                 case .collapsed:
                     self.commuteModalViewController.view.layer.cornerRadius = 0
                 }
             }
-            
+
             cornerRadiusAnimator.startAnimation()
             runningAnimations.append(cornerRadiusAnimator)
-            
+
         }
     }
     

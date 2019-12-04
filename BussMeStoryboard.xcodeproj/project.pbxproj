@@ -14,11 +14,14 @@
 		291F51C0238D2E27008EE3FB /* MyTripsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 291F51BF238D2E27008EE3FB /* MyTripsStoryboard.storyboard */; };
 		49D341582382A1A7008DF83A /* NavDetailCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D341562382A1A7008DF83A /* NavDetailCardViewController.swift */; };
 		49D341592382A1A7008DF83A /* NavDetailCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D341572382A1A7008DF83A /* NavDetailCardViewController.xib */; };
+		49D3415B238D3A0B008DF83A /* popUpTurunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D3415A238D3A0B008DF83A /* popUpTurunViewController.swift */; };
+		50530A01238FC395006E065F /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5079A5A0237E90C900CF68A9 /* CloudKit.framework */; };
+		50530A04238FC397006E065F /* Pods_BussMeStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD65566A8245E7A4A3289A3 /* Pods_BussMeStoryboard.framework */; };
 		5079A56B2379509200CF68A9 /* CommuteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5079A56A2379509200CF68A9 /* CommuteStoryboard.storyboard */; };
 		5079A56D237950B400CF68A9 /* CommuteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A56C237950B400CF68A9 /* CommuteViewController.swift */; };
 		5079A570237A918000CF68A9 /* NavDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5079A56F237A918000CF68A9 /* NavDetailStoryboard.storyboard */; };
 		5079A572237A91C200CF68A9 /* NavDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A571237A91C200CF68A9 /* NavDetailViewController.swift */; };
-		5079A5A1237E90CA00CF68A9 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5079A5A0237E90C900CF68A9 /* CloudKit.framework */; };
+		50AE5B69238D3058007BAA68 /* MyTripsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50AE5B68238D3058007BAA68 /* MyTripsStoryboard.storyboard */; };
 		50E9D0FA2355C25A000042BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D0F92355C25A000042BC /* AppDelegate.swift */; };
 		50E9D0FC2355C25A000042BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D0FB2355C25A000042BC /* SceneDelegate.swift */; };
 		50E9D1042355C25A000042BC /* BussMeStoryboard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D1022355C25A000042BC /* BussMeStoryboard.xcdatamodeld */; };
@@ -33,10 +36,11 @@
 		511DE493237BF6A000058BFD /* CommuteModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511DE491237BF6A000058BFD /* CommuteModalViewController.swift */; };
 		511DE494237BF6A000058BFD /* CommuteModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 511DE492237BF6A000058BFD /* CommuteModalViewController.xib */; };
 		512DB0D32387BC40000A2558 /* CommuteNaikViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512DB0D22387BC40000A2558 /* CommuteNaikViewController.swift */; };
+		51DED0F123911BE500A75D22 /* MyTripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DED0F023911BE500A75D22 /* MyTripsViewController.swift */; };
+		51DED0F3239125A200A75D22 /* CreateReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DED0F2239125A200A75D22 /* CreateReminderViewController.swift */; };
 		58ABD31DA095508EC28636D4 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A52C92A51075A0C4EB42CA5 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework */; };
 		6337DD0A235EF83B00D71441 /* CommuteNaikStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6337DD09235EF83B00D71441 /* CommuteNaikStoryboard.storyboard */; };
 		BF646D1CAB005371A2FE3DCC /* Pods_BussMeStoryboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3693E2F672A0A979AB1B0EB /* Pods_BussMeStoryboardTests.framework */; };
-		D55218E041A4BF7F6765A4BF /* Pods_BussMeStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD65566A8245E7A4A3289A3 /* Pods_BussMeStoryboard.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +70,8 @@
 		2BDBFA39DF23F08F0E43758C /* Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboard-BussMeStoryboardUITests/Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig"; sourceTree = "<group>"; };
 		49D341562382A1A7008DF83A /* NavDetailCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavDetailCardViewController.swift; sourceTree = "<group>"; };
 		49D341572382A1A7008DF83A /* NavDetailCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavDetailCardViewController.xib; sourceTree = "<group>"; };
+		504D3B28238FCFC600B71EEA /* BussMeStoryboard.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = BussMeStoryboard.entitlements; sourceTree = "<group>"; };
+		49D3415A238D3A0B008DF83A /* popUpTurunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popUpTurunViewController.swift; sourceTree = "<group>"; };
 		5079A56A2379509200CF68A9 /* CommuteStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommuteStoryboard.storyboard; sourceTree = "<group>"; };
 		5079A56C237950B400CF68A9 /* CommuteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteViewController.swift; sourceTree = "<group>"; };
 		5079A56F237A918000CF68A9 /* NavDetailStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavDetailStoryboard.storyboard; sourceTree = "<group>"; };
@@ -90,6 +96,8 @@
 		511DE491237BF6A000058BFD /* CommuteModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteModalViewController.swift; sourceTree = "<group>"; };
 		511DE492237BF6A000058BFD /* CommuteModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommuteModalViewController.xib; sourceTree = "<group>"; };
 		512DB0D22387BC40000A2558 /* CommuteNaikViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteNaikViewController.swift; sourceTree = "<group>"; };
+		51DED0F023911BE500A75D22 /* MyTripsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTripsViewController.swift; sourceTree = "<group>"; };
+		51DED0F2239125A200A75D22 /* CreateReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReminderViewController.swift; sourceTree = "<group>"; };
 		6337DD09235EF83B00D71441 /* CommuteNaikStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommuteNaikStoryboard.storyboard; sourceTree = "<group>"; };
 		7A52C92A51075A0C4EB42CA5 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BussMeStoryboard_BussMeStoryboardUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		888D1D867A4F3AE799093AA1 /* Pods-BussMeStoryboardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboardTests.debug.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboardTests/Pods-BussMeStoryboardTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -106,8 +114,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5079A5A1237E90CA00CF68A9 /* CloudKit.framework in Frameworks */,
-				D55218E041A4BF7F6765A4BF /* Pods_BussMeStoryboard.framework in Frameworks */,
+				50530A04238FC397006E065F /* Pods_BussMeStoryboard.framework in Frameworks */,
+				50530A01238FC395006E065F /* CloudKit.framework in Frameworks */,
 				50E9D3B9235EEB00000042BC /* (null) in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +145,7 @@
 				006027A1237BFB0500F92D90 /* popUpReminder.storyboard */,
 				006027A5237BFFB700F92D90 /* popUpTurun.storyboard */,
 				006027A3237BFB2100F92D90 /* popUpReminderViewController.swift */,
+				49D3415A238D3A0B008DF83A /* popUpTurunViewController.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -146,7 +155,9 @@
 			children = (
 				5079A56A2379509200CF68A9 /* CommuteStoryboard.storyboard */,
 				5079A56C237950B400CF68A9 /* CommuteViewController.swift */,
+				51DED0F2239125A200A75D22 /* CreateReminderViewController.swift */,
 				511DE491237BF6A000058BFD /* CommuteModalViewController.swift */,
+				51DED0F023911BE500A75D22 /* MyTripsViewController.swift */,
 				511DE492237BF6A000058BFD /* CommuteModalViewController.xib */,
 			);
 			path = Commute;
@@ -192,7 +203,6 @@
 				5079A56E237A915D00CF68A9 /* Navigation Detail */,
 				5079A5692379507D00CF68A9 /* Commute */,
 				6337DD08235EF7C900D71441 /* Im In */,
-				512DB0D42387C7AC000A2558 /* My Trips */,
 				63B43F9623585BBF00131562 /* Home */,
 				50E9D0F92355C25A000042BC /* AppDelegate.swift */,
 				50E9D0FB2355C25A000042BC /* SceneDelegate.swift */,
@@ -200,6 +210,7 @@
 				50E9D1052355C25C000042BC /* Assets.xcassets */,
 				50E9D1072355C25C000042BC /* LaunchScreen.storyboard */,
 				50E9D10A2355C25C000042BC /* Info.plist */,
+				504D3B28238FCFC600B71EEA /* BussMeStoryboard.entitlements */,
 				50E9D1022355C25A000042BC /* BussMeStoryboard.xcdatamodeld */,
 			);
 			path = BussMeStoryboard;
@@ -550,6 +561,9 @@
 				50E9D0FC2355C25A000042BC /* SceneDelegate.swift in Sources */,
 				5079A572237A91C200CF68A9 /* NavDetailViewController.swift in Sources */,
 				006027A4237BFB2100F92D90 /* popUpReminderViewController.swift in Sources */,
+				49D3415B238D3A0B008DF83A /* popUpTurunViewController.swift in Sources */,
+				51DED0F3239125A200A75D22 /* CreateReminderViewController.swift in Sources */,
+				51DED0F123911BE500A75D22 /* MyTripsViewController.swift in Sources */,
 				49D341582382A1A7008DF83A /* NavDetailCardViewController.swift in Sources */,
 				006027AB2385091700F92D90 /* ReminderViewController.swift in Sources */,
 			);
@@ -717,6 +731,7 @@
 			baseConfigurationReference = C17E0CB0F9069AE8F9532AB5 /* Pods-BussMeStoryboard.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
 				CODE_SIGN_ENTITLEMENTS = BussMeStoryboard/BussMeStoryboard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -726,7 +741,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rickyeffendi.BussMeStoryboard;
 				PRODUCT_NAME = FellowCity;
 				SWIFT_VERSION = 5.0;
@@ -739,6 +754,7 @@
 			baseConfigurationReference = F419FB808859F4B2AD9CBD54 /* Pods-BussMeStoryboard.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
 				CODE_SIGN_ENTITLEMENTS = BussMeStoryboard/BussMeStoryboard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -748,7 +764,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rickyeffendi.BussMeStoryboard;
 				PRODUCT_NAME = FellowCity;
 				SWIFT_VERSION = 5.0;

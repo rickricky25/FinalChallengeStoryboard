@@ -10,7 +10,7 @@
         <!--Nav Detail View Controller-->
         <scene sceneID="QfY-dv-tzE">
             <objects>
-                <viewController storyboardIdentifier="NavDetailStoryboard" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4pU-jv-utM" customClass="NavDetailViewController" customModule="FellowCity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NavDetailStoryboard" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4pU-jv-utM" customClass="NavDetailViewController" customModule="FellowCity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FyA-ok-SmI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
