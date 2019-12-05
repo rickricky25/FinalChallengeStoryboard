@@ -17,11 +17,8 @@ class CreateReminderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         formStyle()
-        
-    
-        
-        
     }
+    
     @IBAction func timeStart(_ sender: Any) {
         let picker : UIDatePicker = UIDatePicker()
         picker.datePickerMode = UIDatePicker.Mode.time

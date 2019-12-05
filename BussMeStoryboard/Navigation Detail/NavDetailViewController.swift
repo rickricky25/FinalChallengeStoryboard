@@ -17,7 +17,7 @@ class NavDetailViewController: UIViewController {
     @IBOutlet var mainView: UIView!
     
 //    *** MODAL ***
-    enum CardState {
+    enum CardStateNavDetail {
         case expanded
         case collapsed
         case hide
@@ -27,10 +27,22 @@ class NavDetailViewController: UIViewController {
     var visualEffectView: UIVisualEffectView!
     let cardHeight: CGFloat = 800
     let cardHandleAreaH: CGFloat = 250
-    var cardVisible = false
+    var cardNavDetailVisible = 1
+    var arahCard = ""
+    var handleCard = ""
     
-    var nextState:CardState {
-        return cardVisible ? .collapsed : .expanded
+    var nextState: CardStateNavDetail {
+//        return cardNavDetailVisible ? .collapsed : .expanded
+        if cardNavDetailVisible == 0 {
+            print(0)
+            return .hide
+        } else if cardNavDetailVisible ==  1 {
+            print(1)
+            return .collapsed
+        } else {
+            print(2)
+            return .expanded
+        }
     }
     
     var runningAnimations = [UIViewPropertyAnimator]()
@@ -60,7 +72,7 @@ class NavDetailViewController: UIViewController {
         
         currMarker.map = mapView
         
-        let routePredicate = NSPredicate(format: "arah == %@ AND kodeRute == %@", arah!, rute!)
+        let routePredicate = NSPredicate(format: "arah == %@ AND kodeRute == %@", arah!, rute)
         let query = CKQuery(recordType: "DataRoute", predicate: routePredicate)
         let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
         let publicDatabase = container.publicCloudDatabase
@@ -121,8 +133,8 @@ class NavDetailViewController: UIViewController {
         
         navDetailCardViewController.view.clipsToBounds = true
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(NavDetailViewController.handleCardTap(recognizer:)))
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(NavDetailViewController.handleCardPan(recognizer:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(NavDetailViewController.handleCardNavDetailTap(recognizer:)))
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(NavDetailViewController.handleCardNavDetailPan(recognizer:)))
         
         navDetailCardViewController.handleArea.addGestureRecognizer(tapGestureRecognizer)
         navDetailCardViewController.handleArea.addGestureRecognizer(panGestureRecognizer)
@@ -229,10 +241,7 @@ class NavDetailViewController: UIViewController {
     }*/
 
 //    **** MODAL FUNCTION ****
-    func setupCard() {
-//        visualEffectView = UIVisualEffectView()
-//        visualEffectView.frame = self.view.frame
-//        self.view.addSubview(visualEffectView)
+    func setupCardNavDetail() {
         
         navDetailCardViewController = NavDetailCardViewController(nibName: "NavDetailCardViewController", bundle: nil)
         self.addChild(navDetailCardViewController)
@@ -242,41 +251,82 @@ class NavDetailViewController: UIViewController {
         
         navDetailCardViewController.view.clipsToBounds = true
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(NavDetailViewController.handleCardTap(recognizer:)))
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(NavDetailViewController.handleCardPan(recognizer:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(NavDetailViewController.handleCardNavDetailTap(recognizer:)))
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(NavDetailViewController.handleCardNavDetailPan(recognizer:)))
         
         navDetailCardViewController.handleArea.addGestureRecognizer(tapGestureRecognizer)
         navDetailCardViewController.handleArea.addGestureRecognizer(panGestureRecognizer)
     }
 
     @objc
-    func handleCardTap(recognizer:UITapGestureRecognizer) {
+    func handleCardNavDetailTap(recognizer:UITapGestureRecognizer) {
+        handleCard = "tap"
+        print("tapped")
         switch recognizer.state {
         case .ended:
-            animateTransitionIfNeeded(state: nextState, duration: 0.65)
+            animateTransitionIfNeededNavDetail(state: nextState, duration: 0.65)
         default:
             break
         }
         
     }
     @objc
-    func handleCardPan (recognizer:UIPanGestureRecognizer) {
+    func handleCardNavDetailPan (recognizer:UIPanGestureRecognizer) {
+        handleCard = "pan"
         switch recognizer.state {
         case .began:
-            startInteractiveTransition(state: nextState, duration: 0.35)
+//            startInteractiveTransitionNavDetail(state: nextState, duration: 0.35)
+            print("began\(cardNavDetailVisible)")
         case .changed:
             let translation = recognizer.translation(in: self.navDetailCardViewController.handleArea)
+            let velocity = recognizer.velocity(in: self.navDetailCardViewController.handleArea)
             var fractionComplete = translation.y / cardHeight
-            fractionComplete = cardVisible ? fractionComplete : -fractionComplete
-            updateInteractiveTransition(fractionCompleted: fractionComplete)
+//            fractionComplete = cardNavDetailVisible ? fractionComplete : -fractionComplete
+//            if cardNavDetailVisible == 2 {
+//                fractionComplete = -fractionComplete
+//            }
+            if velocity.y > 0 {
+                arahCard = "turun"
+                fractionComplete = -fractionComplete
+                if cardNavDetailVisible == 0 {
+//                    self.startInteractiveTransitionNavDetail(state: .hide, duration: 0.35)
+                    print("hide")
+                } else if cardNavDetailVisible == 1 {
+                    self.startInteractiveTransitionNavDetail(state: .hide, duration: 0.35)
+                    print("hide")
+                } else if cardNavDetailVisible == 2 {
+                    self.startInteractiveTransitionNavDetail(state: .collapsed, duration: 0.35)
+                    print("collapsed")
+                }
+                
+            } else {
+                arahCard = "naik"
+                if cardNavDetailVisible == 0 {
+                    self.startInteractiveTransitionNavDetail(state: .collapsed, duration: 0.35)
+                    print("collapsed")
+                } else if cardNavDetailVisible == 1 {
+                    self.startInteractiveTransitionNavDetail(state: .expanded, duration: 0.35)
+                    print("expanded")
+                } else if cardNavDetailVisible == 2 {
+//                    self.startInteractiveTransitionNavDetail(state: .expanded, duration: 0.35)
+                    print("expanded")
+                }
+//                print("naik")
+            }
+            updateInteractiveTransitionNavDetail(fractionCompleted: fractionComplete)
+//            print("changed")
         case .ended:
-            continueInteractiveTransition()
+            continueInteractiveTransitionNavDetail()
+//            print("ended")
         default:
             break
         }
     }
     
-    func animateTransitionIfNeeded (state:CardState, duration:TimeInterval) {
+    func animateTransitionIfNeededNavDetail (state: CardStateNavDetail, duration: TimeInterval) {
+        print("animateIfNeeded")
+        
+        
         if runningAnimations.isEmpty {
             let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 5) {
                 switch state {
@@ -290,7 +340,39 @@ class NavDetailViewController: UIViewController {
             }
             
             frameAnimator.addCompletion { _ in
-                self.cardVisible = !self.cardVisible
+                if self.handleCard == "pan" {
+                    if self.arahCard == "naik" {
+                        switch self.cardNavDetailVisible {
+                        case 0:
+                            self.cardNavDetailVisible = 1
+                        case 1:
+                            self.cardNavDetailVisible = 2
+                        case 2:
+                            self.cardNavDetailVisible = 2
+                        default:
+                            print("error")
+                        }
+                    } else if self.arahCard == "turun" {
+                        switch self.cardNavDetailVisible {
+                        case 0:
+                            self.cardNavDetailVisible = 0
+                        case 1:
+                            self.cardNavDetailVisible = 0
+                        case 2:
+                            self.cardNavDetailVisible = 1
+                        default:
+                            print("error")
+                        }
+                    }
+                } else {
+                    if self.cardNavDetailVisible == 0 {
+                        self.cardNavDetailVisible = 1
+                    } else if self.cardNavDetailVisible == 1 {
+                        self.cardNavDetailVisible = 2
+                    } else {
+                        self.cardNavDetailVisible = 1
+                    }
+                }
                 self.runningAnimations.removeAll()
             }
             
@@ -315,9 +397,9 @@ class NavDetailViewController: UIViewController {
         }
     }
     
-    func startInteractiveTransition(state:CardState, duration:TimeInterval) {
+    func startInteractiveTransitionNavDetail(state:CardStateNavDetail, duration:TimeInterval) {
         if runningAnimations.isEmpty {
-            animateTransitionIfNeeded(state: state, duration: duration)
+            animateTransitionIfNeededNavDetail(state: state, duration: duration)
         }
         for animator in runningAnimations {
             animator.pauseAnimation()
@@ -325,13 +407,13 @@ class NavDetailViewController: UIViewController {
         }
     }
     
-    func updateInteractiveTransition(fractionCompleted:CGFloat) {
+    func updateInteractiveTransitionNavDetail(fractionCompleted:CGFloat) {
         for animator in runningAnimations {
             animator.fractionComplete = fractionCompleted + CGFloat(animationProgressInterrupted)
         }
     }
     
-    func continueInteractiveTransition (){
+    func continueInteractiveTransitionNavDetail (){
         for animator in runningAnimations {
             animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
         }
