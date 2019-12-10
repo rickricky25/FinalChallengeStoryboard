@@ -16,19 +16,19 @@ import SystemConfiguration
 class CommuteNaikViewController: UIViewController {
     @IBOutlet var mainView: UIView!
     
-    enum CardState {
+    enum CardNaikState {
         case expanded
         case collapsed
     }
     
     var commuteNaikModalViewController:CommuteNaikModalViewController!
     var visualEffectView:UIVisualEffectView!
-    let cardHeight:CGFloat = 500
+    let cardNaikHeight:CGFloat = 500
     let cardHandleAreaH:CGFloat = 250
-    var cardVisible = false
+    var cardNaikVisible = false
     
-    var nextState:CardState {
-        return cardVisible ? .collapsed : .expanded
+    var nextStateNaik:CardNaikState {
+        return cardNaikVisible ? .collapsed : .expanded
     }
     
     var runningAnimations = [UIViewPropertyAnimator]()
@@ -96,7 +96,7 @@ class CommuteNaikViewController: UIViewController {
                 }
             }
             self.mainView.addSubview(mapView)
-            setupCard()
+            setupCardNaik()
         } else {
             // Coding tanpa internet
             super.viewDidLoad()
@@ -122,7 +122,7 @@ class CommuteNaikViewController: UIViewController {
 //            let publicDatabase = container.publicCloudDatabase
             
             self.mainView.addSubview(mapView)
-//            setupCard()
+//            setupCardNaik()
         }
     }
     
@@ -145,7 +145,7 @@ class CommuteNaikViewController: UIViewController {
     }
     
 //    **** MODAL FUNCTION ****
-    func setupCard() {
+    func setupCardNaik() {
 //        visualEffectView = UIVisualEffectView()
 //        visualEffectView.frame = self.view.frame
 //
@@ -155,12 +155,12 @@ class CommuteNaikViewController: UIViewController {
         self.addChild(commuteNaikModalViewController)
         self.view.addSubview(commuteNaikModalViewController.view)
         
-        commuteNaikModalViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - cardHandleAreaH - 20, width: self.view.bounds.width, height: cardHeight)
+        commuteNaikModalViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - cardHandleAreaH - 20, width: self.view.bounds.width, height: cardNaikHeight)
         
         commuteNaikModalViewController.view.clipsToBounds = true
                 
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CommuteNaikViewController.handleCardTap(recognizer:)))
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(CommuteNaikViewController.handleCardPan(recognizer:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CommuteNaikViewController.handleCardNaikTap(recognizer:)))
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(CommuteNaikViewController.handleCardNaikPan(recognizer:)))
         
         commuteNaikModalViewController.handleArea.addGestureRecognizer(tapGestureRecognizer)
         commuteNaikModalViewController.handleArea.addGestureRecognizer(panGestureRecognizer)
@@ -168,27 +168,27 @@ class CommuteNaikViewController: UIViewController {
     }
 
     @objc
-    func handleCardTap(recognizer:UITapGestureRecognizer) {
+    func handleCardNaikTap(recognizer:UITapGestureRecognizer) {
         switch recognizer.state {
         case .ended:
-            animateTransitionIfNeeded(state: nextState, duration: 0.65)
+            animateTransitionIfNeededNaik(state: nextStateNaik, duration: 0.65)
         default:
             break
         }
         
     }
     @objc
-    func handleCardPan (recognizer:UIPanGestureRecognizer) {
+    func handleCardNaikPan (recognizer:UIPanGestureRecognizer) {
         switch recognizer.state {
         case .began:
-            startInteractiveTransition(state: nextState, duration: 0.35)
+            startInteractiveTransitionNaik(state: nextStateNaik, duration: 0.35)
         case .changed:
             let translation = recognizer.translation(in: self.commuteNaikModalViewController.handleArea)
-            var fractionComplete = translation.y / cardHeight
-            fractionComplete = cardVisible ? fractionComplete : -fractionComplete
-            updateInteractiveTransition(fractionCompleted: fractionComplete)
+            var fractionComplete = translation.y / cardNaikHeight
+            fractionComplete = cardNaikVisible ? fractionComplete : -fractionComplete
+            updateInteractiveTransitionNaik(fractionCompleted: fractionComplete)
         case .ended:
-            continueInteractiveTransition()
+            continueInteractiveTransitionNaik()
         default:
             break
         }
@@ -225,19 +225,19 @@ class CommuteNaikViewController: UIViewController {
         return ret
     }
     
-    func animateTransitionIfNeeded (state:CardState, duration:TimeInterval) {
+    func animateTransitionIfNeededNaik (state:CardNaikState, duration:TimeInterval) {
         if runningAnimations.isEmpty {
             let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 5) {
                 switch state {
                 case .expanded:
-                    self.commuteNaikModalViewController.view.frame.origin.y = self.view.frame.height - self.cardHeight
+                    self.commuteNaikModalViewController.view.frame.origin.y = self.view.frame.height - self.cardNaikHeight
                 case .collapsed:
                     self.commuteNaikModalViewController.view.frame.origin.y = self.view.frame.height - self.cardHandleAreaH - 20
                 }
             }
             
             frameAnimator.addCompletion { _ in
-                self.cardVisible = !self.cardVisible
+                self.cardNaikVisible = !self.cardNaikVisible
                 self.runningAnimations.removeAll()
             }
             
@@ -260,9 +260,9 @@ class CommuteNaikViewController: UIViewController {
         }
     }
     
-    func startInteractiveTransition(state:CardState, duration:TimeInterval) {
+    func startInteractiveTransitionNaik(state:CardNaikState, duration:TimeInterval) {
         if runningAnimations.isEmpty {
-            animateTransitionIfNeeded(state: state, duration: duration)
+            animateTransitionIfNeededNaik(state: state, duration: duration)
         }
         for animator in runningAnimations {
             animator.pauseAnimation()
@@ -270,13 +270,13 @@ class CommuteNaikViewController: UIViewController {
         }
     }
     
-    func updateInteractiveTransition(fractionCompleted:CGFloat) {
+    func updateInteractiveTransitionNaik(fractionCompleted:CGFloat) {
         for animator in runningAnimations {
             animator.fractionComplete = fractionCompleted + CGFloat(animationProgressInterrupted)
         }
     }
     
-    func continueInteractiveTransition (){
+    func continueInteractiveTransitionNaik (){
         for animator in runningAnimations {
             animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
         }

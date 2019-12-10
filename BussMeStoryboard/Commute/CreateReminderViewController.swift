@@ -30,6 +30,26 @@ class CreateReminderViewController: UIViewController {
         
     }
     
+    @IBAction func timeStart(_ sender: Any) {
+        let picker : UIDatePicker = UIDatePicker()
+        picker.datePickerMode = UIDatePicker.Mode.time
+        picker.addTarget(self, action: Selector(("dueDateChanged:")), for: UIControl.Event.valueChanged)
+//        let pickerSize : CGSize = picker.sizeThatFits(.zero)
+        picker.frame = CGRect(x: 0.0, y: 620, width: 414 , height: 200)
+        picker.backgroundColor = UIColor.systemBackground
+        self.view.addSubview(picker)
+    }
+    
+    @IBAction func timeBtnEnd(_ sender: Any) {
+        let picker : UIDatePicker = UIDatePicker()
+                picker.datePickerMode = UIDatePicker.Mode.time
+                picker.addTarget(self, action: Selector(("dueDateChanged:")), for: UIControl.Event.valueChanged)
+        //        let pickerSize : CGSize = picker.sizeThatFits(.zero)
+                picker.frame = CGRect(x: 0.0, y: 620, width: 414 , height: 200)
+                picker.backgroundColor = UIColor.systemBackground
+                self.view.addSubview(picker)
+    }
+    
     func formStyle() {
         titleTextField.borderStyle = UITextField.BorderStyle.roundedRect
     }

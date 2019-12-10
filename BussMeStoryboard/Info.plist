@@ -17,13 +17,17 @@
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MKDirectionsApplicationSupportedModes</key>
+	<array/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Always</string>
+	<string>Would you share your current location to this App to give you necessary information related the bus schedule</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Would you share your current location to this App to give you necessary information related the bus schedule</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Only when in use</string>
+	<string>Would you share your current location to this App to give you necessary information related the bus schedule</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -43,6 +47,12 @@
 			</array>
 		</dict>
 	</dict>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+		<string>processing</string>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

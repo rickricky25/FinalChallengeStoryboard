@@ -13,10 +13,10 @@ import CloudKit
 import SystemConfiguration
 
 
-var arah: String?
-var rute: String?
+var arah: String = "pergi"
+var rute: String = "BRE"
 var stop: String?
-var kendaraan: String?
+var kendaraan: String = "BSDLink"
 
 class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -27,6 +27,7 @@ class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var lblNearestStop: UILabel!
     
     var locManager = CLLocationManager()
+    var delegate: XibDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -137,21 +138,23 @@ class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @objc func handleTapBreeze(_ sender: UITapGestureRecognizer) {
-        let nextStoryboard = UIStoryboard(name: "NavDetailStoryboard", bundle: nil)
-        let nextVC = nextStoryboard.instantiateViewController(identifier: "NavDetailStoryboard") as NavDetailViewController
-        arah = "pergi"
-        rute = "BRE"
-        kendaraan = "BSDLink"
-        present(nextVC, animated: true, completion: nil)
+//        let nextStoryboard = UIStoryboard(name: "NavDetailStoryboard", bundle: nil)
+//        let nextVC = nextStoryboard.instantiateViewController(identifier: "NavDetailStoryboard") as NavDetailViewController
+//        arah = "pergi"
+//        rute = "BRE"
+//        kendaraan = "BSDLink"
+//        present(nextVC, animated: true, completion: nil)
+        delegate?.getTrip(trip: "BRE")
     }
     
     @objc func handleTapIce(_ sender: UITapGestureRecognizer) {
-        let nextStoryboard = UIStoryboard(name: "NavDetailStoryboard", bundle: nil)
-        let nextVC = nextStoryboard.instantiateViewController(identifier: "NavDetailStoryboard") as NavDetailViewController
-        arah = "pulang"
-        rute = "BRE"
-        kendaraan = "BSDLink"
-        present(nextVC, animated: true, completion: nil)
+//        let nextStoryboard = UIStoryboard(name: "NavDetailStoryboard", bundle: nil)
+//        let nextVC = nextStoryboard.instantiateViewController(identifier: "NavDetailStoryboard") as NavDetailViewController
+//        arah = "pulang"
+//        rute = "BRE"
+//        kendaraan = "BSDLink"
+//        present(nextVC, animated: true, completion: nil)
+        delegate?.getTrip(trip: "BRE")
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
