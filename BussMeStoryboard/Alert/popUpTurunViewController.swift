@@ -23,17 +23,19 @@ class popUpTurunViewController: UIViewController {
 //    ***** CHANGE PAGE to Alert *****
     @IBAction func btnBatalTurun(_ sender: Any) {
         animateIn()
-        let nextStoryboard = UIStoryboard(name: "CommuteNaikStoryboard", bundle: nil)
-        let nextVC = nextStoryboard.instantiateViewController(identifier: "CommuteNaikStoryboard") as CommuteNaikViewController
-        present(nextVC, animated: true, completion: nil)
+//        let nextStoryboard = UIStoryboard(name: "CommuteNaikStoryboard", bundle: nil)
+//        let nextVC = nextStoryboard.instantiateViewController(identifier: "CommuteNaikStoryboard") as CommuteNaikViewController
+//        present(nextVC, animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func btnTurun(_ sender: Any) {
        animateOut()
-        let nextStoryboard = UIStoryboard(name: "CommuteStoryboard", bundle: nil)
-        let nextVC = nextStoryboard.instantiateViewController(identifier: "CommuteStoryboard") as CommuteViewController
-        
-        present(nextVC, animated: true, completion: nil)
+//        let nextStoryboard = UIStoryboard(name: "CommuteStoryboard", bundle: nil)
+//        let nextVC = nextStoryboard.instantiateViewController(identifier: "CommuteStoryboard") as CommuteViewController
+//
+//        present(nextVC, animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     

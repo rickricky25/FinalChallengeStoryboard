@@ -52,6 +52,8 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
     var waktuPergi: [String] = []
     var waktuPulang: [String] = []
     
+    var delegate: XibDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -107,7 +109,6 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
                     self.lblTime8.text = self.waktuPulang[7]
                 }
             }
-
         }
         
         publicDatabase.perform(query, inZoneWith: nil) { (result, error) in
@@ -338,14 +339,18 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
         }
     }
     
+    @IBAction func btnBackPressed(_ sender: Any) {
+        delegate?.navBackPressed()
+    }
+    
     @IBAction func btnNaikPressed(_ sender: Any) {
         let newRecord = CKRecord(recordType: "DataCheck")
         let (currLat, currLong) = getCurrentLatLong()
 
         getNearestStop(currLat: currLat, currLong: currLong, completion: { (nearestLoc) in
-            newRecord["arah"] = arah!
+            newRecord["arah"] = arah
             newRecord["idUser"] = UIDevice.current.identifierForVendor?.uuidString
-            newRecord["kodeKendaraan"] = kendaraan!
+            newRecord["kodeKendaraan"] = kendaraan
             newRecord["kodeRute"] = rute
             newRecord["lokasi"] = nearestLoc
             newRecord["waktu"] = self.getCurrTime()
@@ -425,10 +430,11 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
     }
     
     @IBAction func btnNaikBus(_ sender: Any) {
-        let nextStoryboard = UIStoryboard(name: "CommuteNaikStoryboard", bundle: nil)
-        let nextVC = nextStoryboard.instantiateViewController(identifier: "CommuteNaikStoryboard") as CommuteNaikViewController
-        
-        present(nextVC, animated: true, completion: nil)
+//        let nextStoryboard = UIStoryboard(name: "CommuteNaikStoryboard", bundle: nil)
+//        let nextVC = nextStoryboard.instantiateViewController(identifier: "CommuteNaikStoryboard") as CommuteNaikViewController
+//
+//        present(nextVC, animated: true, completion: nil)
+        delegate?.naikBtnPressed()
     }
 //    *******************
 }

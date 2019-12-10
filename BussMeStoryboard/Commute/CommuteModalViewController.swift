@@ -13,10 +13,10 @@ import CloudKit
 import SystemConfiguration
 
 
-var arah: String?
+var arah: String = "pergi"
 var rute: String = "BRE"
 var stop: String?
-var kendaraan: String?
+var kendaraan: String = "BSDLink"
 
 class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
     
