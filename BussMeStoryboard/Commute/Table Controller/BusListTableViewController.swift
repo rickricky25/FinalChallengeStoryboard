@@ -43,18 +43,25 @@ class BusListTableViewController: UITableViewController {
         return bus.count
     }
     
+    
     //=== SELECTION STYLE ================
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .checkmark
+        tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .checkmark
+        tableView.cellForRow(at: indexPath as IndexPath)?.textLabel?.font = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.heavy)
+        tableView.cellForRow(at: indexPath as IndexPath)?.textLabel?.textColor = #colorLiteral(red: 1, green: 0.7922968268, blue: 0, alpha: 1)
     }
+    
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .none
+        tableView.cellForRow(at: indexPath as IndexPath)?.textLabel?.font = UIFont.systemFont(ofSize: 17)
+        tableView.cellForRow(at: indexPath as IndexPath)?.textLabel?.textColor = UIColor.label
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier")!
         let text = bus[indexPath.row]
         cell.textLabel?.text = text
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 17)
         return cell
     }
 
