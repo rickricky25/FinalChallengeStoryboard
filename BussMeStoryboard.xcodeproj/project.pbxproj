@@ -14,7 +14,6 @@
 		49D341582382A1A7008DF83A /* NavDetailCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D341562382A1A7008DF83A /* NavDetailCardViewController.swift */; };
 		49D341592382A1A7008DF83A /* NavDetailCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D341572382A1A7008DF83A /* NavDetailCardViewController.xib */; };
 		49D3415B238D3A0B008DF83A /* popUpTurunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D3415A238D3A0B008DF83A /* popUpTurunViewController.swift */; };
-		49F9DACC23A0C8940095880A /* BusListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F9DACB23A0C8940095880A /* BusListTableViewController.swift */; };
 		49F9DACE23A0D3750095880A /* HalteListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F9DACD23A0D3750095880A /* HalteListTableViewController.swift */; };
 		504D3B2E239505DC00B71EEA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 504D3B2D239505DC00B71EEA /* MapKit.framework */; };
 		50530A01238FC395006E065F /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5079A5A0237E90C900CF68A9 /* CloudKit.framework */; };
@@ -71,7 +70,6 @@
 		49D341562382A1A7008DF83A /* NavDetailCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavDetailCardViewController.swift; sourceTree = "<group>"; };
 		49D341572382A1A7008DF83A /* NavDetailCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavDetailCardViewController.xib; sourceTree = "<group>"; };
 		49D3415A238D3A0B008DF83A /* popUpTurunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popUpTurunViewController.swift; sourceTree = "<group>"; };
-		49F9DACB23A0C8940095880A /* BusListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusListTableViewController.swift; sourceTree = "<group>"; };
 		49F9DACD23A0D3750095880A /* HalteListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalteListTableViewController.swift; sourceTree = "<group>"; };
 		504D3B28238FCFC600B71EEA /* BussMeStoryboard.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = BussMeStoryboard.entitlements; sourceTree = "<group>"; };
 		504D3B2D239505DC00B71EEA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -157,7 +155,6 @@
 		49F9DACA23A0C68C0095880A /* Table Controller */ = {
 			isa = PBXGroup;
 			children = (
-				49F9DACB23A0C8940095880A /* BusListTableViewController.swift */,
 				49F9DACD23A0D3750095880A /* HalteListTableViewController.swift */,
 			);
 			path = "Table Controller";
@@ -557,7 +554,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49F9DACC23A0C8940095880A /* BusListTableViewController.swift in Sources */,
 				50E9D3B22359B352000042BC /* Model.swift in Sources */,
 				511DE493237BF6A000058BFD /* CommuteModalViewController.swift in Sources */,
 				5114B37F2387B63D00E49B4D /* CommuteNaikModalViewController.swift in Sources */,

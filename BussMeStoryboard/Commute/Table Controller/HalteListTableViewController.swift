@@ -77,8 +77,8 @@ class HalteListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HalteCellReuseIdentifier")!
-        let text = halte[indexPath.row]
-//        cell.textLabel?.text =
+//        let text = halte[indexPath.row]
+        cell.textLabel?.text = self.halte[indexPath.section][indexPath.row]
         cell.textLabel?.font = UIFont.systemFont(ofSize: 17)
         return cell
     }
