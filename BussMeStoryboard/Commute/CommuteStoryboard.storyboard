@@ -483,7 +483,7 @@
         <!--My Trips-->
         <scene sceneID="tFJ-ND-CT3">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" id="nLT-l3-yku" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nLT-l3-yku" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="My Trips" image="myTripsCommute_Off" id="lAb-DB-Ogy"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
