@@ -15,6 +15,7 @@
 		49D341592382A1A7008DF83A /* NavDetailCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D341572382A1A7008DF83A /* NavDetailCardViewController.xib */; };
 		49D3415B238D3A0B008DF83A /* popUpTurunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D3415A238D3A0B008DF83A /* popUpTurunViewController.swift */; };
 		49F9DACC23A0C8940095880A /* BusListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F9DACB23A0C8940095880A /* BusListTableViewController.swift */; };
+		49F9DACE23A0D3750095880A /* HalteListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F9DACD23A0D3750095880A /* HalteListTableViewController.swift */; };
 		504D3B2E239505DC00B71EEA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 504D3B2D239505DC00B71EEA /* MapKit.framework */; };
 		50530A01238FC395006E065F /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5079A5A0237E90C900CF68A9 /* CloudKit.framework */; };
 		50530A04238FC397006E065F /* Pods_BussMeStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD65566A8245E7A4A3289A3 /* Pods_BussMeStoryboard.framework */; };
@@ -71,6 +72,7 @@
 		49D341572382A1A7008DF83A /* NavDetailCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavDetailCardViewController.xib; sourceTree = "<group>"; };
 		49D3415A238D3A0B008DF83A /* popUpTurunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popUpTurunViewController.swift; sourceTree = "<group>"; };
 		49F9DACB23A0C8940095880A /* BusListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusListTableViewController.swift; sourceTree = "<group>"; };
+		49F9DACD23A0D3750095880A /* HalteListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalteListTableViewController.swift; sourceTree = "<group>"; };
 		504D3B28238FCFC600B71EEA /* BussMeStoryboard.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = BussMeStoryboard.entitlements; sourceTree = "<group>"; };
 		504D3B2D239505DC00B71EEA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5079A56A2379509200CF68A9 /* CommuteStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommuteStoryboard.storyboard; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				49F9DACB23A0C8940095880A /* BusListTableViewController.swift */,
+				49F9DACD23A0D3750095880A /* HalteListTableViewController.swift */,
 			);
 			path = "Table Controller";
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 				51DED0F123911BE500A75D22 /* MyTripsViewController.swift in Sources */,
 				49D341582382A1A7008DF83A /* NavDetailCardViewController.swift in Sources */,
 				006027AB2385091700F92D90 /* ReminderViewController.swift in Sources */,
+				49F9DACE23A0D3750095880A /* HalteListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
