@@ -15,6 +15,7 @@ class CreateReminderViewController: UIViewController {
     @IBOutlet var btnEndTime: UIButton!
     @IBOutlet var remindDatePicker: UIDatePicker!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         formStyle()
@@ -26,7 +27,6 @@ class CreateReminderViewController: UIViewController {
 //        DATE PICKER TIME
 //        remindDatePicker.isUserInteractionEnabled = false
         remindDatePicker.isHidden = true
-        
         
     }
     
