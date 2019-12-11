@@ -22,6 +22,7 @@ class BusListTableViewController: UITableViewController {
     "De Park Rute 2 - Intermoda",
     "Intermoda - Vanya Park",
     "Vanya Park - Intermoda"]
+  
     
     
     
