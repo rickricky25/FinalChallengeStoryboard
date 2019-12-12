@@ -266,27 +266,27 @@ class CommuteViewController: UIViewController, XibDelegate {
         
         commuteModalViewController.view.clipsToBounds = true
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CommuteViewController.handleCardCommuteTap(recognizer:)))
+//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CommuteViewController.handleCardCommuteTap(recognizer:)))
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(CommuteViewController.handleCardCommutePan(recognizer:)))
         
-        commuteModalViewController.handleArea.addGestureRecognizer(tapGestureRecognizer)
+//        commuteModalViewController.handleArea.addGestureRecognizer(tapGestureRecognizer)
         commuteModalViewController.handleArea.addGestureRecognizer(panGestureRecognizer)
         
     }
     
-    @objc
-    func handleCardCommuteTap(recognizer: UITapGestureRecognizer) {
-        print(cardCommuteVisible)
-        print(nextStateCommute)
-        handleCard = "tap"
-        switch recognizer.state {
-        case .ended:
-            animateTransitionIfNeededCommute(state: nextStateCommute, duration: 0.65)
-        default:
-            break
-        }
-        
-    }
+//    @objc
+//    func handleCardCommuteTap(recognizer: UITapGestureRecognizer) {
+//        print(cardCommuteVisible)
+//        print(nextStateCommute)
+//        handleCard = "tap"
+//        switch recognizer.state {
+//        case .ended:
+//            animateTransitionIfNeededCommute(state: nextStateCommute, duration: 0.65)
+//        default:
+//            break
+//        }
+//    }
+    
     @objc
     func handleCardCommutePan(recognizer: UIPanGestureRecognizer) {
         print(cardCommuteVisible)
@@ -430,25 +430,29 @@ class CommuteViewController: UIViewController, XibDelegate {
         
         navDetailCardViewController.view.clipsToBounds = true
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(NavDetailViewController.handleCardNavDetailTap(recognizer:)))
+//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(NavDetailViewController.handleCardNavDetailTap(recognizer:)))
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(NavDetailViewController.handleCardNavDetailPan(recognizer:)))
         
-        navDetailCardViewController.handleArea.addGestureRecognizer(tapGestureRecognizer)
+//        navDetailCardViewController.handleArea.addGestureRecognizer(tapGestureRecognizer)
         navDetailCardViewController.handleArea.addGestureRecognizer(panGestureRecognizer)
     }
     
-    @objc
-    func handleCardNavDetailTap(recognizer:UITapGestureRecognizer) {
-        handleCard = "tap"
-        print("tapped")
-        switch recognizer.state {
-        case .ended:
-            animateTransitionIfNeededNavDetail(state: nextState, duration: 0.65)
-        default:
-            break
-        }
-        
-    }
+//    @objc
+//    func handleCardNavDetailTap(recognizer:UITapGestureRecognizer) {
+//        handleCard = "tap"
+//        print("tapped")
+//        switch recognizer.state {
+//        case .ended:
+//            animateTransitionIfNeededNavDetail(state: nextState, duration: 0.65)
+//            UIView.animate(withDuration: 0.15, animations: {
+//                self.navDetailCardViewController.dimView.alpha = 0
+//            })
+//
+//        default:
+//            break
+//        }
+//    }
+    
     @objc
     func handleCardNavDetailPan (recognizer:UIPanGestureRecognizer) {
         handleCard = "pan"
@@ -456,6 +460,8 @@ class CommuteViewController: UIViewController, XibDelegate {
         case .began:
             //            startInteractiveTransitionCommute(state: nextState, duration: 0.35)
             print("began\(cardNavDetailVisible)")
+            self.navDetailCardViewController.dimView.alpha = 0
+
         case .changed:
             let translation = recognizer.translation(in: self.navDetailCardViewController.handleArea)
             let velocity = recognizer.velocity(in: self.navDetailCardViewController.handleArea)
@@ -467,6 +473,9 @@ class CommuteViewController: UIViewController, XibDelegate {
             if velocity.y > 0 {
                 arahCard = "turun"
                 fractionComplete = -fractionComplete
+                UIView.animate(withDuration: 0.25, delay: 0.25, animations: {
+                    self.navDetailCardViewController.dimView.alpha = 0
+                })
                 if cardNavDetailVisible == 0 {
                     //                    self.startInteractiveTransitionCommute(state: .hide, duration: 0.35)
                     print("hide")
@@ -483,9 +492,18 @@ class CommuteViewController: UIViewController, XibDelegate {
                 if cardNavDetailVisible == 0 {
                     self.startInteractiveTransitionNavDetail(state: .collapsed, duration: 0.35)
                     print("collapsed")
+                    UIView.animate(withDuration: 0.15, animations: {
+                        self.navDetailCardViewController.dimView.alpha = 0
+                    })
+                    
                 } else if cardNavDetailVisible == 1 {
                     self.startInteractiveTransitionNavDetail(state: .expanded, duration: 0.35)
                     print("expanded")
+//   DIM BG PAS MODAL EXPANDED
+                    UIView.animate(withDuration: 0.25, delay: 0.25, animations: {
+                        self.navDetailCardViewController.dimView.alpha = 0.7
+                    })
+
                 } else if cardNavDetailVisible == 2 {
                     //                    self.startInteractiveTransitionCommute(state: .expanded, duration: 0.35)
                     print("expanded")
@@ -510,7 +528,7 @@ class CommuteViewController: UIViewController, XibDelegate {
             let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 5) {
                 switch state {
                 case .expanded:
-                    self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height - 893
+                    self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height - 900
                 case .collapsed:
                     self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height - 460
                 case .hide:
@@ -619,24 +637,24 @@ class CommuteViewController: UIViewController, XibDelegate {
             
             commuteNaikModalViewController.view.clipsToBounds = true
                     
-            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CommuteNaikViewController.handleCardNaikTap(recognizer:)))
+//            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CommuteNaikViewController.handleCardNaikTap(recognizer:)))
             let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(CommuteNaikViewController.handleCardNaikPan(recognizer:)))
             
-            commuteNaikModalViewController.handleArea.addGestureRecognizer(tapGestureRecognizer)
+//            commuteNaikModalViewController.handleArea.addGestureRecognizer(tapGestureRecognizer)
             commuteNaikModalViewController.handleArea.addGestureRecognizer(panGestureRecognizer)
             
         }
 
-        @objc
-        func handleCardNaikTap(recognizer:UITapGestureRecognizer) {
-            switch recognizer.state {
-            case .ended:
-                animateTransitionIfNeededNaik(state: nextStateNaik, duration: 0.65)
-            default:
-                break
-            }
-            
-        }
+//        @objc
+//        func handleCardNaikTap(recognizer:UITapGestureRecognizer) {
+//            switch recognizer.state {
+//            case .ended:
+//                animateTransitionIfNeededNaik(state: nextStateNaik, duration: 0.65)
+//            default:
+//                break
+//            }
+//        }
+    
         @objc
         func handleCardNaikPan (recognizer:UIPanGestureRecognizer) {
             switch recognizer.state {

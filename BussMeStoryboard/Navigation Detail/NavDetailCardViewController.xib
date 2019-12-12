@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,6 +12,7 @@
                 <outlet property="arahSegmentedControl" destination="REA-T9-i28" id="Doa-Q5-rVd"/>
                 <outlet property="btnNaik" destination="sIg-In-qxu" id="WXQ-73-wbW"/>
                 <outlet property="contentArea" destination="t4X-na-YuW" id="Q14-bS-Tpo"/>
+                <outlet property="dimView" destination="rDA-bC-LDy" id="pnC-gj-J3h"/>
                 <outlet property="handleArea" destination="5Td-id-zg8" id="2iy-lB-tPu"/>
                 <outlet property="kodeRute" destination="Mpi-X7-Ofq" id="8r7-GY-BX8"/>
                 <outlet property="kodeRuteView" destination="jBm-Ce-Fs4" id="bgL-6Y-pmV"/>
@@ -44,8 +45,13 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="835"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rDA-bC-LDy">
+                    <rect key="frame" x="0.0" y="-59" width="414" height="248"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t4X-na-YuW" userLabel="Content">
-                    <rect key="frame" x="0.0" y="44" width="414" height="813"/>
+                    <rect key="frame" x="0.0" y="64" width="414" height="813"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Td-id-zg8" userLabel="Handler">

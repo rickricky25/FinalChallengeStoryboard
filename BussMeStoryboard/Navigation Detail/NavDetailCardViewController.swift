@@ -11,6 +11,7 @@ import CloudKit
 import GoogleMaps
 
 class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate {
+    @IBOutlet weak var dimView: UIView!
     
     @IBOutlet weak var lblStop: UILabel!
     @IBOutlet weak var handleArea: UIView!
