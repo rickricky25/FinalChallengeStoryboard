@@ -51,18 +51,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func saveUser(deviceToken: String){
-        let newRecord = CKRecord(recordType: "UserProfile")
-        let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
-        let publicDatabase = container.publicCloudDatabase
-        newRecord["userDeviceID"] = UIDevice.current.identifierForVendor?.uuidString
-        newRecord["userTokenID"] = deviceToken
-
-        publicDatabase.save(newRecord) { (record, error) in
-                  print(error as Any)
-              }
-        print("data saved")
-    }
+        struct UserModel: Codable {
+            var uuid: String
+            var token_id: String
+            var name: String
+            
+        }
+        let url = URL(string: "https://server-fellowcity.herokuapp.com/api/user")
+        guard let requestUrl = url else { fatalError() }
+        var request = URLRequest(url: requestUrl)
+        request.httpMethod = "POST"
+        // Set HTTP Request Header
+//        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let newUser = UserModel(uuid: "apatuu", token_id: "2022o3o9333", name: "Siti")
+        let jsonData = try! JSONEncoder().encode(newUser)
+        request.httpBody = jsonData
         
+        print("tesgt")
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                     
+                if let error = error {
+                    print("Error took place \(error)")
+                    return
+                }
+                guard let data = data else {return}
+                do{
+                    let userModel = try JSONDecoder().decode(UserModel.self, from: data)
+                    print(userModel)
+                    print("Data:\n \(userModel)")
+                    print("UUID: \(userModel.uuid)")
+                    print("name: \(userModel.name)")
+                }catch let jsonErr{
+                    print(jsonErr)
+               }
+         
+        }
+        task.resume()
+    }
 
     // MARK: UISceneSession Lifecycle
 

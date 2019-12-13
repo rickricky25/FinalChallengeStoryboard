@@ -11,7 +11,6 @@
 		006027A4237BFB2100F92D90 /* popUpReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006027A3237BFB2100F92D90 /* popUpReminderViewController.swift */; };
 		006027A6237BFFB700F92D90 /* popUpTurun.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 006027A5237BFFB700F92D90 /* popUpTurun.storyboard */; };
 		006027AB2385091700F92D90 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006027A92385091700F92D90 /* ReminderViewController.swift */; };
-		291F51C0238D2E27008EE3FB /* MyTripsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 291F51BF238D2E27008EE3FB /* MyTripsStoryboard.storyboard */; };
 		49D341582382A1A7008DF83A /* NavDetailCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D341562382A1A7008DF83A /* NavDetailCardViewController.swift */; };
 		49D341592382A1A7008DF83A /* NavDetailCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D341572382A1A7008DF83A /* NavDetailCardViewController.xib */; };
 		49D3415B238D3A0B008DF83A /* popUpTurunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D3415A238D3A0B008DF83A /* popUpTurunViewController.swift */; };
@@ -21,7 +20,6 @@
 		5079A56D237950B400CF68A9 /* CommuteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A56C237950B400CF68A9 /* CommuteViewController.swift */; };
 		5079A570237A918000CF68A9 /* NavDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5079A56F237A918000CF68A9 /* NavDetailStoryboard.storyboard */; };
 		5079A572237A91C200CF68A9 /* NavDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A571237A91C200CF68A9 /* NavDetailViewController.swift */; };
-		50AE5B69238D3058007BAA68 /* MyTripsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50AE5B68238D3058007BAA68 /* MyTripsStoryboard.storyboard */; };
 		50E9D0FA2355C25A000042BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D0F92355C25A000042BC /* AppDelegate.swift */; };
 		50E9D0FC2355C25A000042BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D0FB2355C25A000042BC /* SceneDelegate.swift */; };
 		50E9D1042355C25A000042BC /* BussMeStoryboard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D1022355C25A000042BC /* BussMeStoryboard.xcdatamodeld */; };
@@ -66,12 +64,11 @@
 		006027A5237BFFB700F92D90 /* popUpTurun.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = popUpTurun.storyboard; sourceTree = "<group>"; };
 		006027A92385091700F92D90 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
 		006027AA2385091700F92D90 /* ReminderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReminderViewController.xib; sourceTree = "<group>"; };
-		291F51BF238D2E27008EE3FB /* MyTripsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyTripsStoryboard.storyboard; sourceTree = "<group>"; };
 		2BDBFA39DF23F08F0E43758C /* Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboard-BussMeStoryboardUITests/Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig"; sourceTree = "<group>"; };
 		49D341562382A1A7008DF83A /* NavDetailCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavDetailCardViewController.swift; sourceTree = "<group>"; };
 		49D341572382A1A7008DF83A /* NavDetailCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavDetailCardViewController.xib; sourceTree = "<group>"; };
-		504D3B28238FCFC600B71EEA /* BussMeStoryboard.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = BussMeStoryboard.entitlements; sourceTree = "<group>"; };
 		49D3415A238D3A0B008DF83A /* popUpTurunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popUpTurunViewController.swift; sourceTree = "<group>"; };
+		504D3B28238FCFC600B71EEA /* BussMeStoryboard.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = BussMeStoryboard.entitlements; sourceTree = "<group>"; };
 		5079A56A2379509200CF68A9 /* CommuteStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommuteStoryboard.storyboard; sourceTree = "<group>"; };
 		5079A56C237950B400CF68A9 /* CommuteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteViewController.swift; sourceTree = "<group>"; };
 		5079A56F237A918000CF68A9 /* NavDetailStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavDetailStoryboard.storyboard; sourceTree = "<group>"; };
@@ -150,6 +147,13 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
+		2928F47C2397C95200A78CD3 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		5079A5692379507D00CF68A9 /* Commute */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +187,7 @@
 				50E9D0F72355C25A000042BC /* Products */,
 				ECF6FD434E69EC4EC4081411 /* Pods */,
 				65B551BECA942260508B91B1 /* Frameworks */,
+				2928F47C2397C95200A78CD3 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -232,14 +237,6 @@
 				50E9D1202355C25C000042BC /* Info.plist */,
 			);
 			path = BussMeStoryboardUITests;
-			sourceTree = "<group>";
-		};
-		512DB0D42387C7AC000A2558 /* My Trips */ = {
-			isa = PBXGroup;
-			children = (
-				291F51BF238D2E27008EE3FB /* MyTripsStoryboard.storyboard */,
-			);
-			path = "My Trips";
 			sourceTree = "<group>";
 		};
 		6337DD08235EF7C900D71441 /* Im In */ = {
@@ -396,7 +393,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				291F51C0238D2E27008EE3FB /* MyTripsStoryboard.storyboard in Resources */,
 				50E9D1092355C25C000042BC /* LaunchScreen.storyboard in Resources */,
 				006027A6237BFFB700F92D90 /* popUpTurun.storyboard in Resources */,
 				6337DD0A235EF83B00D71441 /* CommuteNaikStoryboard.storyboard in Resources */,
