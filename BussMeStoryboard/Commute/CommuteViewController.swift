@@ -34,6 +34,8 @@ class CommuteViewController: UIViewController, XibDelegate {
                 self.commuteNaikModalViewController.view.frame.origin.y = self.view.frame.height
                 self.commuteModalViewController.view.frame.origin.y = self.view.frame.height - self.cardHeight + 50
                 
+                self.tabBarController?.tabBar.layer.zPosition = 0
+                
                 DispatchQueue.global().async {
                     let predicate = NSPredicate(value: true)
                     let query = CKQuery(recordType: "DataStop", predicate: predicate)
@@ -164,8 +166,6 @@ class CommuteViewController: UIViewController, XibDelegate {
     var locPulang: CLLocationCoordinate2D?
     
     func getCoorPergiPulang(nearPergi: String, nearPulang: String, completion: @escaping (_ locPergi: CLLocationCoordinate2D, _ locPulang: CLLocationCoordinate2D) -> ()) {
-        
-        
         let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
         let publicDatabase = container.publicCloudDatabase
         
@@ -330,6 +330,7 @@ class CommuteViewController: UIViewController, XibDelegate {
             UIView.animate(withDuration: 0.6) {
                 self.commuteNaikModalViewController.view.frame.origin.y = self.view.frame.height - self.cardNaikHeight
                 self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height
+                self.tabBarController?.tabBar.layer.zPosition = -1
             }
         }
         
