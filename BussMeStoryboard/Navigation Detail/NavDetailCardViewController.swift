@@ -71,6 +71,8 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
         
         lblStop.text = stop
         
+        // CloudKit
+        
         let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
         let publicDatabase = container.publicCloudDatabase
         let predicate = NSPredicate(format: "kodeRute == %@", rute)
@@ -160,6 +162,8 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
     }
     
     func getShortestTime(rute: String, completion: @escaping (_ selisihPergi: Int, _ selisihPulang: Int, _ timesPergi: [String], _ timesPulang: [String]) -> ()) {
+        // CloudKit
+        
         let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
         let publicDatabase = container.publicCloudDatabase
         let predicateStop = NSPredicate(format: "kodeRute == %@", rute)
@@ -284,6 +288,8 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
     }
     
     func getNearestStop(currLat: CLLocationDegrees, currLong: CLLocationDegrees, completion: @escaping (_ stop: String) -> ()) {
+        // CloudKit
+        
         let currLocation = CLLocationCoordinate2D(latitude: currLat, longitude: currLong)
         let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
         let predicate = NSPredicate(value: true)
@@ -342,6 +348,8 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
     }
     
     @IBAction func btnNaikPressed(_ sender: Any) {
+        // CloudKit
+        
         let newRecord = CKRecord(recordType: "DataCheck")
         let (currLat, currLong) = getCurrentLatLong()
         

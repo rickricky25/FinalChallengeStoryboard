@@ -63,6 +63,8 @@ class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func getNearestStop(currLat: CLLocationDegrees, currLong: CLLocationDegrees, completion: @escaping (_ stop: String) -> ()){
+        // CloudKit
+        
         let currLocation = CLLocationCoordinate2D(latitude: currLat, longitude: currLong)
         let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
         let predicate = NSPredicate(value: true)
@@ -116,6 +118,8 @@ class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func getNearestStopPergi(currLat: CLLocationDegrees, currLong: CLLocationDegrees, completion: @escaping (_ stop: String) -> ()){
+        // CloudKit
+        
         let currLocation = CLLocationCoordinate2D(latitude: currLat, longitude: currLong)
         let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
         let predicate = NSPredicate(format: "arah == %@", "pergi")
@@ -148,6 +152,8 @@ class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func getNearestStopPulang(currLat: CLLocationDegrees, currLong: CLLocationDegrees, completion: @escaping (_ stop: String) -> ()){
+        // CloudKit
+        
         let currLocation = CLLocationCoordinate2D(latitude: currLat, longitude: currLong)
         let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
         let predicate = NSPredicate(format: "arah == %@", "pulang")

@@ -37,6 +37,8 @@ class CommuteViewController: UIViewController, XibDelegate {
                 self.tabBarController?.tabBar.layer.zPosition = 0
                 
                 DispatchQueue.global().async {
+                    // CloudKit
+                    
                     let predicate = NSPredicate(value: true)
                     let query = CKQuery(recordType: "DataStop", predicate: predicate)
                     let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
@@ -166,6 +168,8 @@ class CommuteViewController: UIViewController, XibDelegate {
     var locPulang: CLLocationCoordinate2D?
     
     func getCoorPergiPulang(nearPergi: String, nearPulang: String, completion: @escaping (_ locPergi: CLLocationCoordinate2D, _ locPulang: CLLocationCoordinate2D) -> ()) {
+        // CloudKit
+        
         let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
         let publicDatabase = container.publicCloudDatabase
         
@@ -238,6 +242,8 @@ class CommuteViewController: UIViewController, XibDelegate {
         
         self.nearPergi = nearPergi
         self.nearPulang = nearPulang
+        
+        // CloudKit
         
         let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
         let publicDatabase = container.publicCloudDatabase
@@ -335,6 +341,8 @@ class CommuteViewController: UIViewController, XibDelegate {
         }
         
         mapView.clear()
+        
+        // CloudKit
         
         let routePredicate = NSPredicate(format: "arah == %@ AND kodeRute == %@", arah, rute)
         let query = CKQuery(recordType: "DataRoute", predicate: routePredicate)
@@ -533,6 +541,8 @@ class CommuteViewController: UIViewController, XibDelegate {
             currMarker.map = mapView
             
             DispatchQueue.global().async {
+                // CloudKit
+                
                 let predicate = NSPredicate(value: true)
                 let query = CKQuery(recordType: "DataStop", predicate: predicate)
                 let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
@@ -598,11 +608,6 @@ class CommuteViewController: UIViewController, XibDelegate {
             
             currMarker.map = mapView
             
-            //            let predicate = NSPredicate(value: true)
-            //            let query = CKQuery(recordType: "DataStop", predicate: predicate)
-            //            let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
-            //            let publicDatabase = container.publicCloudDatabase
-            
             self.mainView.addSubview(mapView)
             //            setupCardCommute()
         }
@@ -632,6 +637,8 @@ class CommuteViewController: UIViewController, XibDelegate {
     }
     
     func getShortestTime(rute: String, completion: @escaping (_ selisihPergi: Int, _ selisihPulang: Int, _ timesPergi: [String], _ timesPulang: [String]) -> ()) {
+        // CloudKit
+        
         let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
         let publicDatabase = container.publicCloudDatabase
         let predicateStop = NSPredicate(format: "kodeRute == %@", rute)
