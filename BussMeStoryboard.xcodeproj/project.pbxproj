@@ -12,6 +12,7 @@
 		006027A6237BFFB700F92D90 /* popUpTurun.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 006027A5237BFFB700F92D90 /* popUpTurun.storyboard */; };
 		006027AB2385091700F92D90 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006027A92385091700F92D90 /* ReminderViewController.swift */; };
 		34ADBD725EB2AAF150747AC4 /* Pods_BussMeStoryboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8B8EA7E934AD7259FB19958 /* Pods_BussMeStoryboardTests.framework */; };
+		292BCC5423A62EA80064A4F1 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292BCC5323A62EA80064A4F1 /* API.swift */; };
 		49D341582382A1A7008DF83A /* NavDetailCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D341562382A1A7008DF83A /* NavDetailCardViewController.swift */; };
 		49D341592382A1A7008DF83A /* NavDetailCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D341572382A1A7008DF83A /* NavDetailCardViewController.xib */; };
 		49D3415B238D3A0B008DF83A /* popUpTurunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D3415A238D3A0B008DF83A /* popUpTurunViewController.swift */; };
@@ -67,6 +68,8 @@
 		0C54245CB7755A4F86317F02 /* Pods_BussMeStoryboard_BussMeStoryboardUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BussMeStoryboard_BussMeStoryboardUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CFDDCFA77576C1751ECC5D0 /* Pods-BussMeStoryboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboard.debug.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboard/Pods-BussMeStoryboard.debug.xcconfig"; sourceTree = "<group>"; };
 		23581D107D3BF3F60092509C /* Pods-BussMeStoryboardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboardTests.release.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboardTests/Pods-BussMeStoryboardTests.release.xcconfig"; sourceTree = "<group>"; };
+		292BCC5323A62EA80064A4F1 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		2BDBFA39DF23F08F0E43758C /* Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboard-BussMeStoryboardUITests/Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig"; sourceTree = "<group>"; };
 		49D341562382A1A7008DF83A /* NavDetailCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavDetailCardViewController.swift; sourceTree = "<group>"; };
 		49D341572382A1A7008DF83A /* NavDetailCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavDetailCardViewController.xib; sourceTree = "<group>"; };
 		49D3415A238D3A0B008DF83A /* popUpTurunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popUpTurunViewController.swift; sourceTree = "<group>"; };
@@ -211,6 +214,7 @@
 				6337DD08235EF7C900D71441 /* Im In */,
 				63B43F9623585BBF00131562 /* Home */,
 				50E9D0F92355C25A000042BC /* AppDelegate.swift */,
+				292BCC5323A62EA80064A4F1 /* API.swift */,
 				50E9D0FB2355C25A000042BC /* SceneDelegate.swift */,
 				50E9D3B12359B352000042BC /* Model.swift */,
 				50E9D1052355C25C000042BC /* Assets.xcassets */,
@@ -563,6 +567,7 @@
 				51DED0F3239125A200A75D22 /* CreateReminderViewController.swift in Sources */,
 				51DED0F123911BE500A75D22 /* MyTripsViewController.swift in Sources */,
 				49D341582382A1A7008DF83A /* NavDetailCardViewController.swift in Sources */,
+				292BCC5423A62EA80064A4F1 /* API.swift in Sources */,
 				006027AB2385091700F92D90 /* ReminderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
