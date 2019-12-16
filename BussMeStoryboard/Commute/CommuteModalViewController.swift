@@ -27,7 +27,8 @@ class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var lblNearestStop: UILabel!
     
     var locManager = CLLocationManager()
-    var delegate: XibDelegate?
+    var xibDelegate: XibDelegate?
+    var commuteDelegate: CommuteDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,6 +115,70 @@ class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    func getNearestStopPergi(currLat: CLLocationDegrees, currLong: CLLocationDegrees, completion: @escaping (_ stop: String) -> ()){
+        let currLocation = CLLocationCoordinate2D(latitude: currLat, longitude: currLong)
+        let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
+        let predicate = NSPredicate(format: "arah == %@", "pergi")
+        let query = CKQuery(recordType: "DataRoute", predicate: predicate)
+        let publicDatabase = container.publicCloudDatabase
+        var nearestStop = ""
+        var nearestDistance: Double = 0
+        
+        publicDatabase.perform(query, inZoneWith: nil) { (routes, error) in
+            for route in routes! {
+                let arrStop = route["namaStop"] as! [String]
+                let arrLat = route["latStop"] as! [CLLocationDegrees]
+                let arrLong = route["longStop"] as! [CLLocationDegrees]
+                var stopLoc = CLLocationCoordinate2D(latitude: arrLat[0], longitude: arrLong[0])
+                
+                nearestStop = arrStop[0]
+                nearestDistance = self.countDistance(firstLoc: currLocation, secondLoc: stopLoc)
+                
+                for i in 1...arrStop.count - 1 {
+                    stopLoc = CLLocationCoordinate2D(latitude: arrLat[i], longitude: arrLong[i])
+                    let currDist = self.countDistance(firstLoc: currLocation, secondLoc: stopLoc)
+                    if currDist < nearestDistance {
+                        nearestDistance = currDist
+                        nearestStop = arrStop[i]
+                    }
+                }
+            }
+            completion(nearestStop)
+        }
+    }
+    
+    func getNearestStopPulang(currLat: CLLocationDegrees, currLong: CLLocationDegrees, completion: @escaping (_ stop: String) -> ()){
+        let currLocation = CLLocationCoordinate2D(latitude: currLat, longitude: currLong)
+        let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
+        let predicate = NSPredicate(format: "arah == %@", "pulang")
+        let query = CKQuery(recordType: "DataRoute", predicate: predicate)
+        let publicDatabase = container.publicCloudDatabase
+        var nearestStop = ""
+        var nearestDistance: Double = 0
+        
+        publicDatabase.perform(query, inZoneWith: nil) { (routes, error) in
+            for route in routes! {
+                let arrStop = route["namaStop"] as! [String]
+                let arrLat = route["latStop"] as! [CLLocationDegrees]
+                let arrLong = route["longStop"] as! [CLLocationDegrees]
+                var stopLoc = CLLocationCoordinate2D(latitude: arrLat[0], longitude: arrLong[0])
+                
+                nearestStop = arrStop[0]
+                nearestDistance = self.countDistance(firstLoc: currLocation, secondLoc: stopLoc)
+                
+                for i in 1...arrStop.count - 1 {
+                    stopLoc = CLLocationCoordinate2D(latitude: arrLat[i], longitude: arrLong[i])
+                    let currDist = self.countDistance(firstLoc: currLocation, secondLoc: stopLoc)
+                    if currDist < nearestDistance {
+                        nearestDistance = currDist
+                        nearestStop = arrStop[i]
+                    }
+                }
+            }
+            completion(nearestStop)
+        }
+    }
+    
     func isConnectedToNetwork() -> Bool {
         var zeroAddress = sockaddr_in(sin_len: 0, sin_family: 0, sin_port: 0, sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
         zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
@@ -144,7 +209,12 @@ class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
 //        rute = "BRE"
 //        kendaraan = "BSDLink"
 //        present(nextVC, animated: true, completion: nil)
-        delegate?.getTrip(trip: "BRE")
+        let (currLat, currLong) =  getCurrentLatLong()
+        getNearestStopPergi(currLat: currLat, currLong: currLong) { (nearPergi) in
+            self.getNearestStopPulang(currLat: currLat, currLong: currLong) { (nearPulang) in
+                self.xibDelegate?.getTrip(trip: "BRE", nearPergi: nearPergi, nearPulang: nearPulang)
+            }
+        }
     }
     
     @objc func handleTapIce(_ sender: UITapGestureRecognizer) {
@@ -154,7 +224,12 @@ class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
 //        rute = "BRE"
 //        kendaraan = "BSDLink"
 //        present(nextVC, animated: true, completion: nil)
-        delegate?.getTrip(trip: "BRE")
+        let (currLat, currLong) =  getCurrentLatLong()
+        getNearestStopPergi(currLat: currLat, currLong: currLong) { (nearPergi) in
+            self.getNearestStopPulang(currLat: currLat, currLong: currLong) { (nearPulang) in
+                self.xibDelegate?.getTrip(trip: "BRE", nearPergi: nearPergi, nearPulang: nearPulang)
+            }
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
