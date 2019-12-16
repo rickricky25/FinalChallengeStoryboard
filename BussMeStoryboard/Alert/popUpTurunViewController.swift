@@ -13,34 +13,29 @@ class popUpTurunViewController: UIViewController {
     @IBOutlet var popupBox: UIView!
     @IBOutlet var blurEffect: UIVisualEffectView!
     
+    var delegate: XibDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-
+        animateIn()
     }
 
 //    ***** CHANGE PAGE to Alert *****
     @IBAction func btnBatalTurun(_ sender: Any) {
-        animateIn()
-        let nextStoryboard = UIStoryboard(name: "CommuteNaikStoryboard", bundle: nil)
-        let nextVC = nextStoryboard.instantiateViewController(identifier: "CommuteNaikStoryboard") as CommuteNaikViewController
-        present(nextVC, animated: true, completion: nil)
+        animateOut()
+//        navigationController?.popViewController(animated: true)
+        delegate?.turunChoicePressed(index: 0)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func btnTurun(_ sender: Any) {
-       animateOut()
-        let nextStoryboard = UIStoryboard(name: "CommuteStoryboard", bundle: nil)
-        let nextVC = nextStoryboard.instantiateViewController(identifier: "CommuteStoryboard") as CommuteViewController
-        
-        present(nextVC, animated: true, completion: nil)
+        animateOut()
+//        navigationController?.popViewController(animated: true)
+        delegate?.turunChoicePressed(index: 1)
+        self.dismiss(animated: true, completion: nil)
     }
     
-    
-    
-    
 //    ******** ALERT ANIMATION ***********
-    
     func animateIn() {
         self.view.addSubview(popupBox)
         
