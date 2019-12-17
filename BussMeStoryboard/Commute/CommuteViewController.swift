@@ -97,6 +97,7 @@ class CommuteViewController: UIViewController, XibDelegate {
         if index == 0 {
             arah = "pergi"
             self.mapView.animate(toLocation: self.locPergi!)
+            self.mapView.animate(toZoom: 16)
             
             stop = nearPergi
             
@@ -127,6 +128,7 @@ class CommuteViewController: UIViewController, XibDelegate {
         } else if index == 1 {
             arah = "pulang"
             self.mapView.animate(toLocation: self.locPulang!)
+            self.mapView.animate(toZoom: 16)
             
             stop = nearPulang
             
@@ -444,6 +446,7 @@ class CommuteViewController: UIViewController, XibDelegate {
                 DispatchQueue.main.async {
                     let stopMarker = GMSMarker(position: CLLocationCoordinate2D(latitude: resLat![resStop!.count - 1], longitude: resLong![resStop!.count - 1]))
                     stopMarker.title = resStop![resStop!.count - 1]
+                    stopMarker.icon = UIImage(named: "halte")
                     stopMarker.map = self.mapView
                 }
             }
