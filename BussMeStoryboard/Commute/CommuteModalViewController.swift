@@ -42,7 +42,7 @@ class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
         
         getNearestStop(currLat: currLat, currLong: currLong) { (resStop) in
             DispatchQueue.main.async {
-                self.lblNearestStop.text = resStop
+//                self.lblNearestStop.text = resStop
                 stop = resStop
             }
         }
@@ -245,7 +245,7 @@ class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
             let currLat = (currLoc?.coordinate.latitude)!
             
             getNearestStop(currLat: currLat, currLong: currLong) { (resStop) in
-                self.lblNearestStop.text = resStop
+//                self.lblNearestStop.text = resStop
                 stop = resStop
                 
             }

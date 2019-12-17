@@ -226,6 +226,7 @@ class CommuteViewController: UIViewController, XibDelegate {
     func getTrip(trip: String, nearPergi: String, nearPulang: String) {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.6) {
+                self.mapView.animate(toZoom: 16)
                 self.commuteModalViewController.view.frame.origin.y = self.view.frame.height
                 self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height - 460
             }
@@ -342,7 +343,7 @@ class CommuteViewController: UIViewController, XibDelegate {
     func naikBtnPressed(rute: String, arah: String) {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.6) {
-                self.commuteNaikModalViewController.view.frame.origin.y = self.view.frame.height - self.cardNaikHeight
+                self.commuteNaikModalViewController.view.frame.origin.y = self.view.frame.height - self.cardHandleAreaH - 20
                 self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height
                 self.tabBarController?.tabBar.layer.zPosition = -1
                 

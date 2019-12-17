@@ -54,6 +54,10 @@ class CreateReminderViewController: UIViewController {
         titleTextField.borderStyle = UITextField.BorderStyle.roundedRect
     }
 
+    @IBAction func btnSavePressed(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func btnStartTime(_ sender: Any) {
 //        remindDatePicker.isUserInteractionEnabled = true
         remindDatePicker.isHidden = false
