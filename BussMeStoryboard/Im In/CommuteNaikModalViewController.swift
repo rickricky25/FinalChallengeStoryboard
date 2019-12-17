@@ -18,6 +18,27 @@ class CommuteNaikModalViewController: UIViewController {
     @IBOutlet var contentArea: UIView!
     @IBOutlet var BreezeIceView: UIView!
     
+    @IBOutlet weak var lblRoute: UILabel!
+    @IBOutlet weak var lblStop: UILabel!
+    
+    @IBOutlet weak var lblStop1: UILabel!
+    @IBOutlet weak var lblStop2: UILabel!
+    @IBOutlet weak var lblStop3: UILabel!
+    @IBOutlet weak var lblStop4: UILabel!
+    @IBOutlet weak var lblStop5: UILabel!
+    @IBOutlet weak var lblStop6: UILabel!
+    @IBOutlet weak var lblStop7: UILabel!
+    @IBOutlet weak var lblStop8: UILabel!
+    
+    @IBOutlet weak var lblWaktu1: UILabel!
+    @IBOutlet weak var lblWaktu2: UILabel!
+    @IBOutlet weak var lblWaktu3: UILabel!
+    @IBOutlet weak var lblWaktu4: UILabel!
+    @IBOutlet weak var lblWaktu5: UILabel!
+    @IBOutlet weak var lblWaktu6: UILabel!
+    @IBOutlet weak var lblWaktu7: UILabel!
+    @IBOutlet weak var lblWaktu8: UILabel!
+    
     var xibDelegate: XibDelegate?
     
     override func viewDidLoad() {
