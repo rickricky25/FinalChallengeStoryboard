@@ -98,6 +98,8 @@ class CommuteViewController: UIViewController, XibDelegate {
             arah = "pergi"
             self.mapView.animate(toLocation: self.locPergi!)
             
+            stop = nearPergi
+            
             navDetailCardViewController.kodeRute.text = "Breeze - ICE"
             navDetailCardViewController.lblShortestTime1.text = "\(selPergi!)"
             navDetailCardViewController.lblShortestTime2.text = "\(selPergi! + 15)"
@@ -125,6 +127,8 @@ class CommuteViewController: UIViewController, XibDelegate {
         } else if index == 1 {
             arah = "pulang"
             self.mapView.animate(toLocation: self.locPulang!)
+            
+            stop = nearPulang
             
             navDetailCardViewController.kodeRute.text = "ICE - Breeze"
             navDetailCardViewController.lblShortestTime1.text = "\(selPulang!)"
@@ -199,8 +203,6 @@ class CommuteViewController: UIViewController, XibDelegate {
             }
             semaphore.wait(timeout: .distantFuture)
             
-            
-            
             publicDatabase.perform(queryPulang, inZoneWith: nil) { (resPulang, error) in
                 for res in resPulang! {
                     print("location pulang: \(res["latitude"]!)")
@@ -266,6 +268,8 @@ class CommuteViewController: UIViewController, XibDelegate {
                     
                     self.navDetailCardViewController.lblStop.text = nearPergi
                     
+                    stop = nearPergi
+                    
                     self.navDetailCardViewController.lblTime1.text = self.waktuPergi[0]
                     self.navDetailCardViewController.lblTime2.text = self.waktuPergi[1]
                     self.navDetailCardViewController.lblTime3.text = self.waktuPergi[2]
@@ -280,6 +284,8 @@ class CommuteViewController: UIViewController, XibDelegate {
                     self.navDetailCardViewController.lblShortestTime3.text = "\(self.selPulang! + 30)"
                     
                     self.navDetailCardViewController.lblStop.text = nearPulang
+                    
+                    stop = nearPulang
                     
                     self.navDetailCardViewController.lblTime1.text = self.waktuPulang[0]
                     self.navDetailCardViewController.lblTime2.text = self.waktuPulang[1]
@@ -337,6 +343,52 @@ class CommuteViewController: UIViewController, XibDelegate {
                 self.commuteNaikModalViewController.view.frame.origin.y = self.view.frame.height - self.cardNaikHeight
                 self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height
                 self.tabBarController?.tabBar.layer.zPosition = -1
+                
+                self.mapView.animate(toZoom: 16)
+                
+                if arah == "pergi" {
+                    self.commuteNaikModalViewController.lblStop.text = self.nearPergi
+                    self.commuteNaikModalViewController.lblRoute.text = "Breeze - ICE"
+                    
+                    self.commuteNaikModalViewController.lblStop1.text = self.routePergi[0]
+                    self.commuteNaikModalViewController.lblStop2.text = self.routePergi[1]
+                    self.commuteNaikModalViewController.lblStop3.text = self.routePergi[2]
+                    self.commuteNaikModalViewController.lblStop4.text = self.routePergi[3]
+                    self.commuteNaikModalViewController.lblStop5.text = self.routePergi[4]
+                    self.commuteNaikModalViewController.lblStop6.text = self.routePergi[5]
+                    self.commuteNaikModalViewController.lblStop7.text = self.routePergi[6]
+                    self.commuteNaikModalViewController.lblStop8.text = self.routePergi[7]
+                    
+                    self.commuteNaikModalViewController.lblWaktu1.text = self.waktuPergi[0]
+                    self.commuteNaikModalViewController.lblWaktu2.text = self.waktuPergi[1]
+                    self.commuteNaikModalViewController.lblWaktu3.text = self.waktuPergi[2]
+                    self.commuteNaikModalViewController.lblWaktu4.text = self.waktuPergi[3]
+                    self.commuteNaikModalViewController.lblWaktu5.text = self.waktuPergi[4]
+                    self.commuteNaikModalViewController.lblWaktu6.text = self.waktuPergi[5]
+                    self.commuteNaikModalViewController.lblWaktu7.text = self.waktuPergi[6]
+                    self.commuteNaikModalViewController.lblWaktu8.text = self.waktuPergi[7]
+                } else {
+                    self.commuteNaikModalViewController.lblStop.text = self.nearPulang
+                    self.commuteNaikModalViewController.lblRoute.text = "ICE - Breeze"
+                    
+                    self.commuteNaikModalViewController.lblStop1.text = self.routePulang[0]
+                    self.commuteNaikModalViewController.lblStop2.text = self.routePulang[1]
+                    self.commuteNaikModalViewController.lblStop3.text = self.routePulang[2]
+                    self.commuteNaikModalViewController.lblStop4.text = self.routePulang[3]
+                    self.commuteNaikModalViewController.lblStop5.text = self.routePulang[4]
+                    self.commuteNaikModalViewController.lblStop6.text = self.routePulang[5]
+                    self.commuteNaikModalViewController.lblStop7.text = self.routePulang[6]
+                    self.commuteNaikModalViewController.lblStop8.text = self.routePulang[7]
+                    
+                    self.commuteNaikModalViewController.lblWaktu1.text = self.waktuPulang[0]
+                    self.commuteNaikModalViewController.lblWaktu2.text = self.waktuPulang[1]
+                    self.commuteNaikModalViewController.lblWaktu3.text = self.waktuPulang[2]
+                    self.commuteNaikModalViewController.lblWaktu4.text = self.waktuPulang[3]
+                    self.commuteNaikModalViewController.lblWaktu5.text = self.waktuPulang[4]
+                    self.commuteNaikModalViewController.lblWaktu6.text = self.waktuPulang[5]
+                    self.commuteNaikModalViewController.lblWaktu7.text = self.waktuPulang[6]
+                    self.commuteNaikModalViewController.lblWaktu8.text = self.waktuPulang[7]
+                }
             }
         }
         
@@ -349,14 +401,12 @@ class CommuteViewController: UIViewController, XibDelegate {
         let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
         let publicDatabase = container.publicCloudDatabase
         
-        if arah == "pergi" {
-            
-        } else {
-            
-        }
-        
         publicDatabase.perform(query, inZoneWith: nil) { (result, error) in
-            if result?.count == 1 {
+            if result!.count > 0 {
+                DispatchQueue.main.async {
+                    self.mapView.clear()
+                }
+                
                 var found = false
                 let resStop = result![0]["namaStop"] as? [String]
                 let resLat = result![0]["latStop"] as? [CLLocationDegrees]
@@ -369,8 +419,8 @@ class CommuteViewController: UIViewController, XibDelegate {
                             found = true
                             let firstLoc = CLLocationCoordinate2D(latitude: resLat![i], longitude: resLong![i])
                             let secondLoc = CLLocationCoordinate2D(latitude: resLat![i + 1], longitude: resLong![i + 1])
-                            let stopMarker = GMSMarker(position: firstLoc)
                             DispatchQueue.main.async {
+                                let stopMarker = GMSMarker(position: firstLoc)
                                 stopMarker.title  = resStop![i]
                                 stopMarker.icon = UIImage(named: "halte")
                                 stopMarker.map = self.mapView
@@ -381,8 +431,8 @@ class CommuteViewController: UIViewController, XibDelegate {
                         print(resStop![i])
                         let firstLoc = CLLocationCoordinate2D(latitude: resLat![i], longitude: resLong![i])
                         let secondLoc = CLLocationCoordinate2D(latitude: resLat![i + 1], longitude: resLong![i + 1])
-                        let stopMarker = GMSMarker(position: firstLoc)
                         DispatchQueue.main.async {
+                            let stopMarker = GMSMarker(position: firstLoc)
                             stopMarker.title  = resStop![i]
                             stopMarker.icon = UIImage(named: "halte")
                             stopMarker.map = self.mapView
@@ -498,15 +548,15 @@ class CommuteViewController: UIViewController, XibDelegate {
     var commuteModalViewController: CommuteModalViewController!
     var navDetailCardViewController: NavDetailCardViewController!
     var commuteNaikModalViewController: CommuteNaikModalViewController!
-    var visualEffectView:UIVisualEffectView!
-    let cardHeight:CGFloat = 500
-    let cardHandleAreaH:CGFloat = 250
+    var visualEffectView: UIVisualEffectView!
+    let cardHeight: CGFloat = 500
+    let cardHandleAreaH: CGFloat = 250
     var cardNavDetailVisible = 0
     var cardCommuteVisible = 0
     var arahCard = ""
     var handleCard = ""
     var cardNaikVisible = false
-    let cardNaikHeight:CGFloat = 500
+    let cardNaikHeight: CGFloat = 623
     //    let cardHandleAreaH:CGFloat = 250
     
     var runningAnimations = [UIViewPropertyAnimator]()
@@ -1141,11 +1191,6 @@ class CommuteViewController: UIViewController, XibDelegate {
     
     // CARD NAIK
     func setupCardNaik() {
-        //        visualEffectView = UIVisualEffectView()
-        //        visualEffectView.frame = self.view.frame
-        //
-        //        self.view.addSubview(visualEffectView)
-        
         commuteNaikModalViewController = CommuteNaikModalViewController(nibName: "CommuteNaikModalViewController", bundle: nil)
         self.addChild(commuteNaikModalViewController)
         self.view.addSubview(commuteNaikModalViewController.view)
