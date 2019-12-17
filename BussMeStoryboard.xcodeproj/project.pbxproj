@@ -11,8 +11,8 @@
 		006027A4237BFB2100F92D90 /* popUpReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006027A3237BFB2100F92D90 /* popUpReminderViewController.swift */; };
 		006027A6237BFFB700F92D90 /* popUpTurun.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 006027A5237BFFB700F92D90 /* popUpTurun.storyboard */; };
 		006027AB2385091700F92D90 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006027A92385091700F92D90 /* ReminderViewController.swift */; };
-		34ADBD725EB2AAF150747AC4 /* Pods_BussMeStoryboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8B8EA7E934AD7259FB19958 /* Pods_BussMeStoryboardTests.framework */; };
 		292BCC5423A62EA80064A4F1 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292BCC5323A62EA80064A4F1 /* API.swift */; };
+		34ADBD725EB2AAF150747AC4 /* Pods_BussMeStoryboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8B8EA7E934AD7259FB19958 /* Pods_BussMeStoryboardTests.framework */; };
 		49D341582382A1A7008DF83A /* NavDetailCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D341562382A1A7008DF83A /* NavDetailCardViewController.swift */; };
 		49D341592382A1A7008DF83A /* NavDetailCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D341572382A1A7008DF83A /* NavDetailCardViewController.xib */; };
 		49D3415B238D3A0B008DF83A /* popUpTurunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D3415A238D3A0B008DF83A /* popUpTurunViewController.swift */; };
@@ -23,6 +23,8 @@
 		5079A56D237950B400CF68A9 /* CommuteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A56C237950B400CF68A9 /* CommuteViewController.swift */; };
 		5079A570237A918000CF68A9 /* NavDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5079A56F237A918000CF68A9 /* NavDetailStoryboard.storyboard */; };
 		5079A572237A91C200CF68A9 /* NavDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079A571237A91C200CF68A9 /* NavDetailViewController.swift */; };
+		5095D84723A8EC60003081E1 /* TimeBeforeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5095D84623A8EC60003081E1 /* TimeBeforeTableViewController.swift */; };
+		5095D84923A8F01A003081E1 /* TimeBeforeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5095D84823A8F01A003081E1 /* TimeBeforeTableViewCell.swift */; };
 		50E9D0FA2355C25A000042BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D0F92355C25A000042BC /* AppDelegate.swift */; };
 		50E9D0FC2355C25A000042BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D0FB2355C25A000042BC /* SceneDelegate.swift */; };
 		50E9D1042355C25A000042BC /* BussMeStoryboard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50E9D1022355C25A000042BC /* BussMeStoryboard.xcdatamodeld */; };
@@ -70,7 +72,6 @@
 		0CFDDCFA77576C1751ECC5D0 /* Pods-BussMeStoryboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboard.debug.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboard/Pods-BussMeStoryboard.debug.xcconfig"; sourceTree = "<group>"; };
 		23581D107D3BF3F60092509C /* Pods-BussMeStoryboardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboardTests.release.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboardTests/Pods-BussMeStoryboardTests.release.xcconfig"; sourceTree = "<group>"; };
 		292BCC5323A62EA80064A4F1 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		2BDBFA39DF23F08F0E43758C /* Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboard-BussMeStoryboardUITests/Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig"; sourceTree = "<group>"; };
 		49D341562382A1A7008DF83A /* NavDetailCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavDetailCardViewController.swift; sourceTree = "<group>"; };
 		49D341572382A1A7008DF83A /* NavDetailCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavDetailCardViewController.xib; sourceTree = "<group>"; };
 		49D3415A238D3A0B008DF83A /* popUpTurunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popUpTurunViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +84,8 @@
 		5079A571237A91C200CF68A9 /* NavDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavDetailViewController.swift; sourceTree = "<group>"; };
 		5079A5A0237E90C900CF68A9 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		507B86CA8D7E3ED0BC9B3BE7 /* Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig"; path = "Target Support Files/Pods-BussMeStoryboard-BussMeStoryboardUITests/Pods-BussMeStoryboard-BussMeStoryboardUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5095D84623A8EC60003081E1 /* TimeBeforeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBeforeTableViewController.swift; sourceTree = "<group>"; };
+		5095D84823A8F01A003081E1 /* TimeBeforeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBeforeTableViewCell.swift; sourceTree = "<group>"; };
 		50E9D0F62355C25A000042BC /* FellowCity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FellowCity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50E9D0F92355C25A000042BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50E9D0FB2355C25A000042BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,19 +156,21 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
-		49F9DACA23A0C68C0095880A /* Table Controller */ = {
-			isa = PBXGroup;
-			children = (
-				49F9DACD23A0D3750095880A /* HalteListTableViewController.swift */,
-			);
-			path = "Table Controller";
-			sourceTree = "<group>";
-		};
 		2928F47C2397C95200A78CD3 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		49F9DACA23A0C68C0095880A /* Table Controller */ = {
+			isa = PBXGroup;
+			children = (
+				49F9DACD23A0D3750095880A /* HalteListTableViewController.swift */,
+				5095D84623A8EC60003081E1 /* TimeBeforeTableViewController.swift */,
+				5095D84823A8F01A003081E1 /* TimeBeforeTableViewCell.swift */,
+			);
+			path = "Table Controller";
 			sourceTree = "<group>";
 		};
 		5079A5692379507D00CF68A9 /* Commute */ = {
@@ -579,6 +584,8 @@
 				51DED0F123911BE500A75D22 /* MyTripsViewController.swift in Sources */,
 				49D341582382A1A7008DF83A /* NavDetailCardViewController.swift in Sources */,
 				292BCC5423A62EA80064A4F1 /* API.swift in Sources */,
+				5095D84923A8F01A003081E1 /* TimeBeforeTableViewCell.swift in Sources */,
+				5095D84723A8EC60003081E1 /* TimeBeforeTableViewController.swift in Sources */,
 				006027AB2385091700F92D90 /* ReminderViewController.swift in Sources */,
 				49F9DACE23A0D3750095880A /* HalteListTableViewController.swift in Sources */,
 			);

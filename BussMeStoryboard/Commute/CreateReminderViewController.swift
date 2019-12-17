@@ -15,6 +15,7 @@ class CreateReminderViewController: UIViewController {
     @IBOutlet var btnEndTime: UIButton!
     @IBOutlet var remindDatePicker: UIDatePicker!
     
+    var selectedTime: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +29,13 @@ class CreateReminderViewController: UIViewController {
 //        remindDatePicker.isUserInteractionEnabled = false
         remindDatePicker.isHidden = true
         
+        
     }
     
     @IBAction func timeStart(_ sender: Any) {
         let picker : UIDatePicker = UIDatePicker()
         picker.datePickerMode = UIDatePicker.Mode.time
-        picker.addTarget(self, action: Selector(("dueDateChanged:")), for: UIControl.Event.valueChanged)
+//        picker.addTarget(self, action: Selector(("dueDateChanged:")), for: UIControl.Event.valueChanged)
 //        let pickerSize : CGSize = picker.sizeThatFits(.zero)
         picker.frame = CGRect(x: 0.0, y: 620, width: 414 , height: 200)
         picker.backgroundColor = UIColor.systemBackground
@@ -43,7 +45,7 @@ class CreateReminderViewController: UIViewController {
     @IBAction func timeBtnEnd(_ sender: Any) {
         let picker : UIDatePicker = UIDatePicker()
                 picker.datePickerMode = UIDatePicker.Mode.time
-                picker.addTarget(self, action: Selector(("dueDateChanged:")), for: UIControl.Event.valueChanged)
+//                picker.addTarget(self, action: Selector(("dueDateChanged:")), for: UIControl.Event.valueChanged)
         //        let pickerSize : CGSize = picker.sizeThatFits(.zero)
                 picker.frame = CGRect(x: 0.0, y: 620, width: 414 , height: 200)
                 picker.backgroundColor = UIColor.systemBackground
@@ -55,24 +57,58 @@ class CreateReminderViewController: UIViewController {
     }
 
     @IBAction func btnSavePressed(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        let alert = UIAlertController(title: "Notification", message: "Your reminder has been successfully saved.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            switch action.style {
+            case .default:
+                self.navigationController?.popViewController(animated: true)
+            default:
+                print("else")
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func btnStartTime(_ sender: Any) {
 //        remindDatePicker.isUserInteractionEnabled = true
         remindDatePicker.isHidden = false
+        selectedTime = "start"
         print("Start Time")
         remindDatePicker.backgroundColor = UIColor.systemBackground
     }
     
     @IBAction func btnEndTime(_ sender: Any) {
-        remindDatePicker.isUserInteractionEnabled = true
+//        remindDatePicker.isUserInteractionEnabled = true
+        remindDatePicker.isHidden = false
+        selectedTime = "end"
         print("End Time")
         remindDatePicker.backgroundColor = UIColor.systemBackground
     }
     
 //    DATE PICKER CHANGE
     @IBAction func remindDatePickerVal(_ sender: UIDatePicker) {
+        let components = Calendar.current.dateComponents([.hour, .minute], from: sender.date)
+        var selectedHour = ""
+        var selectedMin = ""
         
+        if components.hour! < 10 {
+            selectedHour = "0\(components.hour!)"
+        } else {
+            selectedHour = "\(components.hour!)"
+        }
+        if components.minute! < 10 {
+            selectedMin = "0\(components.minute!)"
+        } else {
+            selectedMin = "\(components.minute!)"
+        }
+        
+        if selectedTime == "start" {
+            btnStartTime.setTitle("\(selectedHour):\(selectedMin)", for: .normal)
+        } else if selectedTime == "end" {
+            btnEndTime.setTitle("\(selectedHour):\(selectedMin)", for: .normal)
+        } else {
+            print("error")
+        }
     }
 }
+

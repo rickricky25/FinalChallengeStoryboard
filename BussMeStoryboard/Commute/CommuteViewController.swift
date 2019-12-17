@@ -347,7 +347,7 @@ class CommuteViewController: UIViewController, XibDelegate {
                 self.navDetailCardViewController.view.frame.origin.y = self.view.frame.height
                 self.tabBarController?.tabBar.layer.zPosition = -1
                 
-                self.mapView.animate(toZoom: 16)
+                self.mapView.animate(toZoom: 17.5)
                 
                 if arah == "pergi" {
                     self.commuteNaikModalViewController.lblStop.text = self.nearPergi

@@ -185,17 +185,5 @@ class HalteListTableViewController: UITableViewController {
 //    }
 //
 //}}
-
-
-
-
-
-
-
-
-
-
-
-
 // ----------
 }

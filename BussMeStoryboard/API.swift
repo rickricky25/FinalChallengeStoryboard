@@ -27,7 +27,7 @@ class API {
         //apa
     }
     
-    func saveUser(deviceToken: String){
+    func saveUser(deviceToken: String) {
             let uuid = UIDevice.current.identifierForVendor!.uuidString
             let url = URL(string: "https://server-fellowcity.herokuapp.com/api/user")
             guard let requestUrl = url else { fatalError() }
@@ -46,14 +46,14 @@ class API {
                         print("Error took place \(error)")
                         return
                     }
-                    guard let data = data else {return}
-                    do{
+                    guard let data = data else { return }
+                    do {
                         let userModel = try JSONDecoder().decode(UserModel.self, from: data)
                         print(userModel)
                         print("Data:\n \(userModel)")
                         print("UUID: \(userModel.uuid)")
                         print("name: \(userModel.name)")
-                    }catch let jsonErr{
+                    } catch let jsonErr {
                         print(jsonErr)
                    }
              
