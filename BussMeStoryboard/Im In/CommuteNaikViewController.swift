@@ -61,6 +61,8 @@ class CommuteNaikViewController: UIViewController {
             
             currMarker.map = mapView
             
+            // CloudKit
+            
             let predicate = NSPredicate(value: true)
             let query = CKQuery(recordType: "DataStop", predicate: predicate)
             let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
@@ -116,10 +118,6 @@ class CommuteNaikViewController: UIViewController {
             mapView = GMSMapView.map(withFrame: mainView.frame, camera: camera)
             
             currMarker.map = mapView
-//            let predicate = NSPredicate(value: true)
-//            let query = CKQuery(recordType: "DataStop", predicate: predicate)
-//            let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
-//            let publicDatabase = container.publicCloudDatabase
             
             self.mainView.addSubview(mapView)
 //            setupCardNaik()

@@ -18,6 +18,8 @@ class CommuteNaikModalViewController: UIViewController {
     @IBOutlet var contentArea: UIView!
     @IBOutlet var BreezeIceView: UIView!
     
+    var xibDelegate: XibDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,10 +34,11 @@ class CommuteNaikModalViewController: UIViewController {
     
 //    ****** CHANGE PAGE to Alert Turun ******
     @IBAction func btnTurunBus(_ sender: Any) {
-        let nextStoryboard = UIStoryboard(name: "popUpTurun", bundle: nil)
-        let nextVC = nextStoryboard.instantiateViewController(identifier: "popUpTurunStoryboard") as popUpTurunViewController
-        
-        present(nextVC, animated: true, completion: nil)
+//        let nextStoryboard = UIStoryboard(name: "popUpTurun", bundle: nil)
+//        let nextVC = nextStoryboard.instantiateViewController(identifier: "popUpTurunStoryboard") as popUpTurunViewController
+//
+//        present(nextVC, animated: true, completion: nil)
+        xibDelegate?.turunBtnPressed()
     }
 //    **************
 }

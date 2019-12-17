@@ -46,6 +46,8 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
     var routePergi: [String] = []
     var routePulang: [String] = []
     var locManager = CLLocationManager()
+    var nearPulang: String = ""
+    var nearPergi: String = ""
     
     var selPergi: Int!
     var selPulang: Int!
@@ -58,7 +60,7 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
         super.viewDidLoad()
         
         var resultRoute: [CKRecord] = []
-
+        
         kodeRuteView.layer.cornerRadius = 15
         listRuteView.layer.cornerRadius = 15
         
@@ -68,6 +70,8 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
         contentArea.layer.cornerRadius = 25
         
         lblStop.text = stop
+        
+        // CloudKit
         
         let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
         let publicDatabase = container.publicCloudDatabase
@@ -158,6 +162,8 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
     }
     
     func getShortestTime(rute: String, completion: @escaping (_ selisihPergi: Int, _ selisihPulang: Int, _ timesPergi: [String], _ timesPulang: [String]) -> ()) {
+        // CloudKit
+        
         let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
         let publicDatabase = container.publicCloudDatabase
         let predicateStop = NSPredicate(format: "kodeRute == %@", rute)
@@ -176,7 +182,7 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
                 let currHour = Int(arrCurrTime[0])
                 let currMinute = Int(arrCurrTime[1])
                 
-//                print(currTime)
+                //                print(currTime)
                 
                 var arrStopPergi: [CKRecord] = []
                 var arrStopPulang: [CKRecord] = []
@@ -197,7 +203,7 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
                     let arrWaktu = stopPergi["waktu"] as! [String]
                     
                     for i in 0...arrStop.count - 1 {
-                        if arrStop[i] == stop {
+                        if arrStop[i] == self.nearPergi {
                             let stopTime = arrWaktu[i]
                             let arrStopTime = stopTime.components(separatedBy: ":")
                             let stopHour = Int(arrStopTime[0])
@@ -209,7 +215,7 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
                                     if minSelisih > selisih {
                                         minSelisih = selisih
                                         nearestIndex = index
-//                                        print("\(nearestIndex) selisih \(minSelisih)")
+                                        //                                        print("\(nearestIndex) selisih \(minSelisih)")
                                     }
                                 }
                             } else if currHour! == stopHour! - 1 {
@@ -217,7 +223,7 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
                                 if minSelisih > selisih {
                                     minSelisih = selisih
                                     nearestIndex = index
-//                                    print("\(nearestIndex) selisih \(minSelisih)")
+                                    //                                    print("\(nearestIndex) selisih \(minSelisih)")
                                 }
                             }
                         }
@@ -225,7 +231,7 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
                     index = index + 1
                 }
                 selPergi = minSelisih
-//                print(selPergi)
+                //                print(selPergi)
                 waktuPergi = arrStopPergi[nearestIndex]["waktu"] as! [String]
                 
                 nearestIndex = 0
@@ -237,7 +243,7 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
                     let arrWaktu = stopPulang["waktu"] as! [String]
                     
                     for i in 0...arrStop.count - 1 {
-                        if arrStop[i] == stop {
+                        if arrStop[i] == self.nearPulang {
                             let stopTime = arrWaktu[i]
                             let arrStopTime = stopTime.components(separatedBy: ":")
                             let stopHour = Int(arrStopTime[0])
@@ -263,7 +269,7 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
                     index = index + 1
                 }
                 selPulang = minSelisih
-//                print(selPulang)
+                //                print(selPulang)
                 waktuPulang = arrStopPulang[nearestIndex]["waktu"] as! [String]
                 
                 completion(selPergi, selPulang, waktuPergi, waktuPulang)
@@ -282,6 +288,8 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
     }
     
     func getNearestStop(currLat: CLLocationDegrees, currLong: CLLocationDegrees, completion: @escaping (_ stop: String) -> ()) {
+        // CloudKit
+        
         let currLocation = CLLocationCoordinate2D(latitude: currLat, longitude: currLong)
         let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
         let predicate = NSPredicate(value: true)
@@ -320,23 +328,19 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
     
     func getCurrentLatLong() -> (Double, Double) {
         var currentLocation: CLLocation!
-            
+        
         if(CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways) {
             currentLocation = locManager.location
         }
-            
+        
         let currLong = currentLocation.coordinate.longitude
         let currLat = currentLocation.coordinate.latitude
-            
+        
         return (currLat, currLong)
     }
     
     @objc func handleEdgePan(_ sender: UIScreenEdgePanGestureRecognizer) {
-        if sender.edges == .left {
-            let prevStoryboard = UIStoryboard(name: "CommuteStoryboard", bundle: nil)
-            let prevVC = prevStoryboard.instantiateViewController(identifier: "CommuteStoryboard") as CommuteViewController
-            present(prevVC, animated: true, completion: nil)
-        }
+        
     }
     
     @IBAction func btnBackPressed(_ sender: Any) {
@@ -344,9 +348,11 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
     }
     
     @IBAction func btnNaikPressed(_ sender: Any) {
+        // CloudKit
+        
         let newRecord = CKRecord(recordType: "DataCheck")
         let (currLat, currLong) = getCurrentLatLong()
-
+        
         getNearestStop(currLat: currLat, currLong: currLong, completion: { (nearestLoc) in
             newRecord["arah"] = arah
             newRecord["idUser"] = UIDevice.current.identifierForVendor?.uuidString
@@ -366,62 +372,14 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
     
     @IBAction func arahSegmentedControlAction(_ sender: UISegmentedControl) {
         if arahSegmentedControl.selectedSegmentIndex == 0 {
-            lblShortestTime1.text = "\(selPergi!)"
-            lblShortestTime2.text = "\(selPergi! + 15)"
-            lblShortestTime3.text = "\(selPergi! + 30)"
-            
-            lblStop1.text = waktuPergi[0]
-            lblStop2.text = waktuPergi[1]
-            lblStop3.text = waktuPergi[2]
-            lblStop4.text = waktuPergi[3]
-            lblStop5.text = waktuPergi[4]
-            lblStop6.text = waktuPergi[5]
-            lblStop7.text = waktuPergi[6]
-            lblStop8.text = waktuPergi[7]
+            delegate?.navSegmentedSelected(index: 0)
         } else if arahSegmentedControl.selectedSegmentIndex == 1 {
-            lblShortestTime1.text = "\(selPulang!)"
-            lblShortestTime2.text = "\(selPulang! + 15)"
-            lblShortestTime3.text = "\(selPulang! + 30)"
-            
-            lblStop1.text = waktuPulang[0]
-            lblStop2.text = waktuPulang[1]
-            lblStop3.text = waktuPulang[2]
-            lblStop4.text = waktuPulang[3]
-            lblStop5.text = waktuPulang[4]
-            lblStop6.text = waktuPulang[5]
-            lblStop7.text = waktuPulang[6]
-            lblStop8.text = waktuPulang[7]
-        }
-        
-        if arahSegmentedControl.selectedSegmentIndex == 0 {
-//            print("pergi")
-            arah = "pergi"
-            kodeRute.text = "Breeze - ICE"
-            lblStop1.text = routePergi[0]
-            lblStop2.text = routePergi[1]
-            lblStop3.text = routePergi[2]
-            lblStop4.text = routePergi[3]
-            lblStop5.text = routePergi[4]
-            lblStop6.text = routePergi[5]
-            lblStop7.text = routePergi[6]
-            lblStop8.text = routePergi[7]
-        } else {
-//            print("pulang")
-            arah = "pulang"
-            kodeRute.text = "ICE - Breeze"
-            lblStop1.text = routePulang[0]
-            lblStop2.text = routePulang[1]
-            lblStop3.text = routePulang[2]
-            lblStop4.text = routePulang[3]
-            lblStop5.text = routePulang[4]
-            lblStop6.text = routePulang[5]
-            lblStop7.text = routePulang[6]
-            lblStop8.text = routePulang[7]
+            delegate?.navSegmentedSelected(index: 1)
         }
     }
     
     
-//    ***** CHANGE PAGE to Alert *****
+    //    ***** CHANGE PAGE to Alert *****
     @IBAction func btnIngatkan(_ sender: Any) {
         let nextStoryboard = UIStoryboard(name: "popUpReminder", bundle: nil)
         let nextVC = nextStoryboard.instantiateViewController(identifier: "popUpReminder") as popUpReminderViewController
@@ -430,11 +388,12 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
     }
     
     @IBAction func btnNaikBus(_ sender: Any) {
-//        let nextStoryboard = UIStoryboard(name: "CommuteNaikStoryboard", bundle: nil)
-//        let nextVC = nextStoryboard.instantiateViewController(identifier: "CommuteNaikStoryboard") as CommuteNaikViewController
-//
-//        present(nextVC, animated: true, completion: nil)
-        delegate?.naikBtnPressed()
+        if arahSegmentedControl.selectedSegmentIndex == 0 {
+            arah = "pergi"
+        } else {
+            arah = "pulang"
+        }
+        delegate?.naikBtnPressed(rute: "BRE", arah: arah)
     }
-//    *******************
+    //    *******************
 }
