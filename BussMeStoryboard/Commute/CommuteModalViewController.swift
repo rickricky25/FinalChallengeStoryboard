@@ -32,6 +32,11 @@ class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        API().getAllBus()
+        // Contoh penggunaan API #ricky
+        API().updateSchedule(trip_id: 1, stop_id: 1, time_arrival: "07:00:00")
+        API().getScheduleByTrip(trip_id: 2)
+        API().addCommute(user_id: 11, stop_id: 1, longitude: 101, latitude: 99, status_check: "go")
         
         locManager.delegate = self
         

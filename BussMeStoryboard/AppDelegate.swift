@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let deviceTokenString = deviceToken.reduce("", { $0 + String(format: "%02X", $1)})
         print(deviceTokenString)
         API().saveUser(deviceToken: deviceTokenString)
+       
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
