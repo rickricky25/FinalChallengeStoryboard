@@ -9,6 +9,9 @@
 import UIKit
 
 class HalteListTableViewController: UITableViewController {
+    
+    var delegate: ReminderDelegate?
+    var route = ""
 
     let section = ["Breeze - ICE",
                    "ICE - Breeze",
@@ -59,6 +62,8 @@ class HalteListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        
+        ruteTrip = ""
 
 //        for searching
         searchController.searchResultsUpdater = self as? UISearchResultsUpdating
@@ -93,12 +98,14 @@ class HalteListTableViewController: UITableViewController {
         tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .checkmark
         tableView.cellForRow(at: indexPath as IndexPath)?.textLabel?.font = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.heavy)
         tableView.cellForRow(at: indexPath as IndexPath)?.textLabel?.textColor = #colorLiteral(red: 1, green: 0.7922968268, blue: 0, alpha: 1)
+        ruteTrip = (tableView.cellForRow(at: indexPath as IndexPath)?.textLabel!.text)!
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .none
         tableView.cellForRow(at: indexPath as IndexPath)?.textLabel?.font =  UIFont.systemFont(ofSize: 17)
         tableView.cellForRow(at: indexPath as IndexPath)?.textLabel?.textColor = UIColor.label
+        ruteTrip = ""
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -112,6 +119,10 @@ class HalteListTableViewController: UITableViewController {
     func updateSearchResult(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
         print(text)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.delegate?.getRoute(route: route)
     }
     
 //    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

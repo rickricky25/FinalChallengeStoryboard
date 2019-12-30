@@ -308,6 +308,13 @@
                                             <segue destination="0Xj-zH-f2J" kind="show" id="lDv-6W-IaE"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSk-QD-qXZ">
+                                        <rect key="frame" x="216" y="14" width="179" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
@@ -367,6 +374,13 @@
                                     <action selector="remindDatePickerVal:" destination="tGr-xx-EK8" eventType="valueChanged" id="Xsf-P1-lZF"/>
                                 </connections>
                             </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qR-39-KHn">
+                                <rect key="frame" x="215" y="298" width="179" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="9Wt-i7-FNc"/>
@@ -382,6 +396,8 @@
                     <connections>
                         <outlet property="btnEndTime" destination="bRC-qX-v6q" id="JfG-TD-HKn"/>
                         <outlet property="btnStartTime" destination="Kar-nF-880" id="PKw-UG-2aw"/>
+                        <outlet property="lblRute" destination="5qR-39-KHn" id="CmH-yf-j5i"/>
+                        <outlet property="lblTimeBefore" destination="JSk-QD-qXZ" id="sXc-tB-QEn"/>
                         <outlet property="remindDatePicker" destination="rdY-fI-7JQ" id="BYf-mW-xKY"/>
                         <outlet property="titleTextField" destination="WZP-sV-rX9" id="32M-s6-bbS"/>
                     </connections>

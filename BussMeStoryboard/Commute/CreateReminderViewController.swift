@@ -8,12 +8,35 @@
 
 import UIKit
 
-class CreateReminderViewController: UIViewController {
+var ruteTrip: String = ""
+var timeBeforeTrip: String = ""
+
+protocol ReminderDelegate {
+    func getRoute(route: String)
+    func getTimeBefore(time: String)
+}
+
+class CreateReminderViewController: UIViewController, ReminderDelegate {
+    func getRoute(route: String) {
+        DispatchQueue.main.async {
+            self.lblRute.text = route
+        }
+    }
+    
+    func getTimeBefore(time: String) {
+        DispatchQueue.main.async {
+            self.lblTimeBefore.text = time
+        }
+    }
+    
 
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var btnStartTime: UIButton!
     @IBOutlet var btnEndTime: UIButton!
     @IBOutlet var remindDatePicker: UIDatePicker!
+    
+    @IBOutlet weak var lblRute: UILabel!
+    @IBOutlet weak var lblTimeBefore: UILabel!
     
     var selectedTime: String?
     
@@ -28,8 +51,11 @@ class CreateReminderViewController: UIViewController {
 //        DATE PICKER TIME
 //        remindDatePicker.isUserInteractionEnabled = false
         remindDatePicker.isHidden = true
-        
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        lblRute.text = ruteTrip
+        lblTimeBefore.text = timeBeforeTrip
     }
     
     @IBAction func timeStart(_ sender: Any) {
@@ -57,7 +83,7 @@ class CreateReminderViewController: UIViewController {
     }
 
     @IBAction func btnSavePressed(_ sender: Any) {
-        let alert = UIAlertController(title: "Notification", message: "Your reminder has been successfully saved.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Reminder Has Been Saved", message: "You will be notified at the desired time.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
             switch action.style {
             case .default:
