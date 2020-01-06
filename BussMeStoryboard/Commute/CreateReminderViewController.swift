@@ -88,6 +88,7 @@ class CreateReminderViewController: UIViewController, ReminderDelegate {
             switch action.style {
             case .default:
                 self.navigationController?.popViewController(animated: true)
+                API().addReminder(user_id: 28, stop_id: selectedStop, interval_start: (self.btnStartTime.titleLabel?.text!)!, interval_stop: (self.btnEndTime.titleLabel?.text!)!, time_before_arrival: selectedTimeBefore, repeats: "all")
             default:
                 print("else")
             }

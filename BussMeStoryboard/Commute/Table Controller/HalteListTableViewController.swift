@@ -8,6 +8,8 @@
 
 import UIKit
 
+var selectedStop = 0
+
 class HalteListTableViewController: UITableViewController {
     
     var delegate: ReminderDelegate?
@@ -26,17 +28,16 @@ class HalteListTableViewController: UITableViewController {
                    "Intermoda - Vanya Park",
                    "Vanya Park - Intermoda"]
     
-    var halte = [["Green Cove","The Breeze",
+    var halte = [["The Breeze",
                   "CBD Utara 1","CBD Utara 3",
                   "CBD Barat 1","CBD Barat 2",
-                  "Lobby AEON","ICE - 1",
-                  "Lobby ICE","ICE - 5"],
+                  "Lobby AEON","CBD Utara 3","ICE - 1",
+                  "Lobby ICE"],
                  
-                 ["ICE-5","Lobby ICE",
-                  "ICE - 1","Lobby AEON",
-                  "CBD Barat 2","CBD Barat 1",
-                  "CBD Utara 3","CBD Utara 1",
-                  "The Breeze","Green Cove"],
+                 ["Lobby ICE","ICE-5",
+                  "CBD Barat 1",
+                  "CBD Barat 2","Lobby AEON","Navapark 1",
+                  "Green Cove","The Breeze"],
                  
                  ["a","b","c","d","e"],
                  ["a","b","c","d","e"],
@@ -98,6 +99,8 @@ class HalteListTableViewController: UITableViewController {
         tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .checkmark
         tableView.cellForRow(at: indexPath as IndexPath)?.textLabel?.font = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.heavy)
         tableView.cellForRow(at: indexPath as IndexPath)?.textLabel?.textColor = #colorLiteral(red: 1, green: 0.7922968268, blue: 0, alpha: 1)
+        print(indexPath.row + 1)
+        selectedStop = indexPath.row + 1
         ruteTrip = (tableView.cellForRow(at: indexPath as IndexPath)?.textLabel!.text)!
     }
     

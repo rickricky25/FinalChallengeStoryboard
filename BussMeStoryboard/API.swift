@@ -66,7 +66,7 @@ class API {
         var interval_start: String
         var interval_stop: String
         var time_before_arrival: Int
-        var repeats: [String]
+        var repeats: String
     }
     
     struct ReminderUpdateModel: Codable {
@@ -370,7 +370,7 @@ class API {
            task.resume()
        }
     
-    func addReminder(user_id: Int, stop_id: Int, interval_start: String, interval_stop: String, time_before_arrival: Int, repeats: [String]) {
+    func addReminder(user_id: Int, stop_id: Int, interval_start: String, interval_stop: String, time_before_arrival: Int, repeats: String) {
               let url = URL(string: "https://server-fellowcity.herokuapp.com/api/reminder/add")
               guard let requestUrl = url else { fatalError() }
               // Create URL Request

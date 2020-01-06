@@ -8,6 +8,8 @@
 
 import UIKit
 
+var selectedTimeBefore = 0
+
 class TimeBeforeTableViewController: UITableViewController {
 
     override func viewDidLoad() {
@@ -35,6 +37,7 @@ class TimeBeforeTableViewController: UITableViewController {
         tableView.cellForRow(at: indexPath as IndexPath)?.textLabel?.font = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.heavy)
         tableView.cellForRow(at: indexPath as IndexPath)?.textLabel?.textColor = #colorLiteral(red: 1, green: 0.7922968268, blue: 0, alpha: 1)
         timeBeforeTrip = (tableView.cellForRow(at: indexPath as IndexPath)?.textLabel?.text!)!
+        selectedTimeBefore = Int(arrTime[indexPath.row])!
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
