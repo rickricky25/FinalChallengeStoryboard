@@ -11,9 +11,24 @@ import UIKit
 
 
 class API {
-    struct bus {
-        let a: String
-        
+    struct Responses: Codable {
+//        var status: Int
+//        var error: String
+        var results: ResponseStop
+    }
+    
+    struct ResponseStop: Codable {
+        var stops: [Stops]?
+    }
+    
+    struct Stops: Codable {
+        var direction: String
+        var stop_name: String
+        var stop_id: Int
+    }
+    
+    struct ApiResultStop {
+        var stops: [Stops]?
     }
     
     struct UserModel: Codable {
@@ -71,8 +86,16 @@ class API {
         var is_active: Bool
     }
     
-    func getAllBus() {
+    struct ApiResponse {
+        var IsSuccess : Bool = false
+        var Message : String?
+        var ReturnedData : Data?
+    }
+    
+    func getAllBus(){
+        var apiResponse = ApiResponse()
         let url = URL(string: "https://server-fellowcity.herokuapp.com/api/buses")
+        var dataString2 = ""
         guard let requestUrl = url else { fatalError() }
         // Create URL Request
         var request = URLRequest(url: requestUrl)
@@ -96,14 +119,24 @@ class API {
             // Convert HTTP Response Data to a simple String
             if let data = data, let dataString = String(data: data, encoding: .utf8) {
                 print("Response data string:\n \(dataString)")
+                dataString2 = dataString
             }
+            print("TESTTTTT", dataString2)
+            apiResponse.ReturnedData = data
+            apiResponse.IsSuccess = true
+            apiResponse.Message = "Succeed"
+//            completion(apiResponse)
+            
             
         }
         task.resume()
+//        return data
     }
     
-    func getStopsByID(bus_id: Int) {
-        let url = URL(string: "https://server-fellowcity.herokuapp.com/api/stops/bus/\(bus_id)")
+    func getStopsByID(bus_id: Int, completion: @escaping (_ stops: ApiResultStop?) -> ()) {
+        var resultStop = ApiResultStop()
+        let url = URL(string: "http://192.168.0.11:3000/api/stops/bus/\(bus_id)")
+//        let url = URL(string: "https://server-fellowcity.herokuapp.com/api/stops/bus/\(bus_id)")
         guard let requestUrl = url else { fatalError() }
         // Create URL Request
         var request = URLRequest(url: requestUrl)
@@ -125,8 +158,20 @@ class API {
             }
             
             // Convert HTTP Response Data to a simple String
-            if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                print("Response data string:\n \(dataString)")
+            if let data = data
+            {
+                let decoder = JSONDecoder()
+                do {
+//                    print("masuk sini pak")
+                    let stops = try decoder.decode(ResponseStop.self, from: data)
+//                    print(stops)
+                    resultStop.stops = stops.stops
+//                    print(nyam)
+                } catch {
+                    print(error)
+                }
+               completion(resultStop)
+//                print("Response data string:\n \(dataString)")
             }
             
         }

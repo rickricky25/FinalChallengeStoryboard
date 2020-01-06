@@ -29,14 +29,30 @@ class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
     var locManager = CLLocationManager()
     var xibDelegate: XibDelegate?
     var commuteDelegate: CommuteDelegate?
+    var a: String = ""
+    var result = API.ApiResultStop()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        API().getAllBus()
         // Contoh penggunaan API #ricky
-        API().updateSchedule(trip_id: 1, stop_id: 1, time_arrival: "07:00:00")
-        API().getScheduleByTrip(trip_id: 2)
-        API().addCommute(user_id: 11, stop_id: 1, longitude: 101, latitude: 99, status_check: "go")
+//        API().updateSchedule(trip_id: 1, stop_id: 1, time_arrival: "07:00:00")
+//        API().getScheduleByTrip(trip_id: 2)
+//        API().addCommute(user_id: 11, stop_id: 1, longitude: 101, latitude: 99, status_check: "go")
+//        let x = API().getAllBus()
+//        print("HEY", x)
+        
+        API().getStopsByID(bus_id: 1) { response in
+            if let response = response {
+                self.result.stops = response.stops
+                print(self.result.stops?[0].stop_name)
+                self.a = (self.result.stops?[0].stop_name)!
+            }
+            
+        }
+        print(self.result)
+        print(self.a)
+        
         
         locManager.delegate = self
         
