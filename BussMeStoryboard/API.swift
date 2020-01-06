@@ -12,8 +12,8 @@ import UIKit
 
 class API {
     struct Responses: Codable {
-//        var status: Int
-//        var error: String
+        //        var status: Int
+        //        var error: String
         var results: ResponseStop
     }
     
@@ -125,18 +125,18 @@ class API {
             apiResponse.ReturnedData = data
             apiResponse.IsSuccess = true
             apiResponse.Message = "Succeed"
-//            completion(apiResponse)
+            //            completion(apiResponse)
             
             
         }
         task.resume()
-//        return data
+        //        return data
     }
     
     func getStopsByID(bus_id: Int, completion: @escaping (_ stops: ApiResultStop?) -> ()) {
         var resultStop = ApiResultStop()
         let url = URL(string: "http://192.168.0.11:3000/api/stops/bus/\(bus_id)")
-//        let url = URL(string: "https://server-fellowcity.herokuapp.com/api/stops/bus/\(bus_id)")
+        //        let url = URL(string: "https://server-fellowcity.herokuapp.com/api/stops/bus/\(bus_id)")
         guard let requestUrl = url else { fatalError() }
         // Create URL Request
         var request = URLRequest(url: requestUrl)
@@ -162,16 +162,16 @@ class API {
             {
                 let decoder = JSONDecoder()
                 do {
-//                    print("masuk sini pak")
+                    //                    print("masuk sini pak")
                     let stops = try decoder.decode(ResponseStop.self, from: data)
-//                    print(stops)
+                    //                    print(stops)
                     resultStop.stops = stops.stops
-//                    print(nyam)
+                    //                    print(nyam)
                 } catch {
                     print(error)
                 }
-               completion(resultStop)
-//                print("Response data string:\n \(dataString)")
+                completion(resultStop)
+                //                print("Response data string:\n \(dataString)")
             }
             
         }
@@ -179,35 +179,35 @@ class API {
     }
     
     func getStopsByRoute(bus_id: Int, direction: String) {
-           let url = URL(string: "https://server-fellowcity.herokuapp.com/api/stops/direction/\(bus_id)/\(direction)")
-           guard let requestUrl = url else { fatalError() }
-           // Create URL Request
-           var request = URLRequest(url: requestUrl)
-           // Specify HTTP Method to use
-           request.httpMethod = "GET"
-           request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-           // Send HTTP Request
-           let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-               
-               // Check if Error took place
-               if let error = error {
-                   print("Error took place \(error)")
-                   return
-               }
-               
-               // Read HTTP Response Status code
-               if let response = response as? HTTPURLResponse {
-                   print("Response HTTP Status code: \(response.statusCode)")
-               }
-               
-               // Convert HTTP Response Data to a simple String
-               if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                   print("Response data string:\n \(dataString)")
-               }
-               
-           }
-           task.resume()
-       }
+        let url = URL(string: "https://server-fellowcity.herokuapp.com/api/stops/direction/\(bus_id)/\(direction)")
+        guard let requestUrl = url else { fatalError() }
+        // Create URL Request
+        var request = URLRequest(url: requestUrl)
+        // Specify HTTP Method to use
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        // Send HTTP Request
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            // Check if Error took place
+            if let error = error {
+                print("Error took place \(error)")
+                return
+            }
+            
+            // Read HTTP Response Status code
+            if let response = response as? HTTPURLResponse {
+                print("Response HTTP Status code: \(response.statusCode)")
+            }
+            
+            // Convert HTTP Response Data to a simple String
+            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                print("Response data string:\n \(dataString)")
+            }
+            
+        }
+        task.resume()
+    }
     
     func getScheduleByStop(stop_id: Int) {
         let url = URL(string: "https://server-fellowcity.herokuapp.com/api/schedule/stop/\(stop_id)")
@@ -337,72 +337,73 @@ class API {
     }
     
     func addCommute(user_id: Int, stop_id: Int, longitude: Decimal, latitude: Decimal, status_check: String) {
-           let url = URL(string: "https://server-fellowcity.herokuapp.com/api/commute")
-           guard let requestUrl = url else { fatalError() }
-           // Create URL Request
-           var request = URLRequest(url: requestUrl)
-           // Specify HTTP Method to use
-           request.httpMethod = "POST"
-           request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-           let newCommute = CommuteModel(user_id: user_id, stop_id: stop_id, longitude: longitude, latitude: latitude, status_check: "\(status_check)")
-           let jsonData = try! JSONEncoder().encode(newCommute)
-           request.httpBody = jsonData
-           // Send HTTP Request
-           let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-               
-               // Check if Error took place
-               if let error = error {
-                   print("Error took place \(error)")
-                   return
-               }
-               
-               // Read HTTP Response Status code
-               if let response = response as? HTTPURLResponse {
-                   print("Response HTTP Status code: \(response.statusCode)")
-               }
-               
-               // Convert HTTP Response Data to a simple String
-               if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                   print("Response data string:\n \(dataString)")
-               }
-               
-           }
-           task.resume()
-       }
+        let url = URL(string: "https://server-fellowcity.herokuapp.com/api/commute")
+        guard let requestUrl = url else { fatalError() }
+        // Create URL Request
+        var request = URLRequest(url: requestUrl)
+        // Specify HTTP Method to use
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let newCommute = CommuteModel(user_id: user_id, stop_id: stop_id, longitude: longitude, latitude: latitude, status_check: "\(status_check)")
+        let jsonData = try! JSONEncoder().encode(newCommute)
+        request.httpBody = jsonData
+        // Send HTTP Request
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            // Check if Error took place
+            if let error = error {
+                print("Error took place \(error)")
+                return
+            }
+            
+            // Read HTTP Response Status code
+            if let response = response as? HTTPURLResponse {
+                print("Response HTTP Status code: \(response.statusCode)")
+            }
+            
+            // Convert HTTP Response Data to a simple String
+            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                print("Response data string:\n \(dataString)")
+            }
+            
+        }
+        task.resume()
+    }
     
     func addReminder(user_id: Int, stop_id: Int, interval_start: String, interval_stop: String, time_before_arrival: Int, repeats: String) {
-              let url = URL(string: "https://server-fellowcity.herokuapp.com/api/reminder/add")
-              guard let requestUrl = url else { fatalError() }
-              // Create URL Request
-              var request = URLRequest(url: requestUrl)
-              // Specify HTTP Method to use
-              request.httpMethod = "POST"
-              request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-              let newReminder = ReminderModel(user_id: user_id, stop_id: stop_id, interval_start: interval_start, interval_stop: interval_stop, time_before_arrival: time_before_arrival, repeats: repeats)
-              let jsonData = try! JSONEncoder().encode(newReminder)
-              request.httpBody = jsonData
-              // Send HTTP Request
-              let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-                  
-                  // Check if Error took place
-                  if let error = error {
-                      print("Error took place \(error)")
-                      return
-                  }
-                  
-                  // Read HTTP Response Status code
-                  if let response = response as? HTTPURLResponse {
-                      print("Response HTTP Status code: \(response.statusCode)")
-                  }
-                  
-                  // Convert HTTP Response Data to a simple String
-                  if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                      print("Response data string:\n \(dataString)")
-                  }
-                  
-              }
-              task.resume()
-          }
+        let url = URL(string: "https://server-fellowcity.herokuapp.com/api/reminder/add")
+        
+        guard let requestUrl = url else { fatalError() }
+        // Create URL Request
+        var request = URLRequest(url: requestUrl)
+        // Specify HTTP Method to use
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let newReminder = ReminderModel(user_id: user_id, stop_id: stop_id, interval_start: interval_start, interval_stop: interval_stop, time_before_arrival: time_before_arrival, repeats: repeats)
+        let jsonData = try! JSONEncoder().encode(newReminder)
+        request.httpBody = jsonData
+        // Send HTTP Request
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            // Check if Error took place
+            if let error = error {
+                print("Error took place \(error)")
+                return
+            }
+            
+            // Read HTTP Response Status code
+            if let response = response as? HTTPURLResponse {
+                print("Response HTTP Status code: \(response.statusCode)")
+            }
+            
+            // Convert HTTP Response Data to a simple String
+            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                print("Response data string:\n \(dataString)")
+            }
+            
+        }
+        task.resume()
+    }
     
     func updateReminder(reminder_id: Int, user_id: Int, stop_id: Int, interval_start: String, interval_stop: String, time_before_arrival: Int, repeats: [String], is_active: Bool) {
         let url = URL(string: "https://server-fellowcity.herokuapp.com/api/reminder/update")
@@ -439,38 +440,38 @@ class API {
     }
     
     func updateReminderActive(reminder_id: Int, is_active: Bool) {
-           let url = URL(string: "https://server-fellowcity.herokuapp.com/api/reminder/update-active")
-           guard let requestUrl = url else { fatalError() }
-           // Create URL Request
-           var request = URLRequest(url: requestUrl)
-           // Specify HTTP Method to use
-           request.httpMethod = "PUT"
-           request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-           let newReminder = ReminderStatusModel(reminder_id: reminder_id, is_active: is_active)
-           let jsonData = try! JSONEncoder().encode(newReminder)
-           request.httpBody = jsonData
-           // Send HTTP Request
-           let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-               
-               // Check if Error took place
-               if let error = error {
-                   print("Error took place \(error)")
-                   return
-               }
-               
-               // Read HTTP Response Status code
-               if let response = response as? HTTPURLResponse {
-                   print("Response HTTP Status code: \(response.statusCode)")
-               }
-               
-               // Convert HTTP Response Data to a simple String
-               if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                   print("Response data string:\n \(dataString)")
-               }
-               
-           }
-           task.resume()
-       }
+        let url = URL(string: "https://server-fellowcity.herokuapp.com/api/reminder/update-active")
+        guard let requestUrl = url else { fatalError() }
+        // Create URL Request
+        var request = URLRequest(url: requestUrl)
+        // Specify HTTP Method to use
+        request.httpMethod = "PUT"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let newReminder = ReminderStatusModel(reminder_id: reminder_id, is_active: is_active)
+        let jsonData = try! JSONEncoder().encode(newReminder)
+        request.httpBody = jsonData
+        // Send HTTP Request
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            // Check if Error took place
+            if let error = error {
+                print("Error took place \(error)")
+                return
+            }
+            
+            // Read HTTP Response Status code
+            if let response = response as? HTTPURLResponse {
+                print("Response HTTP Status code: \(response.statusCode)")
+            }
+            
+            // Convert HTTP Response Data to a simple String
+            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                print("Response data string:\n \(dataString)")
+            }
+            
+        }
+        task.resume()
+    }
     
     func getReminderByUser(user_id: Int) {
         let url = URL(string: "https://server-fellowcity.herokuapp.com/api/reminder/user/\(user_id)")
@@ -538,69 +539,69 @@ class API {
         let uuid = UIDevice.current.identifierForVendor!.uuidString
         
         //advertisingIdentifier
-       
-            let url = URL(string: "https://server-fellowcity.herokuapp.com/api/user")
-            guard let requestUrl = url else { fatalError() }
-            var request = URLRequest(url: requestUrl)
-            request.httpMethod = "POST"
-            // Set HTTP Request Header
-            //        request.setValue("application/json", forHTTPHeaderField: "Accept")
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            let newUser = UserModel(uuid: "\(uuid)", token_id: "\(deviceToken)", name: "Hello")
-            let jsonData = try! JSONEncoder().encode(newUser)
-            request.httpBody = jsonData
-
-                let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-                         
-                    if let error = error {
-                        print("Error took place \(error)")
-                        return
-                    }
-                    guard let data = data else { return }
-                    do {
-                        let userModel = try JSONDecoder().decode(UserModel.self, from: data)
-                        print(userModel)
-                        print("Data:\n \(userModel)")
-                        print("UUID: \(userModel.uuid)")
-                        print("name: \(userModel.name)")
-                    } catch let jsonErr {
-                        print(jsonErr)
-                   }
-             
+        
+        let url = URL(string: "https://server-fellowcity.herokuapp.com/api/user")
+        guard let requestUrl = url else { fatalError() }
+        var request = URLRequest(url: requestUrl)
+        request.httpMethod = "POST"
+        // Set HTTP Request Header
+        //        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let newUser = UserModel(uuid: "\(uuid)", token_id: "\(deviceToken)", name: "Hello")
+        let jsonData = try! JSONEncoder().encode(newUser)
+        request.httpBody = jsonData
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            if let error = error {
+                print("Error took place \(error)")
+                return
             }
-            task.resume()
+            guard let data = data else { return }
+            do {
+                let userModel = try JSONDecoder().decode(UserModel.self, from: data)
+                print(userModel)
+                print("Data:\n \(userModel)")
+                print("UUID: \(userModel.uuid)")
+                print("name: \(userModel.name)")
+            } catch let jsonErr {
+                print(jsonErr)
+            }
+            
         }
+        task.resume()
+    }
     
     func getTokenByUuid(uuid: String) {
-          let url = URL(string: "https://server-fellowcity.herokuapp.com/api/user-token/\(uuid)")
-          guard let requestUrl = url else { fatalError() }
-          // Create URL Request
-          var request = URLRequest(url: requestUrl)
-          // Specify HTTP Method to use
-          request.httpMethod = "GET"
-          request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-          // Send HTTP Request
-          let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-              
-              // Check if Error took place
-              if let error = error {
-                  print("Error took place \(error)")
-                  return
-              }
-              
-              // Read HTTP Response Status code
-              if let response = response as? HTTPURLResponse {
-                  print("Response HTTP Status code: \(response.statusCode)")
-              }
-              
-              // Convert HTTP Response Data to a simple String
-              if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                  print("Response data string:\n \(dataString)")
-              }
-              
-          }
-          task.resume()
-      }
+        let url = URL(string: "https://server-fellowcity.herokuapp.com/api/user-token/\(uuid)")
+        guard let requestUrl = url else { fatalError() }
+        // Create URL Request
+        var request = URLRequest(url: requestUrl)
+        // Specify HTTP Method to use
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        // Send HTTP Request
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            // Check if Error took place
+            if let error = error {
+                print("Error took place \(error)")
+                return
+            }
+            
+            // Read HTTP Response Status code
+            if let response = response as? HTTPURLResponse {
+                print("Response HTTP Status code: \(response.statusCode)")
+            }
+            
+            // Convert HTTP Response Data to a simple String
+            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                print("Response data string:\n \(dataString)")
+            }
+            
+        }
+        task.resume()
+    }
     
     func getListRoutes() {
         let url = URL(string: "https://server-fellowcity.herokuapp.com/api/routes")
