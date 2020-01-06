@@ -55,8 +55,8 @@ class API {
     struct CommuteModel: Codable {
         var user_id: Int
         var stop_id: Int
-        var longitude: Decimal
-        var latitude: Decimal
+        var longitude: Double
+        var latitude: Double
         var status_check: String
     }
     
@@ -336,7 +336,7 @@ class API {
         task.resume()
     }
     
-    func addCommute(user_id: Int, stop_id: Int, longitude: Decimal, latitude: Decimal, status_check: String) {
+    func addCommute(user_id: Int, stop_id: Int, longitude: Double, latitude: Double, status_check: String) {
         let url = URL(string: "https://server-fellowcity.herokuapp.com/api/commute")
         guard let requestUrl = url else { fatalError() }
         // Create URL Request

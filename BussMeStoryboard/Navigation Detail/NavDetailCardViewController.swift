@@ -354,19 +354,21 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
         let (currLat, currLong) = getCurrentLatLong()
         
         getNearestStop(currLat: currLat, currLong: currLong, completion: { (nearestLoc) in
-            newRecord["arah"] = arah
-            newRecord["idUser"] = UIDevice.current.identifierForVendor?.uuidString
-            newRecord["kodeKendaraan"] = kendaraan
-            newRecord["kodeRute"] = rute
-            newRecord["lokasi"] = nearestLoc
-            newRecord["waktu"] = self.getCurrTime()
+//            newRecord["arah"] = arah
+//            newRecord["idUser"] = UIDevice.current.identifierForVendor?.uuidString
+//            newRecord["kodeKendaraan"] = kendaraan
+//            newRecord["kodeRute"] = rute
+//            newRecord["lokasi"] = nearestLoc
+//            newRecord["waktu"] = self.getCurrTime()
             
-            let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
-            let publicDatabase = container.publicCloudDatabase
+//            let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
+//            let publicDatabase = container.publicCloudDatabase
+//
+//            publicDatabase.save(newRecord) { (record, error) in
+//                print(error as Any)
+//            }
             
-            publicDatabase.save(newRecord) { (record, error) in
-                print(error as Any)
-            }
+            API().addCommute(user_id: 28, stop_id: 1, longitude: currLong, latitude: currLat, status_check: "go")
         })
     }
     
