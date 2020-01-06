@@ -367,8 +367,7 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
 //            publicDatabase.save(newRecord) { (record, error) in
 //                print(error as Any)
 //            }
-            
-            API().addCommute(user_id: 28, stop_id: 1, longitude: currLong, latitude: currLat, status_check: "go")
+            API().addCommute(user_id: 28, stop_id: 1, stop_name: nearestLoc, direction: arah, bus_code: "BRE", longitude: currLong, latitude: currLat, status_check: "go")
         })
     }
     
@@ -391,9 +390,9 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
     
     @IBAction func btnNaikBus(_ sender: Any) {
         if arahSegmentedControl.selectedSegmentIndex == 0 {
-            arah = "pergi"
+            arah = "depart"
         } else {
-            arah = "pulang"
+            arah = "return"
         }
         delegate?.naikBtnPressed(rute: "BRE", arah: arah)
     }

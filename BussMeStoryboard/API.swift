@@ -55,6 +55,9 @@ class API {
     struct CommuteModel: Codable {
         var user_id: Int
         var stop_id: Int
+        var stop_name: String
+        var direction: String
+        var bus_code: String
         var longitude: Double
         var latitude: Double
         var status_check: String
@@ -67,6 +70,7 @@ class API {
         var interval_stop: String
         var time_before_arrival: Int
         var repeats: String
+        var title: String
     }
     
     struct ReminderUpdateModel: Codable {
@@ -75,7 +79,7 @@ class API {
         var interval_start: String
         var interval_stop: String
         var time_before_arrival: Int
-        var repeats: [String]
+        var repeats: String
         var reminder_id: Int
         var is_active: Bool
     }
@@ -336,7 +340,7 @@ class API {
         task.resume()
     }
     
-    func addCommute(user_id: Int, stop_id: Int, longitude: Double, latitude: Double, status_check: String) {
+    func addCommute(user_id: Int, stop_id: Int, stop_name: String, direction: String, bus_code: String, longitude: Double, latitude: Double, status_check: String) {
         let url = URL(string: "https://server-fellowcity.herokuapp.com/api/commute")
         guard let requestUrl = url else { fatalError() }
         // Create URL Request
@@ -344,7 +348,7 @@ class API {
         // Specify HTTP Method to use
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let newCommute = CommuteModel(user_id: user_id, stop_id: stop_id, longitude: longitude, latitude: latitude, status_check: "\(status_check)")
+        let newCommute = CommuteModel(user_id: user_id, stop_id: stop_id, stop_name: stop_name, direction: direction, bus_code: bus_code, longitude: longitude, latitude: latitude, status_check: status_check)
         let jsonData = try! JSONEncoder().encode(newCommute)
         request.httpBody = jsonData
         // Send HTTP Request
@@ -370,7 +374,7 @@ class API {
         task.resume()
     }
     
-    func addReminder(user_id: Int, stop_id: Int, interval_start: String, interval_stop: String, time_before_arrival: Int, repeats: String) {
+    func addReminder(user_id: Int, stop_id: Int, interval_start: String, interval_stop: String, time_before_arrival: Int, repeats: String, title: String) {
         let url = URL(string: "https://server-fellowcity.herokuapp.com/api/reminder/add")
         
         guard let requestUrl = url else { fatalError() }
@@ -379,7 +383,7 @@ class API {
         // Specify HTTP Method to use
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let newReminder = ReminderModel(user_id: user_id, stop_id: stop_id, interval_start: interval_start, interval_stop: interval_stop, time_before_arrival: time_before_arrival, repeats: repeats)
+        let newReminder = ReminderModel(user_id: user_id, stop_id: stop_id, interval_start: interval_start, interval_stop: interval_stop, time_before_arrival: time_before_arrival, repeats: repeats, title: title)
         let jsonData = try! JSONEncoder().encode(newReminder)
         request.httpBody = jsonData
         // Send HTTP Request
@@ -405,7 +409,7 @@ class API {
         task.resume()
     }
     
-    func updateReminder(reminder_id: Int, user_id: Int, stop_id: Int, interval_start: String, interval_stop: String, time_before_arrival: Int, repeats: [String], is_active: Bool) {
+    func updateReminder(reminder_id: Int, user_id: Int, stop_id: Int, interval_start: String, interval_stop: String, time_before_arrival: Int, repeats: String, is_active: Bool) {
         let url = URL(string: "https://server-fellowcity.herokuapp.com/api/reminder/update")
         guard let requestUrl = url else { fatalError() }
         // Create URL Request

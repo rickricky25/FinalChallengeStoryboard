@@ -84,12 +84,13 @@ class CreateReminderViewController: UIViewController, ReminderDelegate {
 
     @IBAction func btnSavePressed(_ sender: Any) {
         let alert = UIAlertController(title: "Reminder Has Been Saved", message: "You will be notified at the desired time.", preferredStyle: .alert)
+        let repeats = "all"
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
             switch action.style {
             case .default:
                 self.navigationController?.popViewController(animated: true)
                 DispatchQueue.main.async {
-                    API().addReminder(user_id: 28, stop_id: selectedStop, interval_start: (self.btnStartTime.titleLabel?.text!)!, interval_stop: (self.btnEndTime.titleLabel?.text!)!, time_before_arrival: selectedTimeBefore, repeats: "all")
+                    API().addReminder(user_id: 28, stop_id: selectedStop, interval_start: (self.btnStartTime.titleLabel?.text!)!, interval_stop: (self.btnEndTime.titleLabel?.text!)!, time_before_arrival: selectedTimeBefore, repeats: repeats, title: (self.titleTextField?.text!)! )
                 }
             default:
                 print("else")
