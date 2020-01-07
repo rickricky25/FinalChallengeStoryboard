@@ -27,8 +27,10 @@ protocol CommuteDelegate {
 }
 
 class CommuteViewController: UIViewController, XibDelegate {
+    var result = API.ApiResultStop()
+    
     func turunChoicePressed(index: Int) {
-        if index == 1 {
+                if index == 1 {
             mapView.clear()
             UIView.animate(withDuration: 0.6) {
                 self.commuteNaikModalViewController.view.frame.origin.y = self.view.frame.height
@@ -46,37 +48,77 @@ class CommuteViewController: UIViewController, XibDelegate {
                     
                     let (currLat, currLong) = self.getCurrentLatLong()
                     let currLoc = CLLocationCoordinate2D(latitude: currLat, longitude: currLong)
+                   
                     
-                    publicDatabase.perform(query, inZoneWith: nil) { (hasil, error) in
-                        for i in 0...hasil!.count - 1 {
-                            guard let lati = hasil![i]["latitude"]! as? String, let longi = hasil![i]["longitude"] as? String else { return }
-                            let latDouble: Double = Double(lati)!
-                            let longDouble: Double = Double(longi)!
+                    API().getStopsByID(bus_id: 1) { response in
+                        if let response = response {
+                            self.result.stops = response.stops
+                            print(self.result.stops![0].stop_name)
                             
-                            DispatchQueue.main.async {
-                                let stopLoc = CLLocationCoordinate2D(latitude: latDouble, longitude: longDouble)
-                                if i == 0 {
-                                    self.nearestDist = GMSGeometryDistance(stopLoc, currLoc)
-                                    self.nearestStop = hasil![i]["namaStop"]
-                                    self.nearestLoc = stopLoc
-                                    print(self.nearestStop ?? "Unknown")
-                                } else {
-                                    let distance = GMSGeometryDistance(stopLoc, currLoc)
-                                    if distance < self.nearestDist {
-                                        self.nearestLoc = stopLoc
-                                        self.nearestStop = hasil![i]["namaStop"]
-                                        self.nearestDist = distance
-                                        print(self.nearestStop ?? "Unknown")
-                                    }
-                                }
+                            for i in 0...self.result.stops!.count - 1 {
+                                let lati = self.result.stops![i].latitude
+                                let longi = self.result.stops![i].longitude
                                 
-                                let stopMarker = GMSMarker(position: stopLoc)
-                                stopMarker.title = hasil![i]["namaStop"]
-                                stopMarker.icon = UIImage(named: "halte")
-                                stopMarker.map = self.mapView
+                                DispatchQueue.main.async {
+                                    let stopLoc = CLLocationCoordinate2D(latitude: lati, longitude: longi)
+                                    if i == 0 {
+                                        self.nearestDist = GMSGeometryDistance(stopLoc, currLoc)
+                                        self.nearestStop = self.result.stops![i].stop_name
+                                        self.nearestLoc = stopLoc
+                                        print(self.nearestStop ?? "Unknown")
+                                    } else {
+                                        let distance = GMSGeometryDistance(stopLoc, currLoc)
+                                        if distance < self.nearestDist {
+                                            self.nearestLoc = stopLoc
+                                            self.nearestStop = self.result.stops![i].stop_name
+                                            self.nearestDist = distance
+                                            print(self.nearestStop ?? "Unknown")
+                                        }
+                                    }
+                                    
+                                    let stopMarker = GMSMarker(position: stopLoc)
+                                    stopMarker.title = self.result.stops![i].stop_name
+                                    stopMarker.icon = UIImage(named: "halte")
+                                    stopMarker.map = self.mapView
+                                }
                             }
                         }
+                        
                     }
+                    
+                    
+//                    publicDatabase.perform(query, inZoneWith: nil) { (hasil, error) in
+//                        for i in 0...hasil!.count - 1 {
+//                            guard let lati = hasil![i]["latitude"]! as? String, let longi = hasil![i]["longitude"] as? String else { return }
+//                            let latDouble: Double = Double(lati)!
+//                            let longDouble: Double = Double(longi)!
+//
+//                            // get nearest stop name
+//                            DispatchQueue.main.async {
+//                                let stopLoc = CLLocationCoordinate2D(latitude: latDouble, longitude: longDouble)
+//                                if i == 0 {
+//                                    self.nearestDist = GMSGeometryDistance(stopLoc, currLoc)
+//                                    self.nearestStop = hasil![i]["namaStop"]
+//                                    self.nearestLoc = stopLoc
+//                                    print(self.nearestStop ?? "Unknown")
+//                                } else {
+//                                    let distance = GMSGeometryDistance(stopLoc, currLoc)
+//                                    if distance < self.nearestDist {
+//                                        self.nearestLoc = stopLoc
+//                                        self.nearestStop = hasil![i]["namaStop"]
+//                                        self.nearestDist = distance
+//                                        print(self.nearestStop ?? "Unknown")
+//                                    }
+//                                }
+//
+//                                // set marker on maps
+//                                let stopMarker = GMSMarker(position: stopLoc)
+//                                stopMarker.title = hasil![i]["namaStop"]
+//                                stopMarker.icon = UIImage(named: "halte")
+//                                stopMarker.map = self.mapView
+//                            }
+//                        }
+//                    }
                 }
             }
         }
@@ -256,6 +298,8 @@ class CommuteViewController: UIViewController, XibDelegate {
         let query = CKQuery(recordType: "DataRoute", predicate: predicate)
         
         var resultRoute: [CKRecord] = []
+        
+        // isi waktu di bus detail sesuai arah pergi atau pulang (waktu terdekat)
         
         getShortestTime(rute: rute) { (selisihPergi, selisihPulang, timesPergi, timesPulang) in
             self.selPergi = selisihPergi
