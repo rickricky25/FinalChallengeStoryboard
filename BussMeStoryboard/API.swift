@@ -24,6 +24,9 @@ class API {
     struct Stops: Codable {
         var direction: String
         var stop_name: String
+        var latitude: Double
+        var longitude: Double
+        var order_no: Int
         var stop_id: Int
     }
     
@@ -182,7 +185,8 @@ class API {
         task.resume()
     }
     
-    func getStopsByRoute(bus_id: Int, direction: String) {
+    func getStopsByRoute(bus_id: Int, direction: String, completion: @escaping (_ stops: ApiResultStop?) -> ()) {
+        var resultStop = ApiResultStop()
         let url = URL(string: "https://server-fellowcity.herokuapp.com/api/stops/direction/\(bus_id)/\(direction)")
         guard let requestUrl = url else { fatalError() }
         // Create URL Request
@@ -205,8 +209,24 @@ class API {
             }
             
             // Convert HTTP Response Data to a simple String
-            if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                print("Response data string:\n \(dataString)")
+//            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+//                print("Response data string:\n \(dataString)")
+//                completion(data)
+//            }
+            if let data = data
+            {
+                let decoder = JSONDecoder()
+                do {
+                    //                    print("masuk sini pak")
+                    let stops = try decoder.decode(ResponseStop.self, from: data)
+                    //                    print(stops)
+                    resultStop.stops = stops.stops
+                    //                    print(nyam)
+                } catch {
+                    print(error)
+                }
+                completion(resultStop)
+                //                print("Response data string:\n \(dataString)")
             }
             
         }
