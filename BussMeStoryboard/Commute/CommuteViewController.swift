@@ -487,7 +487,7 @@ class CommuteViewController: UIViewController, XibDelegate {
         task.resume()
     }
     
-    func drawPath(from polyStr: String){
+    func drawPath(from polyStr: String) {
         let path = GMSPath(fromEncodedPath: polyStr)
         
         let polyline = GMSPolyline(path: path)
@@ -876,6 +876,7 @@ class CommuteViewController: UIViewController, XibDelegate {
         }
         
     }
+    
     @objc
     func handleCardCommutePan(recognizer: UIPanGestureRecognizer) {
         print(cardCommuteVisible)
@@ -1000,7 +1001,7 @@ class CommuteViewController: UIViewController, XibDelegate {
         }
     }
     
-    func continueInteractiveTransitionCommute(){
+    func continueInteractiveTransitionCommute() {
         for animator in runningAnimations {
             animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
         }
@@ -1038,6 +1039,7 @@ class CommuteViewController: UIViewController, XibDelegate {
         }
         
     }
+    
     @objc
     func handleCardNavDetailPan (recognizer: UIPanGestureRecognizer) {
         handleCard = "pan"
@@ -1221,6 +1223,7 @@ class CommuteViewController: UIViewController, XibDelegate {
         }
         
     }
+    
     @objc
     func handleCardNaikPan (recognizer: UIPanGestureRecognizer) {
         switch recognizer.state {
@@ -1275,7 +1278,7 @@ class CommuteViewController: UIViewController, XibDelegate {
         }
     }
     
-    func continueInteractiveTransitionNaik (){
+    func continueInteractiveTransitionNaik () {
         for animator in runningAnimations {
             animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
         }
