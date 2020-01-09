@@ -39,7 +39,7 @@ class CommuteViewController: UIViewController, XibDelegate {
                 self.tabBarController?.tabBar.layer.zPosition = 0
                 
                 DispatchQueue.global().async {
-                    // CloudKit
+                    // CloudKit Done
                     
                     let predicate = NSPredicate(value: true)
                     let query = CKQuery(recordType: "DataStop", predicate: predicate)
