@@ -41,6 +41,11 @@ class API {
         
     }
     
+    struct ResultNearestTripTime: Codable {
+        var trip_id: Int?
+        var current_time: String?
+    }
+    
     struct BusModel: Codable {
         var idBus: Int
         var busOperator: String
@@ -49,10 +54,14 @@ class API {
         
     }
     
+    struct ApiResultSchedule: Codable {
+        var schedules: [ScheduleModel]?
+    }
+    
     struct ScheduleModel: Codable {
-        var trip_id: Int
-        var stop_id: Int
-        var time_arrival: String
+        var trip_id: Int?
+        var stop_id: Int?
+        var time_arrival: String?
     }
     
     struct CommuteModel: Codable {
@@ -140,6 +149,7 @@ class API {
         //        return data
     }
     
+    // Pertama
     func getStopsByID(bus_id: Int, completion: @escaping (_ stops: ApiResultStop?) -> ()) {
         var resultStop = ApiResultStop()
         let url = URL(string: "http://192.168.0.11:3000/api/stops/bus/\(bus_id)")
@@ -185,6 +195,7 @@ class API {
         task.resume()
     }
     
+    // Kedua
     func getStopsByRoute(bus_id: Int, direction: String, completion: @escaping (_ stops: ApiResultStop?) -> ()) {
         var resultStop = ApiResultStop()
         let url = URL(string: "https://server-fellowcity.herokuapp.com/api/stops/direction/\(bus_id)/\(direction)")
@@ -233,6 +244,50 @@ class API {
         task.resume()
     }
     
+    // Ketiga
+    func getNearestTripTime(stop_id: Int, current_time: String, completion: @escaping (_ trip_id: Int?, _ nearest_time: String?) -> ()) {
+            var resultTrip = ResultNearestTripTime()
+            let url = URL(string: "https://server-fellowcity.herokuapp.com/api/schedule/stop-time/\(stop_id)/\(current_time)")
+            guard let requestUrl = url else { fatalError() }
+            // Create URL Request
+            var request = URLRequest(url: requestUrl)
+            // Specify HTTP Method to use
+            request.httpMethod = "GET"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            // Send HTTP Request
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                
+                // Check if Error took place
+                if let error = error {
+                    print("Error took place \(error)")
+                    return
+                }
+                
+                // Read HTTP Response Status code
+                if let response = response as? HTTPURLResponse {
+                    print("Response HTTP Status code: \(response.statusCode)")
+                }
+                
+                if let data = data
+                {
+                    let decoder = JSONDecoder()
+                    do {
+                        let trip = try decoder.decode(ResultNearestTripTime.self, from: data)
+                        resultTrip.current_time = trip.current_time
+                        resultTrip.trip_id = trip.trip_id
+                    } catch {
+                        print(error)
+                    }
+                    completion(resultTrip.trip_id, resultTrip.current_time)
+                    //                print("Response data string:\n \(dataString)")
+                }
+                
+            }
+            task.resume()
+        }
+    
+    
+    
     func getScheduleByStop(stop_id: Int) {
         let url = URL(string: "https://server-fellowcity.herokuapp.com/api/schedule/stop/\(stop_id)")
         guard let requestUrl = url else { fatalError() }
@@ -264,7 +319,9 @@ class API {
         task.resume()
     }
     
-    func getScheduleByTrip(trip_id: Int) {
+    // Keempat
+    func getScheduleByTrip(trip_id: Int, completion: @escaping (_ schedules: ApiResultSchedule?) -> ()) {
+        var resultSchedule = ApiResultSchedule()
         let url = URL(string: "https://server-fellowcity.herokuapp.com/api/schedule/trip/\(trip_id)")
         guard let requestUrl = url else { fatalError() }
         // Create URL Request
@@ -287,8 +344,21 @@ class API {
             }
             
             // Convert HTTP Response Data to a simple String
-            if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                print("Response data string:\n \(dataString)")
+            if let data = data
+            {
+                let decoder = JSONDecoder()
+                do {
+                    //                    print("masuk sini pak")
+                    let schedule = try decoder.decode(ApiResultSchedule.self, from: data)
+                    //                    print(stops)
+                    resultSchedule.schedules = schedule.schedules
+                    
+                    //                    print(nyam)
+                } catch {
+                    print(error)
+                }
+                completion(resultSchedule)
+                //                print("Response data string:\n \(dataString)")
             }
             
         }
