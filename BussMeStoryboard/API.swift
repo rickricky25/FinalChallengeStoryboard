@@ -272,14 +272,14 @@ class API {
                     let decoder = JSONDecoder()
                     do {
                         let trip = try decoder.decode(ResultNearestTripTime.self, from: data)
-                        resultTrip. = trip.current_time
+                        resultTrip.time_arrival = trip.time_arrival
                         resultTrip.trip_id = trip.trip_id
-                        print("hayhay", resultTrip.curre)
+                        print("hayhay", resultTrip.time_arrival)
                     } catch {
                         print(error)
                     }
                     
-                    completion(resultTrip.trip_id, resultTrip.current_time)
+                    completion(resultTrip.trip_id, resultTrip.time_arrival)
                     //                print("Response data string:\n \(dataString)")
                 }
                 
