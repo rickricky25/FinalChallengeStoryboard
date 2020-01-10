@@ -85,40 +85,6 @@ class CommuteViewController: UIViewController, XibDelegate {
                         }
                         
                     }
-                    
-                    
-//                    publicDatabase.perform(query, inZoneWith: nil) { (hasil, error) in
-//                        for i in 0...hasil!.count - 1 {
-//                            guard let lati = hasil![i]["latitude"]! as? String, let longi = hasil![i]["longitude"] as? String else { return }
-//                            let latDouble: Double = Double(lati)!
-//                            let longDouble: Double = Double(longi)!
-//
-//                            // get nearest stop name
-//                            DispatchQueue.main.async {
-//                                let stopLoc = CLLocationCoordinate2D(latitude: latDouble, longitude: longDouble)
-//                                if i == 0 {
-//                                    self.nearestDist = GMSGeometryDistance(stopLoc, currLoc)
-//                                    self.nearestStop = hasil![i]["namaStop"]
-//                                    self.nearestLoc = stopLoc
-//                                    print(self.nearestStop ?? "Unknown")
-//                                } else {
-//                                    let distance = GMSGeometryDistance(stopLoc, currLoc)
-//                                    if distance < self.nearestDist {
-//                                        self.nearestLoc = stopLoc
-//                                        self.nearestStop = hasil![i]["namaStop"]
-//                                        self.nearestDist = distance
-//                                        print(self.nearestStop ?? "Unknown")
-//                                    }
-//                                }
-//
-//                                // set marker on maps
-//                                let stopMarker = GMSMarker(position: stopLoc)
-//                                stopMarker.title = hasil![i]["namaStop"]
-//                                stopMarker.icon = UIImage(named: "halte")
-//                                stopMarker.map = self.mapView
-//                            }
-//                        }
-//                    }
                 }
             }
         }
@@ -143,30 +109,30 @@ class CommuteViewController: UIViewController, XibDelegate {
             
             stop = nearPergi
             
-            navDetailCardViewController.kodeRute.text = "Breeze - ICE"
-            navDetailCardViewController.lblShortestTime1.text = "\(selPergi!)"
-            navDetailCardViewController.lblShortestTime2.text = "\(selPergi! + 15)"
-            navDetailCardViewController.lblShortestTime3.text = "\(selPergi! + 30)"
+            self.navDetailCardViewController.lblShortestTime1.text = "\(self.selPergi!)"
+            self.navDetailCardViewController.lblShortestTime2.text = "\(self.selPergi! + 15)"
+            self.navDetailCardViewController.lblShortestTime3.text = "\(self.selPergi! + 30)"
             
-            self.navDetailCardViewController.lblStop.text = nearPergi
+            self.navDetailCardViewController.lblStop.text = self.nearPergi
             
-            navDetailCardViewController.lblStop1.text = routePergi[0]
-            navDetailCardViewController.lblStop2.text = routePergi[1]
-            navDetailCardViewController.lblStop3.text = routePergi[2]
-            navDetailCardViewController.lblStop4.text = routePergi[3]
-            navDetailCardViewController.lblStop5.text = routePergi[4]
-            navDetailCardViewController.lblStop6.text = routePergi[5]
-            navDetailCardViewController.lblStop7.text = routePergi[6]
-            navDetailCardViewController.lblStop8.text = routePergi[7]
+            self.navDetailCardViewController.lblTime1.text = self.tripDepart?.schedules![0].time_arrival
+            self.navDetailCardViewController.lblTime2.text = self.tripDepart?.schedules![1].time_arrival
+            self.navDetailCardViewController.lblTime3.text = self.tripDepart?.schedules![2].time_arrival
+            self.navDetailCardViewController.lblTime4.text = self.tripDepart?.schedules![3].time_arrival
+            self.navDetailCardViewController.lblTime5.text = self.tripDepart?.schedules![4].time_arrival
+            self.navDetailCardViewController.lblTime6.text = self.tripDepart?.schedules![5].time_arrival
+            self.navDetailCardViewController.lblTime7.text = self.tripDepart?.schedules![6].time_arrival
+            self.navDetailCardViewController.lblTime8.text = self.tripDepart?.schedules![7].time_arrival
             
-            navDetailCardViewController.lblTime1.text = waktuPergi[0]
-            navDetailCardViewController.lblTime2.text = waktuPergi[1]
-            navDetailCardViewController.lblTime3.text = waktuPergi[2]
-            navDetailCardViewController.lblTime4.text = waktuPergi[3]
-            navDetailCardViewController.lblTime5.text = waktuPergi[4]
-            navDetailCardViewController.lblTime6.text = waktuPergi[5]
-            navDetailCardViewController.lblTime7.text = waktuPergi[6]
-            navDetailCardViewController.lblTime8.text = waktuPergi[7]
+            self.navDetailCardViewController.kodeRute.text = "Breeze - ICE"
+            self.navDetailCardViewController.lblStop1.text = self.resultDepartStops?.stops![0].stop_name
+            self.navDetailCardViewController.lblStop2.text = self.resultDepartStops?.stops![1].stop_name
+            self.navDetailCardViewController.lblStop3.text = self.resultDepartStops?.stops![2].stop_name
+            self.navDetailCardViewController.lblStop4.text = self.resultDepartStops?.stops![3].stop_name
+            self.navDetailCardViewController.lblStop5.text = self.resultDepartStops?.stops![4].stop_name
+            self.navDetailCardViewController.lblStop6.text = self.resultDepartStops?.stops![5].stop_name
+            self.navDetailCardViewController.lblStop7.text = self.resultDepartStops?.stops![6].stop_name
+            self.navDetailCardViewController.lblStop8.text = self.resultDepartStops?.stops![7].stop_name
         } else if index == 1 {
             arah = "pulang"
             self.mapView.animate(toLocation: self.locPulang!)
@@ -174,30 +140,30 @@ class CommuteViewController: UIViewController, XibDelegate {
             
             stop = nearPulang
             
-            navDetailCardViewController.kodeRute.text = "ICE - Breeze"
-            navDetailCardViewController.lblShortestTime1.text = "\(selPulang!)"
-            navDetailCardViewController.lblShortestTime2.text = "\(selPulang! + 15)"
-            navDetailCardViewController.lblShortestTime3.text = "\(selPulang! + 30)"
+            self.navDetailCardViewController.lblShortestTime1.text = "\(self.selPulang!)"
+            self.navDetailCardViewController.lblShortestTime2.text = "\(self.selPulang! + 15)"
+            self.navDetailCardViewController.lblShortestTime3.text = "\(self.selPulang! + 30)"
             
-            self.navDetailCardViewController.lblStop.text = nearPulang
+            self.navDetailCardViewController.lblStop.text = self.nearPulang
             
-            navDetailCardViewController.lblStop1.text = routePulang[0]
-            navDetailCardViewController.lblStop2.text = routePulang[1]
-            navDetailCardViewController.lblStop3.text = routePulang[2]
-            navDetailCardViewController.lblStop4.text = routePulang[3]
-            navDetailCardViewController.lblStop5.text = routePulang[4]
-            navDetailCardViewController.lblStop6.text = routePulang[5]
-            navDetailCardViewController.lblStop7.text = routePulang[6]
-            navDetailCardViewController.lblStop8.text = routePulang[7]
+            self.navDetailCardViewController.lblTime1.text = self.tripReturn?.schedules![0].time_arrival
+            self.navDetailCardViewController.lblTime2.text = self.tripReturn?.schedules![1].time_arrival
+            self.navDetailCardViewController.lblTime3.text = self.tripReturn?.schedules![2].time_arrival
+            self.navDetailCardViewController.lblTime4.text = self.tripReturn?.schedules![3].time_arrival
+            self.navDetailCardViewController.lblTime5.text = self.tripReturn?.schedules![4].time_arrival
+            self.navDetailCardViewController.lblTime6.text = self.tripReturn?.schedules![5].time_arrival
+            self.navDetailCardViewController.lblTime7.text = self.tripReturn?.schedules![6].time_arrival
+            self.navDetailCardViewController.lblTime8.text = self.tripReturn?.schedules![7].time_arrival
             
-            navDetailCardViewController.lblTime1.text = waktuPulang[0]
-            navDetailCardViewController.lblTime2.text = waktuPulang[1]
-            navDetailCardViewController.lblTime3.text = waktuPulang[2]
-            navDetailCardViewController.lblTime4.text = waktuPulang[3]
-            navDetailCardViewController.lblTime5.text = waktuPulang[4]
-            navDetailCardViewController.lblTime6.text = waktuPulang[5]
-            navDetailCardViewController.lblTime7.text = waktuPulang[6]
-            navDetailCardViewController.lblTime8.text = waktuPulang[7]
+            self.navDetailCardViewController.kodeRute.text = "ICE - Breeze"
+            self.navDetailCardViewController.lblStop1.text = self.resultReturnStops?.stops![0].stop_name
+            self.navDetailCardViewController.lblStop2.text = self.resultReturnStops?.stops![1].stop_name
+            self.navDetailCardViewController.lblStop3.text = self.resultReturnStops?.stops![2].stop_name
+            self.navDetailCardViewController.lblStop4.text = self.resultReturnStops?.stops![3].stop_name
+            self.navDetailCardViewController.lblStop5.text = self.resultReturnStops?.stops![4].stop_name
+            self.navDetailCardViewController.lblStop6.text = self.resultReturnStops?.stops![5].stop_name
+            self.navDetailCardViewController.lblStop7.text = self.resultReturnStops?.stops![6].stop_name
+            self.navDetailCardViewController.lblStop8.text = self.resultReturnStops?.stops![7].stop_name
         }
     }
     
@@ -216,55 +182,49 @@ class CommuteViewController: UIViewController, XibDelegate {
     var locPulang: CLLocationCoordinate2D?
     
     func getCoorPergiPulang(nearPergi: String, nearPulang: String, completion: @escaping (_ locPergi: CLLocationCoordinate2D, _ locPulang: CLLocationCoordinate2D) -> ()) {
-        // CloudKit
-        
-        let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
-        let publicDatabase = container.publicCloudDatabase
-        
-        let predicatePergi = NSPredicate(format: "namaStop == %@", nearPergi)
-        let predicatePulang = NSPredicate(format: "namaStop == %@", nearPulang)
-        let queryPergi = CKQuery(recordType: "DataStop", predicate: predicatePergi)
-        let queryPulang = CKQuery(recordType: "DataStop", predicate: predicatePulang)
-        
-        var latPergi: String?
-        var longPergi: String?
-        
-        var latPulang: String?
-        var longPulang: String?
-        
-        let semaphore = DispatchSemaphore(value: 0)
-        
-        DispatchQueue.global().async {
-            
-            publicDatabase.perform(queryPergi, inZoneWith: nil) { (resPergi, error) in
-                print(error as Any)
-                for res in resPergi! {
-                    print("location pergi: \(res["latitude"]!)")
-                    latPergi = res["latitude"]!
-                    longPergi = res["longitude"]!
-                }
-                semaphore.signal()
-            }
-            semaphore.wait(timeout: .distantFuture)
-            
-            publicDatabase.perform(queryPulang, inZoneWith: nil) { (resPulang, error) in
-                for res in resPulang! {
-                    print("location pulang: \(res["latitude"]!)")
-                    latPulang = res["latitude"]!
-                    longPulang = res["longitude"]!
-                }
-                semaphore.signal()
-            }
-            semaphore.wait(timeout: .distantFuture)
-            
-            let locPergi = CLLocationCoordinate2D(latitude: Double(latPergi!)!, longitude: Double(longPergi!)!)
-            let locPulang = CLLocationCoordinate2D(latitude: Double(latPulang!)!, longitude: Double(longPulang!)!)
+        let locPergi = CLLocationCoordinate2D(latitude: nearestStopDepartObj!.latitude, longitude: nearestStopDepartObj!.longitude)
+        let locPulang = CLLocationCoordinate2D(latitude: nearestStopReturnObj!.latitude, longitude: nearestStopReturnObj!.longitude)
 
-            completion(locPergi, locPulang)
-        }
+        completion(locPergi, locPulang)
     }
     
+    var tripIdDepart = 0
+    var tripIdReturn = 0
+    var nearTimeDepart = ""
+    var nearTimeReturn = ""
+    var tripDepart: API.ApiResultSchedule?
+    var tripReturn: API.ApiResultSchedule?
     
+    func countSelisih(stopTime: String, currTime: String) -> Int {
+        print("tesss \(stopTime)")
+        let arrStopTime = stopTime.components(separatedBy: ":")
+        let stopHour = Int(arrStopTime[0])
+        let stopMinute = Int(arrStopTime[1])
+        
+        let arrCurrTime = currTime.components(separatedBy: ":")
+        let currHour = Int(arrCurrTime[0])
+        let currMinute = Int(arrCurrTime[1])
+        
+        var minSelisih = 100000000
+        
+        if currHour! == stopHour!{
+            if stopMinute! >= currMinute! {
+                let selisih = stopMinute! - currMinute!
+                if minSelisih > selisih {
+                    minSelisih = selisih
+                }
+            }
+        } else if currHour! == stopHour! - 1 {
+            let selisih = 60 - currMinute! + stopMinute!
+            if minSelisih > selisih {
+                minSelisih = selisih
+            }
+        }
+        
+        return(minSelisih)
+    }
+    
+    // Modal kedua
     func getTrip(trip: String, nearPergi: String, nearPulang: String) {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.6) {
@@ -287,100 +247,64 @@ class CommuteViewController: UIViewController, XibDelegate {
             }
         }
         
-        self.nearPergi = nearPergi
-        self.nearPulang = nearPulang
+        arah = "pergi"
         
-        // CloudKit
+        self.nearPergi = self.nearestDepartName
+        self.nearPulang = self.nearestReturnName
         
-        let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
-        let publicDatabase = container.publicCloudDatabase
-        let predicate = NSPredicate(format: "kodeRute == %@", rute)
-        let query = CKQuery(recordType: "DataRoute", predicate: predicate)
+        print("stop id: \(nearestStopDepartObj!.stop_id), curr time: \(getCurrTime())")
         
-        var resultRoute: [CKRecord] = []
-        
-        // isi waktu di bus detail sesuai arah pergi atau pulang (waktu terdekat)
-        
-        getShortestTime(rute: rute) { (selisihPergi, selisihPulang, timesPergi, timesPulang) in
-            self.selPergi = selisihPergi
-            self.selPulang = selisihPulang
-            self.waktuPergi = timesPergi
-            self.waktuPulang = timesPulang
+        API().getNearestTripTime(stop_id: nearestStopDepartObj!.stop_id, current_time: getCurrTime()) { (tripID, nearestTime) in
+            print("trip_id: ", tripID!)
+            self.tripIdDepart = tripID!
+            self.nearTimeDepart = nearestTime!
             
-            DispatchQueue.main.async {
-                if self.navDetailCardViewController.arahSegmentedControl.selectedSegmentIndex == 0 {
+            self.selPergi = self.countSelisih(stopTime: self.nearTimeDepart, currTime: self.getCurrTime())
+            
+            API().getNearestTripTime(stop_id: (self.nearestStopReturnObj?.stop_id)!, current_time: self.getCurrTime()) { (tripID, nearestTime) in
+                self.tripIdReturn = tripID!
+                self.nearTimeReturn = nearestTime!
+                
+                self.selPulang = self.countSelisih(stopTime: self.nearTimeReturn, currTime: self.getCurrTime())
+                
+                // Isi waktu di bus detail sesuai arah pergi
+                DispatchQueue.main.async {
+                    self.navDetailCardViewController.arahSegmentedControl.selectedSegmentIndex = 0
+                    
                     self.navDetailCardViewController.lblShortestTime1.text = "\(self.selPergi!)"
                     self.navDetailCardViewController.lblShortestTime2.text = "\(self.selPergi! + 15)"
                     self.navDetailCardViewController.lblShortestTime3.text = "\(self.selPergi! + 30)"
                     
-                    self.navDetailCardViewController.lblStop.text = nearPergi
+                    self.navDetailCardViewController.lblStop.text = self.nearestDepartName
                     
-                    stop = nearPergi
+                    self.navDetailCardViewController.lblTime1.text = self.tripDepart?.schedules![0].time_arrival
+                    self.navDetailCardViewController.lblTime2.text = self.tripDepart?.schedules![1].time_arrival
+                    self.navDetailCardViewController.lblTime3.text = self.tripDepart?.schedules![2].time_arrival
+                    self.navDetailCardViewController.lblTime4.text = self.tripDepart?.schedules![3].time_arrival
+                    self.navDetailCardViewController.lblTime5.text = self.tripDepart?.schedules![4].time_arrival
+                    self.navDetailCardViewController.lblTime6.text = self.tripDepart?.schedules![5].time_arrival
+                    self.navDetailCardViewController.lblTime7.text = self.tripDepart?.schedules![6].time_arrival
+                    self.navDetailCardViewController.lblTime8.text = self.tripDepart?.schedules![7].time_arrival
                     
-                    self.navDetailCardViewController.lblTime1.text = self.waktuPergi[0]
-                    self.navDetailCardViewController.lblTime2.text = self.waktuPergi[1]
-                    self.navDetailCardViewController.lblTime3.text = self.waktuPergi[2]
-                    self.navDetailCardViewController.lblTime4.text = self.waktuPergi[3]
-                    self.navDetailCardViewController.lblTime5.text = self.waktuPergi[4]
-                    self.navDetailCardViewController.lblTime6.text = self.waktuPergi[5]
-                    self.navDetailCardViewController.lblTime7.text = self.waktuPergi[6]
-                    self.navDetailCardViewController.lblTime8.text = self.waktuPergi[7]
-                } else if self.navDetailCardViewController.arahSegmentedControl.selectedSegmentIndex == 1 {
-                    self.navDetailCardViewController.lblShortestTime1.text = "\(self.selPulang!)"
-                    self.navDetailCardViewController.lblShortestTime2.text = "\(self.selPulang! + 15)"
-                    self.navDetailCardViewController.lblShortestTime3.text = "\(self.selPulang! + 30)"
-                    
-                    self.navDetailCardViewController.lblStop.text = nearPulang
-                    
-                    stop = nearPulang
-                    
-                    self.navDetailCardViewController.lblTime1.text = self.waktuPulang[0]
-                    self.navDetailCardViewController.lblTime2.text = self.waktuPulang[1]
-                    self.navDetailCardViewController.lblTime3.text = self.waktuPulang[2]
-                    self.navDetailCardViewController.lblTime4.text = self.waktuPulang[3]
-                    self.navDetailCardViewController.lblTime5.text = self.waktuPulang[4]
-                    self.navDetailCardViewController.lblTime6.text = self.waktuPulang[5]
-                    self.navDetailCardViewController.lblTime7.text = self.waktuPulang[6]
-                    self.navDetailCardViewController.lblTime8.text = self.waktuPulang[7]
+                    self.navDetailCardViewController.kodeRute.text = "Breeze - ICE"
+                    self.navDetailCardViewController.lblStop1.text = self.resultDepartStops?.stops![0].stop_name
+                    self.navDetailCardViewController.lblStop2.text = self.resultDepartStops?.stops![1].stop_name
+                    self.navDetailCardViewController.lblStop3.text = self.resultDepartStops?.stops![2].stop_name
+                    self.navDetailCardViewController.lblStop4.text = self.resultDepartStops?.stops![3].stop_name
+                    self.navDetailCardViewController.lblStop5.text = self.resultDepartStops?.stops![4].stop_name
+                    self.navDetailCardViewController.lblStop6.text = self.resultDepartStops?.stops![5].stop_name
+                    self.navDetailCardViewController.lblStop7.text = self.resultDepartStops?.stops![6].stop_name
+                    self.navDetailCardViewController.lblStop8.text = self.resultDepartStops?.stops![7].stop_name
                 }
             }
         }
         
-        publicDatabase.perform(query, inZoneWith: nil) { (result, error) in
-            resultRoute = result!
-            
-            if resultRoute[0]["arah"] == "pergi" {
-                self.routePergi = resultRoute[0]["namaStop"]!
-                self.routePulang = resultRoute[1]["namaStop"]!
-            } else {
-                self.routePergi = resultRoute[1]["namaStop"]!
-                self.routePulang = resultRoute[0]["namaStop"]!
-            }
-            DispatchQueue.main.async {
-                if arah == "pergi" {
-                    self.navDetailCardViewController.arahSegmentedControl.selectedSegmentIndex = 0
-                    self.navDetailCardViewController.kodeRute.text = "Breeze - ICE"
-                    self.navDetailCardViewController.lblStop1.text = self.routePergi[0]
-                    self.navDetailCardViewController.lblStop2.text = self.routePergi[1]
-                    self.navDetailCardViewController.lblStop3.text = self.routePergi[2]
-                    self.navDetailCardViewController.lblStop4.text = self.routePergi[3]
-                    self.navDetailCardViewController.lblStop5.text = self.routePergi[4]
-                    self.navDetailCardViewController.lblStop6.text = self.routePergi[5]
-                    self.navDetailCardViewController.lblStop7.text = self.routePergi[6]
-                    self.navDetailCardViewController.lblStop8.text = self.routePergi[7]
-                } else if arah == "pulang" {
-                    self.navDetailCardViewController.arahSegmentedControl.selectedSegmentIndex = 1
-                    self.navDetailCardViewController.kodeRute.text = "ICE - Breeze"
-                    self.navDetailCardViewController.lblStop1.text = self.routePulang[0]
-                    self.navDetailCardViewController.lblStop2.text = self.routePulang[1]
-                    self.navDetailCardViewController.lblStop3.text = self.routePulang[2]
-                    self.navDetailCardViewController.lblStop4.text = self.routePulang[3]
-                    self.navDetailCardViewController.lblStop5.text = self.routePulang[4]
-                    self.navDetailCardViewController.lblStop6.text = self.routePulang[5]
-                    self.navDetailCardViewController.lblStop7.text = self.routePulang[6]
-                    self.navDetailCardViewController.lblStop8.text = self.routePulang[7]
-                }
-            }
+        API().getScheduleByTrip(trip_id: tripIdDepart) { (resDepart) in
+            self.tripDepart = resDepart
+        }
+        
+        API().getScheduleByTrip(trip_id: tripIdReturn) { (resReturn) in
+            self.tripReturn = resReturn
         }
     }
     
@@ -617,7 +541,22 @@ class CommuteViewController: UIViewController, XibDelegate {
     var nearestLoc: CLLocationCoordinate2D!
     var nearestStop: String!
     
+    var nearestDistDepart: Double = 0
+    var nearestDistReturn: Double = 0
+    
+    var nearestDepartName: String!
+    var nearestReturnName: String!
+    
+    var nearestStopDepartObj: API.Stops?
+    var nearestStopReturnObj: API.Stops?
+    
+    var resultDepartStops: API.ApiResultStop?
+    var resultReturnStops: API.ApiResultStop?
+    
     override func viewDidLoad() {
+        API().getNearestTripTime(stop_id: 1, current_time: "17:40") { (trip_id, time) in
+            print("trip", trip_id, "||time ", time)
+        }
         if isConnectedToNetwork() {
             super.viewDidLoad()
             //Getting Permission for Maps
@@ -639,41 +578,74 @@ class CommuteViewController: UIViewController, XibDelegate {
             currMarker.map = mapView
             
             DispatchQueue.global().async {
-                // CloudKit
                 
-                let predicate = NSPredicate(value: true)
-                let query = CKQuery(recordType: "DataStop", predicate: predicate)
-                let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
-                let publicDatabase = container.publicCloudDatabase
-                
-                publicDatabase.perform(query, inZoneWith: nil) { (hasil, error) in
-                    for i in 0...hasil!.count - 1 {
-                        guard let lati = hasil![i]["latitude"]! as? String, let longi = hasil![i]["longitude"] as? String else { return }
-                        let latDouble: Double = Double(lati)!
-                        let longDouble: Double = Double(longi)!
+                API().getStopsByID(bus_id: 1) { (resStop) in
+                    for i in 0...(resStop?.stops!.count)! - 1 {
+                        let latDouble = resStop?.stops![i].latitude
+                        let longDouble = resStop?.stops![i].longitude
+                        let stopLoc = CLLocationCoordinate2D(latitude: latDouble!, longitude: longDouble!)
+                        let stopName = resStop?.stops![i].stop_name
                         
                         DispatchQueue.main.async {
-                            let stopLoc = CLLocationCoordinate2D(latitude: latDouble, longitude: longDouble)
-                            if i == 0 {
-                                self.nearestDist = GMSGeometryDistance(stopLoc, currLoc)
-                                self.nearestStop = hasil![i]["namaStop"]
-                                self.nearestLoc = stopLoc
-                                print(self.nearestStop ?? "Unknown")
-                            } else {
-                                let distance = GMSGeometryDistance(stopLoc, currLoc)
-                                if distance < self.nearestDist {
-                                    self.nearestLoc = stopLoc
-                                    self.nearestStop = hasil![i]["namaStop"]
-                                    self.nearestDist = distance
-                                    print(self.nearestStop ?? "Unknown")
-                                }
-                            }
-                            
                             let stopMarker = GMSMarker(position: stopLoc)
-                            stopMarker.title = hasil![i]["namaStop"]
+                            stopMarker.title = stopName
                             stopMarker.icon = UIImage(named: "halte")
                             stopMarker.map = self.mapView
+                            
+                            print("API 1")
                         }
+                    }
+                }
+                
+                API().getStopsByRoute(bus_id: 1, direction: "depart") { (resDepart) in
+                    for i in 0...(resDepart?.stops!.count)! - 1 {
+                        self.resultDepartStops = resDepart
+                        
+                        let latDepart = resDepart?.stops![i].latitude
+                        let longDepart = resDepart?.stops![i].longitude
+                        let departLoc = CLLocationCoordinate2D(latitude: latDepart!, longitude: longDepart!)
+                        let departDist = GMSGeometryDistance(departLoc, currLoc)
+                        let stopName = resDepart?.stops![i].stop_name
+                        
+                        if i == 0 {
+                            self.nearestDistDepart = departDist
+                            self.nearestStopDepartObj = resDepart?.stops![i]
+                            self.nearestDepartName = stopName
+                        } else {
+                            if departDist < self.nearestDistDepart {
+                                self.nearestDistDepart = departDist
+                                self.nearestStopDepartObj = resDepart?.stops![i]
+                                self.nearestDepartName = stopName
+                            }
+                        }
+                        
+                        print("API 2")
+                    }
+                }
+                
+                API().getStopsByRoute(bus_id: 1, direction: "return") { (resReturn) in
+                    for i in 0...(resReturn?.stops!.count)! - 1 {
+                        self.resultReturnStops = resReturn
+                        
+                        let latReturn = resReturn?.stops![i].latitude
+                        let longReturn = resReturn?.stops![i].longitude
+                        let returnLoc = CLLocationCoordinate2D(latitude: latReturn!, longitude: longReturn!)
+                        let returnDist = GMSGeometryDistance(returnLoc, currLoc)
+                        let stopName = resReturn?.stops![i].stop_name
+                        
+                        if i == 0 {
+                            self.nearestDistReturn = returnDist
+                            self.nearestStopReturnObj = resReturn?.stops![i]
+                            self.nearestReturnName = stopName
+                        } else {
+                            if returnDist < self.nearestDistDepart {
+                                self.nearestDistReturn = returnDist
+                                self.nearestStopReturnObj = resReturn?.stops![i]
+                                self.nearestReturnName = stopName
+                            }
+                        }
+                        
+                        print("API 3")
                     }
                 }
             }
@@ -856,8 +828,22 @@ class CommuteViewController: UIViewController, XibDelegate {
         let date = Date()
         let calendar = Calendar.current
         let components = calendar.dateComponents([.hour, .minute], from: date)
+        var hourString = ""
+        var minString = ""
         
-        return "\(components.hour!):\(components.minute!)"
+        if components.hour! < 10 {
+            hourString = "0\(components.hour!)"
+        } else {
+            hourString = "\(components.hour!)"
+        }
+        
+        if components.minute! < 10 {
+            minString = "0\(components.minute!)"
+        } else {
+            minString = "\(components.minute!)"
+        }
+        
+        return "\(hourString):\(minString)"
     }
     
     func isConnectedToNetwork() -> Bool {

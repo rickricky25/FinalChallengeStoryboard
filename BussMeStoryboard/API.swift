@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-
 class API {
     struct Responses: Codable {
         //        var status: Int
@@ -43,7 +42,7 @@ class API {
     
     struct ResultNearestTripTime: Codable {
         var trip_id: Int?
-        var current_time: String?
+        var time_arrival: String?
     }
     
     struct BusModel: Codable {
@@ -152,8 +151,8 @@ class API {
     // Pertama
     func getStopsByID(bus_id: Int, completion: @escaping (_ stops: ApiResultStop?) -> ()) {
         var resultStop = ApiResultStop()
-        let url = URL(string: "http://192.168.0.11:3000/api/stops/bus/\(bus_id)")
-        //        let url = URL(string: "https://server-fellowcity.herokuapp.com/api/stops/bus/\(bus_id)")
+//        let url = URL(string: "http://192.168.0.11:3000/api/stops/bus/\(bus_id)")
+        let url = URL(string: "https://server-fellowcity.herokuapp.com/api/stops/bus/\(bus_id)")
         guard let requestUrl = url else { fatalError() }
         // Create URL Request
         var request = URLRequest(url: requestUrl)
@@ -273,11 +272,13 @@ class API {
                     let decoder = JSONDecoder()
                     do {
                         let trip = try decoder.decode(ResultNearestTripTime.self, from: data)
-                        resultTrip.current_time = trip.current_time
+                        resultTrip. = trip.current_time
                         resultTrip.trip_id = trip.trip_id
+                        print("hayhay", resultTrip.curre)
                     } catch {
                         print(error)
                     }
+                    
                     completion(resultTrip.trip_id, resultTrip.current_time)
                     //                print("Response data string:\n \(dataString)")
                 }

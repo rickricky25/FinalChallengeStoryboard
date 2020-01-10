@@ -72,6 +72,8 @@ class NavDetailViewController: UIViewController {
         
         currMarker.map = mapView
         
+        
+        // CloudKit
         let routePredicate = NSPredicate(format: "arah == %@ AND kodeRute == %@", arah, rute)
         let query = CKQuery(recordType: "DataRoute", predicate: routePredicate)
         let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
