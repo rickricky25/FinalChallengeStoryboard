@@ -45,6 +45,12 @@ class API {
         var time_arrival: String?
     }
     
+    
+    struct NearestTripModel: Codable {
+        var stop_id: Int?
+        var current_time: String?
+    }
+    
     struct BusModel: Codable {
         var idBus: Int
         var busOperator: String
@@ -246,13 +252,19 @@ class API {
     // Ketiga
     func getNearestTripTime(stop_id: Int, current_time: String, completion: @escaping (_ trip_id: Int?, _ nearest_time: String?) -> ()) {
             var resultTrip = ResultNearestTripTime()
-            let url = URL(string: "https://server-fellowcity.herokuapp.com/api/schedule/stop-time/\(stop_id)/\(current_time)")
+//            let url = URL(string: "https://server-fellowcity.herokuapp.com/api/schedule/stop-time/\(stop_id)/\(current_time)")
+            let url = URL(string: "https://server-fellowcity.herokuapp.com/api/schedule/stop-time/")
             guard let requestUrl = url else { fatalError() }
             // Create URL Request
             var request = URLRequest(url: requestUrl)
             // Specify HTTP Method to use
-            request.httpMethod = "GET"
+            request.httpMethod = "POST"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            let newSchedule = NearestTripModel(stop_id: stop_id, current_time: current_time)
+            let jsonData = try! JSONEncoder().encode(newSchedule)
+            request.httpBody = jsonData
+            print("ini new schedule", newSchedule.current_time)
+            
             // Send HTTP Request
             let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                 
@@ -274,7 +286,6 @@ class API {
                         let trip = try decoder.decode(ResultNearestTripTime.self, from: data)
                         resultTrip.time_arrival = trip.time_arrival
                         resultTrip.trip_id = trip.trip_id
-                        print("hayhay", resultTrip.time_arrival)
                     } catch {
                         print(error)
                     }
