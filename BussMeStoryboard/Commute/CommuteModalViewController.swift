@@ -61,13 +61,6 @@ class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
         
         let (currLat, currLong) = getCurrentLatLong()
         
-        getNearestStop(currLat: currLat, currLong: currLong) { (resStop) in
-            DispatchQueue.main.async {
-//                self.lblNearestStop.text = resStop
-                stop = resStop
-            }
-        }
-        
         BreezeIceView.layer.cornerRadius = 15
         IceBreezeView.layer.cornerRadius = 15
         
@@ -83,126 +76,133 @@ class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
         IceBreezeView.isUserInteractionEnabled = true
     }
     
-    func getNearestStop(currLat: CLLocationDegrees, currLong: CLLocationDegrees, completion: @escaping (_ stop: String) -> ()){
-        // CloudKit
-        
-        let currLocation = CLLocationCoordinate2D(latitude: currLat, longitude: currLong)
-        let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
-        let predicate = NSPredicate(value: true)
-        let query = CKQuery(recordType: "DataRoute", predicate: predicate)
-        let publicDatabase = container.publicCloudDatabase
-        var nearestStop = ""
-        var nearestDistance: Double = 0
-        
-        publicDatabase.perform(query, inZoneWith: nil) { (routes, error) in
-            for route in routes! {
-                let arrStop = route["namaStop"] as! [String]
-                let arrLat = route["latStop"] as! [CLLocationDegrees]
-                let arrLong = route["longStop"] as! [CLLocationDegrees]
-                var stopLoc = CLLocationCoordinate2D(latitude: arrLat[0], longitude: arrLong[0])
-                
-                nearestStop = arrStop[0]
-                nearestDistance = self.countDistance(firstLoc: currLocation, secondLoc: stopLoc)
-                
-                for i in 1...arrStop.count - 1 {
-                    stopLoc = CLLocationCoordinate2D(latitude: arrLat[i], longitude: arrLong[i])
-                    let currDist = self.countDistance(firstLoc: currLocation, secondLoc: stopLoc)
-                    if currDist < nearestDistance {
-                        nearestDistance = currDist
-                        nearestStop = arrStop[i]
-                    }
-                }
-            }
-            completion(nearestStop)
-        }
-    }
+//    func getNearestStop(currLat: CLLocationDegrees, currLong: CLLocationDegrees, completion: @escaping (_ stop: String) -> ()){
+//        // CloudKit
+//
+//        let currLocation = CLLocationCoordinate2D(latitude: currLat, longitude: currLong)
+//        let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
+//        let predicate = NSPredicate(value: true)
+//        let query = CKQuery(recordType: "DataRoute", predicate: predicate)
+//        let publicDatabase = container.publicCloudDatabase
+//        var nearestStop = ""
+//        var nearestDistance: Double = 0
+//
+//        publicDatabase.perform(query, inZoneWith: nil) { (routes, error) in
+//            for route in routes! {
+//                let arrStop = route["namaStop"] as! [String]
+//                let arrLat = route["latStop"] as! [CLLocationDegrees]
+//                let arrLong = route["longStop"] as! [CLLocationDegrees]
+//                var stopLoc = CLLocationCoordinate2D(latitude: arrLat[0], longitude: arrLong[0])
+//
+//                nearestStop = arrStop[0]
+//                nearestDistance = self.countDistance(firstLoc: currLocation, secondLoc: stopLoc)
+//
+//                for i in 1...arrStop.count - 1 {
+//                    stopLoc = CLLocationCoordinate2D(latitude: arrLat[i], longitude: arrLong[i])
+//                    let currDist = self.countDistance(firstLoc: currLocation, secondLoc: stopLoc)
+//                    if currDist < nearestDistance {
+//                        nearestDistance = currDist
+//                        nearestStop = arrStop[i]
+//                    }
+//                }
+//            }
+//            completion(nearestStop)
+//        }
+//    }
     
     func countDistance(firstLoc: CLLocationCoordinate2D, secondLoc: CLLocationCoordinate2D) -> Double {
         return GMSGeometryDistance(firstLoc, secondLoc)
     }
     
+    func getNearestStopPergi(currLat: CLLocationDegrees, currLong: CLLocationDegrees, completion: @escaping (_ stop: String) -> ()){
+        
+        API().getStopsByRoute(bus_id: 1, direction: "depart") { (resDepart) in
+            for i in 0...(resDepart?.stops!.count)! - 1 {
+                self.resultDepartStops = resDepart
+                
+                let (currLat, currLong) = self.getCurrentLatLong()
+                let currLoc = CLLocationCoordinate2D(latitude: currLat, longitude: currLong)
+                
+                let latDepart = resDepart?.stops![i].latitude
+                let longDepart = resDepart?.stops![i].longitude
+                let departLoc = CLLocationCoordinate2D(latitude: latDepart!, longitude: longDepart!)
+                let departDist = GMSGeometryDistance(departLoc, currLoc)
+                let stopName = resDepart?.stops![i].stop_name
+                
+                if i == 0 {
+                    self.nearestDistDepart = departDist
+                    self.nearestStopDepartObj = resDepart?.stops![i]
+                    self.nearestDepartName = stopName
+                } else {
+                    if departDist < self.nearestDistDepart {
+                        self.nearestDistDepart = departDist
+                        self.nearestStopDepartObj = resDepart?.stops![i]
+                        self.nearestDepartName = stopName
+                    }
+                }
+                
+                completion(self.nearestDepartName)
+            }
+        }
+    }
+    
     func getCurrentLatLong() -> (Double, Double) {
         var currentLocation: CLLocation!
-            
+        
         if(CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways) {
             currentLocation = locManager.location
         }
-            
+        
         if currentLocation == nil {
             return(0, 0)
         } else {
             let currLong = currentLocation.coordinate.longitude
             let currLat = currentLocation.coordinate.latitude
-                
+            
             return (currLat, currLong)
         }
     }
     
-    func getNearestStopPergi(currLat: CLLocationDegrees, currLong: CLLocationDegrees, completion: @escaping (_ stop: String) -> ()){
-        // CloudKit
-        
-        let currLocation = CLLocationCoordinate2D(latitude: currLat, longitude: currLong)
-        let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
-        let predicate = NSPredicate(format: "arah == %@", "pergi")
-        let query = CKQuery(recordType: "DataRoute", predicate: predicate)
-        let publicDatabase = container.publicCloudDatabase
-        var nearestStop = ""
-        var nearestDistance: Double = 0
-        
-        publicDatabase.perform(query, inZoneWith: nil) { (routes, error) in
-            for route in routes! {
-                let arrStop = route["namaStop"] as! [String]
-                let arrLat = route["latStop"] as! [CLLocationDegrees]
-                let arrLong = route["longStop"] as! [CLLocationDegrees]
-                var stopLoc = CLLocationCoordinate2D(latitude: arrLat[0], longitude: arrLong[0])
-                
-                nearestStop = arrStop[0]
-                nearestDistance = self.countDistance(firstLoc: currLocation, secondLoc: stopLoc)
-                
-                for i in 1...arrStop.count - 1 {
-                    stopLoc = CLLocationCoordinate2D(latitude: arrLat[i], longitude: arrLong[i])
-                    let currDist = self.countDistance(firstLoc: currLocation, secondLoc: stopLoc)
-                    if currDist < nearestDistance {
-                        nearestDistance = currDist
-                        nearestStop = arrStop[i]
-                    }
-                }
-            }
-            completion(nearestStop)
-        }
-    }
+    var nearestDistDepart: Double = 0
+    var nearestDistReturn: Double = 0
+    
+    var nearestDepartName: String!
+    var nearestReturnName: String!
+    
+    var nearestStopDepartObj: API.Stops?
+    var nearestStopReturnObj: API.Stops?
+    
+    var resultDepartStops: API.ApiResultStop?
+    var resultReturnStops: API.ApiResultStop?
     
     func getNearestStopPulang(currLat: CLLocationDegrees, currLong: CLLocationDegrees, completion: @escaping (_ stop: String) -> ()){
-        // CloudKit
-        
-        let currLocation = CLLocationCoordinate2D(latitude: currLat, longitude: currLong)
-        let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
-        let predicate = NSPredicate(format: "arah == %@", "pulang")
-        let query = CKQuery(recordType: "DataRoute", predicate: predicate)
-        let publicDatabase = container.publicCloudDatabase
-        var nearestStop = ""
-        var nearestDistance: Double = 0
-        
-        publicDatabase.perform(query, inZoneWith: nil) { (routes, error) in
-            for route in routes! {
-                let arrStop = route["namaStop"] as! [String]
-                let arrLat = route["latStop"] as! [CLLocationDegrees]
-                let arrLong = route["longStop"] as! [CLLocationDegrees]
-                var stopLoc = CLLocationCoordinate2D(latitude: arrLat[0], longitude: arrLong[0])
+        API().getStopsByRoute(bus_id: 1, direction: "return") { (resReturn) in
+            for i in 0...(resReturn?.stops!.count)! - 1 {
+                self.resultReturnStops = resReturn
                 
-                nearestStop = arrStop[0]
-                nearestDistance = self.countDistance(firstLoc: currLocation, secondLoc: stopLoc)
+                let (currLat, currLong) = self.getCurrentLatLong()
+                let currLoc = CLLocationCoordinate2D(latitude: currLat, longitude: currLong)
                 
-                for i in 1...arrStop.count - 1 {
-                    stopLoc = CLLocationCoordinate2D(latitude: arrLat[i], longitude: arrLong[i])
-                    let currDist = self.countDistance(firstLoc: currLocation, secondLoc: stopLoc)
-                    if currDist < nearestDistance {
-                        nearestDistance = currDist
-                        nearestStop = arrStop[i]
+                let latReturn = resReturn?.stops![i].latitude
+                let longReturn = resReturn?.stops![i].longitude
+                let returnLoc = CLLocationCoordinate2D(latitude: latReturn!, longitude: longReturn!)
+                let returnDist = GMSGeometryDistance(returnLoc, currLoc)
+                let stopName = resReturn?.stops![i].stop_name
+                
+                if i == 0 {
+                    self.nearestDistReturn = returnDist
+                    self.nearestStopReturnObj = resReturn?.stops![i]
+                    self.nearestReturnName = stopName
+                } else {
+                    if returnDist < self.nearestDistDepart {
+                        self.nearestDistReturn = returnDist
+                        self.nearestStopReturnObj = resReturn?.stops![i]
+                        self.nearestReturnName = stopName
                     }
                 }
+                
+                completion(self.nearestReturnName)
             }
-            completion(nearestStop)
         }
     }
     
@@ -259,17 +259,17 @@ class CommuteModalViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if locations.count > 0 {
-            let currLoc = locations.last
-            let currLong = (currLoc?.coordinate.longitude)!
-            let currLat = (currLoc?.coordinate.latitude)!
-            
-            getNearestStop(currLat: currLat, currLong: currLong) { (resStop) in
-//                self.lblNearestStop.text = resStop
-                stop = resStop
-                
-            }
-        }
-    }
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        if locations.count > 0 {
+//            let currLoc = locations.last
+//            let currLong = (currLoc?.coordinate.longitude)!
+//            let currLat = (currLoc?.coordinate.latitude)!
+//
+//            getNearestStop(currLat: currLat, currLong: currLong) { (resStop) in
+////                self.lblNearestStop.text = resStop
+//                stop = resStop
+//
+//            }
+//        }
+//    }
 }

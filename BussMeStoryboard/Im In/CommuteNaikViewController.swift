@@ -43,85 +43,85 @@ class CommuteNaikViewController: UIViewController {
     var nearestStop: String!
     
     override func viewDidLoad() {
-        if isConnectedToNetwork() {
-            super.viewDidLoad()
-            //Getting Permission for Maps
-            locManager.requestWhenInUseAuthorization()
-            locManager.delegate = self
-            locManager.startUpdatingLocation()
-            
-            let (currLat, currLong) = getCurrentLatLong()
-            let currLoc = CLLocationCoordinate2D(latitude: currLat, longitude: currLong)
-            currMarker = GMSMarker(position: currLoc)
-            currMarker.icon = UIImage(named: "pin")
-            currMarker.title = "Current Location"
-            
-            let camera = GMSCameraPosition.camera(withLatitude: currLat, longitude: currLong, zoom: 18)
-            mapView = GMSMapView.map(withFrame: mainView.frame, camera: camera)
-            
-            currMarker.map = mapView
-            
-            // CloudKit
-            
-            let predicate = NSPredicate(value: true)
-            let query = CKQuery(recordType: "DataStop", predicate: predicate)
-            let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
-            let publicDatabase = container.publicCloudDatabase
-            
-            publicDatabase.perform(query, inZoneWith: nil) { (hasil, error) in
-                for i in 0...hasil!.count - 1 {
-                    guard let lati = hasil![i]["latitude"]! as? String, let longi = hasil![i]["longitude"] as? String else { return }
-                    let latDouble: Double = Double(lati)!
-                    let longDouble: Double = Double(longi)!
-                    
-                    DispatchQueue.main.async {
-                        let stopLoc = CLLocationCoordinate2D(latitude: latDouble, longitude: longDouble)
-                        if i == 0 {
-                            self.nearestDist = GMSGeometryDistance(stopLoc, currLoc)
-                            self.nearestStop = hasil![i]["namaStop"]
-                            self.nearestLoc = stopLoc
-                            print(self.nearestStop ?? "Unknown")
-                        } else {
-                            let distance = GMSGeometryDistance(stopLoc, currLoc)
-                            if distance < self.nearestDist {
-                                self.nearestLoc = stopLoc
-                                self.nearestStop = hasil![i]["namaStop"]
-                                self.nearestDist = distance
-                                print(self.nearestStop ?? "Unknown")
-                            }
-                        }
-                        
-                        let stopMarker = GMSMarker(position: stopLoc)
-                        stopMarker.title = hasil![i]["namaStop"]
-                        stopMarker.map = self.mapView
-                    }
-                }
-            }
-            self.mainView.addSubview(mapView)
-            setupCardNaik()
-        } else {
-            // Coding tanpa internet
-            super.viewDidLoad()
-            //Getting Permission for Maps
-            locManager.requestWhenInUseAuthorization()
-            locManager.delegate = self
-            locManager.startUpdatingLocation()
-            
-            let currLat = -6.3013655304179
-            let currLong = 106.653071772344
-            let currLoc = CLLocationCoordinate2D(latitude: currLat, longitude: currLong)
-            currMarker = GMSMarker(position: currLoc)
-            currMarker.icon = UIImage(named: "pin")
-            currMarker.title = "Current Location"
-            
-            let camera = GMSCameraPosition.camera(withLatitude: currLat, longitude: currLong, zoom: 18)
-            mapView = GMSMapView.map(withFrame: mainView.frame, camera: camera)
-            
-            currMarker.map = mapView
-            
-            self.mainView.addSubview(mapView)
+//        if isConnectedToNetwork() {
+//            super.viewDidLoad()
+//            //Getting Permission for Maps
+//            locManager.requestWhenInUseAuthorization()
+//            locManager.delegate = self
+//            locManager.startUpdatingLocation()
+//
+//            let (currLat, currLong) = getCurrentLatLong()
+//            let currLoc = CLLocationCoordinate2D(latitude: currLat, longitude: currLong)
+//            currMarker = GMSMarker(position: currLoc)
+//            currMarker.icon = UIImage(named: "pin")
+//            currMarker.title = "Current Location"
+//
+//            let camera = GMSCameraPosition.camera(withLatitude: currLat, longitude: currLong, zoom: 18)
+//            mapView = GMSMapView.map(withFrame: mainView.frame, camera: camera)
+//
+//            currMarker.map = mapView
+//
+//            // CloudKit
+//
+//            let predicate = NSPredicate(value: true)
+//            let query = CKQuery(recordType: "DataStop", predicate: predicate)
+//            let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
+//            let publicDatabase = container.publicCloudDatabase
+//
+//            publicDatabase.perform(query, inZoneWith: nil) { (hasil, error) in
+//                for i in 0...hasil!.count - 1 {
+//                    guard let lati = hasil![i]["latitude"]! as? String, let longi = hasil![i]["longitude"] as? String else { return }
+//                    let latDouble: Double = Double(lati)!
+//                    let longDouble: Double = Double(longi)!
+//
+//                    DispatchQueue.main.async {
+//                        let stopLoc = CLLocationCoordinate2D(latitude: latDouble, longitude: longDouble)
+//                        if i == 0 {
+//                            self.nearestDist = GMSGeometryDistance(stopLoc, currLoc)
+//                            self.nearestStop = hasil![i]["namaStop"]
+//                            self.nearestLoc = stopLoc
+//                            print(self.nearestStop ?? "Unknown")
+//                        } else {
+//                            let distance = GMSGeometryDistance(stopLoc, currLoc)
+//                            if distance < self.nearestDist {
+//                                self.nearestLoc = stopLoc
+//                                self.nearestStop = hasil![i]["namaStop"]
+//                                self.nearestDist = distance
+//                                print(self.nearestStop ?? "Unknown")
+//                            }
+//                        }
+//
+//                        let stopMarker = GMSMarker(position: stopLoc)
+//                        stopMarker.title = hasil![i]["namaStop"]
+//                        stopMarker.map = self.mapView
+//                    }
+//                }
+//            }
+//            self.mainView.addSubview(mapView)
 //            setupCardNaik()
-        }
+//        } else {
+//            // Coding tanpa internet
+//            super.viewDidLoad()
+//            //Getting Permission for Maps
+//            locManager.requestWhenInUseAuthorization()
+//            locManager.delegate = self
+//            locManager.startUpdatingLocation()
+//
+//            let currLat = -6.3013655304179
+//            let currLong = 106.653071772344
+//            let currLoc = CLLocationCoordinate2D(latitude: currLat, longitude: currLong)
+//            currMarker = GMSMarker(position: currLoc)
+//            currMarker.icon = UIImage(named: "pin")
+//            currMarker.title = "Current Location"
+//
+//            let camera = GMSCameraPosition.camera(withLatitude: currLat, longitude: currLong, zoom: 18)
+//            mapView = GMSMapView.map(withFrame: mainView.frame, camera: camera)
+//
+//            currMarker.map = mapView
+//
+//            self.mainView.addSubview(mapView)
+////            setupCardNaik()
+//        }
     }
     
     //Function to get Current Location

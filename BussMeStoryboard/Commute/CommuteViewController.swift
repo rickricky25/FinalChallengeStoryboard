@@ -30,7 +30,7 @@ class CommuteViewController: UIViewController, XibDelegate {
     var result = API.ApiResultStop()
     
     func turunChoicePressed(index: Int) {
-                if index == 1 {
+        if index == 1 {
             mapView.clear()
             UIView.animate(withDuration: 0.6) {
                 self.commuteNaikModalViewController.view.frame.origin.y = self.view.frame.height
@@ -39,16 +39,9 @@ class CommuteViewController: UIViewController, XibDelegate {
                 self.tabBarController?.tabBar.layer.zPosition = 0
                 
                 DispatchQueue.global().async {
-                    // CloudKit Done
-                    
-                    let predicate = NSPredicate(value: true)
-                    let query = CKQuery(recordType: "DataStop", predicate: predicate)
-                    let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
-                    let publicDatabase = container.publicCloudDatabase
-                    
                     let (currLat, currLong) = self.getCurrentLatLong()
                     let currLoc = CLLocationCoordinate2D(latitude: currLat, longitude: currLong)
-                   
+                    
                     
                     API().getStopsByID(bus_id: 1) { response in
                         if let response = response {
@@ -83,7 +76,6 @@ class CommuteViewController: UIViewController, XibDelegate {
                                 }
                             }
                         }
-                        
                     }
                 }
             }
@@ -267,44 +259,44 @@ class CommuteViewController: UIViewController, XibDelegate {
                 
                 self.selPulang = self.countSelisih(stopTime: self.nearTimeReturn, currTime: self.getCurrTime())
                 
-                // Isi waktu di bus detail sesuai arah pergi
-                DispatchQueue.main.async {
-                    self.navDetailCardViewController.arahSegmentedControl.selectedSegmentIndex = 0
+                API().getScheduleByTrip(trip_id: self.tripIdDepart) { (resDepart) in
+                    self.tripDepart = resDepart
                     
-                    self.navDetailCardViewController.lblShortestTime1.text = "\(self.selPergi!)"
-                    self.navDetailCardViewController.lblShortestTime2.text = "\(self.selPergi! + 15)"
-                    self.navDetailCardViewController.lblShortestTime3.text = "\(self.selPergi! + 30)"
-                    
-                    self.navDetailCardViewController.lblStop.text = self.nearestDepartName
-                    
-                    self.navDetailCardViewController.lblTime1.text = self.tripDepart?.schedules![0].time_arrival
-                    self.navDetailCardViewController.lblTime2.text = self.tripDepart?.schedules![1].time_arrival
-                    self.navDetailCardViewController.lblTime3.text = self.tripDepart?.schedules![2].time_arrival
-                    self.navDetailCardViewController.lblTime4.text = self.tripDepart?.schedules![3].time_arrival
-                    self.navDetailCardViewController.lblTime5.text = self.tripDepart?.schedules![4].time_arrival
-                    self.navDetailCardViewController.lblTime6.text = self.tripDepart?.schedules![5].time_arrival
-                    self.navDetailCardViewController.lblTime7.text = self.tripDepart?.schedules![6].time_arrival
-                    self.navDetailCardViewController.lblTime8.text = self.tripDepart?.schedules![7].time_arrival
-                    
-                    self.navDetailCardViewController.kodeRute.text = "Breeze - ICE"
-                    self.navDetailCardViewController.lblStop1.text = self.resultDepartStops?.stops![0].stop_name
-                    self.navDetailCardViewController.lblStop2.text = self.resultDepartStops?.stops![1].stop_name
-                    self.navDetailCardViewController.lblStop3.text = self.resultDepartStops?.stops![2].stop_name
-                    self.navDetailCardViewController.lblStop4.text = self.resultDepartStops?.stops![3].stop_name
-                    self.navDetailCardViewController.lblStop5.text = self.resultDepartStops?.stops![4].stop_name
-                    self.navDetailCardViewController.lblStop6.text = self.resultDepartStops?.stops![5].stop_name
-                    self.navDetailCardViewController.lblStop7.text = self.resultDepartStops?.stops![6].stop_name
-                    self.navDetailCardViewController.lblStop8.text = self.resultDepartStops?.stops![7].stop_name
+                    API().getScheduleByTrip(trip_id: self.tripIdReturn) { (resReturn) in
+                        self.tripReturn = resReturn
+                        
+                        // Isi waktu di bus detail sesuai arah pergi
+                        DispatchQueue.main.async {
+                            self.navDetailCardViewController.arahSegmentedControl.selectedSegmentIndex = 0
+                            
+                            self.navDetailCardViewController.lblShortestTime1.text = "\(self.selPergi!)"
+                            self.navDetailCardViewController.lblShortestTime2.text = "\(self.selPergi! + 15)"
+                            self.navDetailCardViewController.lblShortestTime3.text = "\(self.selPergi! + 30)"
+                            
+                            self.navDetailCardViewController.lblStop.text = self.nearestDepartName
+                            
+                            self.navDetailCardViewController.lblTime1.text = self.tripDepart?.schedules![0].time_arrival
+                            self.navDetailCardViewController.lblTime2.text = self.tripDepart?.schedules![1].time_arrival
+                            self.navDetailCardViewController.lblTime3.text = self.tripDepart?.schedules![2].time_arrival
+                            self.navDetailCardViewController.lblTime4.text = self.tripDepart?.schedules![3].time_arrival
+                            self.navDetailCardViewController.lblTime5.text = self.tripDepart?.schedules![4].time_arrival
+                            self.navDetailCardViewController.lblTime6.text = self.tripDepart?.schedules![5].time_arrival
+                            self.navDetailCardViewController.lblTime7.text = self.tripDepart?.schedules![6].time_arrival
+                            self.navDetailCardViewController.lblTime8.text = self.tripDepart?.schedules![7].time_arrival
+                            
+                            self.navDetailCardViewController.kodeRute.text = "Breeze - ICE"
+                            self.navDetailCardViewController.lblStop1.text = self.resultDepartStops?.stops![0].stop_name
+                            self.navDetailCardViewController.lblStop2.text = self.resultDepartStops?.stops![1].stop_name
+                            self.navDetailCardViewController.lblStop3.text = self.resultDepartStops?.stops![2].stop_name
+                            self.navDetailCardViewController.lblStop4.text = self.resultDepartStops?.stops![3].stop_name
+                            self.navDetailCardViewController.lblStop5.text = self.resultDepartStops?.stops![4].stop_name
+                            self.navDetailCardViewController.lblStop6.text = self.resultDepartStops?.stops![5].stop_name
+                            self.navDetailCardViewController.lblStop7.text = self.resultDepartStops?.stops![6].stop_name
+                            self.navDetailCardViewController.lblStop8.text = self.resultDepartStops?.stops![7].stop_name
+                        }
+                    }
                 }
             }
-        }
-        
-        API().getScheduleByTrip(trip_id: tripIdDepart) { (resDepart) in
-            self.tripDepart = resDepart
-        }
-        
-        API().getScheduleByTrip(trip_id: tripIdReturn) { (resReturn) in
-            self.tripReturn = resReturn
         }
     }
     
@@ -365,59 +357,81 @@ class CommuteViewController: UIViewController, XibDelegate {
         
         mapView.clear()
         
-        // CloudKit
-        
-        let routePredicate = NSPredicate(format: "arah == %@ AND kodeRute == %@", arah, rute)
-        let query = CKQuery(recordType: "DataRoute", predicate: routePredicate)
-        let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
-        let publicDatabase = container.publicCloudDatabase
-        
-        publicDatabase.perform(query, inZoneWith: nil) { (result, error) in
-            if result!.count > 0 {
-                DispatchQueue.main.async {
-                    self.mapView.clear()
-                }
-                
-                var found = false
-                let resStop = result![0]["namaStop"] as? [String]
-                let resLat = result![0]["latStop"] as? [CLLocationDegrees]
-                let resLong = result![0]["longStop"] as? [CLLocationDegrees]
-                
-                for i in 0...resStop!.count - 2 {
-                    if found == false {
-                        if resStop![i] == stop! {
-                            print(resStop![i])
-                            found = true
-                            let firstLoc = CLLocationCoordinate2D(latitude: resLat![i], longitude: resLong![i])
-                            let secondLoc = CLLocationCoordinate2D(latitude: resLat![i + 1], longitude: resLong![i + 1])
-                            DispatchQueue.main.async {
-                                let stopMarker = GMSMarker(position: firstLoc)
-                                stopMarker.title  = resStop![i]
-                                stopMarker.icon = UIImage(named: "halte")
-                                stopMarker.map = self.mapView
-                                self.drawRoute(from: firstLoc, to: secondLoc)
-                            }
-                        }
-                    } else {
-                        print(resStop![i])
-                        let firstLoc = CLLocationCoordinate2D(latitude: resLat![i], longitude: resLong![i])
-                        let secondLoc = CLLocationCoordinate2D(latitude: resLat![i + 1], longitude: resLong![i + 1])
+        if arah == "pulang" {
+            var found = false
+            
+            for i in 0...(resultReturnStops?.stops!.count)! - 2 {
+                if found == false {
+                    if resultReturnStops?.stops![i].stop_name == self.nearestReturnName {
+                        print(resultReturnStops?.stops![i].stop_name as Any)
+                        found = true
+                        let firstLoc = CLLocationCoordinate2D(latitude: (resultReturnStops?.stops![i].latitude)!, longitude: (resultReturnStops?.stops![i].longitude)!)
+                        let secondLoc = CLLocationCoordinate2D(latitude: (resultReturnStops?.stops![i + 1].latitude)!, longitude: (resultReturnStops?.stops![i + 1].longitude)!)
                         DispatchQueue.main.async {
                             let stopMarker = GMSMarker(position: firstLoc)
-                            stopMarker.title  = resStop![i]
+                            stopMarker.title  = self.resultReturnStops?.stops![i].stop_name
                             stopMarker.icon = UIImage(named: "halte")
                             stopMarker.map = self.mapView
                             self.drawRoute(from: firstLoc, to: secondLoc)
                         }
                     }
+                } else {
+                    print(resultReturnStops?.stops![i].stop_name as Any)
+                    let firstLoc = CLLocationCoordinate2D(latitude: (resultReturnStops?.stops![i].latitude)!, longitude: (resultReturnStops?.stops![i].longitude)!)
+                    let secondLoc = CLLocationCoordinate2D(latitude: (resultReturnStops?.stops![i + 1].latitude)!, longitude: (resultReturnStops?.stops![i + 1].longitude)!)
+                    DispatchQueue.main.async {
+                        let stopMarker = GMSMarker(position: firstLoc)
+                        stopMarker.title  = self.resultReturnStops?.stops![i].stop_name
+                        stopMarker.icon = UIImage(named: "halte")
+                        stopMarker.map = self.mapView
+                        self.drawRoute(from: firstLoc, to: secondLoc)
+                    }
                 }
-                
-                DispatchQueue.main.async {
-                    let stopMarker = GMSMarker(position: CLLocationCoordinate2D(latitude: resLat![resStop!.count - 1], longitude: resLong![resStop!.count - 1]))
-                    stopMarker.title = resStop![resStop!.count - 1]
-                    stopMarker.icon = UIImage(named: "halte")
-                    stopMarker.map = self.mapView
+            }
+            
+            DispatchQueue.main.async {
+                let stopMarker = GMSMarker(position: CLLocationCoordinate2D(latitude: (self.resultReturnStops?.stops![(self.resultReturnStops?.stops!.count)! - 1].latitude)!, longitude: (self.resultReturnStops?.stops![(self.resultReturnStops?.stops!.count)! - 1].longitude)!))
+                stopMarker.title = self.resultReturnStops?.stops![(self.resultReturnStops?.stops!.count)! - 1].stop_name
+                stopMarker.icon = UIImage(named: "halte")
+                stopMarker.map = self.mapView
+            }
+        } else {
+            var found = false
+            
+            for i in 0...(resultDepartStops?.stops!.count)! - 2 {
+                if found == false {
+                    if resultDepartStops?.stops![i].stop_name == self.nearestDepartName {
+                        print(resultDepartStops?.stops![i].stop_name as Any)
+                        found = true
+                        let firstLoc = CLLocationCoordinate2D(latitude: (resultDepartStops?.stops![i].latitude)!, longitude: (resultDepartStops?.stops![i].longitude)!)
+                        let secondLoc = CLLocationCoordinate2D(latitude: (resultDepartStops?.stops![i + 1].latitude)!, longitude: (resultDepartStops?.stops![i + 1].longitude)!)
+                        DispatchQueue.main.async {
+                            let stopMarker = GMSMarker(position: firstLoc)
+                            stopMarker.title  = self.resultDepartStops?.stops![i].stop_name
+                            stopMarker.icon = UIImage(named: "halte")
+                            stopMarker.map = self.mapView
+                            self.drawRoute(from: firstLoc, to: secondLoc)
+                        }
+                    }
+                } else {
+                    print(resultDepartStops?.stops![i].stop_name as Any)
+                    let firstLoc = CLLocationCoordinate2D(latitude: (resultDepartStops?.stops![i].latitude)!, longitude: (resultDepartStops?.stops![i].longitude)!)
+                    let secondLoc = CLLocationCoordinate2D(latitude: (resultDepartStops?.stops![i + 1].latitude)!, longitude: (resultDepartStops?.stops![i + 1].longitude)!)
+                    DispatchQueue.main.async {
+                        let stopMarker = GMSMarker(position: firstLoc)
+                        stopMarker.title  = self.resultDepartStops?.stops![i].stop_name
+                        stopMarker.icon = UIImage(named: "halte")
+                        stopMarker.map = self.mapView
+                        self.drawRoute(from: firstLoc, to: secondLoc)
+                    }
                 }
+            }
+            
+            DispatchQueue.main.async {
+                let stopMarker = GMSMarker(position: CLLocationCoordinate2D(latitude: (self.resultReturnStops?.stops![(self.resultReturnStops?.stops!.count)! - 1].latitude)!, longitude: (self.resultReturnStops?.stops![(self.resultReturnStops?.stops!.count)! - 1].longitude)!))
+                stopMarker.title = self.resultReturnStops?.stops![(self.resultReturnStops?.stops!.count)! - 1].stop_name
+                stopMarker.icon = UIImage(named: "halte")
+                stopMarker.map = self.mapView
             }
         }
     }
@@ -706,123 +720,123 @@ class CommuteViewController: UIViewController, XibDelegate {
         return GMSGeometryDistance(firstLoc, secondLoc)
     }
     
-    func getShortestTime(rute: String, completion: @escaping (_ selisihPergi: Int, _ selisihPulang: Int, _ timesPergi: [String], _ timesPulang: [String]) -> ()) {
-        // CloudKit
-        
-        let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
-        let publicDatabase = container.publicCloudDatabase
-        let predicateStop = NSPredicate(format: "kodeRute == %@", rute)
-        // let predicateStop = NSPredicate(value: true) --> untuk ambil semua isinya
-        let queryStop = CKQuery(recordType: "DataScheduleList", predicate: predicateStop)
-        
-        var selPergi: Int = 0
-        var selPulang: Int = 0
-        var waktuPergi: [String] = []
-        var waktuPulang: [String] = []
-        
-        publicDatabase.perform(queryStop, inZoneWith: nil) { (resultStops, error) in
-            if error == nil {
-                let currTime = self.getCurrTime()
-                let arrCurrTime = currTime.components(separatedBy: ":")
-                let currHour = Int(arrCurrTime[0])
-                let currMinute = Int(arrCurrTime[1])
-                
-                //                print(currTime)
-                
-                var arrStopPergi: [CKRecord] = []
-                var arrStopPulang: [CKRecord] = []
-                
-                for resultStop in resultStops! {
-                    if resultStop["arah"] == "pergi" {
-                        arrStopPergi.append(resultStop)
-                    } else if resultStop["arah"] == "pulang" {
-                        arrStopPulang.append(resultStop)
-                    }
-                }
-                
-                var minSelisih = 1000000000
-                var nearestIndex = 0
-                var index = 0
-                for stopPergi in arrStopPergi {
-                    let arrStop = stopPergi["namaStop"] as! [String]
-                    let arrWaktu = stopPergi["waktu"] as! [String]
-                    
-                    for i in 0...arrStop.count - 1 {
-                        if arrStop[i] == self.nearPergi {
-                            let stopTime = arrWaktu[i]
-                            let arrStopTime = stopTime.components(separatedBy: ":")
-                            let stopHour = Int(arrStopTime[0])
-                            let stopMinute = Int(arrStopTime[1])
-                            
-                            if currHour! == stopHour!{
-                                if stopMinute! >= currMinute! {
-                                    let selisih = stopMinute! - currMinute!
-                                    if minSelisih > selisih {
-                                        minSelisih = selisih
-                                        nearestIndex = index
-                                        //                                        print("\(nearestIndex) selisih \(minSelisih)")
-                                    }
-                                }
-                            } else if currHour! == stopHour! - 1 {
-                                let selisih = 60 - currMinute! + stopMinute!
-                                if minSelisih > selisih {
-                                    minSelisih = selisih
-                                    nearestIndex = index
-                                    //                                    print("\(nearestIndex) selisih \(minSelisih)")
-                                }
-                            }
-                        }
-                    }
-                    index = index + 1
-                }
-                selPergi = minSelisih
-                //                print(selPergi)
-                waktuPergi = arrStopPergi[nearestIndex]["waktu"] as! [String]
-                
-                nearestIndex = 0
-                minSelisih = 1000000000
-                index = 0
-                
-                for stopPulang in arrStopPulang {
-                    let arrStop = stopPulang["namaStop"] as! [String]
-                    let arrWaktu = stopPulang["waktu"] as! [String]
-                    
-                    for i in 0...arrStop.count - 1 {
-                        if arrStop[i] == self.nearPulang {
-                            let stopTime = arrWaktu[i]
-                            let arrStopTime = stopTime.components(separatedBy: ":")
-                            let stopHour = Int(arrStopTime[0])
-                            let stopMinute = Int(arrStopTime[1])
-                            
-                            if currHour! == stopHour!{
-                                if stopMinute! > currMinute! {
-                                    let selisih = stopMinute! - currMinute!
-                                    if minSelisih > selisih {
-                                        minSelisih = selisih
-                                        nearestIndex = index
-                                    }
-                                }
-                            } else if currHour! == stopHour! - 1 {
-                                let selisih = 60 - currMinute! + stopMinute!
-                                if minSelisih > selisih {
-                                    minSelisih = selisih
-                                    nearestIndex = index
-                                }
-                            }
-                        }
-                    }
-                    index = index + 1
-                }
-                selPulang = minSelisih
-                //                print(selPulang)
-                waktuPulang = arrStopPulang[nearestIndex]["waktu"] as! [String]
-                
-                completion(selPergi, selPulang, waktuPergi, waktuPulang)
-            } else {
-                print(error as Any)
-            }
-        }
-    }
+//    func getShortestTime(rute: String, completion: @escaping (_ selisihPergi: Int, _ selisihPulang: Int, _ timesPergi: [String], _ timesPulang: [String]) -> ()) {
+//        // CloudKit
+//
+//        let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
+//        let publicDatabase = container.publicCloudDatabase
+//        let predicateStop = NSPredicate(format: "kodeRute == %@", rute)
+//        // let predicateStop = NSPredicate(value: true) --> untuk ambil semua isinya
+//        let queryStop = CKQuery(recordType: "DataScheduleList", predicate: predicateStop)
+//
+//        var selPergi: Int = 0
+//        var selPulang: Int = 0
+//        var waktuPergi: [String] = []
+//        var waktuPulang: [String] = []
+//
+//        publicDatabase.perform(queryStop, inZoneWith: nil) { (resultStops, error) in
+//            if error == nil {
+//                let currTime = self.getCurrTime()
+//                let arrCurrTime = currTime.components(separatedBy: ":")
+//                let currHour = Int(arrCurrTime[0])
+//                let currMinute = Int(arrCurrTime[1])
+//
+//                //                print(currTime)
+//
+//                var arrStopPergi: [CKRecord] = []
+//                var arrStopPulang: [CKRecord] = []
+//
+//                for resultStop in resultStops! {
+//                    if resultStop["arah"] == "pergi" {
+//                        arrStopPergi.append(resultStop)
+//                    } else if resultStop["arah"] == "pulang" {
+//                        arrStopPulang.append(resultStop)
+//                    }
+//                }
+//
+//                var minSelisih = 1000000000
+//                var nearestIndex = 0
+//                var index = 0
+//                for stopPergi in arrStopPergi {
+//                    let arrStop = stopPergi["namaStop"] as! [String]
+//                    let arrWaktu = stopPergi["waktu"] as! [String]
+//
+//                    for i in 0...arrStop.count - 1 {
+//                        if arrStop[i] == self.nearPergi {
+//                            let stopTime = arrWaktu[i]
+//                            let arrStopTime = stopTime.components(separatedBy: ":")
+//                            let stopHour = Int(arrStopTime[0])
+//                            let stopMinute = Int(arrStopTime[1])
+//
+//                            if currHour! == stopHour!{
+//                                if stopMinute! >= currMinute! {
+//                                    let selisih = stopMinute! - currMinute!
+//                                    if minSelisih > selisih {
+//                                        minSelisih = selisih
+//                                        nearestIndex = index
+//                                        //                                        print("\(nearestIndex) selisih \(minSelisih)")
+//                                    }
+//                                }
+//                            } else if currHour! == stopHour! - 1 {
+//                                let selisih = 60 - currMinute! + stopMinute!
+//                                if minSelisih > selisih {
+//                                    minSelisih = selisih
+//                                    nearestIndex = index
+//                                    //                                    print("\(nearestIndex) selisih \(minSelisih)")
+//                                }
+//                            }
+//                        }
+//                    }
+//                    index = index + 1
+//                }
+//                selPergi = minSelisih
+//                //                print(selPergi)
+//                waktuPergi = arrStopPergi[nearestIndex]["waktu"] as! [String]
+//
+//                nearestIndex = 0
+//                minSelisih = 1000000000
+//                index = 0
+//
+//                for stopPulang in arrStopPulang {
+//                    let arrStop = stopPulang["namaStop"] as! [String]
+//                    let arrWaktu = stopPulang["waktu"] as! [String]
+//
+//                    for i in 0...arrStop.count - 1 {
+//                        if arrStop[i] == self.nearPulang {
+//                            let stopTime = arrWaktu[i]
+//                            let arrStopTime = stopTime.components(separatedBy: ":")
+//                            let stopHour = Int(arrStopTime[0])
+//                            let stopMinute = Int(arrStopTime[1])
+//
+//                            if currHour! == stopHour!{
+//                                if stopMinute! > currMinute! {
+//                                    let selisih = stopMinute! - currMinute!
+//                                    if minSelisih > selisih {
+//                                        minSelisih = selisih
+//                                        nearestIndex = index
+//                                    }
+//                                }
+//                            } else if currHour! == stopHour! - 1 {
+//                                let selisih = 60 - currMinute! + stopMinute!
+//                                if minSelisih > selisih {
+//                                    minSelisih = selisih
+//                                    nearestIndex = index
+//                                }
+//                            }
+//                        }
+//                    }
+//                    index = index + 1
+//                }
+//                selPulang = minSelisih
+//                //                print(selPulang)
+//                waktuPulang = arrStopPulang[nearestIndex]["waktu"] as! [String]
+//
+//                completion(selPergi, selPulang, waktuPergi, waktuPulang)
+//            } else {
+//                print(error as Any)
+//            }
+//        }
+//    }
     
     func getCurrTime() -> String {
         let date = Date()

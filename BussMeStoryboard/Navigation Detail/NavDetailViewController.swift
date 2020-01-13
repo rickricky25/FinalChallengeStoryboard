@@ -72,57 +72,6 @@ class NavDetailViewController: UIViewController {
         
         currMarker.map = mapView
         
-        
-        // CloudKit
-        let routePredicate = NSPredicate(format: "arah == %@ AND kodeRute == %@", arah, rute)
-        let query = CKQuery(recordType: "DataRoute", predicate: routePredicate)
-        let container = CKContainer(identifier: "iCloud.com.BussMeStoryboard")
-        let publicDatabase = container.publicCloudDatabase
-
-        publicDatabase.perform(query, inZoneWith: nil) { (result, error) in
-            if result?.count == 1 {
-                var found = false
-                let resStop = result![0]["namaStop"] as? [String]
-                let resLat = result![0]["latStop"] as? [CLLocationDegrees]
-                let resLong = result![0]["longStop"] as? [CLLocationDegrees]
-
-                for i in 0...resStop!.count - 2 {
-                    if found == false {
-                        if resStop![i] == stop! {
-                            print(resStop![i])
-                            found = true
-                            let firstLoc = CLLocationCoordinate2D(latitude: resLat![i], longitude: resLong![i])
-                            let secondLoc = CLLocationCoordinate2D(latitude: resLat![i + 1], longitude: resLong![i + 1])
-                            let stopMarker = GMSMarker(position: firstLoc)
-                            DispatchQueue.main.async {
-                                stopMarker.title  = resStop![i]
-                                stopMarker.icon = UIImage(named: "halte")
-                                stopMarker.map = self.mapView
-                                self.drawRoute(from: firstLoc, to: secondLoc)
-                            }
-                        }
-                    } else {
-                        print(resStop![i])
-                        let firstLoc = CLLocationCoordinate2D(latitude: resLat![i], longitude: resLong![i])
-                        let secondLoc = CLLocationCoordinate2D(latitude: resLat![i + 1], longitude: resLong![i + 1])
-                        let stopMarker = GMSMarker(position: firstLoc)
-                        DispatchQueue.main.async {
-                            stopMarker.title  = resStop![i]
-                            stopMarker.icon = UIImage(named: "halte")
-                            stopMarker.map = self.mapView
-                            self.drawRoute(from: firstLoc, to: secondLoc)
-                        }
-                    }
-                }
-                
-                DispatchQueue.main.async {
-                    let stopMarker = GMSMarker(position: CLLocationCoordinate2D(latitude: resLat![resStop!.count - 1], longitude: resLong![resStop!.count - 1]))
-                    stopMarker.title = resStop![resStop!.count - 1]
-                    stopMarker.map = self.mapView
-                }
-            }
-        }
-        
         self.mainView.addSubview(mapView)
         
         // Setup Card
