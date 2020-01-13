@@ -178,9 +178,9 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
                         }
                     }
                 }
+                
+                API().addCommute(user_id: 28, stop_id: 1, stop_name: self.nearestDepartName!, direction: "depart", bus_code: "BRE", longitude: currLong, latitude: currLat, status_check: "go")
             }
-            
-            API().addCommute(user_id: 28, stop_id: 1, stop_name: self.nearestDepartName!, direction: "depart", bus_code: "BRE", longitude: currLong, latitude: currLat, status_check: "go")
         } else {
             API().getStopsByRoute(bus_id: 1, direction: "return") { (resReturn) in
                 for i in 0...(resReturn?.stops!.count)! - 1 {
@@ -207,9 +207,9 @@ class NavDetailCardViewController: UIViewController, UIGestureRecognizerDelegate
                         }
                     }
                 }
+                
+                API().addCommute(user_id: 28, stop_id: 1, stop_name: self.nearestReturnName!, direction: "return", bus_code: "BRE", longitude: currLong, latitude: currLat, status_check: "go")
             }
-            
-            API().addCommute(user_id: 28, stop_id: 1, stop_name: self.nearestReturnName!, direction: "return", bus_code: "BRE", longitude: currLong, latitude: currLat, status_check: "go")
         }
     }
     

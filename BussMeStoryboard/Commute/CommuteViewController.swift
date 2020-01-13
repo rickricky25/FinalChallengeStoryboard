@@ -262,8 +262,20 @@ class CommuteViewController: UIViewController, XibDelegate {
                 API().getScheduleByTrip(trip_id: self.tripIdDepart) { (resDepart) in
                     self.tripDepart = resDepart
                     
+                    for i in 0...(self.tripDepart?.schedules!.count)! - 1 {
+                        let tempTime = self.tripDepart?.schedules![i].time_arrival
+                        let arrTempTime = tempTime?.components(separatedBy: ":")
+                        self.tripDepart?.schedules![i].time_arrival = "\(arrTempTime![0]):\(arrTempTime![1])"
+                    }
+                    
                     API().getScheduleByTrip(trip_id: self.tripIdReturn) { (resReturn) in
                         self.tripReturn = resReturn
+                        
+                        for i in 0...(self.tripReturn?.schedules!.count)! - 1 {
+                            let tempTime = self.tripReturn?.schedules![i].time_arrival
+                            let arrTempTime = tempTime?.components(separatedBy: ":")
+                            self.tripReturn?.schedules![i].time_arrival = "\(arrTempTime![0]):\(arrTempTime![1])"
+                        }
                         
                         // Isi waktu di bus detail sesuai arah pergi
                         DispatchQueue.main.async {
@@ -309,7 +321,7 @@ class CommuteViewController: UIViewController, XibDelegate {
                 
                 self.mapView.animate(toZoom: 17.5)
                 
-                if arah == "pergi" {
+                if self.navDetailCardViewController.arahSegmentedControl.selectedSegmentIndex == 0 {
                     self.commuteNaikModalViewController.lblStop.text = self.nearPergi
                     self.commuteNaikModalViewController.lblRoute.text = "Breeze - ICE"
                     
@@ -322,14 +334,14 @@ class CommuteViewController: UIViewController, XibDelegate {
                     self.commuteNaikModalViewController.lblStop7.text = self.routePergi[6]
                     self.commuteNaikModalViewController.lblStop8.text = self.routePergi[7]
                     
-                    self.commuteNaikModalViewController.lblWaktu1.text = self.waktuPergi[0]
-                    self.commuteNaikModalViewController.lblWaktu2.text = self.waktuPergi[1]
-                    self.commuteNaikModalViewController.lblWaktu3.text = self.waktuPergi[2]
-                    self.commuteNaikModalViewController.lblWaktu4.text = self.waktuPergi[3]
-                    self.commuteNaikModalViewController.lblWaktu5.text = self.waktuPergi[4]
-                    self.commuteNaikModalViewController.lblWaktu6.text = self.waktuPergi[5]
-                    self.commuteNaikModalViewController.lblWaktu7.text = self.waktuPergi[6]
-                    self.commuteNaikModalViewController.lblWaktu8.text = self.waktuPergi[7]
+                    self.commuteNaikModalViewController.lblWaktu1.text = self.tripDepart?.schedules![0].time_arrival
+                    self.commuteNaikModalViewController.lblWaktu2.text = self.tripDepart?.schedules![1].time_arrival
+                    self.commuteNaikModalViewController.lblWaktu3.text = self.tripDepart?.schedules![2].time_arrival
+                    self.commuteNaikModalViewController.lblWaktu4.text = self.tripDepart?.schedules![3].time_arrival
+                    self.commuteNaikModalViewController.lblWaktu5.text = self.tripDepart?.schedules![4].time_arrival
+                    self.commuteNaikModalViewController.lblWaktu6.text = self.tripDepart?.schedules![5].time_arrival
+                    self.commuteNaikModalViewController.lblWaktu7.text = self.tripDepart?.schedules![6].time_arrival
+                    self.commuteNaikModalViewController.lblWaktu8.text = self.tripDepart?.schedules![7].time_arrival
                 } else {
                     self.commuteNaikModalViewController.lblStop.text = self.nearPulang
                     self.commuteNaikModalViewController.lblRoute.text = "ICE - Breeze"
@@ -343,14 +355,14 @@ class CommuteViewController: UIViewController, XibDelegate {
                     self.commuteNaikModalViewController.lblStop7.text = self.routePulang[6]
                     self.commuteNaikModalViewController.lblStop8.text = self.routePulang[7]
                     
-                    self.commuteNaikModalViewController.lblWaktu1.text = self.waktuPulang[0]
-                    self.commuteNaikModalViewController.lblWaktu2.text = self.waktuPulang[1]
-                    self.commuteNaikModalViewController.lblWaktu3.text = self.waktuPulang[2]
-                    self.commuteNaikModalViewController.lblWaktu4.text = self.waktuPulang[3]
-                    self.commuteNaikModalViewController.lblWaktu5.text = self.waktuPulang[4]
-                    self.commuteNaikModalViewController.lblWaktu6.text = self.waktuPulang[5]
-                    self.commuteNaikModalViewController.lblWaktu7.text = self.waktuPulang[6]
-                    self.commuteNaikModalViewController.lblWaktu8.text = self.waktuPulang[7]
+                    self.commuteNaikModalViewController.lblWaktu1.text = self.tripReturn?.schedules![0].time_arrival
+                    self.commuteNaikModalViewController.lblWaktu2.text = self.tripReturn?.schedules![1].time_arrival
+                    self.commuteNaikModalViewController.lblWaktu3.text = self.tripReturn?.schedules![2].time_arrival
+                    self.commuteNaikModalViewController.lblWaktu4.text = self.tripReturn?.schedules![3].time_arrival
+                    self.commuteNaikModalViewController.lblWaktu5.text = self.tripReturn?.schedules![4].time_arrival
+                    self.commuteNaikModalViewController.lblWaktu6.text = self.tripReturn?.schedules![5].time_arrival
+                    self.commuteNaikModalViewController.lblWaktu7.text = self.tripReturn?.schedules![6].time_arrival
+                    self.commuteNaikModalViewController.lblWaktu8.text = self.tripReturn?.schedules![7].time_arrival
                 }
             }
         }
@@ -614,6 +626,9 @@ class CommuteViewController: UIViewController, XibDelegate {
                 API().getStopsByRoute(bus_id: 1, direction: "depart") { (resDepart) in
                     for i in 0...(resDepart?.stops!.count)! - 1 {
                         self.resultDepartStops = resDepart
+                        for i in 0...(resDepart?.stops!.count)! - 1 {
+                            self.routePergi.append((resDepart?.stops![i].stop_name)!)
+                        }
                         
                         let latDepart = resDepart?.stops![i].latitude
                         let longDepart = resDepart?.stops![i].longitude
@@ -640,6 +655,9 @@ class CommuteViewController: UIViewController, XibDelegate {
                 API().getStopsByRoute(bus_id: 1, direction: "return") { (resReturn) in
                     for i in 0...(resReturn?.stops!.count)! - 1 {
                         self.resultReturnStops = resReturn
+                        for i in 0...(resReturn?.stops!.count)! - 1 {
+                            self.routePulang.append((resReturn?.stops![i].stop_name)!)
+                        }
                         
                         let latReturn = resReturn?.stops![i].latitude
                         let longReturn = resReturn?.stops![i].longitude
